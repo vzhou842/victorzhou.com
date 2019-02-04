@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Author renders correctly 1`] = `
+<div
+  className="author"
+>
+  <p
+    className="author__bio"
+  >
+    test
+    <a
+      className="author__bio-twitter"
+      href="https://www.twitter.com/test"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <strong>
+        test
+      </strong>
+       on Twitter
+    </a>
+  </p>
+</div>
+`;

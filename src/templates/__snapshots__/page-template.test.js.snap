@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageTemplate renders correctly 1`] = `
+<div
+  className="layout"
+>
+  <StaticQuery
+    render={[Function]}
+  />
+  <div
+    className="page"
+  >
+    <div
+      className="page__inner"
+    >
+      <h1
+        className="page__title"
+      >
+        test
+      </h1>
+      <div
+        className="page__body"
+      >
+        <div
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<p>test</p>",
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

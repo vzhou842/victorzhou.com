@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagsListTemplate renders correctly 1`] = `
+<div
+  className="layout"
+>
+  <StaticQuery
+    render={[Function]}
+  />
+  <div
+    className="page"
+  >
+    <div
+      className="page__inner"
+    >
+      <h1
+        className="page__title"
+      >
+        Tags
+      </h1>
+      <div
+        className="page__body"
+      >
+        <ul>
+          <li>
+            <Link
+              to="/tag/test-0/"
+            >
+              test_0
+               (
+              1
+              )
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/tag/test-1/"
+            >
+              test_1
+               (
+              2
+              )
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
