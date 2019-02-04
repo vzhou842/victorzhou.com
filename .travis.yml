@@ -5,10 +5,10 @@ node_js:
 install:
   - npm install -g codecov
 script:
-  - yarn install
-  - yarn lint
-  - yarn test:coverage --runInBand --no-cache
-  - yarn test --runInBand --no-cache
+  - npm install
+  - npm run lint
+  - npm run test:coverage --runInBand --no-cache
+  - npm test --runInBand --no-cache
   - codecov
 cache:
   directories:
