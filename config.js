@@ -2,37 +2,34 @@
 
 module.exports = {
   url: 'https://lumen.netlify.com',
-  title: 'Blog by John Doe',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
-  copyright: '© All rights reserved.',
+  title: 'victorzhou.com',
+  subtitle: 'CS @ Princeton University. SWE @ Facebook starting August 2019.',
+  copyright: '© Victor Zhou 2019',
   disqusShortname: '',
   postsPerPage: 4,
-  googleAnalyticsId: 'UA-73379983-2',
+  googleAnalyticsId: 'UA-58664433-1',
   menu: [
     {
-      label: 'Articles',
+      label: 'Blog',
       path: '/'
     },
     {
-      label: 'About me',
-      path: '/pages/about'
+      label: 'About',
+      path: '/about'
     },
     {
-      label: 'Contact me',
-      path: '/pages/contacts'
+      label: 'Contact',
+      path: '/contact'
     }
   ],
   author: {
-    name: 'John Doe',
+    name: 'Victor Zhou',
     photo: '/photo.jpg',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    bio: 'CS @ Princeton University. SWE @ Facebook starting August 2019.',
     contacts: {
-      email: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
-      rss: '#',
-      vkontakte: '#'
+      email: 'vzhou842@gmail.com',
+      twitter: 'victorczhou',
+      github: 'vzhou842',
     }
   }
 };

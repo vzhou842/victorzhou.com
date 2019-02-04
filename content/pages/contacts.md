@@ -1,6 +1,7 @@
 ---
-title: "Contact me"
+title: "Contact Me"
 template: "page"
+slug: "/contact"
 ---
 
 Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
