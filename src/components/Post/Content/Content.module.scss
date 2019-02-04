@@ -33,7 +33,7 @@
           font-size: $typographic-base-font-size * 1.6817;
           margin-top: 0;
           @include margin-bottom(1);
-          @include line-height(1.5)
+          @include line-height(1.5);
         }
 
       }
@@ -44,32 +44,29 @@
       text-decoration: underline
     }
 
-    & .gatsby-highlight {
-      max-width: $layout-post-width;
-      margin-left: 15px;
-      margin-right: 15px;
-      @include margin-bottom(1)
+    // stylelint-disable
+    // stylelint doesn't recognize :global() from css-modules
+    & :global(pre.language-python) {
+      font-size: $typographic-base-font-size * 0.75;
+      border: 1px solid $color-gray-border;
+      border-radius: 3px;
+      @include line-height(0.75);
     }
+
+    & :global(code[class*="language-"]) {
+      font-size: $typographic-base-font-size * 0.9;
+      color: $typographic-base-font-color;
+      font-style: normal;
+      padding: 3px 4px;
+      border-radius: 2px;
+    }
+    // stylelint-enable
 
     & *:not(div) {
       width: 100%;
       max-width: $layout-post-width;
       margin-left: auto;
-      margin-right: auto
-    }
-
-  }
-
-}
-
-@include breakpoint-sm {
-  .content {
-    &__body {
-      & .gatsby-highlight {
-        margin-left: auto;
-        margin-right: auto
-      }
-
+      margin-right: auto;
     }
 
   }
