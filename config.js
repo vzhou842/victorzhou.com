@@ -5,7 +5,7 @@ module.exports = {
   title: 'victorzhou.com',
   subtitle: 'CS @ Princeton University. SWE @ Facebook starting August 2019.',
   copyright: '© Victor Zhou 2019',
-  disqusShortname: '',
+  disqusShortname: 'victorzhou',
   postsPerPage: 4,
   googleAnalyticsId: 'UA-58664433-1',
   menu: [
