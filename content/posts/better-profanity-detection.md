@@ -1,23 +1,21 @@
 ---
 title: Building a Better Profanity Detection Library with scikit-learn
-date: "2019-02-03T12:00:00.000Z"
+date: "2019-02-04T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/better-profanity-detection"
 category: "Python"
 tags:
   - "Python"
-description: "Why existing libraries are lacking and how I built a better one."
+  - "NLP"
+description: "Why existing libraries are uninspiring and how I built a better one."
 ---
-
-* * *
 
 ## Why existing libraries are uninspiring and how I built a better one.
 
 A few months ago, I needed a way to detect profanity in user-submitted text strings:
 
-![](https://cdn-images-1.medium.com/max/1600/1*i2fk4aGvplR7le_3PPajAA.png)
-<figcaption>This shouldn’t be that hard, right?</figcaption>
+![This shouldn't be that hard, right?](https://cdn-images-1.medium.com/max/1600/1*i2fk4aGvplR7le_3PPajAA.png)
 
 I ended up building and releasing my own library for this purpose called [profanity-check](https://github.com/vzhou842/profanity-check).
 
@@ -34,8 +32,7 @@ Third-party libraries can sometimes be sketchy, though, so I did my due diligenc
 
 After a quick dig through the `profanity` repository, I found a file named [wordlist.txt](https://github.com/ben174/profanity/blob/master/profanity/data/wordlist.txt):
 
-![](https://cdn-images-1.medium.com/max/2000/1*0lTbmHR5WE7HZ8wCvLpqtg.png)
-<figcaption>Sorry this image of profanities is so big…</figcaption>
+![Sorry this image of profanities is so big…](https://cdn-images-1.medium.com/max/2000/1*0lTbmHR5WE7HZ8wCvLpqtg.png)
 
 The entire `profanity` library is just a wrapper over this list of 32 words! `profanity` detects profanity simply by looking for one of these words.
 
@@ -48,7 +45,9 @@ This is bad because **profanity detection libraries based on wordlists are extre
 
 
 ![](https://cdn-images-1.medium.com/max/2000/1*n5OWj4WEPkGexXO28_yteg.png)
-<figcaption>Fucking Blue Shells. source: [xkcd](https://xkcd.com/290/)</figcaption>
+<figcaption>
+  Fucking Blue Shells. source: <a href="https://xkcd.com/290/" target="_blank">xkcd</a>
+</figcaption>
 
 Having already ruled out 3 libraries, I put my hopes on the 4th and final one: `profanity-filter`.
 
@@ -58,15 +57,13 @@ Having already ruled out 3 libraries, I put my hopes on the 4th and final one: `
 
 Turns out, it’s **_really_** slow. Here’s a benchmark I ran in December 2018 comparing (1) `profanity-filter`, (2) my library `profanity-check`, and (3) `profanity` (the one with the list of 32 words):
 
-![](https://cdn-images-1.medium.com/max/1600/1*KRJEl4YHfSTk9PmmScIcUA.png)
-<figcaption>A human could probably do this faster than profanity-filter can</figcaption>
+![A human could probably do this faster than profanity-filter can](https://cdn-images-1.medium.com/max/1600/1*KRJEl4YHfSTk9PmmScIcUA.png)
 
 I needed to be able to perform many predictions in real time, and `profanity-filter` was not even close to being fast enough. But hey, maybe this is a classic tradeoff of accuracy for speed, right?
 
 Nope.
 
-![](https://cdn-images-1.medium.com/max/1600/1*LYOeGE6vTXTAKhJ_W1fZgQ.png)
-<figcaption>At least profanity-filter is not dead last this time</figcaption>
+![At least profanity-filter is not dead last this time](https://cdn-images-1.medium.com/max/1600/1*LYOeGE6vTXTAKhJ_W1fZgQ.png)
 
 None of the libraries I’d found on PyPI met my needs, so I built my own.
 
@@ -81,8 +78,7 @@ Each of these datasets contains text samples hand-labeled by humans through crow
 
 Here’s what my dataset ended up looking like:
 
-![](https://cdn-images-1.medium.com/max/1600/1*Bw_we8cbs-WOpWXOCxzSTg.png)
-<figcaption>Combined = Tweets + Wikipedia</figcaption>
+![Combined = Tweets + Wikipedia](https://cdn-images-1.medium.com/max/1600/1*Bw_we8cbs-WOpWXOCxzSTg.png)
 
 > The Twitter dataset has a column named `class` that’s 0 if the tweet contains hate speech, 1 if it contains offensive language, and 2 if it contains neither. I classified any tweet with a `class` of 2 as “Not Offensive” and all other tweets as “Offensive.”
 
@@ -119,8 +115,10 @@ cclf.fit(X, y)
 joblib.dump(vectorizer, 'vectorizer.joblib')
 joblib.dump(cclf, 'model.joblib')
 ```
-
-<figcaption>Are you also surprised the code is so short? Apparently [scikit-learn](https://scikit-learn.org/) does everything.</figcaption>
+<figcaption>
+  Are you also surprised the code is so short?
+  Apparently <a href="https://scikit-learn.org/" target="_blank">scikit-learn</a> does everything.
+</figcaption>
 
 Two major steps are happening here: (1) vectorization and (2) training.
 
@@ -128,13 +126,11 @@ Two major steps are happening here: (1) vectorization and (2) training.
 
 I used `scikit-learn`'s [CountVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html) class, which basically turns any text string into a vector by counting how many times each given word appears. This is known as a [Bag of Words](https://en.wikipedia.org/wiki/Bag-of-words_model) (BOW) representation. For example, if the only words in the English language were `the`, `cat`, `sat`, and `hat`, a possible vectorization of the sentence `the cat sat in the hat` might be:
 
-![](https://cdn-images-1.medium.com/max/1600/1*sbnts1u_QFB_V-X5DSC3pg.png)
-<figcaption>“the cat sat in the hat” -> [2, 1, 1, 1, 1]</figcaption>
+![“the cat sat in the hat” -> [2, 1, 1, 1, 1]](https://cdn-images-1.medium.com/max/1600/1*sbnts1u_QFB_V-X5DSC3pg.png)
 
 The `???` represents any unknown word, which for this sentence is `in`. Any sentence can be represented in this way as counts of `the`, `cat`, `sat`, `hat`, and `???`!
 
-![](https://cdn-images-1.medium.com/max/1600/1*-wONWZDab2gNQP3Rfdpt_A.png)
-<figcaption>A handy reference table for the next time you need to vectorize “cat cat cat cat cat”</figcaption>
+![A handy reference table for the next time you need to vectorize “cat cat cat cat cat”](https://cdn-images-1.medium.com/max/1600/1*-wONWZDab2gNQP3Rfdpt_A.png)
 
 Of course, there are far more words in the English language, so in the code above I use the `fit_transform()` method, which does 2 things:
 

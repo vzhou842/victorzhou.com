@@ -1,4 +1,4 @@
-/** 
+/**
  * Generic
  */
 html {
@@ -140,7 +140,6 @@ figcaption {
   @include margin-top(.25);
   color: $color-base;
   font-size: $typographic-small-font-size;
-  font-style: italic;
   margin-bottom: 0;
   text-align: center;
 }
