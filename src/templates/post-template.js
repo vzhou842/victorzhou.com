@@ -43,6 +43,7 @@ export const query = graphql`
       id
       html
       fields {
+        slug
         tagSlugs
       }
       frontmatter {
