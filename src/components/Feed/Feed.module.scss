@@ -11,9 +11,9 @@
 
     &-title {
       font-size: $typographic-base-font-size * 1.6875;
-      @include line-height(1.5);
+      @include line-height(1.25);
       @include margin-top(0);
-      @include margin-bottom(.5);
+      @include margin-bottom(0.25);
 
       &-link {
         color: $color-base;
@@ -35,6 +35,8 @@
     }
 
     &-meta {
+      @include margin-bottom(.5);
+
       &-time {
         font-size: $typographic-small-font-size;
         color: $color-base;
