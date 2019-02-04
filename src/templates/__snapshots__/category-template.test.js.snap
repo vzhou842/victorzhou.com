@@ -27,6 +27,16 @@ exports[`CategoryTemplate renders correctly 1`] = `
           <div
             className="feed__item"
           >
+            <h2
+              className="feed__item-title"
+            >
+              <Link
+                className="feed__item-title-link"
+                to="/test_0"
+              >
+                test_0
+              </Link>
+            </h2>
             <div
               className="feed__item-meta"
             >
@@ -34,7 +44,7 @@ exports[`CategoryTemplate renders correctly 1`] = `
                 className="feed__item-meta-time"
                 dateTime="September 1, 2016"
               >
-                September 2016
+                September 01, 2016
               </time>
               <span
                 className="feed__item-meta-divider"
@@ -50,16 +60,6 @@ exports[`CategoryTemplate renders correctly 1`] = `
                 </Link>
               </span>
             </div>
-            <h2
-              className="feed__item-title"
-            >
-              <Link
-                className="feed__item-title-link"
-                to="/test_0"
-              >
-                test_0
-              </Link>
-            </h2>
             <p
               className="feed__item-description"
             >
@@ -75,6 +75,16 @@ exports[`CategoryTemplate renders correctly 1`] = `
           <div
             className="feed__item"
           >
+            <h2
+              className="feed__item-title"
+            >
+              <Link
+                className="feed__item-title-link"
+                to="/test_1"
+              >
+                test_1
+              </Link>
+            </h2>
             <div
               className="feed__item-meta"
             >
@@ -82,7 +92,7 @@ exports[`CategoryTemplate renders correctly 1`] = `
                 className="feed__item-meta-time"
                 dateTime="September 1, 2016"
               >
-                September 2016
+                September 01, 2016
               </time>
               <span
                 className="feed__item-meta-divider"
@@ -98,16 +108,6 @@ exports[`CategoryTemplate renders correctly 1`] = `
                 </Link>
               </span>
             </div>
-            <h2
-              className="feed__item-title"
-            >
-              <Link
-                className="feed__item-title-link"
-                to="/test_1"
-              >
-                test_1
-              </Link>
-            </h2>
             <p
               className="feed__item-description"
             >

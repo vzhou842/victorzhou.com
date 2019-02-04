@@ -24,7 +24,7 @@ module.exports = {
   ],
   author: {
     name: 'Victor Zhou',
-    photo: '/photo.jpg',
+    photo: '/photo.png',
     bio: 'CS @ Princeton University. SWE @ Facebook starting August 2019.',
     contacts: {
       email: 'vzhou842@gmail.com',
