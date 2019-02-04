@@ -1,7 +1,7 @@
 {
-  "version": "3.0.0",
-  "name": "gatsby-starter-lumen",
-  "description": "A minimal, lightweight and mobile-first starter for creating blazing-fast static blogs",
+  "version": "0.1.0",
+  "name": "victorzhou.com",
+  "description": "",
   "main": "n/a",
   "scripts": {
     "develop": "yarn run clean && gatsby develop",
@@ -15,27 +15,10 @@
     "test:coverage": "jest --coverage --config ./tests/jest-config.js",
     "test:watch": "jest --watch --config ./tests/jest-config.js"
   },
-  "repository": "https://github.com/alxshelepenok/gatsby-starter-lumen",
-  "author": "Alexander Shelepenok <alxshelepenok@gmail.com>",
+  "repository": "",
+  "author": "Victor Zhou <vzhou842@gmail.com>",
   "license": "MIT",
-  "keywords": [
-    "gatsby",
-    "graphql",
-    "netlify",
-    "netlify-cms",
-    "pagination",
-    "categories",
-    "tags",
-    "prismjs",
-    "static",
-    "lost",
-    "blog",
-    "minimal",
-    "react",
-    "theme",
-    "starter",
-    "disqus"
-  ],
+  "keywords": [],
   "dependencies": {
     "classnames": "^2.2.6",
     "bluebird": "^3.5.2",

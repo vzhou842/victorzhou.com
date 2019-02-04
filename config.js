@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  url: 'https://lumen.netlify.com',
+  url: 'https://victorzhou.com',
   title: 'victorzhou.com',
   subtitle: 'CS @ Princeton University. SWE @ Facebook starting August 2019.',
   copyright: '© Victor Zhou 2019',
