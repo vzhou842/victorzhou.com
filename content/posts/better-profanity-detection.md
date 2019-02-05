@@ -11,8 +11,6 @@ tags:
 description: "Why existing libraries are uninspiring and how I built a better one."
 ---
 
-## Why existing libraries are uninspiring and how I built a better one.
-
 A few months ago, I needed a way to detect profanity in user-submitted text strings:
 
 ![This shouldn't be that hard, right?](https://cdn-images-1.medium.com/max/1600/1*i2fk4aGvplR7le_3PPajAA.png)

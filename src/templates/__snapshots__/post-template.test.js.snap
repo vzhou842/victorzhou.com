@@ -24,6 +24,11 @@ exports[`PostTemplate renders correctly 1`] = `
         >
           test
         </h1>
+        <h2
+          className="content__subtitle"
+        >
+          test
+        </h2>
         <div
           className="content__body"
           dangerouslySetInnerHTML={

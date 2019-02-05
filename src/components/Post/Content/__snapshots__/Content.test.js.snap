@@ -9,6 +9,9 @@ exports[`Content renders correctly 1`] = `
   >
     test
   </h1>
+  <h2
+    className="content__subtitle"
+  />
   <div
     className="content__body"
     dangerouslySetInnerHTML={
