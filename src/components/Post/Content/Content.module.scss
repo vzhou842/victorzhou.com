@@ -28,7 +28,7 @@
   }
 
   &__body {
-    & *:not(div):not(li) {
+    & *:not(div):not(li):not(img) {
       width: 100%;
       max-width: $layout-post-width;
       margin-left: auto;
@@ -83,7 +83,9 @@
 
     & img {
       width: initial;
-      max-width: 100%
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }

@@ -30,7 +30,7 @@ Third-party libraries can sometimes be sketchy, though, so I did my due diligenc
 
 After a quick dig through the `profanity` repository, I found a file named [wordlist.txt](https://github.com/ben174/profanity/blob/master/profanity/data/wordlist.txt):
 
-![Sorry this image of profanities is so big…](https://cdn-images-1.medium.com/max/2000/1*0lTbmHR5WE7HZ8wCvLpqtg.png)
+![NSFW](https://cdn-images-1.medium.com/max/2000/1*0lTbmHR5WE7HZ8wCvLpqtg.png)
 
 The entire `profanity` library is just a wrapper over this list of 32 words! `profanity` detects profanity simply by looking for one of these words.
 
@@ -153,7 +153,9 @@ That being said, `profanity-check` is far from perfect. Let me be clear: take pr
 
 `profanity-check` is open source and available on PyPI! To use it, simply
 
-<pre name="91fa" id="91fa" class="graf graf--pre graf-after--p">$ pip install profanity-check</pre>
+```
+$ pip install profanity-check
+```
 
 How could `profanity-check` be even better? Feel free to reach out or comment with any thoughts or suggestions!
 
