@@ -28,8 +28,15 @@
   }
 
   &__body {
+    & *:not(div):not(li) {
+      width: 100%;
+      max-width: $layout-post-width;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     & figure {
-      @include margin-bottom(1);
+      @include margin-bottom(1.5);
 
       & blockquote {
         font-style: italic;
@@ -44,9 +51,7 @@
           @include margin-bottom(1);
           @include line-height(1.5);
         }
-
       }
-
     }
 
     & a {
@@ -55,13 +60,6 @@
 
     // stylelint-disable
     // stylelint doesn't recognize :global() from css-modules
-    & :global(pre.language-python) {
-      font-size: $typographic-base-font-size * 0.75;
-      border: 1px solid $color-gray-border;
-      border-radius: 3px;
-      @include line-height(0.75);
-    }
-
     & :global(code[class*="language-"]) {
       font-size: $typographic-base-font-size * 0.9;
       color: $typographic-base-font-color;
@@ -69,13 +67,23 @@
       padding: 3px 4px;
       border-radius: 2px;
     }
+
+    & :global(.gatsby-highlight pre[class*="language-"]) {
+      border: 1px solid $color-gray-border;
+      border-radius: 3px;
+      @include line-height(0.625);
+      @include padding-equal(0.3);
+    }
+
+    & :global(.gatsby-highlight code[class*="language-"]) {
+      padding: 0;
+      font-size: $typographic-base-font-size * 0.7;
+    }
     // stylelint-enable
 
-    & *:not(div) {
-      width: 100%;
-      max-width: $layout-post-width;
-      margin-left: auto;
-      margin-right: auto;
+    & img {
+      width: initial;
+      max-width: 100%
     }
   }
 }
@@ -120,11 +128,24 @@
       & p {
         font-size: $typographic-base-font-size * 1.125;
         @include line-height(1.125);
-        @include margin-bottom(1.125)
+        @include margin-bottom(1.125);
       }
 
+      & blockquote > p {
+        font-size: inherit;
+      }
+
+      // stylelint-disable
+      // stylelint doesn't recognize :global() from css-modules
+      & :global(.gatsby-highlight pre[class*="language-"]) {
+        @include line-height(0.7);
+        @include padding-equal(0.6);
+      }
+
+      & :global(.gatsby-highlight code[class*="language-"]) {
+        font-size: $typographic-base-font-size * 0.8;
+      }
+      // stylelint-enable
     }
-
   }
-
 }
