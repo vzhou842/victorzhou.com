@@ -3,7 +3,7 @@ title: Building a Better Profanity Detection Library with scikit-learn
 date: "2019-02-04T12:00:00.000Z"
 template: "post"
 draft: false
-slug: "/blog/better-profanity-detection"
+slug: "/blog/better-profanity-detection-with-scikit-learn"
 category: "Python"
 tags:
   - "Python"
