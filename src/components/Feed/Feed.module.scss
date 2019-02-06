@@ -31,7 +31,7 @@
     &-description {
       font-size: $typographic-base-font-size;
       @include line-height(1);
-      @include margin-bottom(.75);
+      @include margin-bottom(.25);
     }
 
     &-meta {
@@ -67,8 +67,10 @@
     }
 
     &-readmore {
-      font-size: $typographic-base-font-size;
       color: $color-primary;
+      font-size: $typographic-base-font-size;
+      font-weight: bold;
+      padding: 5px 0;
 
       &:hover,
       &:focus {
