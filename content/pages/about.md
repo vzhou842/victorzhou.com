@@ -10,3 +10,5 @@ I studied Computer Science at Princeton University (Class of 2019), and I'm goin
 - [**faster.js**](https://github.com/vzhou842/faster.js) [[Hacker News](https://news.ycombinator.com/item?id=16886494)], a micro-optimizing Javascript compiler.
 - [**GeoArena Online**](https://geoarena.online) [[subreddit](https://reddit.com/r/geoarena), [Product Hunt](https://www.producthunt.com/posts/geoarena-online)], a fast-paced multiplayer browser game that had hundreds of thousands of monthly players.
 - [**profanity-check**](https://github.com/vzhou842/profanity-check) [[Hacker News](https://news.ycombinator.com/item?id=18777950)], a fast, robust Python library to check for profanity in strings. [Read my blog post](/blog/better-profanity-detection-with-scikit-learn) about this project.
+
+The best way to get in touch with me is emailing me at [vzhou842@gmail.com](mailto:vzhou842@gmail.com).
