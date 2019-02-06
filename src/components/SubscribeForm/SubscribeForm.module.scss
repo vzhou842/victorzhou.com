@@ -1,0 +1,50 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.container {
+  border-radius: 5px;
+  background-color: $color-gray-bg;
+  @include padding-equal(0.5);
+  @include margin-bottom(0.75);
+
+  * {
+    margin: 0 auto;
+  }
+
+  p {
+    font-size: $typographic-base-font-size * 0.8;
+    @include line-height(0.8);
+  }
+
+  form {
+    text-align: center;
+  }
+
+  input[type='email'] {
+    border-bottom: 1px solid $color-gray;
+    padding: 5px 10px;
+    font-size: $typographic-base-font-size * 0.9;
+    background-color: transparent;
+    @include margin-top(0.1);
+
+    &:hover, &:focus {
+      border-bottom: 1px solid $color-primary;
+    }
+  }
+
+  input[type='submit'] {
+    border-radius: 3px;
+    background-color: $color-primary;
+    color: white;
+    font-size: $typographic-base-font-size * 0.75;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 10px 30px;
+    @include margin-top(0.3);
+
+    &:hover {
+      background-color: $color-secondary;
+      cursor: pointer;
+    }
+  }
+}

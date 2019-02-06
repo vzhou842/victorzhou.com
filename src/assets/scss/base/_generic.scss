@@ -160,6 +160,16 @@ figcaption {
   }
 }
 
+input {
+  border: none;
+  outline: none;
+  text-align: center;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 @include breakpoint-md {
   h1 {
     @include margin-top(4);

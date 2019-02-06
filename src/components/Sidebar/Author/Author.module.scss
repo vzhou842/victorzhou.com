@@ -30,7 +30,7 @@
   &__subtitle {
     color: $color-gray;
     @include line-height(1);
-    @include margin-bottom(1)
+    @include margin-bottom(0.75);
   }
 
 }

@@ -5,6 +5,7 @@ import Contacts from './Contacts';
 import Copyright from './Copyright';
 import Menu from './Menu';
 import styles from './Sidebar.module.scss';
+import SubscribeForm from '../SubscribeForm';
 
 export const PureSidebar = ({ data, isIndex }) => {
   const {
@@ -18,6 +19,7 @@ export const PureSidebar = ({ data, isIndex }) => {
       <div className={styles['sidebar__inner']}>
         <Author author={author} isIndex={isIndex} />
         <Menu menu={menu} />
+        <SubscribeForm />
         <Contacts contacts={author.contacts} />
         <Copyright copyright={copyright} />
       </div>

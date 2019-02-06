@@ -2,7 +2,7 @@
 @import '../../../assets/scss/mixins';
 
 .menu {
-  @include margin-bottom(1);
+  @include margin-bottom(0.75);
 
   &__list {
     list-style: none;
