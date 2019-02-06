@@ -161,4 +161,6 @@ How could `profanity-check` be even better? Feel free to reach out or comment wi
 
 * * *
 
+_This article was originally posted on [Medium](https://medium.com/@victorczhou/building-a-better-profanity-detection-library-with-scikit-learn-3638b2f2c4c2)._
+
 _Like this article?_ [_Subscribe_](http://eepurl.com/gf8JCX) _to know whenever I post new stuff. No spam, for real. You can also find me on_ [_Twitter_](https://twitter.com/victorczhou) _and_ [_Github_](https://github.com/vzhou842).

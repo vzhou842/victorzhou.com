@@ -32,7 +32,7 @@ export const Author = (props) => (
             author {
               name
               bio
-              contacts {       
+              contacts {
                 twitter
               }
             }
