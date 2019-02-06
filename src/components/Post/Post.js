@@ -7,6 +7,8 @@ import Meta from './Meta';
 import Tags from './Tags';
 import styles from './Post.module.scss';
 
+import SubscribeForm from '../SubscribeForm';
+
 const Post = ({ post }) => {
   const {
     tags,
@@ -24,6 +26,10 @@ const Post = ({ post }) => {
 
       <div className={styles['post__content']}>
         <Content body={html} title={title} subtitle={description} />
+      </div>
+
+      <div className={styles['post__subscribeForm']}>
+        <SubscribeForm large />
       </div>
 
       <div className={styles['post__footer']}>

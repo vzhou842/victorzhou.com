@@ -2,13 +2,7 @@
 @import '../../assets/scss/mixins';
 
 .post {
-  &__footer {
-    max-width: $layout-post-width;
-    margin: 0 auto;
-    padding: 0 15px;
-  }
-
-  &__comments {
+  &__footer, &__comments, &__subscribeForm {
     max-width: $layout-post-width;
     margin: 0 auto;
     padding: 0 15px;

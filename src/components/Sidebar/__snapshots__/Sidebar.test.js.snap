@@ -102,6 +102,7 @@ exports[`Sidebar renders correctly 1`] = `
           size="25"
           type="email"
         />
+        <br />
         <input
           name="submit"
           type="submit"

@@ -40,6 +40,53 @@ exports[`PostTemplate renders correctly 1`] = `
       </div>
     </div>
     <div
+      className="post__subscribeForm"
+    >
+      <div
+        className="container large"
+      >
+        <p
+          className="description"
+        >
+          <b>
+            Subscribe
+          </b>
+           to know whenever I post new stuff. No spam, for real.
+        </p>
+        <form
+          action="https://victorzhou.us20.list-manage.com/subscribe/post"
+          method="POST"
+          target="_blank"
+        >
+          <input
+            name="u"
+            type="hidden"
+            value="7cd5089a9bbc5253e6890ae15"
+          />
+          <input
+            name="id"
+            type="hidden"
+            value="9f367a1f47"
+          />
+          <input
+            autoCapitalize="off"
+            autoCorrect="off"
+            id="MERGE0"
+            name="MERGE0"
+            placeholder="example@domain.com"
+            size="25"
+            type="email"
+          />
+          <br />
+          <input
+            name="submit"
+            type="submit"
+            value="SUBSCRIBE"
+          />
+        </form>
+      </div>
+    </div>
+    <div
       className="post__footer"
     >
       <div

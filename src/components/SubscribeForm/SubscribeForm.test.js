@@ -3,10 +3,13 @@ import renderer from 'react-test-renderer';
 import SubscribeForm from './SubscribeForm';
 
 describe('SubscribeForm', () => {
-  it('renders correctly', () => {
-    const props = {};
+  it('renders default correctly', () => {
+    const tree = renderer.create(<SubscribeForm />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 
-    const tree = renderer.create(<SubscribeForm {...props} />).toJSON();
+  it('renders large correctly', () => {
+    const tree = renderer.create(<SubscribeForm large />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
