@@ -2,8 +2,15 @@
 @import '../../../assets/scss/mixins';
 
 .author {
+  &__main-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
   &__photo {
-    display: inline-block;
+    width: 50px;
+    height: 50px;
     margin-bottom: 0;
     border-radius: 50%;
     background-clip: padding-box;
@@ -13,7 +20,7 @@
     font-size: $typographic-base-font-size * 1.125;
     font-weight: 600;
     @include line-height(1.125);
-    @include margin(.5, 0, .5, 0);
+    @include margin(.5, 0, .5, .3);
 
     &-link {
       color: $color-base;
@@ -30,7 +37,27 @@
   &__subtitle {
     color: $color-gray;
     @include line-height(1);
-    @include margin-bottom(0.75);
+    @include margin-bottom(0.4);
   }
+}
 
+@include breakpoint-sm {
+  .author {
+    &__main-section {
+      display: block;
+    }
+
+    &__photo {
+      width: 75px;
+      height: 75px;
+    }
+
+    &__title {
+      margin-left: 0;
+    }
+
+    &__subtitle {
+      @include margin-bottom(1);
+    }
+  }
 }

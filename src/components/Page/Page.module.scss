@@ -2,6 +2,7 @@
 @import '../../assets/scss/mixins';
 
 .page {
+  border-top: 1px solid $color-gray-border;
   @include margin-bottom(2);
 
   &__inner {
@@ -26,6 +27,7 @@
 
 @include breakpoint-sm {
   .page {
+    border: none;
     lost-column: 7/12;
 
     &__inner {

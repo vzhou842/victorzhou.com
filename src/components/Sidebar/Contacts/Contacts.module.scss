@@ -2,17 +2,17 @@
 @import '../../../assets/scss/mixins';
 
 .contacts {
-  @include margin-bottom(1);
+  @include margin-bottom(0.75);
 
   &__list {
     display: flex;
     flex-flow: row wrap;
     flex-grow: 0;
     flex-shrink: 0;
+    justify-content: center;
     list-style: none;
     padding: 0;
     margin: 10px -3px;
-    width: 140px;
 
     &-item {
       padding: 0;
@@ -37,11 +37,18 @@
         &:focus {
           color: $color-primary;
         }
-
       }
-
     }
-
   }
+}
 
+@include breakpoint-sm {
+  .contacts {
+    @include margin-bottom(1);
+
+    &__list {
+      justify-content: initial;
+      width: 140px;
+    }
+  }
 }

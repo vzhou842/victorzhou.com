@@ -2,7 +2,7 @@
 @import '../../assets/scss/mixins';
 
 .menu {
-  @include margin-bottom(0.75);
+  @include margin-bottom(0.5);
 
   &__list {
     list-style: none;
@@ -42,21 +42,25 @@
 }
 
 @include breakpoint-sm {
-  .menu__list {
-    text-align: initial;
+  .menu {
+    @include margin-bottom(1);
 
-    &-item {
-      padding: 0;
-      display: list-item;
+    &__list {
+      text-align: initial;
+
+      &-item {
+        padding: 0;
+        display: list-item;
+      }
     }
-  }
 
-  .menu.horizontal {
-    margin: 0;
+    &.horizontal {
+      margin: 0;
 
-    li {
-      display: inline-block;
-      @include margin-right(1);
+      li {
+        display: inline-block;
+        @include margin-right(1);
+      }
     }
   }
 }

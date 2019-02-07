@@ -10,27 +10,29 @@ exports[`Sidebar renders correctly 1`] = `
     <div
       className="author"
     >
-      <Link
-        to="/"
-      >
-        <img
-          alt="name"
-          className="author__photo"
-          height="75"
-          src="/photo.png"
-          width="75"
-        />
-      </Link>
-      <h2
-        className="author__title"
+      <div
+        className="author__main-section"
       >
         <Link
-          className="author__title-link"
           to="/"
         >
-          name
+          <img
+            alt="name"
+            className="author__photo"
+            src="/photo.png"
+          />
         </Link>
-      </h2>
+        <h2
+          className="author__title"
+        >
+          <Link
+            className="author__title-link"
+            to="/"
+          >
+            name
+          </Link>
+        </h2>
+      </div>
       <p
         className="author__subtitle"
       >

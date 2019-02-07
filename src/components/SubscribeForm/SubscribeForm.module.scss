@@ -5,7 +5,7 @@
   border-radius: 5px;
   background-color: $color-gray-bg;
   @include padding-equal(0.5);
-  @include margin-bottom(0.75);
+  @include margin-bottom(0.5);
 
   * {
     margin: 0 auto;
@@ -46,6 +46,12 @@
       background-color: $color-secondary;
       cursor: pointer;
     }
+  }
+}
+
+@include breakpoint-sm {
+  .container {
+    @include margin-bottom(1);
   }
 }
 
