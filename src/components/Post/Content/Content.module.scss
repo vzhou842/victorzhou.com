@@ -3,7 +3,7 @@
 
 .content {
   max-width: $layout-post-single-width;
-  padding: 0 15px;
+  padding: 0 $layout-mobile-padding;
   margin: 0 auto;
 
   &__title, &__subtitle {
@@ -37,7 +37,8 @@
 
     & blockquote {
       border-left: 2px solid $color-gray;
-      margin: 0 0 0 -15px;
+      margin: 0;
+      margin-left: -$layout-mobile-padding;
       padding: 0 0 0 23px;
       font-style: italic;
       font-size: $typographic-base-font-size;
@@ -51,9 +52,7 @@
       text-decoration: underline
     }
 
-    // stylelint-disable
-    // stylelint doesn't recognize :global() from css-modules
-    & :global(code[class*="language-"]) {
+    code[class*='language-'] {
       font-size: $typographic-base-font-size * 0.9;
       color: $typographic-base-font-color;
       font-style: normal;
@@ -61,14 +60,22 @@
       border-radius: 2px;
     }
 
-    & :global(.gatsby-highlight pre[class*="language-"]) {
-      border: 1px solid $color-gray-border;
-      border-radius: 3px;
-      @include line-height(0.625);
-      @include padding-equal(0.3);
+    // stylelint-disable
+    // stylelint doesn't recognize :global() from css-modules
+    :global(.gatsby-highlight) {
+      margin-left: -$layout-mobile-padding;
+      margin-right: -$layout-mobile-padding;
+      width: unset;
+      max-width: unset;
     }
 
-    & :global(.gatsby-highlight code[class*="language-"]) {
+    :global(.gatsby-highlight pre[class*='language-']) {
+      @include line-height(0.625);
+      @include padding-equal(0.5);
+      padding-left: $layout-mobile-padding;
+    }
+
+    :global(.gatsby-highlight code[class*='language-']) {
       padding: 0;
       font-size: $typographic-base-font-size * 0.7;
     }
@@ -97,9 +104,31 @@
       @include margin-bottom(0.75);
     }
 
-    &__body blockquote {
-      margin: 0 auto;
-      padding-right: 25px;
+    &__body {
+      blockquote {
+        margin: 0 auto;
+        padding-right: 25px;
+      }
+
+      // stylelint-disable
+      // stylelint doesn't recognize :global() from css-modules
+      :global(.gatsby-highlight) {
+        margin: 0 auto;
+        width: 100%;
+        max-width: $layout-post-width;
+      }
+
+      & :global(.gatsby-highlight pre[class*='language-']) {
+        border: 1px solid $color-gray-border;
+        border-radius: 5px;
+        @include line-height(0.7);
+        @include padding-equal(0.6);
+      }
+
+      & :global(.gatsby-highlight code[class*='language-']) {
+        font-size: $typographic-base-font-size * 0.8;
+      }
+      // stylelint-enable
     }
   }
 }
@@ -134,18 +163,6 @@
       & blockquote > p {
         font-size: inherit;
       }
-
-      // stylelint-disable
-      // stylelint doesn't recognize :global() from css-modules
-      & :global(.gatsby-highlight pre[class*="language-"]) {
-        @include line-height(0.7);
-        @include padding-equal(0.6);
-      }
-
-      & :global(.gatsby-highlight code[class*="language-"]) {
-        font-size: $typographic-base-font-size * 0.8;
-      }
-      // stylelint-enable
     }
   }
 }

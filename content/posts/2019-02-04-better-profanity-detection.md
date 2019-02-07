@@ -105,7 +105,7 @@ vectorizer = CountVectorizer(stop_words='english', min_df=0.0001)
 X = vectorizer.fit_transform(texts)
 
 # Train the model
-model = LinearSVC(class_weight="balanced", dual=False, tol=1e-2, max_iter=100000)
+model = LinearSVC(class_weight="balanced", dual=False, tol=1e-2, max_iter=1e5)
 cclf = CalibratedClassifierCV(base_estimator=model)
 cclf.fit(X, y)
 
