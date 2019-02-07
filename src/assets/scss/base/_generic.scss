@@ -122,13 +122,6 @@ p {
   @include margin-bottom(0.75);
 }
 
-blockquote {
-  border-left: 2px solid $color-gray;
-  padding: 0 25px 0 23px;
-  font-style: italic;
-  font-size: $typographic-base-font-size;
-}
-
 figure {
   display: block;
   width: 100%;

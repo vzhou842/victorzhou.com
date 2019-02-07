@@ -10,11 +10,11 @@
 }
 
 @include breakpoint-sm {
-   .post__subscribeForm {
+  .post__subscribeForm {
     max-width: $layout-post-width;
     margin: 0 auto;
     padding: 0 15px;
-   }
+  }
 }
 
 @include breakpoint-md {

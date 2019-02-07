@@ -28,30 +28,23 @@
   }
 
   &__body {
-    & *:not(div):not(li):not(img) {
+    & > * {
       width: 100%;
       max-width: $layout-post-width;
       margin-left: auto;
       margin-right: auto;
     }
 
+    & blockquote {
+      border-left: 2px solid $color-gray;
+      margin: 0 0 0 -15px;
+      padding: 0 0 0 23px;
+      font-style: italic;
+      font-size: $typographic-base-font-size;
+    }
+
     & figure {
       @include margin-bottom(1.5);
-
-      & blockquote {
-        font-style: italic;
-        text-align: center;
-        margin-top: 0;
-        @include padding(1, 0);
-
-        & p {
-          max-width: $layout-post-width;
-          font-size: $typographic-base-font-size * 1.6817;
-          margin-top: 0;
-          @include margin-bottom(1);
-          @include line-height(1.5);
-        }
-      }
     }
 
     & a {
@@ -102,6 +95,11 @@
       font-size: $typographic-base-font-size * 1.5;
       @include line-height(1.125);
       @include margin-bottom(0.75);
+    }
+
+    &__body blockquote {
+      margin: 0 auto;
+      padding-right: 25px;
     }
   }
 }
