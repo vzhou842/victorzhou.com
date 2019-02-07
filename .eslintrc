@@ -26,8 +26,8 @@
         "as-needed"
       ],
       "arrow-parens": [
-        "error",
-        "always"
+        "off",
+        "as-needed"
       ],
       "import/no-extraneous-dependencies": [
         "error",

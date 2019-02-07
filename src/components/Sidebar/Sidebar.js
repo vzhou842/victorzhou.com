@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import Author from './Author';
 import Contacts from './Contacts';
 import Copyright from './Copyright';
-import Menu from './Menu';
+import Menu from '../Menu';
 import styles from './Sidebar.module.scss';
 import SubscribeForm from '../SubscribeForm';
 
@@ -11,14 +11,13 @@ export const PureSidebar = ({ data, isIndex }) => {
   const {
     author,
     copyright,
-    menu
   } = data.site.siteMetadata;
 
   return (
     <div className={styles['sidebar']}>
       <div className={styles['sidebar__inner']}>
         <Author author={author} isIndex={isIndex} />
-        <Menu menu={menu} />
+        <Menu />
         <SubscribeForm />
         <Contacts contacts={author.contacts} />
         <Copyright copyright={copyright} />
@@ -36,10 +35,6 @@ export const Sidebar = (props) => (
             title
             subtitle
             copyright
-            menu {
-              label
-              path
-            }
             author {
               name
               photo

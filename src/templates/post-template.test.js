@@ -8,8 +8,12 @@ describe('PostTemplate', () => {
       site: {
         siteMetadata: {
           title: 'test',
-          subtitle: 'test'
-        }
+          subtitle: 'test',
+          author: {
+            name: 'test',
+            photo: '/test.png',
+          },
+        },
       },
       markdownRemark: {
         html: '<p>test</p>',

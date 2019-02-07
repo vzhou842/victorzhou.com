@@ -1,142 +1,174 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PostTemplate renders correctly 1`] = `
-<div
-  className="layout"
->
+<div>
   <div
-    className="post"
+    className="header"
   >
-    <Link
-      className="post__home-button"
-      to="/"
-    >
-      All Articles
-    </Link>
     <div
-      className="post__content"
+      className="header__left"
+    >
+      <Link
+        className="header__left-photo"
+        to="/"
+      >
+        <img
+          alt="test"
+          height="50"
+          src="/test.png"
+          width="50"
+        />
+      </Link>
+      <h4
+        className="header__left-name"
+      >
+        <Link
+          className="header__left-name-link"
+          to="/"
+        >
+          test
+        </Link>
+      </h4>
+    </div>
+    <div
+      className="header__right"
+    >
+      <StaticQuery
+        render={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="layout"
+  >
+    <div
+      className="post"
     >
       <div
-        className="content"
+        className="post__content"
       >
-        <h1
-          className="content__title"
-        >
-          test
-        </h1>
-        <h2
-          className="content__subtitle"
-        >
-          test
-        </h2>
         <div
-          className="content__body"
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "<p>test</p>",
+          className="content"
+        >
+          <h1
+            className="content__title"
+          >
+            test
+          </h1>
+          <h2
+            className="content__subtitle"
+          >
+            test
+          </h2>
+          <div
+            className="content__body"
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<p>test</p>",
+              }
             }
-          }
+          />
+        </div>
+      </div>
+      <div
+        className="post__subscribeForm"
+      >
+        <div
+          className="container large"
+        >
+          <p
+            className="description"
+          >
+            <b>
+              Subscribe
+            </b>
+             to know whenever I post new stuff. No spam, for real.
+          </p>
+          <form
+            action="https://victorzhou.us20.list-manage.com/subscribe/post"
+            method="POST"
+            target="_blank"
+          >
+            <input
+              name="u"
+              type="hidden"
+              value="7cd5089a9bbc5253e6890ae15"
+            />
+            <input
+              name="id"
+              type="hidden"
+              value="9f367a1f47"
+            />
+            <input
+              autoCapitalize="off"
+              autoCorrect="off"
+              id="MERGE0"
+              name="MERGE0"
+              placeholder="example@domain.com"
+              size="25"
+              type="email"
+            />
+            <br />
+            <input
+              name="submit"
+              type="submit"
+              value="SUBSCRIBE"
+            />
+          </form>
+        </div>
+      </div>
+      <div
+        className="post__footer"
+      >
+        <div
+          className="meta"
+        >
+          <p
+            className="meta__date"
+          >
+            Published 
+            1 Sep 2016
+          </p>
+        </div>
+        <div
+          className="tags"
+        >
+          <ul
+            className="tags__list"
+          >
+            <li
+              className="tags__list-item"
+            >
+              <Link
+                className="tags__list-item-link"
+                to="/test_0"
+              >
+                test_0
+              </Link>
+            </li>
+            <li
+              className="tags__list-item"
+            >
+              <Link
+                className="tags__list-item-link"
+                to="/test_1"
+              >
+                test_1
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <StaticQuery
+          render={[Function]}
         />
       </div>
-    </div>
-    <div
-      className="post__subscribeForm"
-    >
       <div
-        className="container large"
+        className="post__comments"
       >
-        <p
-          className="description"
-        >
-          <b>
-            Subscribe
-          </b>
-           to know whenever I post new stuff. No spam, for real.
-        </p>
-        <form
-          action="https://victorzhou.us20.list-manage.com/subscribe/post"
-          method="POST"
-          target="_blank"
-        >
-          <input
-            name="u"
-            type="hidden"
-            value="7cd5089a9bbc5253e6890ae15"
-          />
-          <input
-            name="id"
-            type="hidden"
-            value="9f367a1f47"
-          />
-          <input
-            autoCapitalize="off"
-            autoCorrect="off"
-            id="MERGE0"
-            name="MERGE0"
-            placeholder="example@domain.com"
-            size="25"
-            type="email"
-          />
-          <br />
-          <input
-            name="submit"
-            type="submit"
-            value="SUBSCRIBE"
-          />
-        </form>
+        <StaticQuery
+          render={[Function]}
+        />
       </div>
-    </div>
-    <div
-      className="post__footer"
-    >
-      <div
-        className="meta"
-      >
-        <p
-          className="meta__date"
-        >
-          Published 
-          1 Sep 2016
-        </p>
-      </div>
-      <div
-        className="tags"
-      >
-        <ul
-          className="tags__list"
-        >
-          <li
-            className="tags__list-item"
-          >
-            <Link
-              className="tags__list-item-link"
-              to="/test_0"
-            >
-              test_0
-            </Link>
-          </li>
-          <li
-            className="tags__list-item"
-          >
-            <Link
-              className="tags__list-item-link"
-              to="/test_1"
-            >
-              test_1
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <StaticQuery
-        render={[Function]}
-      />
-    </div>
-    <div
-      className="post__comments"
-    >
-      <StaticQuery
-        render={[Function]}
-      />
     </div>
   </div>
 </div>

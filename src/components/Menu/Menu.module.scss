@@ -1,5 +1,5 @@
-@import '../../../assets/scss/variables';
-@import '../../../assets/scss/mixins';
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
 
 .menu {
   @include margin-bottom(0.75);
@@ -32,13 +32,13 @@
           border-bottom: 1px solid $color-base;
           font-weight: bold;
         }
-
       }
-
     }
-
   }
+}
 
+.bold {
+  font-weight: 600;
 }
 
 @include breakpoint-sm {
@@ -48,6 +48,15 @@
     &-item {
       padding: 0;
       display: list-item;
+    }
+  }
+
+  .menu.horizontal {
+    margin: 0;
+
+    li {
+      display: inline-block;
+      @include margin-right(1);
     }
   }
 }

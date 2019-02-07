@@ -37,36 +37,9 @@ exports[`Sidebar renders correctly 1`] = `
         bio
       </p>
     </div>
-    <nav
-      className="menu"
-    >
-      <ul
-        className="menu__list"
-      >
-        <li
-          className="menu__list-item"
-        >
-          <Link
-            activeClassName="menu__list-item-link--active"
-            className="menu__list-item-link"
-            to="/#0/"
-          >
-            Item 0
-          </Link>
-        </li>
-        <li
-          className="menu__list-item"
-        >
-          <Link
-            activeClassName="menu__list-item-link--active"
-            className="menu__list-item-link"
-            to="/#1/"
-          >
-            Item 1
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <StaticQuery
+      render={[Function]}
+    />
     <div
       className="container"
     >

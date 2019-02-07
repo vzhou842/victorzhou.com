@@ -4,12 +4,6 @@ exports[`Post renders correctly 1`] = `
 <div
   className="post"
 >
-  <Link
-    className="post__home-button"
-    to="/"
-  >
-    All Articles
-  </Link>
   <div
     className="post__content"
   >

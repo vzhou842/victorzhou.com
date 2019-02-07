@@ -2,11 +2,13 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
+import NavHeader from '../components/NavHeader';
 
 const PostTemplate = ({ data }) => {
   const {
     title: siteTitle,
-    subtitle: siteSubtitle
+    subtitle: siteSubtitle,
+    author,
   } = data.site.siteMetadata;
 
   const {
@@ -17,9 +19,12 @@ const PostTemplate = ({ data }) => {
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
 
   return (
-    <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
-      <Post post={data.markdownRemark} />
-    </Layout>
+    <div>
+      <NavHeader author={author} />
+      <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
+        <Post post={data.markdownRemark} />
+      </Layout>
+    </div>
   );
 };
 
@@ -29,9 +34,7 @@ export const query = graphql`
       siteMetadata {
         author {
           name
-          contacts {
-            twitter
-          }
+          photo
         }
         disqusShortname
         subtitle
