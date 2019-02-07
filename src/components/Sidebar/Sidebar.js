@@ -7,7 +7,7 @@ import Menu from '../Menu';
 import styles from './Sidebar.module.scss';
 import SubscribeForm from '../SubscribeForm';
 
-export const PureSidebar = ({ data, isIndex }) => {
+export const PureSidebar = ({ data }) => {
   const {
     author,
     copyright,
@@ -16,7 +16,7 @@ export const PureSidebar = ({ data, isIndex }) => {
   return (
     <div className={styles['sidebar']}>
       <div className={styles['sidebar__inner']}>
-        <Author author={author} isIndex={isIndex} />
+        <Author author={author} />
         <Menu />
         <SubscribeForm />
         <Contacts contacts={author.contacts} />
