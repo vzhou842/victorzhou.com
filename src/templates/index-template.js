@@ -5,11 +5,15 @@ import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
+import SubscribeForm from '../components/SubscribeForm';
+import DisplayIf from '../components/DisplayIf';
+import Contacts from '../components/Contacts';
 
 const IndexTemplate = ({ data, pageContext }) => {
   const {
     title: siteTitle,
-    subtitle: siteSubtitle
+    subtitle: siteSubtitle,
+    author,
   } = data.site.siteMetadata;
 
   const {
@@ -24,18 +28,24 @@ const IndexTemplate = ({ data, pageContext }) => {
   const pageTitle = currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
 
   return (
-    <Layout title={pageTitle} description={siteSubtitle}>
-      <Sidebar />
-      <Page>
-        <Feed edges={edges} />
-        <Pagination
-          prevPagePath={prevPagePath}
-          nextPagePath={nextPagePath}
-          hasPrevPage={hasPrevPage}
-          hasNextPage={hasNextPage}
-        />
-      </Page>
-    </Layout>
+    <div>
+      <Layout title={pageTitle} description={siteSubtitle}>
+        <Sidebar />
+        <Page>
+          <Feed edges={edges} />
+          <Pagination
+            prevPagePath={prevPagePath}
+            nextPagePath={nextPagePath}
+            hasPrevPage={hasPrevPage}
+            hasNextPage={hasNextPage}
+          />
+        </Page>
+      </Layout>
+      <DisplayIf mobile>
+        <SubscribeForm />
+        <Contacts contacts={author.contacts} />
+      </DisplayIf>
+    </div>
   );
 };
 
@@ -45,6 +55,13 @@ export const query = graphql`
       siteMetadata {
         title
         subtitle
+        author {
+          contacts {
+            twitter
+            github
+            email
+          }
+        }
       }
     }
     allMarkdownRemark(

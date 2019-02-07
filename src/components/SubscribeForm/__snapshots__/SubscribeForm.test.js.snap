@@ -2,7 +2,7 @@
 
 exports[`SubscribeForm renders default correctly 1`] = `
 <div
-  className="container"
+  className="container "
 >
   <p
     className="description"

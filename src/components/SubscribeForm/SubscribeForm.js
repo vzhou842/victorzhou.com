@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './SubscribeForm.module.scss';
 
 const SubscribeForm = ({ large }) => (
-  <div className={styles['container'] + (large ? ` ${styles['large']}` : '')}>
+  <div className={`${styles['container']} ${large ? styles['large'] : ''}`}>
     <p className={styles['description']}>
       <b>Subscribe</b> to know whenever I post new stuff. No spam, for real.
     </p>

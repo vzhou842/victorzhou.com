@@ -2,8 +2,8 @@
 @import '../../assets/scss/mixins';
 
 .container {
-  border-radius: 5px;
   background-color: $color-gray-bg;
+  width: 100%;
   @include padding-equal(0.5);
   @include margin-bottom(0.5);
 
@@ -51,6 +51,8 @@
 
 @include breakpoint-sm {
   .container {
+    border-radius: 5px;
+    width: unset;
     @include margin-bottom(1);
   }
 }

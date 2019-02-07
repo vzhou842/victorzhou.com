@@ -40,9 +40,16 @@ describe('IndexTemplate', () => {
       site: {
         siteMetadata: {
           title: 'test',
-          subtitle: 'test'
-        }
-      }
+          subtitle: 'test',
+          author: {
+            contacts: {
+              email: '#',
+              github: '#',
+              twitter: '#',
+            },
+          },
+        },
+      },
     },
     pageContext: {
       currentPage: 1,

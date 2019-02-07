@@ -1,11 +1,12 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import Author from './Author';
-import Contacts from './Contacts';
 import Copyright from './Copyright';
 import Menu from '../Menu';
 import styles from './Sidebar.module.scss';
 import SubscribeForm from '../SubscribeForm';
+import Contacts from '../Contacts';
+import DisplayIf from '../DisplayIf';
 
 export const PureSidebar = ({ data }) => {
   const {
@@ -18,8 +19,10 @@ export const PureSidebar = ({ data }) => {
       <div className={styles['sidebar__inner']}>
         <Author author={author} />
         <Menu />
-        <SubscribeForm />
-        <Contacts contacts={author.contacts} />
+        <DisplayIf desktop>
+          <SubscribeForm />
+          <Contacts contacts={author.contacts} />
+        </DisplayIf>
         <Copyright copyright={copyright} />
       </div>
     </div>
