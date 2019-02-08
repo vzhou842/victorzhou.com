@@ -258,6 +258,11 @@ exports[`IndexTemplate renders correctly 1`] = `
         </li>
       </ul>
     </div>
+    <p
+      className="copyright"
+    >
+      Copyright
+    </p>
   </div>
 </div>
 `;

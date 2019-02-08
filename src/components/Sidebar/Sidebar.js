@@ -1,11 +1,11 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import Author from './Author';
-import Copyright from './Copyright';
 import Menu from '../Menu';
 import styles from './Sidebar.module.scss';
 import SubscribeForm from '../SubscribeForm';
 import Contacts from '../Contacts';
+import Copyright from '../Copyright';
 import DisplayIf from '../DisplayIf';
 
 export const PureSidebar = ({ data }) => {
@@ -22,8 +22,8 @@ export const PureSidebar = ({ data }) => {
         <DisplayIf desktop>
           <SubscribeForm />
           <Contacts contacts={author.contacts} />
+          <Copyright copyright={copyright} />
         </DisplayIf>
-        <Copyright copyright={copyright} />
       </div>
     </div>
   );

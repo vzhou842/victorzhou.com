@@ -6,14 +6,16 @@ import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 import SubscribeForm from '../components/SubscribeForm';
-import DisplayIf from '../components/DisplayIf';
 import Contacts from '../components/Contacts';
+import Copyright from '../components/Copyright';
+import DisplayIf from '../components/DisplayIf';
 
 const IndexTemplate = ({ data, pageContext }) => {
   const {
     title: siteTitle,
     subtitle: siteSubtitle,
     author,
+    copyright,
   } = data.site.siteMetadata;
 
   const {
@@ -44,6 +46,7 @@ const IndexTemplate = ({ data, pageContext }) => {
       <DisplayIf mobile>
         <SubscribeForm />
         <Contacts contacts={author.contacts} />
+        <Copyright copyright={copyright} />
       </DisplayIf>
     </div>
   );
@@ -55,6 +58,7 @@ export const query = graphql`
       siteMetadata {
         title
         subtitle
+        copyright
         author {
           contacts {
             twitter

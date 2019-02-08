@@ -41,6 +41,7 @@ describe('IndexTemplate', () => {
         siteMetadata: {
           title: 'test',
           subtitle: 'test',
+          copyright: 'Copyright',
           author: {
             contacts: {
               email: '#',

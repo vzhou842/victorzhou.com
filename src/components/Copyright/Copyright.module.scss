@@ -1,0 +1,14 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.copyright {
+  color: lighten($color-gray, 18%);
+  font-size: $typographic-small-font-size;
+  text-align: center;
+}
+
+@include breakpoint-sm {
+  .copyright {
+    text-align: left;
+  }
+}

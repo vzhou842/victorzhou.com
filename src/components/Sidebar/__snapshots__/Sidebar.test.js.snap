@@ -153,11 +153,11 @@ exports[`Sidebar renders correctly 1`] = `
           </li>
         </ul>
       </div>
-    </div>
-    <div
-      className="copyright"
-    >
-      copyright
+      <p
+        className="copyright"
+      >
+        copyright
+      </p>
     </div>
   </div>
 </div>
