@@ -6,5 +6,5 @@ function restart() {
 }
 
 restart 8000
-sleep 15
+sleep 8
 restart 8001
