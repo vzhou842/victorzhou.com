@@ -11,6 +11,7 @@
     "lint:js": "eslint --cache --ext .js,.jsx --ignore-pattern public .",
     "lint:scss": "stylelint \"src/**/*.scss\"",
     "lint": "concurrently \"npm run lint:js\" \"npm run lint:scss\"",
+    "start-server": "node server/server.js",
     "test": "jest --config ./tests/jest-config.js",
     "test:coverage": "jest --coverage --config ./tests/jest-config.js",
     "test:watch": "jest --watch --config ./tests/jest-config.js"
@@ -23,6 +24,7 @@
     "bluebird": "^3.5.2",
     "classnames": "^2.2.6",
     "codecov": "^3.1.0",
+    "express": "^4.16.4",
     "gatsby": "^2.0.76",
     "gatsby-link": "^2.0.8",
     "gatsby-plugin-catch-links": "^2.0.9",
