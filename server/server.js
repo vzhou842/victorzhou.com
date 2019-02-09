@@ -3,7 +3,7 @@ const path = require('path');
 
 const app = express();
 
-const PUBLIC_PATH = path.join(__dirname, '../public');
+const PUBLIC_PATH = path.join(__dirname, '../public-live');
 
 app.use(express.static(PUBLIC_PATH));
 
