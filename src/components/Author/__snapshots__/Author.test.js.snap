@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Author renders correctly 1`] = `
+<div
+  className="author"
+>
+  <div
+    className="author__header"
+  >
+    <Link
+      className="author__header-photo"
+      to="/"
+    >
+      <img
+        alt="test"
+        height={48}
+        src="/test"
+        width={48}
+      />
+    </Link>
+    <div
+      className="author__header-right"
+    >
+      <h4
+        className="author__header-right-name"
+      >
+        <Link
+          className="author__header-right-name-link"
+          to="/"
+        >
+          test
+        </Link>
+      </h4>
+    </div>
+  </div>
+</div>
+`;

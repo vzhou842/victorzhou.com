@@ -7,6 +7,15 @@
     margin: 0 auto;
     padding: 0 15px;
   }
+
+  &__comments {
+    @include margin-top(1);
+  }
+
+  &__authorContainer {
+    border-top: 1px solid $color-gray-border;
+    border-bottom: 1px solid $color-gray-border;
+  }
 }
 
 @include breakpoint-sm {
@@ -14,6 +23,10 @@
     max-width: $layout-post-width;
     margin: 0 auto;
     padding: 0 15px;
+  }
+
+  .post__comments {
+    @include margin-top(2);
   }
 }
 

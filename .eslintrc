@@ -35,6 +35,9 @@
           "devDependencies": true
         }
       ],
+      "object-curly-newline": ["error", {
+        "consistent": true
+      }],
       "no-debugger": 0,
       "dot-notation": 0,
       "no-console": 0,

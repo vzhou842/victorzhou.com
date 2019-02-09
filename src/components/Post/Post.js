@@ -1,11 +1,11 @@
 import React from 'react';
-import Author from './Author';
 import Comments from './Comments';
 import Content from './Content';
 import Meta from './Meta';
 import Tags from './Tags';
 import styles from './Post.module.scss';
 
+import Author from '../Author';
 import SubscribeForm from '../SubscribeForm';
 
 const Post = ({ post }) => {
@@ -32,7 +32,9 @@ const Post = ({ post }) => {
       <div className={styles['post__footer']}>
         <Meta date={date} />
         <Tags tags={tags} tagSlugs={tagSlugs} />
-        <Author />
+        <div className={styles['post__authorContainer']}>
+          <Author showBio />
+        </div>
       </div>
 
       <div className={styles['post__comments']}>

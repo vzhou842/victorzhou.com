@@ -5,19 +5,11 @@ import { PureAuthor as Author } from './Author';
 describe('Author', () => {
   it('renders correctly', () => {
     const props = {
-      data: {
-        site: {
-          siteMetadata: {
-            author: {
-              name: 'test',
-              bio: 'test',
-              contacts: {
-                twitter: 'test'
-              }
-            }
-          }
-        }
-      }
+      author: {
+        name: 'test',
+        bio: 'test',
+        photo: 'test',
+      },
     };
 
     const tree = renderer.create(<Author {...props} />).toJSON();

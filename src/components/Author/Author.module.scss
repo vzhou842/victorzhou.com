@@ -1,0 +1,54 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.author {
+  @include padding-equal(0.25);
+  @include margin(0.5, 0, 0.5, 0);
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+
+    &-photo {
+      flex-shrink: 0;
+
+      img {
+        border-radius: 50%;
+      }
+    }
+
+    &-right {
+      margin: 0 0 0 10px;
+
+      &-name {
+        margin: 0;
+
+        &-link {
+          color: $color-base;
+
+          &:hover {
+            color: $color-base;
+          }
+        }
+      }
+
+      &-bio {
+        margin: 0;
+      }
+    }
+  }
+
+  &__bio {
+    @include margin-top(0.25);
+    @include margin-bottom(0);
+  }
+}
+
+@include breakpoint-sm {
+  .author {
+    @include padding-equal(0.5);
+    @include margin(0.75, 0.5, 0.75, 0.5);
+  }
+}

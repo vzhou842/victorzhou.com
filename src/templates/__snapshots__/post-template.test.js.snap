@@ -8,27 +8,9 @@ exports[`PostTemplate renders correctly 1`] = `
     <div
       className="header__left"
     >
-      <Link
-        className="header__left-photo"
-        to="/"
-      >
-        <img
-          alt="test"
-          height="50"
-          src="/test.png"
-          width="50"
-        />
-      </Link>
-      <h4
-        className="header__left-name"
-      >
-        <Link
-          className="header__left-name-link"
-          to="/"
-        >
-          test
-        </Link>
-      </h4>
+      <StaticQuery
+        render={[Function]}
+      />
     </div>
     <div
       className="header__right"
@@ -158,9 +140,13 @@ exports[`PostTemplate renders correctly 1`] = `
             </li>
           </ul>
         </div>
-        <StaticQuery
-          render={[Function]}
-        />
+        <div
+          className="post__authorContainer"
+        >
+          <StaticQuery
+            render={[Function]}
+          />
+        </div>
       </div>
       <div
         className="post__comments"

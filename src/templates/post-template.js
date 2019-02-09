@@ -9,7 +9,6 @@ const PostTemplate = ({ data }) => {
   const {
     title: siteTitle,
     subtitle: siteSubtitle,
-    author,
   } = data.site.siteMetadata;
 
   const {
@@ -29,7 +28,7 @@ const PostTemplate = ({ data }) => {
           </Helmet>
         )
       }
-      <NavHeader author={author} />
+      <NavHeader />
       <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
         <Post post={data.markdownRemark} />
       </Layout>
@@ -41,10 +40,6 @@ export const query = graphql`
   query PostBySlug($slug: String!) {
     site {
       siteMetadata {
-        author {
-          name
-          photo
-        }
         disqusShortname
         subtitle
         title
