@@ -158,9 +158,9 @@ module.exports = {
         short_name: siteConfig.title,
         start_url: '/',
         background_color: '#FFF',
-        theme_color: '#F7A046',
+        theme_color: '#164BC5',
         display: 'standalone',
-        icon: 'static/photo.png'
+        icon: 'static/favicon.png'
       },
     },
     'gatsby-plugin-offline',
@@ -174,6 +174,6 @@ module.exports = {
           camelCase: false,
         }
       }
-    }
+    },
   ]
 };
