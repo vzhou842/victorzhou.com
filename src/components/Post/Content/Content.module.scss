@@ -82,13 +82,13 @@
 
     // From https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
     :global(.gatsby-highlight-code-line) {
-      background-color: #feb;
+      background-color: $color-primary-light;
       display: block;
       margin-right: -1em;
       margin-left: -1em;
       padding-right: 1em;
       padding-left: 0.75em;
-      border-left: 0.25em solid #f99;
+      border-left: 0.2em solid $color-primary;
     }
     // stylelint-enable
 
