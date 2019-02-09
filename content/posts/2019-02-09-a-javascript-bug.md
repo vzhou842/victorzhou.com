@@ -1,5 +1,5 @@
 ---
-title: Can You Find The Bug in this Code?
+title: Can You Find The Bug in This Code?
 date: "2019-02-09T12:00:00.000Z"
 template: "post"
 draft: false
@@ -7,7 +7,7 @@ slug: "/blog/a-javascript-bug-i-had-once"
 category: "Javascript"
 tags:
   - "Javascript"
-description: "This is an actual bug I had once."
+description: "Fun Fact: this is an actual bug I had once."
 ---
 
 Here's a bit of Javascript that prints "Hello World!" on two lines:
@@ -99,7 +99,7 @@ Yup.
 
 ## Why would you ever write code with so many Immediately Invoked Function Expressions ([IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE))?
 
-[This post]() explains the backstory behind how I wrote bad enough code to have this bug.
+It's a long story, but I'll make a post soon explaining how I wrote bad enough code to have this bug. [Subscribe](http://eepurl.com/gf8JCX) (no spam, for real) if you want to get notified when it's published!
 
 ## The Lesson
 
@@ -113,4 +113,4 @@ const b = 'World' + '!'
 
 I'll leave figuring this one out as an exercise for you.
 
-Most Javascript style guides require semicolons, including [Google's](https://google.github.io/styleguide/jsguide.html#formatting-semicolons-are-required), [Airbnb's](https://github.com/airbnb/javascript#semicolons), and [jQuery's](https://contribute.jquery.org/style-guide/js/#semicolons). To reiterate: **always use semicolons**. 
+Most Javascript style guides require semicolons, including [Google's](https://google.github.io/styleguide/jsguide.html#formatting-semicolons-are-required), [Airbnb's](https://github.com/airbnb/javascript#semicolons), and [jQuery's](https://contribute.jquery.org/style-guide/js/#semicolons). To summarize: **always use semicolons**. 
