@@ -7,6 +7,7 @@
     "develop": "npm run clean && gatsby develop",
     "build": "npm run clean && gatsby build",
     "clean": "rimraf .cache public",
+    "deploy": "git fetch && git reset --hard origin/master && npm i && npm run build && ./server/scripts/deploy_nginx.sh && ./server/scripts/rolling_restart.sh",
     "lint:js": "eslint --cache --ext .js,.jsx --ignore-pattern public .",
     "lint:scss": "stylelint \"src/**/*.scss\"",
     "lint": "concurrently \"npm run lint:js\" \"npm run lint:scss\"",
