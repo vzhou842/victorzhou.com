@@ -28,6 +28,7 @@ exports[`SubscribeForm renders default correctly 1`] = `
       value="9f367a1f47"
     />
     <input
+      aria-label="Email Address"
       autoCapitalize="off"
       autoCorrect="off"
       name="MERGE0"
@@ -73,6 +74,7 @@ exports[`SubscribeForm renders large correctly 1`] = `
       value="9f367a1f47"
     />
     <input
+      aria-label="Email Address"
       autoCapitalize="off"
       autoCorrect="off"
       name="MERGE0"

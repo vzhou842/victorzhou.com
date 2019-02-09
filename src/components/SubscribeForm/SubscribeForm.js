@@ -20,6 +20,7 @@ const SubscribeForm = ({ large }) => (
         name="MERGE0"
         size="25"
         placeholder="example@domain.com"
+        aria-label="Email Address"
       />
       <br />
       <input type="submit" name="submit" value="SUBSCRIBE" />

@@ -72,6 +72,7 @@ exports[`Sidebar renders correctly 1`] = `
             value="9f367a1f47"
           />
           <input
+            aria-label="Email Address"
             autoCapitalize="off"
             autoCorrect="off"
             name="MERGE0"
