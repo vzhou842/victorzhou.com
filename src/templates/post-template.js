@@ -9,25 +9,27 @@ const PostTemplate = ({ data }) => {
   const {
     title: siteTitle,
     subtitle: siteSubtitle,
+    url: siteUrl,
   } = data.site.siteMetadata;
 
   const {
     canonical,
+    img: postImage,
     title: postTitle,
     description: postDescription,
   } = data.markdownRemark.frontmatter;
+
+  const { slug: postSlug } = data.markdownRemark.fields;
 
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
 
   return (
     <div>
-      {
-        canonical && (
-          <Helmet>
-            <link rel="canonical" href={canonical} />
-          </Helmet>
-        )
-      }
+      <Helmet>
+        {canonical && <link rel="canonical" href={canonical} />}
+        <meta property="og:image" content={siteUrl + postImage} />
+        <meta property="og:url" content={siteUrl + postSlug} />
+      </Helmet>
       <NavHeader />
       <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
         <Post post={data.markdownRemark} />
@@ -57,6 +59,7 @@ export const query = graphql`
         canonical
         date
         description
+        img
         tags
         title
       }
