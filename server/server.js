@@ -11,7 +11,7 @@ app.use(express.static(PUBLIC_PATH));
 app.use(['/contact', '/projects', '/projects/web', '/projects/iOS', '/projects/Android'], (req, res) => {
   res.redirect(301, '/about');
 });
-app.use('/cloak', (req, res) => {
+app.use(['/blog', '/cloak'], (req, res) => {
   res.redirect(301, '/');
 });
 
