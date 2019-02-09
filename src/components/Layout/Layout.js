@@ -9,6 +9,7 @@ export const PureLayout = ({ children, title, description, data }) => {
   return (
     <div className={styles.layout}>
       <Helmet>
+        <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
