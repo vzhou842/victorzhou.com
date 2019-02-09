@@ -117,8 +117,11 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: { trackingId: siteConfig.googleAnalyticsId }
+      resolve: 'gatsby-plugin-gtag',
+      options: {
+        trackingId: siteConfig.googleAnalyticsId,
+        head: true,
+      },
     },
     {
       resolve: 'gatsby-plugin-sitemap',
