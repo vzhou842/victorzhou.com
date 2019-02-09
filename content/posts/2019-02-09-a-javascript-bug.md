@@ -8,7 +8,7 @@ img: "/media/laptop-code.jpg"
 category: "Javascript"
 tags:
   - "Javascript"
-description: "Fun Fact: this is an actual bug I had once."
+description: "This is an actual bug I had once."
 ---
 
 Here's a bit of Javascript that prints "Hello World!" on two lines:
