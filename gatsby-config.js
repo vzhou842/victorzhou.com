@@ -144,10 +144,10 @@ module.exports = {
           }
         `,
         output: '/sitemap.xml',
-        serialize: ({ site, allSitePage }) => allSitePage.edges.map((edge) => ({
+        serialize: ({ site, allSitePage }) => allSitePage.edges.map(edge => ({
           url: site.siteMetadata.url + edge.node.path,
           changefreq: 'daily',
-          priority: 0.7
+          priority: edge.node.path === '/' ? 1.0 : 0.7,
         }))
       }
     },
