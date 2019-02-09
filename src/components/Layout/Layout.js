@@ -13,7 +13,7 @@ export const PureLayout = ({ children, title, description, data }) => {
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={siteUrl + author.photo} />
+        <meta property="og:image" content={siteUrl + author.photoLarge} />
       </Helmet>
       {children}
     </div>
@@ -28,7 +28,7 @@ export const Layout = props => (
           siteMetadata {
             url
             author {
-              photo
+              photoLarge
             }
           }
         }
