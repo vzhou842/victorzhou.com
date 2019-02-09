@@ -1,3 +1,4 @@
+#!/bin/bash
 function restart() {
 	uid="web-$1"
 	echo ">>> Restarting $uid..."

@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo --validate
 git fetch
 git reset --hard origin/master

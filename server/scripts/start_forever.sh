@@ -1,3 +1,4 @@
+#!/bin/bash
 function start() {
 	sudo NODE_ENV='production' \
 	PORT=$1 \
