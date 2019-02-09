@@ -1,12 +1,22 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Layout from './Layout';
+import { Layout } from './Layout';
 
 describe('Layout', () => {
   const props = {
     children: 'test',
     description: 'test',
-    title: 'test'
+    title: 'test',
+    data: {
+      site: {
+        siteMetadata: {
+          url: '',
+          author: {
+            photo: '',
+          },
+        },
+      },
+    },
   };
 
   it('renders correctly', () => {

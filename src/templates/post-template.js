@@ -19,16 +19,14 @@ const PostTemplate = ({ data }) => {
     description: postDescription,
   } = data.markdownRemark.frontmatter;
 
-  const { slug: postSlug } = data.markdownRemark.fields;
-
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
 
   return (
     <div>
       <Helmet>
         {canonical && <link rel="canonical" href={canonical} />}
+        <meta property="og:type" content="article" />
         <meta property="og:image" content={siteUrl + postImage} />
-        <meta property="og:url" content={siteUrl + postSlug} />
       </Helmet>
       <NavHeader />
       <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
@@ -52,7 +50,6 @@ export const query = graphql`
       id
       html
       fields {
-        slug
         tagSlugs
       }
       frontmatter {

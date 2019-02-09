@@ -1,17 +1,41 @@
 import React from 'react';
+import { graphql, StaticQuery } from 'gatsby';
 import Helmet from 'react-helmet';
 import styles from './Layout.module.scss';
 
-const Layout = ({ children, title, description }) => (
-  <div className={styles.layout}>
-    <Helmet>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-    </Helmet>
-    {children}
-  </div>
+export const PureLayout = ({ children, title, description, data }) => {
+  const { author, url: siteUrl } = data.site.siteMetadata;
+
+  return (
+    <div className={styles.layout}>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={siteUrl + author.photo} />
+      </Helmet>
+      {children}
+    </div>
+  );
+};
+
+export const Layout = props => (
+  <StaticQuery
+    query={graphql`
+      query LayoutQuery {
+        site {
+          siteMetadata {
+            url
+            author {
+              photo
+            }
+          }
+        }
+      }
+    `}
+    render={data => <PureLayout {...props} data={data} />}
+  />
 );
 
 export default Layout;
