@@ -130,7 +130,6 @@
       }
 
       & :global(.gatsby-highlight pre[class*='language-']) {
-        border: 1px solid $color-gray-border;
         border-radius: 5px;
         @include line-height(0.7);
         @include padding-equal(0.6);
