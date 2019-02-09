@@ -100,6 +100,13 @@ module.exports = {
             resolve: 'gatsby-remark-responsive-iframe',
             options: { wrapperStyle: 'margin-bottom: 1.0725rem' }
           },
+          {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_blank',
+              rel: 'noopener noreferrer',
+            },
+          },
           'gatsby-remark-figure-caption',
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
