@@ -30,7 +30,6 @@ exports[`SubscribeForm renders default correctly 1`] = `
     <input
       autoCapitalize="off"
       autoCorrect="off"
-      id="MERGE0"
       name="MERGE0"
       placeholder="example@domain.com"
       size="25"
@@ -76,7 +75,6 @@ exports[`SubscribeForm renders large correctly 1`] = `
     <input
       autoCapitalize="off"
       autoCorrect="off"
-      id="MERGE0"
       name="MERGE0"
       placeholder="example@domain.com"
       size="25"

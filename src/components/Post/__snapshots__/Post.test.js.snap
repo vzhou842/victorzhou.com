@@ -60,7 +60,6 @@ exports[`Post renders correctly 1`] = `
         <input
           autoCapitalize="off"
           autoCorrect="off"
-          id="MERGE0"
           name="MERGE0"
           placeholder="example@domain.com"
           size="25"

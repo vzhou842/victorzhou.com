@@ -18,7 +18,6 @@ const SubscribeForm = ({ large }) => (
         autoCapitalize="off"
         autoCorrect="off"
         name="MERGE0"
-        id="MERGE0"
         size="25"
         placeholder="example@domain.com"
       />
