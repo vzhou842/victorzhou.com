@@ -9,6 +9,7 @@ tags:
   - "Python"
   - "NLP"
 description: "Why existing libraries are uninspiring and how I built a better one."
+canonical: https://medium.com/@victorczhou/building-a-better-profanity-detection-library-with-scikit-learn-3638b2f2c4c2
 ---
 
 A few months ago, I needed a way to detect profanity in user-submitted text strings:

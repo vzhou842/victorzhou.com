@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
 import NavHeader from '../components/NavHeader';
@@ -12,14 +13,22 @@ const PostTemplate = ({ data }) => {
   } = data.site.siteMetadata;
 
   const {
+    canonical,
     title: postTitle,
-    description: postDescription
+    description: postDescription,
   } = data.markdownRemark.frontmatter;
 
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
 
   return (
     <div>
+      {
+        canonical && (
+          <Helmet>
+            <link rel="canonical" href={canonical} />
+          </Helmet>
+        )
+      }
       <NavHeader author={author} />
       <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
         <Post post={data.markdownRemark} />
@@ -50,6 +59,7 @@ export const query = graphql`
         tagSlugs
       }
       frontmatter {
+        canonical
         date
         description
         tags
