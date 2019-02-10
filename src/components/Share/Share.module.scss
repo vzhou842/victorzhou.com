@@ -1,0 +1,71 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+$color-facebook: #3b5998;
+$color-twitter: #1da1f2;
+$color-linkedin: #0077b5;
+$color-reddit: #ff4500;
+
+.share {
+  @include margin-top(1);
+
+  &-title {
+    margin: 0;
+    font-size: $typographic-base-font-size * 1;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    > * {
+      flex-basis: 25%;
+      flex-grow: 1;
+    }
+
+    button {
+      width: 100%;
+    }
+
+    button.facebook {
+      background-color: $color-facebook;
+
+      &:hover {
+        background-color: darken($color-facebook, 10%);
+      }
+    }
+
+    button.twitter {
+      background-color: $color-twitter;
+
+      &:hover {
+        background-color: darken($color-twitter, 10%);
+      }
+    }
+
+    button.linkedin {
+      background-color: $color-linkedin;
+
+      &:hover {
+        background-color: darken($color-linkedin, 10%);
+      }
+    }
+
+    button.reddit {
+      background-color: $color-reddit;
+
+      &:hover {
+        background-color: darken($color-reddit, 10%);
+      }
+    }
+  }
+}
+
+@include breakpoint-sm {
+  .share {
+    @include margin-top(1.5);
+  }
+}

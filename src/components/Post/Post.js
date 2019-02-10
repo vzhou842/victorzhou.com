@@ -7,6 +7,7 @@ import styles from './Post.module.scss';
 
 import Author from '../Author';
 import SubscribeForm from '../SubscribeForm';
+import Share from '../Share';
 
 const Post = ({ post }) => {
   const {
@@ -14,6 +15,7 @@ const Post = ({ post }) => {
     title,
     date,
     description,
+    slug,
   } = post.frontmatter;
 
   const { html } = post;
@@ -35,6 +37,7 @@ const Post = ({ post }) => {
         <div className={styles['post__authorContainer']}>
           <Author showBio />
         </div>
+        <Share url={slug} title={title} />
       </div>
 
       <div className={styles['post__comments']}>

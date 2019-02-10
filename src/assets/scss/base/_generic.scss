@@ -137,6 +137,21 @@ figcaption {
   text-align: center;
 }
 
+button {
+  border: none;
+  outline: none;
+  background-color: $color-primary;
+  color: white;
+  font-size: $typographic-base-font-size * 0.75;
+  font-weight: bold;
+  padding: 10px 20px;
+
+  &:hover {
+    background-color: $color-secondary;
+    cursor: pointer;
+  }
+}
+
 @include breakpoint-sm {
   figure.float-left,
   figure.float-right {
@@ -190,5 +205,10 @@ input {
 
   p {
     @include margin-bottom(1.125);
+  }
+
+  button {
+    font-size: $typographic-base-font-size * 0.9;
+    padding: 15px 30px;
   }
 }

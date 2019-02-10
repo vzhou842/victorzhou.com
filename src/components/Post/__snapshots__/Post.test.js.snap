@@ -123,6 +123,9 @@ exports[`Post renders correctly 1`] = `
         render={[Function]}
       />
     </div>
+    <StaticQuery
+      render={[Function]}
+    />
   </div>
   <div
     className="post__comments"

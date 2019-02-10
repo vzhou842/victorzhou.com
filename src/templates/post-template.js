@@ -57,6 +57,7 @@ export const query = graphql`
         date
         description
         img
+        slug
         tags
         title
       }
