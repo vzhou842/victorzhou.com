@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Share from './Share';
+import { Share } from './Share';
 
 describe('Share', () => {
   it('renders correctly', () => {
