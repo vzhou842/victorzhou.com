@@ -11,7 +11,7 @@
   }
 
   p {
-    font-size: $typographic-base-font-size * 0.8;
+    font-size: $typographic-base-font-size * 0.9;
     @include line-height(0.8);
   }
 
@@ -61,7 +61,7 @@
     @include margin-bottom(1);
 
     p {
-      font-size: $typographic-base-font-size * 1;
+      font-size: $typographic-base-font-size * 1.2;
       @include line-height(1.1);
     }
 
