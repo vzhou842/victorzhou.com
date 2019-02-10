@@ -8,7 +8,9 @@ img: "/media/xkcd-290.png"
 category: "Python"
 tags:
   - "Python"
-  - "NLP"
+  - "Natural Language Processing"
+  - "Machine Learning"
+  - "scikit-learn"
 description: "Why existing libraries are uninspiring and how I built a better one."
 canonical: https://medium.com/@victorczhou/building-a-better-profanity-detection-library-with-scikit-learn-3638b2f2c4c2
 ---
