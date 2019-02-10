@@ -75,24 +75,34 @@ One character fixes this code:
 })()
 ```
 
-Without that semicolon, the last function is interpreted as an argument to a function call. Here's a rewrite that demonstrates how the code is run without the semicolon:
+Without that semicolon, the last function is interpreted as an argument to a function call. Here's a rewrite that demonstrates what's going on when the code is run without the semicolon:
 
 ```javascript
-(function() {
-  const f1 = function() { console.log('Hello'); };
-  const f2 = function() { console.log('World!'); };
+const f1 = function() { console.log('Hello'); };
+const f2 = function() { console.log('World!'); };
 
-  f1()(f2)();
-})()
+f1()(f2)();
 ```
 
-There are 3 function invocations here:
+There are 3 function invocations in that last line:
 
 - `f1` is called with no arguments
 - The return value of `f1()` is called with `f2` as its only argument
 - The return value of `f1()(f2)` is called with no arguments
 
-Since calling `f1()` doesn't return a function, the runtime throws a `TypeError` during the second invocation.
+Since the return value of `f1()` is not a function, the runtime throws a `TypeError` during the second invocation.
+
+With the semicolon added, this becomes:
+
+```javascript
+const f1 = function() { console.log('Hello'); };
+const f2 = function() { console.log('World!'); };
+
+f1();(f2)(); // highlight-line
+```
+
+Which runs as expected.
+
 
 ## Wait, you had this bug once?
 
