@@ -23,13 +23,13 @@ const PostTemplate = ({ data }) => {
 
   return (
     <div>
-      <Helmet>
-        {canonical && <link rel="canonical" href={canonical} />}
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content={siteUrl + postImage} />
-      </Helmet>
       <NavHeader />
       <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
+        <Helmet>
+          {canonical && <link rel="canonical" href={canonical} />}
+          <meta property="og:type" content="article" />
+          <meta property="og:image" content={siteUrl + postImage} />
+        </Helmet>
         <Post post={data.markdownRemark} />
       </Layout>
     </div>
