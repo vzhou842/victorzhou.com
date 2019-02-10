@@ -97,6 +97,15 @@ exports[`Post renders correctly 1`] = `
         <li
           className="tags__list-item"
         >
+          <h4
+            className="tags__title"
+          >
+            Tags:
+          </h4>
+        </li>
+        <li
+          className="tags__list-item"
+        >
           <Link
             className="tags__list-item-link"
             to="/test_0"
