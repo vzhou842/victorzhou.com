@@ -8,9 +8,9 @@ import {
 } from 'react-share';
 import styles from './Share.module.scss';
 
-const PureShare = ({ title, url, twitter }) => (
+const PureShare = ({ title, url, shareText, twitter }) => (
   <div className={styles['share']}>
-    <h4 className={styles['share-title']}>SHARE THIS POST</h4>
+    <h4 className={styles['share-title']}>{shareText || 'SHARE THIS POST'}</h4>
     <div className={styles['share-buttons']}>
       <FacebookShareButton url={url} className="button is-outlined is-rounded facebook">
         <button className={styles['facebook']}>Facebook</button>
