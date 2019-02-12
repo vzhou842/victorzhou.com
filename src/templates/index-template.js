@@ -5,17 +5,12 @@ import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
-import SubscribeForm from '../components/SubscribeForm';
-import Contacts from '../components/Contacts';
-import Copyright from '../components/Copyright';
-import DisplayIf from '../components/DisplayIf';
+import MovableSidebarContent from '../components/MovableSidebarContent';
 
 const IndexTemplate = ({ data, pageContext }) => {
   const {
     title: siteTitle,
     subtitle: siteSubtitle,
-    author,
-    copyright,
   } = data.site.siteMetadata;
 
   const {
@@ -43,11 +38,7 @@ const IndexTemplate = ({ data, pageContext }) => {
           />
         </Page>
       </Layout>
-      <DisplayIf mobile>
-        <SubscribeForm />
-        <Contacts contacts={author.contacts} />
-        <Copyright copyright={copyright} />
-      </DisplayIf>
+      <MovableSidebarContent mobile />
     </div>
   );
 };
@@ -58,14 +49,6 @@ export const query = graphql`
       siteMetadata {
         title
         subtitle
-        copyright
-        author {
-          contacts {
-            twitter
-            github
-            email
-          }
-        }
       }
     }
     allMarkdownRemark(

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
+import MovableSidebarContent from '../components/MovableSidebarContent';
 
 const PageTemplate = ({ data }) => {
   const {
@@ -20,12 +21,15 @@ const PageTemplate = ({ data }) => {
   const metaDescription = pageDescription !== null ? pageDescription : siteSubtitle;
 
   return (
-    <Layout title={`${pageTitle} - ${siteTitle}`} description={metaDescription}>
-      <Sidebar />
-      <Page title={pageTitle}>
-        <div dangerouslySetInnerHTML={{ __html: pageBody }} />
-      </Page>
-    </Layout>
+    <div>
+      <Layout title={`${pageTitle} - ${siteTitle}`} description={metaDescription}>
+        <Sidebar />
+        <Page title={pageTitle}>
+          <div dangerouslySetInnerHTML={{ __html: pageBody }} />
+        </Page>
+      </Layout>
+      <MovableSidebarContent mobile />
+    </div>
   );
 };
 
