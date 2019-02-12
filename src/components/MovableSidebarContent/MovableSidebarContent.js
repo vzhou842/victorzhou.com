@@ -5,11 +5,11 @@ import Contacts from '../Contacts';
 import Copyright from '../Copyright';
 import DisplayIf from '../DisplayIf';
 
-export const PureMovableSidebarContent = ({ mobile, desktop, data }) => {
+export const PureMovableSidebarContent = ({ mobile, desktop, hideSubscribeForm, data }) => {
   const { author, copyright } = data.site.siteMetadata;
   return (
     <DisplayIf mobile={mobile} desktop={desktop}>
-      <SubscribeForm />
+      {!hideSubscribeForm && <SubscribeForm />}
       <Contacts contacts={author.contacts} />
       <Copyright copyright={copyright} />
     </DisplayIf>

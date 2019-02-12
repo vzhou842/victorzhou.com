@@ -5,7 +5,7 @@ import Menu from '../Menu';
 import MovableSidebarContent from '../MovableSidebarContent';
 import styles from './Sidebar.module.scss';
 
-export const PureSidebar = ({ data }) => {
+export const PureSidebar = ({ data, hideSubscribeForm }) => {
   const {
     author,
   } = data.site.siteMetadata;
@@ -15,7 +15,7 @@ export const PureSidebar = ({ data }) => {
       <div className={styles['sidebar__inner']}>
         <Author author={author} />
         <Menu />
-        <MovableSidebarContent desktop />
+        <MovableSidebarContent desktop hideSubscribeForm={hideSubscribeForm} />
       </div>
     </div>
   );
