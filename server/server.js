@@ -1,9 +1,26 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
+
+const PUBLIC_PATH = path.join(__dirname, '../public-live');
+const BLOG_DIR_PATH = path.join(PUBLIC_PATH, 'blog');
+
+// Read the /blog/ dir for posts
+const blogPostMap = {};
+fs.readdirSync(BLOG_DIR_PATH).forEach(post => {
+  blogPostMap[post] = true;
+});
 
 const app = express();
 
-const PUBLIC_PATH = path.join(__dirname, '../public-live');
+app.get('/blog/:post', (req, res, next) => {
+  const { post } = req.params;
+  if (blogPostMap[post]) {
+    res.sendFile(path.join(BLOG_DIR_PATH, post, 'index.html'));
+  } else {
+    next();
+  }
+});
 
 app.use(express.static(PUBLIC_PATH));
 
