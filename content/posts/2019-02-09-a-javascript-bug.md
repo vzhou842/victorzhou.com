@@ -3,7 +3,7 @@ title: Can You Find The Bug in This Code?
 date: "2019-02-09T12:00:00.000Z"
 template: "post"
 draft: false
-slug: "/blog/a-javascript-bug-i-had-once"
+slug: "/blog/a-javascript-bug-i-had-once/"
 img: "/media/laptop-code.jpg"
 category: "Javascript"
 tags:
