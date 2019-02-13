@@ -8,7 +8,7 @@
     "build": "npm run clean && gatsby build",
     "clean": "rimraf .cache public",
     "deploy": "./server/scripts/deploy.sh",
-    "lint:js": "eslint --cache --ext .js,.jsx --ignore-pattern public .",
+    "lint:js": "eslint --cache --ext .js,.jsx --ignore-pattern '/public/' --ignore-pattern '/public-live/' .",
     "lint:scss": "stylelint \"src/**/*.scss\"",
     "lint": "concurrently \"npm run lint:js\" \"npm run lint:scss\"",
     "start-server": "node server/server.js",
