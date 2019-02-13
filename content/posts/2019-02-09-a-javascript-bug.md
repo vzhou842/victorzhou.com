@@ -8,7 +8,8 @@ img: "/media/laptop-code.jpg"
 category: "Javascript"
 tags:
   - "Javascript"
-  - "Bugs"
+  - "Debugging"
+  - "Programming"
 description: "This is an actual bug I had once."
 ---
 
