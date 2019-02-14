@@ -99,7 +99,7 @@ This cut down my scripts section to just one include!
 <script src="/geoarena-bundle.min.js"></script>
 ```
 
-**Speed problem: fixed ✓.**
+**Speed problem: fixed** <span class="checkmark">✓</span>.
 
 ## Stage 3: Immediately Invoked Function Expressions ([IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)s)
 
@@ -163,7 +163,7 @@ I wrapped my entire bundle in an IIFE to avoid the global scope and then wrapped
 })();
 ```
 
-**Scoping problem: fixed ✓.**
+**Scoping problem: fixed** <span class="checkmark">✓</span>.
 
 However, this didn’t fix the Dependencies problem: I still had to manually order files to satisfy all dependencies. To make matters worse, I now also had to care about stuff like not using `playSingleplayer` before assigning it.
 

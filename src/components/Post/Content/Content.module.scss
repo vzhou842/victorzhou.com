@@ -13,21 +13,27 @@
 
   &__title {
     font-weight: 500;
-    font-size: $typographic-base-font-size * 1.6;
-    @include line-height(1.2);
-    @include margin-top(0.8);
+    font-size: $typographic-base-font-size * 2;
+    @include line-height(1.5);
+    @include margin-top(1);
   }
 
   &__subtitle {
     font-weight: normal;
     color: $typographic-light-font-color;
-    font-size: $typographic-base-font-size * 1.2;
-    @include line-height(0.9);
+    font-size: $typographic-base-font-size * 1.5;
+    @include line-height(1.125);
     @include margin-top(0.2);
-    @include margin-bottom(0.5);
+    @include margin-bottom(0.75);
   }
 
   &__body {
+    p, li {
+      font-size: $typographic-base-font-size * 1.125;
+      @include line-height(1.125);
+      @include margin-bottom(1);
+    }
+
     & > * {
       width: 100%;
       max-width: $layout-post-width;
@@ -53,7 +59,7 @@
     }
 
     code[class*='language-'] {
-      font-size: $typographic-base-font-size * 0.9;
+      font-size: $typographic-base-font-size * 1;
       color: $typographic-base-font-color;
       font-style: normal;
       padding: 3px 4px;
@@ -70,14 +76,14 @@
     }
 
     :global(.gatsby-highlight pre[class*='language-']) {
-      @include line-height(0.625);
+      @include line-height(0.8);
       @include padding-equal(0.5);
       padding-left: $layout-mobile-padding;
     }
 
     :global(.gatsby-highlight code[class*='language-']) {
       padding: 0;
-      font-size: $typographic-base-font-size * 0.8;
+      font-size: $typographic-base-font-size * 0.9;
     }
 
     // From https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
@@ -89,6 +95,11 @@
       padding-right: 1em;
       padding-left: 0.75em;
       border-left: 0.2em solid $color-primary;
+    }
+
+    :global(.checkmark) {
+      color: $color-secondary;
+      font-weight: bold;
     }
     // stylelint-enable
 
@@ -103,18 +114,6 @@
 
 @include breakpoint-sm {
   .content {
-    &__title {
-      font-size: $typographic-base-font-size * 2;
-      @include line-height(1.5);
-      @include margin-top(1);
-    }
-
-    &__subtitle {
-      font-size: $typographic-base-font-size * 1.5;
-      @include line-height(1.125);
-      @include margin-bottom(0.75);
-    }
-
     &__body {
       blockquote {
         margin: 0 auto;
@@ -131,12 +130,11 @@
 
       & :global(.gatsby-highlight pre[class*='language-']) {
         border-radius: 5px;
-        @include line-height(0.7);
         @include padding-equal(0.6);
       }
 
       & :global(.gatsby-highlight code[class*='language-']) {
-        font-size: $typographic-base-font-size * 0.9;
+        font-size: $typographic-base-font-size * 1;
       }
       // stylelint-enable
     }
@@ -160,18 +158,10 @@
     }
 
     &__body {
-      font-size: $typographic-base-font-size * 1.125;
-      @include line-height(1.125);
-      @include margin-bottom(1.125);
-
-      & p {
-        font-size: $typographic-base-font-size * 1.125;
-        @include line-height(1.125);
+      p, li {
+        font-size: $typographic-base-font-size * 1.25;
+        @include line-height(1.25);
         @include margin-bottom(1.125);
-      }
-
-      & blockquote > p {
-        font-size: inherit;
       }
     }
   }

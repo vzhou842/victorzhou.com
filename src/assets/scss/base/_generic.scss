@@ -18,12 +18,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: $typographic-font-family;
   font-weight: 600;
 }
@@ -101,12 +96,11 @@ a {
 
 }
 
-b,
-strong {
-  font-weight: 600;
+b, strong {
+  font-weight: bold;
 }
 
-ul {
+ul, ol {
   @include margin-bottom(1);
   @include padding-equal(0);
 
