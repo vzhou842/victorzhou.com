@@ -1,6 +1,6 @@
 ---
-title: Why Webpack? (or, How NOT to Serve Your Javascript)
-date: "2019-02-15T12:00:00.000Z"
+title: Why Webpack? (or, How Not to Serve Javascript)
+date: "2019-02-14T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/why-you-should-use-webpack/"
@@ -10,10 +10,10 @@ tags:
   - "Javascript"
   - "Web Dev"
   - "Best Practices"
-description: "An explanation based on firsthand experience of why you should definitely use a Javascript module bundler."
+description: "I learned this the hard way, but hopefully you don't have to."
 ---
 
-Back in early 2016, I started building an HTML5 web game called [GeoArena Online](https://geoarena.online). At the time, I was a moderately experienced programmer but was **_very_** new to web development. Having never heard of module bundlers before, I instead gradually evolved a series of my own approaches for serving Javascript on the web. This post explores the problems with those approaches and explains **why you should be using** [**Webpack**](https://webpack.js.org/) **instead**.
+Back in early 2016, I started building an HTML5 web game called [GeoArena Online](https://geoarena.online). At the time, I was **_very_** new to web development. Having never heard of module bundlers before, I instead homebrewed my own approaches for serving Javascript on the web. This post explores the problems with those methods and explains **why you should be using** [**Webpack**](https://webpack.js.org/) **instead**.
 
 > Note: I’m trying to encourage using module bundlers, **but not necessarily specifically Webpack** — there are other good bundlers out there like [Browserify](http://browserify.org/), [Rollup](https://rollupjs.org/guide/en), and [Parcel](https://parceljs.org/).
 
@@ -140,23 +140,23 @@ I wrapped my entire bundle in an IIFE to avoid the global scope and then wrapped
 
   // geoarena-constants.js
   (function() {
-    Constants = { /* blah blah */ };
-    // ... more code
+    Constants = {
+      version: "1.0.0",
+      // ... more constants
+    };
   })();
 
   // geoarena-menu.js
   (function() {
-    playSingleplayer = function(/* params */) {
+    playSingleplayer = function() {
       // code
     };
-    // ... more code
   })();
 
   // another file
   (function() {
     // Now I can call playSingleplayer()!
-    playSingleplayer(/* params */);
-    // ... more code
+    playSingleplayer();
   })();
 
   // ... more files
@@ -167,13 +167,11 @@ I wrapped my entire bundle in an IIFE to avoid the global scope and then wrapped
 
 However, this didn’t fix the Dependencies problem: I still had to manually order files to satisfy all dependencies. To make matters worse, I now also had to care about stuff like not using `playSingleplayer` before assigning it.
 
-> One of the more interesting bugs I’ve fixed in my time was a result of this IIFE bundling — [**want to see if you can spot it**](https://victorzhou.com/blog/a-javascript-bug-i-had-once/)?
+> One of the most interesting bugs I’ve fixed in my time was caused by these IIFEs - <a href="/blog/a-javascript-bug-i-had-once/" target="_blank"><strong>want to see if you can spot it</strong></a>?
 
 ## Stage 4: Webpack
 
-2 years after starting work on GeoArena, I finally took the plunge and rewrote my entire codebase to use Webpack. 🎉🎉
-
-<span class="emph-special">This rewrite will take forever</span>, I grumbled. <span class="emph-special">If only there had been a blog post explaining why I should use Webpack...</span>
+2 years after starting work on GeoArena, I finally decided to rewrite my entire codebase to use Webpack. <span class="emph-special">This will take forever</span>, I grumbled. <span class="emph-special">If only I'd read a blog post explaining why I should use Webpack...</span>
 
 Here’s an example of what Webpack lets you do:
 
@@ -195,16 +193,16 @@ Each file is a **module** that declares its dependencies through `require()`s an
 $ webpack
 ```
 
-and Webpack will generate a minified bundle that satisfies the dependencies of each module. In other words, **Webpack fixes the Dependencies problem**. Dependencies are explicitly declared, and there’s no more need to manually maintain ordering.
+and Webpack will generate a bundle that satisfies the dependencies of each module. In other words, **Webpack fixes the Dependencies problem**. There’s no more need to manually maintain ordering, and dependencies are explicitly declared.
 
-> Webpack and most of its alternatives actually do a lot more than just simple Javascript module bundling, but that’s outside the scope of this post. Check out the [Webpack docs](https://webpack.js.org/concepts/) to learn more.
+> Webpack and most of its alternatives actually do a lot more than just simple module bundling, but that’s outside the scope of this post. Check out the [Webpack docs](https://webpack.js.org/concepts/) to learn more.
 
 ## Recap
 
-In the beginning, I just included `<script>` tags for every Javascript file I had. This led to the **Speed Problem**: loading that many files is too slow.
+1. In the beginning, I just included `<script>` tags for every Javascript file I had. This led to the **Speed Problem**: loading that many files is too slow.
 
-To fix that, I used a build tool to concatenate Javascript files into one big bundle so I’d only need one`<script>` tag. Then there was the **Scoping Problem**: all of that code was run in the global scope, leading to name collisions.
+2. To fix that, I used a build tool to concatenate Javascript files into one big bundle so I’d only need one `<script>` tag. Then there was the **Scoping Problem**: all of that code was run in the global scope, leading to name collisions.
 
-I fixed that by wrapping each file in an IIFE to keep its scope local. However, I still had the **Dependencies Problem**: dependencies weren’t explicitly declared, yet the ordering of files had to satisfy dependency requirements.
+3. I fixed that by wrapping each file in an IIFE to keep its scope local. However, I still had the **Dependencies Problem**: dependencies weren’t explicitly declared, yet the ordering of files had to satisfy dependency requirements.
 
 **Using a module bundler solves all of these problems!**
