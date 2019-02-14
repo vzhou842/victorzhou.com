@@ -110,6 +110,11 @@
       color: $color-secondary;
       font-weight: bold;
     }
+
+    :global(.emph-special) {
+      color: darken($color-secondary, 8%);
+      font-style: italic;
+    }
     // stylelint-enable
 
     & img {

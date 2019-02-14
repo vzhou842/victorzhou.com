@@ -1,5 +1,5 @@
 ---
-title: Why Webpack? (or, How Not to Serve Your Javascript)
+title: Why Webpack? (or, How NOT to Serve Your Javascript)
 date: "2019-02-15T12:00:00.000Z"
 template: "post"
 draft: false
@@ -28,7 +28,7 @@ In the very beginning, I separated my client Javascript into a few files and inc
 <script src="/js/geoarena-game.js"></script>
 ```
 
-_This works great!_, I thought. _I’ll just put my networking code in `geoarena-networking.js` and everything else in `geoarena-game.js`_.
+<span class="emph-special">This works great!</span>, I thought. <span class="emph-special">I’ll just put my networking code in `geoarena-networking.js` and everything else in `geoarena-game.js`</span>.
 
 As it turns out, splitting the code for an entire web game into only two files doesn’t actually work 🤷. Here’s that same scripts section one week later:
 
@@ -62,7 +62,7 @@ Count them. That’s **22** script includes. 😬😬
 There are several big problems with this approach:
 
 1.  **Speed.** Requesting this many scripts was a major network bottleneck, and as a result my site took a long time to load. [Web performance matters](https://developers.google.com/web/fundamentals/performance/why-performance-matters/) — its importance has long been well-known and documented. What seems more efficient to you: downloading 1000 lines of code 10 lines at a time, or downloading 1000 lines of code all at once?
-2.  **Scoping.** Each file ran in the same [global scope](https://developer.mozilla.org/en-US/docs/Glossary/global_scope), so any variable I declared was available on the [global window object](https://developer.mozilla.org/en-US/docs/Glossary/Global_object). That meant _anything I declared had to have a unique name_— otherwise, there’d be a collision! Can you see how that’s problematic? More code = More variables = More _Wait, have I already used this name before?_
+2.  **Scoping.** Each file ran in the same [global scope](https://developer.mozilla.org/en-US/docs/Glossary/global_scope), so any variable I declared was available on the [global window object](https://developer.mozilla.org/en-US/docs/Glossary/Global_object). That meant _anything I declared had to have a unique name_— otherwise, there’d be a collision! Can you see how that’s problematic? More code = More variables = More <span class="emph-special">Wait, have I already used this name before?</span>
 3.  **Dependencies**. I had to manually maintain an ordering of `<script>` includes that satisfied my dependencies. For example, `geoarena-networking.js` depended on `socket.io`, so I had to ensure the `socket.io` include appeared above the `geoarena-networking.js` include. Dependencies weren’t explicitly declared anywhere, yet my `<script>` ordering had to satisfy all of them.
 
 ## Stage 2: One biiiig script
@@ -173,6 +173,8 @@ However, this didn’t fix the Dependencies problem: I still had to manually ord
 
 2 years after starting work on GeoArena, I finally took the plunge and rewrote my entire codebase to use Webpack. 🎉🎉
 
+<span class="emph-special">This rewrite will take forever</span>, I grumbled. <span class="emph-special">If only there had been a blog post explaining why I should use Webpack...</span>
+
 Here’s an example of what Webpack lets you do:
 
 ```javascript
@@ -187,7 +189,7 @@ const Constants = require('./Constants');
 console.log('GeoArena Version ' + Constants.version);
 ```
 
-Each file is a **module** that declares its dependencies through `require()` calls and can export variables for use in other modules. All you have to do is run
+Each file is a **module** that declares its dependencies through `require()`s and can export variables for use in other modules. All you have to do is run
 
 ```bash
 $ webpack
