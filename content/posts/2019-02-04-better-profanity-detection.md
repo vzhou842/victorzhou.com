@@ -30,7 +30,7 @@ Of course, before I did that, I looked in the [Python Package Index](https://pyp
 
 Third-party libraries can sometimes be sketchy, though, so I did my due diligence on these 4 results.
 
-### profanity, better-profanity, and profanityfilter
+## profanity, better-profanity, and profanityfilter
 
 After a quick dig through the `profanity` repository, I found a file named [wordlist.txt](https://github.com/ben174/profanity/blob/master/profanity/data/wordlist.txt):
 
@@ -53,7 +53,7 @@ This is bad because **profanity detection libraries based on wordlists are extre
 
 Having already ruled out 3 libraries, I put my hopes on the 4th and final one: `profanity-filter`.
 
-### profanity-filter
+## profanity-filter
 
 `profanity-filter` uses Machine Learning! Sweet!
 
@@ -69,7 +69,7 @@ Nope.
 
 None of the libraries I’d found on PyPI met my needs, so I built my own.
 
-### Building profanity-check, Part 1: Data
+## Building profanity-check, Part 1: Data
 
 I knew that I wanted `profanity-check` to base its classifications on data to avoid being subjective _(read: to be able to say I used Machine Learning)_. I put together a combined dataset from two publicly-available sources:
 
@@ -86,7 +86,7 @@ Here’s what my dataset ended up looking like:
 
 > The Wikipedia dataset has several binary columns (e.g. `toxic` or `threat`) that represent whether or not that text contains that type of toxicity. I classified any text that contained _any_ of the types of toxicity as “Offensive” and all other texts as “Not Offensive.”
 
-### Building profanity-check, Part 2: Training
+## Building profanity-check, Part 2: Training
 
 Now armed with a cleaned, combined dataset (which you can [download here](https://github.com/vzhou842/profanity-check/blob/master/profanity_check/data/clean_data.csv)), I was ready to train the model!
 
@@ -124,7 +124,7 @@ joblib.dump(cclf, 'model.joblib')
 
 Two major steps are happening here: (1) vectorization and (2) training.
 
-#### Vectorization: Bag of Words
+### Vectorization: Bag of Words
 
 I used `scikit-learn`'s [CountVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html) class, which basically turns any text string into a vector by counting how many times each given word appears. This is known as a [Bag of Words](https://en.wikipedia.org/wiki/Bag-of-words_model) (BOW) representation. For example, if the only words in the English language were `the`, `cat`, `sat`, and `hat`, a possible vectorization of the sentence `the cat sat in the hat` might be:
 
@@ -139,7 +139,7 @@ Of course, there are far more words in the English language, so in the code abov
 *   **Fit:** learns a vocabulary by looking at all words that appear in the dataset.
 *   **Transform**: turns each text string in the dataset into its vector form.
 
-#### Training: Linear SVM
+### Training: Linear SVM
 
 The model I decided to use was a Linear Support Vector Machine (SVM), which is implemented by `scikit-learn`'s [LinearSVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html) class. [This post](https://medium.com/machine-learning-101/chapter-2-svm-support-vector-machine-theory-f0812effc72) and [this tutorial](https://www.svm-tutorial.com/2014/11/svm-understanding-math-part-1/) are good introductions if you don’t know what SVMs are.
 
@@ -149,11 +149,11 @@ Here’s one (simplified) way you could think about why the Linear SVM works: du
 
 A Linear SVM combines the best aspects of the other profanity detection libraries I found: it’s fast enough to run in real-time yet robust enough to handle many different kinds of profanity.
 
-### Caveats
+## Caveats
 
 That being said, `profanity-check` is far from perfect. Let me be clear: take predictions from `profanity-check` with a grain of salt because **it makes mistakes.** For example, its not good at picking up less common variants of profanities like “f4ck you” or “you b1tch” because they don’t appear often enough in the training data. You’ll never be able to detect _all_ profanity (people will come up with new ways to evade filters), but `profanity-check` does a good job at finding most.
 
-### profanity-check
+## profanity-check
 
 `profanity-check` is open source and available on PyPI! To use it, simply
 
