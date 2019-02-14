@@ -41,21 +41,30 @@
       margin-right: auto;
     }
 
-    & blockquote {
+    a {
+      text-decoration: underline
+    }
+
+    blockquote {
       border-left: 2px solid $color-gray;
       margin: 0;
       margin-left: -$layout-mobile-padding;
       padding: 0 0 0 23px;
       font-style: italic;
       font-size: $typographic-base-font-size;
+      font-weight: 300;
+
+      strong {
+        font-weight: 600;
+      }
+
+      a {
+        font-weight: normal;
+      }
     }
 
     & figure {
       @include margin-bottom(1.5);
-    }
-
-    & a {
-      text-decoration: underline
     }
 
     code[class*='language-'] {
