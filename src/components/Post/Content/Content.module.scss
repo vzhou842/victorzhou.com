@@ -31,6 +31,9 @@
     p, li {
       font-size: $typographic-base-font-size * 1.125;
       @include line-height(1.125);
+    }
+
+    p {
       @include margin-bottom(1);
     }
 
@@ -175,6 +178,9 @@
       p, li {
         font-size: $typographic-base-font-size * 1.25;
         @include line-height(1.25);
+      }
+
+      p {
         @include margin-bottom(1.125);
       }
     }
