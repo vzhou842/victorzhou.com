@@ -134,7 +134,7 @@ The `???` represents any unknown word, which for this sentence is `in`. Any sen
 
 ![A handy reference table for the next time you need to vectorize “cat cat cat cat cat”](https://cdn-images-1.medium.com/max/1600/1*-wONWZDab2gNQP3Rfdpt_A.png)
 
-Of course, there are far more words in the English language, so in the code above I use the `fit_transform()` method, which does 2 things:
+Of course, there are far more words in the English language, so in the code above I use the `python›fit_transform()` method, which does 2 things:
 
 *   **Fit:** learns a vocabulary by looking at all words that appear in the dataset.
 *   **Transform**: turns each text string in the dataset into its vector form.
@@ -143,7 +143,7 @@ Of course, there are far more words in the English language, so in the code abov
 
 The model I decided to use was a Linear Support Vector Machine (SVM), which is implemented by `scikit-learn`'s [LinearSVC](https://scikit-learn.org/stable/modules/generated/sklearn.svm.LinearSVC.html) class. [This post](https://medium.com/machine-learning-101/chapter-2-svm-support-vector-machine-theory-f0812effc72) and [this tutorial](https://www.svm-tutorial.com/2014/11/svm-understanding-math-part-1/) are good introductions if you don’t know what SVMs are.
 
-> The [CalibratedClassifierCV](https://scikit-learn.org/stable/modules/generated/sklearn.calibration.CalibratedClassifierCV.html) in the code above exists as a wrapper to give me the `predict_proba()` method, which returns a probability for each class instead of just a classification. You can pretty much just ignore it if that last sentence made no sense to you, though.
+> The [CalibratedClassifierCV](https://scikit-learn.org/stable/modules/generated/sklearn.calibration.CalibratedClassifierCV.html) in the code above exists as a wrapper to give me the `python›predict_proba()` method, which returns a probability for each class instead of just a classification. You can pretty much just ignore it if that last sentence made no sense to you, though.
 
 Here’s one (simplified) way you could think about why the Linear SVM works: during the training process, the model learns which words are “bad” and how “bad” they are because those words appear more often in offensive texts. **It’s as if the training process is picking out the “bad” words for me**, which is much better than using a wordlist I write myself!
 

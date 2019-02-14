@@ -107,8 +107,13 @@ module.exports = {
               rel: 'noopener noreferrer',
             },
           },
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              inlineCodeMarker: '›',
+            },
+          },
           'gatsby-remark-figure-caption',
-          'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants'
         ]

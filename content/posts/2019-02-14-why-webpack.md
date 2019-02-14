@@ -19,7 +19,7 @@ Back in early 2016, I started building an HTML5 web game called [GeoArena Online
 
 ## Stage 1: One file = One script
 
-In the very beginning, I separated my client Javascript into a few files and included all of them in my HTML with `<script>` tags. Here’s how the scripts section in my `index.html` looked on Day 1 of building GeoArena:
+In the very beginning, I separated my client Javascript into a few files and included all of them in my HTML with `html›<script>` tags. Here’s how the scripts section in my `index.html` looked on Day 1 of building GeoArena:
 
 ```html
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
@@ -63,7 +63,7 @@ There are several big problems with this approach:
 
 1.  **Speed.** Requesting this many scripts was a major network bottleneck, and as a result my site took a long time to load. [Web performance matters](https://developers.google.com/web/fundamentals/performance/why-performance-matters/) — its importance has long been well-known and documented. What seems more efficient to you: downloading 1000 lines of code 10 lines at a time, or downloading 1000 lines of code all at once?
 2.  **Scoping.** Each file ran in the same [global scope](https://developer.mozilla.org/en-US/docs/Glossary/global_scope), so any variable I declared was available on the [global window object](https://developer.mozilla.org/en-US/docs/Glossary/Global_object). That meant _anything I declared had to have a unique name_— otherwise, there’d be a collision! Can you see how that’s problematic? More code = More variables = More <span class="emph-special">Wait, have I already used this name before?</span>
-3.  **Dependencies**. I had to manually maintain an ordering of `<script>` includes that satisfied my dependencies. For example, `geoarena-networking.js` depended on `socket.io`, so I had to ensure the `socket.io` include appeared above the `geoarena-networking.js` include. Dependencies weren’t explicitly declared anywhere, yet my `<script>` ordering had to satisfy all of them.
+3.  **Dependencies**. I had to manually maintain an ordering of `html›<script>` includes that satisfied my dependencies. For example, `geoarena-networking.js` depended on `socket.io`, so I had to ensure the `socket.io` include appeared above the `geoarena-networking.js` include. Dependencies weren’t explicitly declared anywhere, yet my `html›<script>` ordering had to satisfy all of them.
 
 ## Stage 2: One biiiig script
 
@@ -187,7 +187,7 @@ const Constants = require('./Constants');
 console.log('GeoArena Version ' + Constants.version);
 ```
 
-Each file is a **module** that declares its dependencies through `require()`s and can export variables for use in other modules. All you have to do is run
+Each file is a **module** that declares its dependencies through `javascript›require()`s and can export variables for use in other modules. All you have to do is run
 
 ```bash
 $ webpack
@@ -199,9 +199,9 @@ and Webpack will generate a bundle that satisfies the dependencies of each modul
 
 ## Recap
 
-1. In the beginning, I just included `<script>` tags for every Javascript file I had. This led to the **Speed Problem**: loading that many files is too slow.
+1. In the beginning, I just included `html›<script>` tags for every Javascript file I had. This led to the **Speed Problem**: loading that many files is too slow.
 
-2. To fix that, I used a build tool to concatenate Javascript files into one big bundle so I’d only need one `<script>` tag. Then there was the **Scoping Problem**: all of that code was run in the global scope, leading to name collisions.
+2. To fix that, I used a build tool to concatenate Javascript files into one big bundle so I’d only need one `html›<script>` tag. Then there was the **Scoping Problem**: all of that code was run in the global scope, leading to name collisions.
 
 3. I fixed that by wrapping each file in an IIFE to keep its scope local. However, I still had the **Dependencies Problem**: dependencies weren’t explicitly declared, yet the ordering of files had to satisfy dependency requirements.
 
