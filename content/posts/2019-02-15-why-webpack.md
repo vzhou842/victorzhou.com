@@ -1,6 +1,6 @@
 ---
 title: Why Webpack? (or, How Not to Serve Javascript)
-date: "2019-02-14T12:00:00.000Z"
+date: "2019-02-15T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/why-you-should-use-webpack/"
@@ -13,9 +13,11 @@ tags:
 description: "I learned this the hard way, but hopefully you don't have to."
 ---
 
-Back in early 2016, I started building an HTML5 web game called [GeoArena Online](https://geoarena.online). At the time, I was **_very_** new to web development. Having never heard of module bundlers before, I instead homebrewed my own approaches for serving Javascript on the web. This post explores the problems with those methods and explains **why you should be using** [**Webpack**](https://webpack.js.org/) **instead**.
+Back in early 2016, I began building a web game called [GeoArena](https://geoarena.online). Looking back, **my biggest regret is not using Webpack from the beginning**.
 
-> Note: I’m trying to encourage using module bundlers, **but not necessarily specifically Webpack** — there are other good bundlers out there like [Browserify](http://browserify.org/), [Rollup](https://rollupjs.org/guide/en), and [Parcel](https://parceljs.org/).
+When I started GeoArena, I was _very_ new to web development. Having never heard of module bundlers before, I instead homebrewed my own approaches for serving Javascript on the web. This post explores the problems with those methods and explains **why you should be using** [**Webpack**](https://webpack.js.org/) **instead**.
+
+> Note: I’m trying to encourage the use of module bundlers, **but not necessarily specifically Webpack** — there are other good bundlers out there like [Browserify](http://browserify.org/), [Rollup](https://rollupjs.org/guide/en), and [Parcel](https://parceljs.org/).
 
 ## Stage 1: One file = One script
 
