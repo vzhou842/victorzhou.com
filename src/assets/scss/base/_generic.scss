@@ -87,13 +87,11 @@ hr {
 a {
   color: $typographic-link-p-font-color;
   text-decoration: none;
+  @include transition(color);
 
-  &:hover,
-  &:focus,
-  &:active {
+  &:hover, &:focus, &:active {
     color: $typographic-link-s-font-color;
   }
-
 }
 
 b, strong {
@@ -139,6 +137,7 @@ button {
   font-size: $typographic-base-font-size * 0.75;
   font-weight: bold;
   padding: 10px 20px;
+  @include transition(background-color);
 
   &:hover {
     background-color: $color-secondary;

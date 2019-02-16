@@ -25,6 +25,7 @@
     font-size: $typographic-base-font-size * 0.9;
     background-color: transparent;
     @include margin-top(0.1);
+    @include transition(border-bottom-color);
 
     &:hover, &:focus {
       border-bottom: 1px solid $color-primary;
@@ -42,6 +43,7 @@
     margin: 0 auto;
     padding: 10px 30px;
     @include margin-top(0.3);
+    @include transition(background-color);
 
     &:hover {
       background-color: $color-secondary;
