@@ -25,13 +25,10 @@
     &-link {
       color: $color-base;
 
-      &:hover,
-      &:focus {
-        color: $color-base
+      &:hover, &:focus {
+        color: $color-base;
       }
-
     }
-
   }
 
   &__subtitle {
