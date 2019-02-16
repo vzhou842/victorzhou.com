@@ -114,6 +114,8 @@ Yup.
 
 It's a long story, but I'll make a post soon explaining how I wrote bad enough code to have this bug. [Subscribe](http://eepurl.com/gf8JCX) (no spam, for real) if you want to get notified when it's published!
 
+**UPDATE:** I followed through and made <a href="/blog/why-you-should-use-webpack/" target="_blank">that post</a>.
+
 ## The Lesson
 
 **Always use semicolons**. This specific case was a bit contrived, but something similar could happen to you. Here's another Hello World program that fails for a related reason:
