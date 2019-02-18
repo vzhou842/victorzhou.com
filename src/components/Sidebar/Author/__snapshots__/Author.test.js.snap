@@ -29,8 +29,11 @@ exports[`Author renders correctly 1`] = `
   </div>
   <p
     className="author__subtitle"
-  >
-    test
-  </p>
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "test",
+      }
+    }
+  />
 </div>
 `;

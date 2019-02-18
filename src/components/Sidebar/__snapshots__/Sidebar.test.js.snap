@@ -35,9 +35,12 @@ exports[`Sidebar renders correctly 1`] = `
       </div>
       <p
         className="author__subtitle"
-      >
-        bio
-      </p>
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "bio",
+          }
+        }
+      />
     </div>
     <StaticQuery
       render={[Function]}

@@ -20,7 +20,7 @@ export const PureAuthor = ({ author, showBio }) => {
           <h4 className={styles['author__header-right-name']}>
             <Link className={styles['author__header-right-name-link']} to="/">{author.name}</Link>
           </h4>
-          {showBio && <p className={styles['author__header-right-bio']}>{author.bio}</p>}
+          {showBio && <p className={styles['author__header-right-bio']} dangerouslySetInnerHTML={{ __html: author.bio }} />}
         </div>
       </div>
     </div>
