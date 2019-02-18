@@ -8,7 +8,7 @@ img: "/media/webpack.png"
 category: "Javascript"
 tags:
   - "Javascript"
-  - "Web Dev"
+  - "Web Development"
   - "Best Practices"
 description: "I learned this the hard way, but hopefully you don't have to."
 ---
