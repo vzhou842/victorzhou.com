@@ -8,9 +8,20 @@ const app = express();
 app.use(express.static(PUBLIC_PATH));
 
 // Route legacy paths
-app.use(['/contact', '/projects', '/projects/web', '/projects/iOS', '/projects/Android'], (req, res) => {
-  res.redirect(301, '/about/');
-});
+app.use(
+  [
+    '/contact',
+    '/contact.html',
+    '/projects',
+    '/projects/web',
+    '/projects/iOS',
+    '/projects/Android',
+    '/presskits',
+  ],
+  (req, res) => {
+    res.redirect(301, '/about/');
+  },
+);
 app.use(['/blog', '/cloak'], (req, res) => {
   res.redirect(301, '/');
 });
