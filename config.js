@@ -3,7 +3,7 @@
 module.exports = {
   url: 'https://victorzhou.com',
   title: 'victorzhou.com',
-  subtitle: 'CS @ Princeton University. SWE @ Facebook starting August 2019.',
+  subtitle: 'Computer Science at Princeton University. I blog about web development, machine learning, programming, and more.',
   copyright: '© Victor Zhou 2019',
   disqusShortname: 'victorzhou',
   postsPerPage: 4,
@@ -22,7 +22,7 @@ module.exports = {
     name: 'Victor Zhou',
     photo: '/photo.png',
     photoLarge: '/photo-large.png',
-    bio: 'CS @ Princeton University. SWE @ Facebook starting August 2019.',
+    bio: 'Computer Science at Princeton University. I blog about web development, machine learning, programming, and more.',
     contacts: {
       email: 'vzhou842@gmail.com',
       twitter: 'victorczhou',
