@@ -41,7 +41,7 @@ const Post = ({ post }) => {
       </div>
 
       <div className={styles['post__comments']}>
-        <Comments postSlug={post.fields.slug} postTitle={post.frontmatter.title} />
+        <Comments postSlug={slug} postTitle={post.frontmatter.title} />
       </div>
     </div>
   );
