@@ -5,10 +5,10 @@ template: "post"
 draft: false
 slug: "/blog/why-you-should-use-webpack/"
 img: "/media/webpack.png"
-category: "Javascript"
+category: "Web Development"
 tags:
-  - "Javascript"
   - "Web Development"
+  - "Javascript"
   - "Best Practices"
 description: "I learned this the hard way, but hopefully you don't have to."
 ---
