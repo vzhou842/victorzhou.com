@@ -47,7 +47,7 @@ Here's a side-by-side comparison of the original image and a smaller version of 
   Both images above are being displayed at a resolution of 232 x 130.
 </figcaption>
 
-Can you tell the difference between them without zooming in? I can't. The original image is 213 kB, but the resized one is only 66 kB. That's a savings of **147 kB**, or **69%**! This is especially impactful given the image's prominent location on the weather.com homepage.
+Can you tell the difference between them without zooming in? I can't. The original image is 213 kB, but the resized one is only 66 kB. That's a savings of **147 kB**, or **69%**! The resized image is over **3x smaller**. This is especially impactful given the image's prominent location on the weather.com homepage.
 
 >Note: I resize to 464 x 260 instead of 232 x 130 to [support Retina displays](https://www.danrodney.com/blog/retina-web-graphics-explained-1x-versus-2x-low-res-versus-hi-res/).
 
@@ -59,11 +59,11 @@ Here's another instance of the same issue on weather.com:
 
 <div class="spacing"></div>
 
-The <a href="/media/image-sizing-post/clouds-big.jpg" target="_blank">original image</a> is 2600 x 1733, but it's used as the `css›background-image:` for a `html›<div>` that's only 595 x 350:
+The <a href="/media/image-sizing-post/clouds-big.jpg" target="_blank">original image</a> is 2600 x 1733, but it's used as the `css›background-image:` for a `html›<div>` that's much smaller:
 
 ![](/media/image-sizing-post/clouds-inspected.png)
 
-That means only 595 x 350 (or 1190 x 700 on Retina displays) of the original image is being used, so the rest could just be cropped out. Even on a Retina display, **82%** of the original image goes unused.
+Only 595 x 350 (or 1190 x 700 on Retina displays) of the original image is visible, so the rest could just be cropped out. Even on a Retina display, **82%** of the original image goes unused.
 
 <style>
   .clouds-image {
@@ -91,20 +91,22 @@ That means only 595 x 350 (or 1190 x 700 on Retina displays) of the original ima
   <div class="inline-image-wrapper" style="margin-bottom: 20px;">
     <div class="clouds-image" style="background-image: url(/media/image-sizing-post/clouds-big.jpg);">
       <h3 style="color: white;">Example Weather Channel Popup</h3>
-      <p style="color: white;">Please turn off your ad blocker so our site can load even slower than it already does. Thank you for your cooperation.</p>
+      <p style="color: white;">Please turn off your ad blocker so our site can load even slower than it already does. Thank you for suffering through our poor page performance.</p>
     </div>
     <figcaption>Original (2600 x 1733)</figcaption>
   </div>
   <div class="inline-image-wrapper">
     <div class="clouds-image" style="background-image: url(/media/image-sizing-post/clouds-cropped.jpg);">
       <h3 style="color: white;">Example Weather Channel Popup</h3>
-      <p style="color: white;">Please turn off your ad blocker so our site can load even slower than it already does. Thank you for your cooperation.</p>
+      <p style="color: white;">Please turn off your ad blocker so our site can load even slower than it already does. Thank you for suffering through our poor page performance.</p>
     </div>
     <figcaption>Cropped (1190 x 700)</figcaption>
   </div>
 </div>
 
-The original image is 779 kB, but the cropped one is only 173 kB - that's a savings of **606 kB**, or **78%**!
+The original image is 779 kB, but the cropped one is only 173 kB. That's a savings of **606 kB**, or **78%**! The cropped image is **4.5x smaller**.
+
+The lesson: **serve images at the size they're actually rendered at**. Images that are too large look the same but slow down page loads and waste bandwidth.
 
 Want to learn more? Read [Google's recommendations](https://developers.google.com/web/tools/lighthouse/audits/oversized-images) on properly sizing images.
 
