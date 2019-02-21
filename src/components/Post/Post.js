@@ -13,6 +13,7 @@ const Post = ({ post }) => {
   const {
     tags,
     title,
+    disqusIdentifier,
     date,
     description,
     slug,
@@ -41,7 +42,7 @@ const Post = ({ post }) => {
       </div>
 
       <div className={styles['post__comments']}>
-        <Comments postSlug={slug} postTitle={post.frontmatter.title} />
+        <Comments postSlug={slug} postTitle={title} identifier={disqusIdentifier} />
       </div>
     </div>
   );

@@ -54,6 +54,7 @@ export const query = graphql`
       }
       frontmatter {
         canonical
+        disqusIdentifier
         date
         description
         img

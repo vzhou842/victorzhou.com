@@ -19,7 +19,7 @@ export class CommentsContainer extends React.PureComponent {
   };
 
   render() {
-    const { data, postTitle, postSlug } = this.props;
+    const { data, postTitle, postSlug, identifier } = this.props;
     const {
       url,
       disqusShortname
@@ -32,7 +32,7 @@ export class CommentsContainer extends React.PureComponent {
     return (
       <ReactDisqusComments
         shortname={disqusShortname}
-        identifier={postTitle}
+        identifier={identifier || postTitle}
         title={postTitle}
         url={url + postSlug}
       />

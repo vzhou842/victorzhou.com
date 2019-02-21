@@ -1,5 +1,6 @@
 ---
 title: Properly Size Images for the Web
+disqusIdentifier: Properly Size Images
 date: "2019-02-22T12:00:00.000Z"
 template: "post"
 draft: false
