@@ -123,9 +123,9 @@ figure {
 figcaption {
   @include line-height(.75);
   @include margin-top(.25);
+  @include margin-bottom(.25);
   color: $color-base;
   font-size: $typographic-small-font-size;
-  margin-bottom: 0;
   text-align: center;
 }
 
