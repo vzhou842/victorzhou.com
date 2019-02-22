@@ -106,6 +106,9 @@ Only 595 x 350 (or 1190 x 700 on Retina displays) of the original image is visib
 
 The original image is 779 kB, but the cropped one is only 173 kB. That's a savings of **606 kB**, or **78%**! The cropped image is **4.5x smaller**.
 
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/weatherchannel?ref_src=twsrc%5Etfw">@weatherchannel</a> make sure to properly size images on <a href="https://t.co/lhrWBk1DCZ">https://t.co/lhrWBk1DCZ</a> so the site loads faster! <a href="https://t.co/VFqgPwEZYp">https://t.co/VFqgPwEZYp</a></p>&mdash; Victor Zhou (@victorczhou) <a href="https://twitter.com/victorczhou/status/1098966369532555264?ref_src=twsrc%5Etfw">February 22, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 The lesson: **serve images at the size they're actually rendered at**. Images that are too large look the same but slow down page loads and waste bandwidth.
 
 Want to learn more? Read [Google's recommendations](https://developers.google.com/web/tools/lighthouse/audits/oversized-images) on properly sizing images.
