@@ -11,6 +11,8 @@ tags:
   - "Javascript"
   - "Best Practices"
 description: "I learned this the hard way, but hopefully you don't have to."
+prev: "/blog/a-javascript-bug-i-had-once/"
+next: "/blog/properly-size-images/"
 ---
 
 Back in early 2016, I began building a web game called [GeoArena](https://geoarena.online). Looking back, **my biggest regret is not using Webpack from the beginning**.

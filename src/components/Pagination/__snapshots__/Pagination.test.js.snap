@@ -2,7 +2,7 @@
 
 exports[`Pagination renders correctly 1`] = `
 <div
-  className="pagination"
+  className="pagination "
 >
   <div
     className="pagination__prev"

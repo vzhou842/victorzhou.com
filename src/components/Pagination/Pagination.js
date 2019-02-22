@@ -7,10 +7,11 @@ import styles from './Pagination.module.scss';
 const cx = classNames.bind(styles);
 
 const Pagination = ({
+  classes,
   prevPagePath,
   nextPagePath,
   hasNextPage,
-  hasPrevPage
+  hasPrevPage,
 }) => {
   if (!hasNextPage && !hasPrevPage) {
     return null;
@@ -27,7 +28,7 @@ const Pagination = ({
   });
 
   return (
-    <div className={styles['pagination']}>
+    <div className={`${styles['pagination']} ${classes || ''}`}>
       <div className={styles['pagination__prev']}>
         <Link rel="prev" to={prevPagePath} className={prevClassName}>{PAGINATION.PREV_PAGE}</Link>
       </div>

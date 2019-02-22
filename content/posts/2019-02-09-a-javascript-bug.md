@@ -11,6 +11,8 @@ tags:
   - "Debugging"
   - "Programming"
 description: "This is an actual bug I had once."
+prev: "/blog/better-profanity-detection-with-scikit-learn/"
+next: "/blog/why-you-should-use-webpack/"
 ---
 
 Here's a bit of Javascript that prints "Hello World!" on two lines:

@@ -12,6 +12,8 @@ tags:
   - "Best Practices"
   - "Performance"
 description: "Even weather.com is doing this wrong - are you?"
+prev: "/blog/why-you-should-use-webpack/"
+next: "/blog/why-you-should-use-webpack/"
 ---
 
 I usually check the weather on my phone, but last week I visited [weather.com](https://weather.com) on my laptop. Here's what I saw:

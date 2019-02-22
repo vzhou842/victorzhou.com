@@ -126,6 +126,39 @@ exports[`Post renders correctly 1`] = `
       </ul>
     </div>
     <div
+      className="readmore"
+    >
+      <h4
+        className="readmore-title"
+      >
+        READ MORE
+      </h4>
+      <div
+        className="pagination readmore-pagination"
+      >
+        <div
+          className="pagination__prev"
+        >
+          <Link
+            className="pagination__prev-link"
+            rel="prev"
+          >
+            ← PREV
+          </Link>
+        </div>
+        <div
+          className="pagination__next"
+        >
+          <Link
+            className="pagination__next-link"
+            rel="next"
+          >
+            → NEXT
+          </Link>
+        </div>
+      </div>
+    </div>
+    <div
       className="post__authorContainer"
     >
       <StaticQuery

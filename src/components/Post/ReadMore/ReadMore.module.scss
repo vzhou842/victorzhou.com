@@ -1,0 +1,18 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.readmore {
+  @include margin-top(1);
+  @include margin-bottom(1);
+
+  &-title {
+    margin: 0;
+    font-size: $typographic-base-font-size * 1;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &-pagination {
+    margin: 0;
+  }
+}

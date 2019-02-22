@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReadMore renders correctly 1`] = `
+<div
+  className="readmore"
+>
+  <h4
+    className="readmore-title"
+  >
+    READ MORE
+  </h4>
+  <div
+    className="pagination readmore-pagination"
+  >
+    <div
+      className="pagination__prev"
+    >
+      <Link
+        className="pagination__prev-link"
+        rel="prev"
+        to="/"
+      >
+        ← PREV
+      </Link>
+    </div>
+    <div
+      className="pagination__next"
+    >
+      <Link
+        className="pagination__next-link"
+        rel="next"
+        to="/"
+      >
+        → NEXT
+      </Link>
+    </div>
+  </div>
+</div>
+`;

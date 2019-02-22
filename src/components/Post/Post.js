@@ -3,6 +3,7 @@ import Comments from './Comments';
 import Content from './Content';
 import Meta from './Meta';
 import Tags from './Tags';
+import ReadMore from './ReadMore';
 import styles from './Post.module.scss';
 
 import Author from '../Author';
@@ -16,6 +17,8 @@ const Post = ({ post }) => {
     disqusIdentifier,
     date,
     description,
+    next,
+    prev,
     slug,
   } = post.frontmatter;
 
@@ -35,6 +38,7 @@ const Post = ({ post }) => {
       <div className={styles['post__footer']}>
         <Meta date={date} />
         <Tags tags={tags} tagSlugs={tagSlugs} />
+        <ReadMore prev={prev} next={next} />
         <div className={styles['post__authorContainer']}>
           <Author showBio />
         </div>
