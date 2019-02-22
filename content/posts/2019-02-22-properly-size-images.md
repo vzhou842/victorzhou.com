@@ -47,7 +47,7 @@ Here's a side-by-side comparison of the original image and a smaller version of 
   Both images above are being displayed at a resolution of 232 x 130.
 </figcaption>
 
-Can you tell the difference between them without zooming in? I can't. The original image is 213 kB, but the resized one is only 66 kB. That's a savings of **147 kB**, or **69%**! The resized image is over **3x smaller**. This is especially impactful given the image's prominent location on the weather.com homepage.
+Can you tell the difference between them without zooming in? I can't. The original image is 213 kB, but the resized one is only 66 kB. That's a savings of **147 kB**, or **69%**! The resized image is over **3x smaller**. This is especially impactful given the image's prominent location on the weather.com homepage - it should load _fast_.
 
 >Note: I resize to 464 x 260 instead of 232 x 130 to [support Retina displays](https://www.danrodney.com/blog/retina-web-graphics-explained-1x-versus-2x-low-res-versus-hi-res/).
 
@@ -63,7 +63,7 @@ The <a href="/media/image-sizing-post/clouds-big.jpg" target="_blank">original i
 
 ![](/media/image-sizing-post/clouds-inspected.png)
 
-Only 595 x 350 (or 1190 x 700 on Retina displays) of the original image is visible, so the rest could just be cropped out. Even on a Retina display, **82%** of the original image goes unused.
+Only 595 x 350 (or 1190 x 700 on Retina displays) of the original image is visible, so the rest can just be cropped out. Even on a Retina display, **82%** of the original image goes unused.
 
 <style>
   .clouds-image {
