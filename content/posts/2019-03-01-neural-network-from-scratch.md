@@ -54,7 +54,7 @@ The activation function is used to turn a possibly unbounded input into an outpu
 
 The sigmoid function has the nice property that all of its outputs are numbers in the range $[0, 1]$. You can think of it as compressing $[-\infty, +\infty]$ to $[0, 1]$ - huge negative numbers become roughly $0$, and huge positive numbers become roughly $1$.
 
-### A simple example
+### A Simple Example
 Assume we have a 2-input neuron that uses the sigmoid activation function and has the following parameters:
 
 $$
@@ -77,11 +77,11 @@ $$
 y = f(w \cdot x + b) = f(7) = \boxed{0.999}
 $$
 
-The neuron outputs $0.999$ given the inputs $x = [2, 3]$. That's it!
+The neuron outputs $0.999$ given the inputs $x = [2, 3]$. That's it! The process of passing inputs through the neuron to get an output is known as **feedforward**.
 
 ### Coding a Neuron
 
-Let's write some code to do a neuron's computations, also known as _feedforward_. We'll use [NumPy](http://www.numpy.org/), a popular and powerful computing library for Python, to help us do math.
+Let's write some code to implement a neuron. We'll use [NumPy](http://www.numpy.org/), a popular and powerful computing library for Python, to help us do math.
 
 ```python
 import numpy as np
@@ -111,4 +111,81 @@ Recognize those numbers? That's the example we just did! We get the same answer 
 
 ## 2. Combining Neurons into a Neural Network
 
-A neural network is nothing more than a bunch of neurons connected together. Here's what a simple neural network with 1 hidden layer looks like:
+A neural network is nothing more than a bunch of neurons connected together. Here's what a simple neural network might look like:
+
+![](/media/neural-network-post/network.svg)
+
+This network has 2 inputs, a hidden layer with 2 neurons ($h_1$ and $h_2$), and an output layer with 1 neuron ($o_1$). Notice that the inputs for $o_1$ are the outputs from $h_1$ and $h_2$! That's what makes this a network.
+
+### An Example: Feedfoward
+
+Let's use the network pictured above and assume all neurons have the same weights $w = [0, 1]$, the same bias $b = 0$, and the same sigmoid activation function. Let $h_1, h_2, o_1$ denote the _outputs_ of the neurons they represent.
+
+What happens if we pass in the input $x = [2, 3]$?
+
+$$
+\begin{aligned}
+h_1 = h_2 &= f(w \cdot x + b) \\
+&= f((0 * 2) + (1 * 3) + 0) \\
+&= f(3) \\
+&= 0.95257 \\
+\end{aligned}
+$$
+$$
+\begin{aligned}
+o_1 &= f(w \cdot [h_1, h_2] + b) \\
+&= f((0 * h_1) + (1 * h_2) + 0) \\
+&= f(0.95257) \\
+&= \boxed{0.7216} \\
+\end{aligned}
+$$
+
+The output of the neural network for input $x = [2, 3]$ is $0.7216$. Pretty simple, right?
+
+A neural network can have **any number of layers** with **any number of neurons** in those layers. The basic idea stays the same: feed the input(s) forward through the neurons in the network to get the output(s) at the end. For simplicity, we'll keep using the simple network pictured above for the rest of this post.
+
+### Coding a Neural Network: Feedforward
+
+Let's implement feedforward for our neural network. I'm including the image of the network again for reference:
+
+![](/media/neural-network-post/network.svg)
+
+```python
+import numpy as np
+
+# ... code from previous section here
+
+class OurNeuralNetwork:
+  '''
+  A neural network with:
+    - 2 inputs
+    - a hidden layer with 2 neurons (h1, h2)
+    - an output layer with 1 neuron (o1)
+  Each neuron has the same weights and bias:
+    - w = [0, 1]
+    - b = 0
+  '''
+  def __init__(self):
+    weights = np.array([0, 1])
+    bias = 0
+
+    # The Neuron class here is from the previous section!
+    self.h1 = Neuron(weights, bias)
+    self.h2 = Neuron(weights, bias)
+    self.o1 = Neuron(weights, bias)
+
+  def feedforward(self, x):
+    out_h1 = self.h1.feedforward(x)
+    out_h2 = self.h2.feedforward(x)
+    out_o1 = self.o1.feedforward(np.array([out_h1, out_h2]))
+    return out_o1
+
+network = OurNeuralNetwork()
+x = np.array([2, 3])
+print(network.feedforward(x)) # 0.7216325609518421
+```
+
+We got $0.7216$ again! Looks like it works.
+
+## 3. Training a Neural Network
+
