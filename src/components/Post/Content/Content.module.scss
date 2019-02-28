@@ -146,7 +146,11 @@
     }
 
     :global(.katex-display) {
-      margin: 0 auto;
+      margin: 1em auto;
+    }
+
+    :global(.katex) {
+      font-size: $typographic-base-font-size * 1.25;
     }
     // stylelint-enable
 
