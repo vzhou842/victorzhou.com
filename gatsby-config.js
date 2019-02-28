@@ -113,6 +113,7 @@ module.exports = {
               inlineCodeMarker: '›',
             },
           },
+          'gatsby-remark-katex',
           'gatsby-remark-figure-caption',
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants'

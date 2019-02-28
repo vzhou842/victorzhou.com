@@ -5,6 +5,8 @@ import Layout from '../components/Layout';
 import Post from '../components/Post';
 import NavHeader from '../components/NavHeader';
 
+require('katex/dist/katex.min.css');
+
 const PostTemplate = ({ data }) => {
   const { title: siteTitle, subtitle: siteSubtitle, url: siteUrl } = data.site.siteMetadata;
 

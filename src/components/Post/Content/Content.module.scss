@@ -144,6 +144,10 @@
     :global(.with-shadow) {
       box-shadow: 0 0 15px $color-gray-border;
     }
+
+    :global(.katex-display) {
+      margin: 0 auto;
+    }
     // stylelint-enable
 
     & img {
