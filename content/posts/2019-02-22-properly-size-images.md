@@ -14,6 +14,7 @@ tags:
 description: "Even weather.com is doing this wrong - are you?"
 prev: "/blog/why-you-should-use-webpack/"
 next: "/blog/why-you-should-use-webpack/"
+twitterEmbed: true
 ---
 
 I usually check the weather on my phone, but last week I visited [weather.com](https://weather.com) on my laptop. Here's what I saw:
@@ -109,7 +110,7 @@ Only 595 x 350 (or 1190 x 700 on Retina displays) of the original image is visib
 The original image is 779 kB, but the cropped one is only 173 kB. That's a savings of **606 kB**, or **78%**! The cropped image is **4.5x smaller**.
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://twitter.com/weatherchannel?ref_src=twsrc%5Etfw">@weatherchannel</a> make sure to properly size images on <a href="https://t.co/lhrWBk1DCZ">https://t.co/lhrWBk1DCZ</a> so the site loads faster! <a href="https://t.co/VFqgPwEZYp">https://t.co/VFqgPwEZYp</a></p>&mdash; Victor Zhou (@victorczhou) <a href="https://twitter.com/victorczhou/status/1098966369532555264?ref_src=twsrc%5Etfw">February 22, 2019</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">People that don&#39;t size images properly on production sites:<br><br>1) Beginners<br>2) Massive corporate teams with super high traffic sites<br>3) Literally everybody omg<a href="https://t.co/9v0SOK0rI7">https://t.co/9v0SOK0rI7</a> <a href="https://t.co/EUYHMmVaZ3">pic.twitter.com/EUYHMmVaZ3</a></p>&mdash; CSS-Tricks (@css) <a href="https://twitter.com/css/status/1100912724295454721?ref_src=twsrc%5Etfw">February 28, 2019</a></blockquote>
 
 The lesson: **serve images at the size they're actually rendered at**. Images that are too large look the same but slow down page loads and waste bandwidth.
 

@@ -6,17 +6,14 @@ import Post from '../components/Post';
 import NavHeader from '../components/NavHeader';
 
 const PostTemplate = ({ data }) => {
-  const {
-    title: siteTitle,
-    subtitle: siteSubtitle,
-    url: siteUrl,
-  } = data.site.siteMetadata;
+  const { title: siteTitle, subtitle: siteSubtitle, url: siteUrl } = data.site.siteMetadata;
 
   const {
     canonical,
     img: postImage,
     title: postTitle,
     description: postDescription,
+    twitterEmbed,
   } = data.markdownRemark.frontmatter;
 
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
@@ -29,6 +26,9 @@ const PostTemplate = ({ data }) => {
           {canonical && <link rel="canonical" href={canonical} />}
           <meta property="og:type" content="article" />
           <meta property="og:image" content={siteUrl + postImage} />
+          {twitterEmbed && (
+            <script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8" />
+          )}
         </Helmet>
         <Post post={data.markdownRemark} />
       </Layout>
@@ -63,6 +63,7 @@ export const query = graphql`
         slug
         tags
         title
+        twitterEmbed
       }
     }
   }
