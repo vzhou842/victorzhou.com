@@ -41,6 +41,7 @@ const createPages = async ({ graphql, actions }) => {
           node {
             frontmatter {
               template
+              usesKatex
             }
             fields {
               slug
@@ -54,19 +55,15 @@ const createPages = async ({ graphql, actions }) => {
   const { edges } = result.data.allMarkdownRemark;
 
   _.each(edges, edge => {
-    if (_.get(edge, 'node.frontmatter.template') === 'page') {
-      createPage({
-        path: edge.node.fields.slug,
-        component: path.resolve('./src/templates/page-template.js'),
-        context: { slug: edge.node.fields.slug },
-      });
-    } else if (_.get(edge, 'node.frontmatter.template') === 'post') {
-      createPage({
-        path: edge.node.fields.slug,
-        component: path.resolve('./src/templates/post-template.js'),
-        context: { slug: edge.node.fields.slug },
-      });
+    let template = _.get(edge, 'node.frontmatter.template');
+    if (_.get(edge, 'node.frontmatter.usesKatex')) {
+      template = 'math-post';
     }
+    createPage({
+      path: edge.node.fields.slug,
+      component: path.resolve(`./src/templates/${template}-template.js`),
+      context: { slug: edge.node.fields.slug },
+    });
   });
 
   // Feeds

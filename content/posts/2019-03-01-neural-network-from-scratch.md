@@ -2,6 +2,7 @@
 title: ML for Beginners - Building a Neural Network from Scratch in Python
 date: "2019-03-01T12:00:00.000Z"
 template: "post"
+usesKatex: true
 draft: false
 slug: "/blog/neural-network-from-scratch/"
 img: ""

@@ -5,8 +5,6 @@ import Layout from '../components/Layout';
 import Post from '../components/Post';
 import NavHeader from '../components/NavHeader';
 
-require('katex/dist/katex.min.css');
-
 const PostTemplate = ({ data }) => {
   const { title: siteTitle, subtitle: siteSubtitle, url: siteUrl } = data.site.siteMetadata;
 
@@ -38,8 +36,8 @@ const PostTemplate = ({ data }) => {
   );
 };
 
-export const query = graphql`
-  query PostBySlug($slug: String!) {
+export const fragment = graphql`
+  fragment PostFragment on Query {
     site {
       siteMetadata {
         disqusShortname
@@ -68,6 +66,12 @@ export const query = graphql`
         twitterEmbed
       }
     }
+  }
+`;
+
+export const query = graphql`
+  query PostBySlug($slug: String!) {
+    ...PostFragment
   }
 `;
 
