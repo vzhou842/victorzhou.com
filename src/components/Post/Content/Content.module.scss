@@ -71,8 +71,22 @@
       }
     }
 
-    & figure {
+    figure {
       @include margin-bottom(1.5);
+    }
+
+    table {
+      background-color: $color-gray-bg;
+      @include padding-equal(0.25);
+      border-spacing: 5px;
+
+      th {
+        border-bottom: 1px solid $color-primary;
+      }
+
+      td {
+        text-align: center;
+      }
     }
 
     code[class*='language-'] {
@@ -151,6 +165,7 @@
 
     :global(.katex) {
       font-size: $typographic-base-font-size * 1.25;
+      border-spacing: 0;
     }
     // stylelint-enable
 

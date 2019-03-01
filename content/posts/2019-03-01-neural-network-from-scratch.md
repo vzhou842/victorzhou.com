@@ -196,5 +196,80 @@ print(network.feedforward(x)) # 0.7216325609518421
 
 We got $0.7216$ again! Looks like it works.
 
-## 3. Training a Neural Network
+## 3. Evaluating a Neural Network
+
+Let's say we had a couple human body measurements:
+
+| Name | Weight (pounds) | Height (inches) | Gender |
+| ---- | --------------- | --------------- | ------ |
+| Alice | 120 | 63 | 1 |
+| Bob | 155 | 69 | 0 |
+| Charlie | 175 | 71 | 0 |
+| Diana | 135 | 65 | 1 |
+<figcaption>We're representing Male with a 0 and Female with a 1.</figcaption>
+
+Let's train our network to predict someone's gender given their weight and height:
+
+![](/media/neural-network-post/network2.svg)
+
+### Loss
+
+Before we train our network, we first need a way to quantify how "good" it's doing so that it can try to do "better". That's what the **loss** is.
+
+We'll use the **mean squared error** (MSE) loss:
+
+$$
+\text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_{true} - y_{pred})^2
+$$
+
+Let's break this down:
+
+- $n$ is the number of samples, which is $4$ (Alice, Bob, Charlie, Diana).
+- $y$ represents the variable being predicted, which is Gender.
+- $y_{true}$ is the _true_ value of the variable (the "correct answer"). For example, $y_{true}$ for Alice would be $1$, which represents Female.
+- $y_{pred}$ is the _predicted_ value of the variable. It's whatever our network outputs.
+
+$(y_{true} - y_{pred})^2$ is known as the **squared error**. Our loss function is simply taking the average over all squared errors (hence the name _mean_ squared error). The better our predictions are, the lower our loss will be!
+
+Better predictions = Lower loss.
+
+**Training a network = trying to minimize its loss.**
+
+### An Example Loss Calculation
+
+Let's say our network outputs $0$ for every person - in other words, it's confident everyone is male. What would our loss be?
+
+| Name | $y_{true}$ | $y_{pred}$ | $(y_{true} - y_{pred})^2$ |
+| ---- | --------------- | --------------- | ------ |
+| Alice | 1 | 0 | 1 |
+| Bob | 0 | 0 | 0 |
+| Charlie | 0 | 0 | 0 |
+| Diana | 1 | 0 | 1 |
+
+$$
+\text{MSE} = \frac{1}{4} (1 + 0 + 0 + 1) = \boxed{0.5}
+$$
+
+### Code: MSE Loss
+
+Let's throw together some code to calculate loss for us:
+
+```python
+import numpy as np
+
+def mse_loss(y_true, y_pred):
+  # y_true and y_pred are numpy arrays of the same length.
+  return ((y_true - y_pred) ** 2).mean()
+
+# [Alice, Bob, Charlie, Diana]
+y_true = np.array([1, 0, 0, 1])
+y_pred = np.array([0, 0, 0, 0])
+
+print(mse_loss(y_true, y_pred)) # 0.5
+```
+<figcaption>If you don't understand why this code works, read the NumPy <a href="https://docs.scipy.org/doc/numpy/user/quickstart.html#basic-operations" target="_blank">quickstart</a> on array operations.</figcaption>
+
+Nice. Onwards!
+
+## 4. Training a Neural Network
 
