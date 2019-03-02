@@ -198,19 +198,27 @@ We got $0.7216$ again! Looks like it works.
 
 ## 3. Evaluating a Neural Network
 
-Let's say we had a couple human body measurements:
+Let's say we have the following measurements:
 
-| Name | Weight (pounds) | Height (inches) | Gender |
-| ---- | --------------- | --------------- | ------ |
-| Alice | 120 | 63 | 1 |
-| Bob | 155 | 69 | 0 |
-| Charlie | 175 | 71 | 0 |
-| Diana | 135 | 65 | 1 |
-<figcaption>We're representing Male with a 0 and Female with a 1.</figcaption>
+| Name | Weight (lb) | Height (in) | Gender |
+| --- | --- | --- | --- |
+| Alice | 133 | 65 | F |
+| Bob | 160 | 72 | M |
+| Charlie | 152 | 70 | M |
+| Diana | 120 | 60 | F |
 
 Let's train our network to predict someone's gender given their weight and height:
 
 ![](/media/neural-network-post/network2.svg)
+
+We'll represent Male with a $0$ and Female with a $1$, and we'll also shift the data to make it easier to use:
+
+| Name | Weight (minus 135) | Height (minus 66) | Gender |
+| --- | --- | --- | --- |
+| Alice | -2 | -1 | 1 |
+| Bob | 25 | 6 | 0 |
+| Charlie | 17 | 4 | 0 |
+| Diana | -15 | -6 | 1 |
 
 ### Loss
 
@@ -226,7 +234,7 @@ Let's break this down:
 
 - $n$ is the number of samples, which is $4$ (Alice, Bob, Charlie, Diana).
 - $y$ represents the variable being predicted, which is Gender.
-- $y_{true}$ is the _true_ value of the variable (the "correct answer"). For example, $y_{true}$ for Alice would be $1$, which represents Female.
+- $y_{true}$ is the _true_ value of the variable (the "correct answer"). For example, $y_{true}$ for Alice would be $1$ (Female).
 - $y_{pred}$ is the _predicted_ value of the variable. It's whatever our network outputs.
 
 $(y_{true} - y_{pred})^2$ is known as the **squared error**. Our loss function is simply taking the average over all squared errors (hence the name _mean_ squared error). The better our predictions are, the lower our loss will be!
@@ -237,7 +245,7 @@ Better predictions = Lower loss.
 
 ### An Example Loss Calculation
 
-Let's say our network outputs $0$ for every person - in other words, it's confident everyone is male. What would our loss be?
+Let's say our network always outputs $0$ - in other words, it's confident all humans are Male 🤔. What would our loss be?
 
 | Name | $y_{true}$ | $y_{pred}$ | $(y_{true} - y_{pred})^2$ |
 | ---- | --------------- | --------------- | ------ |
@@ -252,7 +260,7 @@ $$
 
 ### Code: MSE Loss
 
-Let's throw together some code to calculate loss for us:
+Here's some code to calculate loss for us:
 
 ```python
 import numpy as np
@@ -261,7 +269,6 @@ def mse_loss(y_true, y_pred):
   # y_true and y_pred are numpy arrays of the same length.
   return ((y_true - y_pred) ** 2).mean()
 
-# [Alice, Bob, Charlie, Diana]
 y_true = np.array([1, 0, 0, 1])
 y_pred = np.array([0, 0, 0, 0])
 
@@ -273,3 +280,340 @@ Nice. Onwards!
 
 ## 4. Training a Neural Network
 
+We now have a clear goal: minimize the loss of the neural network. We know we can change the network's weights and biases to influence its predictions, but how do we do so in a way that decreases loss?
+
+> This section uses a bit of multivariable calculus. If you're not comfortable with calculus, feel free to skip over the math parts.
+
+For simplicity, let's pretend we only have Alice in our dataset:
+
+| Name | Weight (minus 135) | Height (minus 66) | Gender |
+| --- | --- | --- | --- |
+| Alice | -2 | -1 | 1 |
+
+Then the mean squared error loss is just Alice's squared error:
+
+$$
+\begin{aligned}
+\text{MSE} &= \frac{1}{1} \sum_{i=1}^1 (y_{true} - y_{pred})^2 \\
+&= (y_{true} - y_{pred})^2 \\
+&= (1 - y_{pred})^2 \\
+\end{aligned}
+$$
+
+Another way to think about loss is as a function of network weights and biases. Let's label each weight and bias in our network:
+
+![](/media/neural-network-post/network3.svg)
+
+Then, we can write loss as a multivariable function:
+
+$$
+L(w_1, w_2, w_3, w_4, w_5, w_6, b_1, b_2, b_3)
+$$
+
+Let's say we wanted to tweak $w_1$. How would loss $L$ change if we changed $w_1$? That's a question the [partial derivative](https://simple.wikipedia.org/wiki/Partial_derivative) $\frac{\partial L}{\partial w_1}$ can answer. How do we calculate it?
+
+> Here's where the math starts to get more complex. **Don't be discouraged!** I recommend getting a pen and paper to follow along - it'll help you understand.
+
+To start, let's rewrite the partial derivative in terms of $\frac{\partial y_{pred}}{\partial w_1}$ instead:
+
+$$
+\frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y_{pred}} * \frac{\partial y_{pred}}{\partial w_1}
+$$
+<figcaption>This works because of the <a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank">Chain Rule</a>.</figcaption>
+
+We can calculate $\frac{\partial L}{\partial y_{pred}}$ because we computed $L = (0.5 - y_{pred})^2$ above!
+
+$$
+\frac{\partial L}{\partial y_{pred}} = \frac{\partial (0.5 - y_{pred})^2}{\partial y_{pred}} = \boxed{-2(0.5 - y_{pred})}
+$$
+
+Now, let's figure out what to do with $\frac{\partial y_{pred}}{\partial w_1}$. Just like before, let $h_1, h_2, o_1$ be the outputs of the neurons they represent. Then
+
+$$
+y_{pred} = o_1 = f(w_5h_1 + w_6h_2 + b_3)
+$$
+<figcaption>f is the sigmoid activation function, remember?</figcaption>
+
+Since $w_1$ only affects $h_1$ (not $h_2$), we can write
+
+$$
+\frac{\partial y_{pred}}{\partial w_1} = \frac{\partial y_{pred}}{\partial h_1} * \frac{\partial h_1}{\partial w_1}
+$$
+$$
+\frac{\partial y_{pred}}{\partial h_1} = \boxed{w_5 * f'(w_5h_1 + w_6h_2 + b_3)}
+$$
+<figcaption>More Chain Rule!</figcaption>
+
+We do the same thing for $\frac{\partial h_1}{\partial w_1}$:
+
+$$
+h_1 = f(w_1x_1 + w_2x_2 + b_1)
+$$
+$$
+\frac{\partial h_1}{\partial w_1} = \boxed{x_1 * f'(w_1x_1 + w_2x_2 + b_1)}
+$$
+<figcaption>You guessed it, Chain Rule.</figcaption>
+
+$x_1$ here is weight, and $x_2$ is height. This is the second time we've seen $f'(x)$ (the derivate of the sigmoid function) now! Let's derive it:
+
+$$
+f(x) = \frac{1}{1 + e^{-x}}
+$$
+$$
+f'(x) = \frac{e^x}{(1 + e^{-x})^2} = f(x) * (1 - f(x))
+$$
+
+We'll use this nice form for $f'(x)$ later.
+
+We're done! We've managed to break down $\frac{\partial L}{\partial w_1}$ into several parts we can calculate:
+
+$$
+\frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y_{pred}} * \frac{\partial y_{pred}}{\partial h_1} * \frac{\partial h_1}{\partial w_1}
+$$
+
+Phew. That was a lot of symbols - it's alright if you're still a bit confused. Let's do an example to see this in action!
+
+### Example: Calculating the Partial Derivative
+
+We're going to continue pretending only Alice is in our dataset:
+
+| Name | Weight (minus 135) | Height (minus 66) | Gender |
+| --- | --- | --- | --- |
+| Alice | -2 | -1 | 1 |
+
+Let's initialize all the weights to $1$ and all the biases to $0$. If we do a feedforward pass through the network, we get:
+
+$$
+\begin{aligned}
+h_1 &= f(w_1x_1 + w_2x_2 + b_1) \\
+&= f(-2 + -1 + 0) \\
+&= 0.0474 \\
+\end{aligned}
+$$
+$$
+h_2 = f(w_3x_1 + w_4x_2 + b_2) = 0.0474
+$$
+$$
+\begin{aligned}
+o_1 &= f(w_5h_1 + w_6h_2 + b_3) \\
+&= f(0.0474 + 0.0474 + 0) \\
+&= 0.524 \\
+\end{aligned}
+$$
+
+The network outputs $y_{pred} = 0.524$, meaning it can't decide between Male and Female. Let's calculate $\frac{\partial L}{\partial w_1}$:
+
+$$
+\frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y_{pred}} * \frac{\partial y_{pred}}{\partial h_1} * \frac{\partial h_1}{\partial w_1}
+$$
+$$
+\begin{aligned}
+\frac{\partial L}{\partial y_{pred}} &= -2(1 - y_{pred}) \\
+&= -2(1 - 0.524) \\
+&= -0.952 \\
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\frac{\partial y_{pred}}{\partial h_1} &= w_5 * f'(w_5h_1 + w_6h_2 + b_3) \\
+&= 1 * f'(0.0474 + 0.0474 + 0) \\
+&= f(0.0948) * (1 - f(0.0948)) \\
+&= 0.249 \\
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\frac{\partial h_1}{\partial w_1} &= x_1 * f'(w_1x_1 + w_2x_2 + b_1) \\
+&= -2 * f'(-2 + -1 + 0) \\
+&= -2 * f(-3) * (1 - f(-3)) \\
+&= -0.0904 \\
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\frac{\partial L}{\partial w_1} &= -0.952 * 0.249 * -0.0904 \\
+&= \boxed{0.0214} \\
+\end{aligned}
+$$
+
+We did it! This tells us that if we were to increase $w_1$, $L$ would increase a _tiiiny_ bit as a result.
+
+### Training: Stochastic Gradient Descent
+
+**We have all the tools we need to train a neural network now!** We'll use a method called [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) (SGD). That's basically just a fancy phrase for the following update equation:
+
+$$
+w_1 = w_1 - \eta \frac{\partial L}{\partial w_1}
+$$
+
+$\eta$ is a constant called the **learning rate** that controls how fast we train. If $\frac{\partial L}{\partial w_1}$ is positive, we decrease $w_1$ proportionally to decrease $L$. Similarly, if $\frac{\partial L}{\partial w_1}$ is negative, we increase $w_1$. If we do this for every weight and bias in the network, the loss will slowly decrease and our network will improve!
+
+Our training process will look like this:
+
+1. Choose **one** sample from our dataset. This is what makes it _stochastic_ gradient descent - we only operate on one sample at a time.
+2. Calculate all the partial derivatives of loss with respect to weights or biases (e.g. $\frac{\partial L}{\partial w_1}$, $\frac{\partial L}{\partial w_2}$, etc).
+3. Use the update equation to update each weight and bias.
+4. Go back to step 1.
+
+Let's see it in action!
+
+### Code: A Complete Neural Network
+
+It's _finally_ time to implement a complete neural network:
+
+| Name | Weight (minus 135) | Height (minus 66) | Gender |
+| --- | --- | --- | --- |
+| Alice | -2 | -1 | 1 |
+| Bob | 25 | 6 | 0 |
+| Charlie | 17 | 4 | 0 |
+| Diana | -15 | -6 | 1 |
+
+![](/media/neural-network-post/network3.svg)
+
+```python
+import numpy as np
+
+def sigmoid(x):
+  # Sigmoid activation function: f(x) = 1 / (1 + e^(-x))
+  return 1 / (1 + np.exp(-x))
+
+def deriv_sigmoid(x):
+  # Derivative of sigmoid: f'(x) = f(x) * (1 - f(x))
+  fx = sigmoid(x)
+  return fx * (1 - fx)
+
+def mse_loss(y_true, y_pred):
+  # y_true and y_pred are numpy arrays of the same length.
+  return ((y_true - y_pred) ** 2).mean()
+
+class OurNeuralNetwork:
+  '''
+  A neural network with:
+    - 2 inputs
+    - a hidden layer with 2 neurons (h1, h2)
+    - an output layer with 1 neuron (o1)
+
+  *** DISCLAIMER ***:
+  The code below is intended to be simple and educational, NOT optimal.
+  Real neural net code looks nothing like this. DO NOT use this code.
+  Instead, read/run it to understand how this specific network works.
+  '''
+  def __init__(self):
+    # Weights
+    self.w1 = np.random.normal()
+    self.w2 = np.random.normal()
+    self.w3 = np.random.normal()
+    self.w4 = np.random.normal()
+    self.w5 = np.random.normal()
+    self.w6 = np.random.normal()
+
+    # Biases
+    self.b1 = np.random.normal()
+    self.b2 = np.random.normal()
+    self.b3 = np.random.normal()
+
+  def feedforward(self, x):
+    # x is a numpy array with 2 elements.
+    h1 = sigmoid(self.w1 * x[0] + self.w2 * x[1] + self.b1)
+    h2 = sigmoid(self.w3 * x[0] + self.w4 * x[1] + self.b2)
+    o1 = sigmoid(self.w5 * h1 + self.w6 * h2 + self.b3)
+    return o1
+
+  def train(self, data, all_y_trues):
+    '''
+    - data is a (n x 2) numpy array, n = # of samples in the dataset.
+    - all_y_trues is a numpy array with n elements.
+      Elements in all_y_trues correspond to those in data.
+    '''
+    learn_rate = 0.1
+    epochs = 1000 # number of times to loop through the entire dataset
+
+    for epoch in range(epochs):
+      for x, y_true in zip(data, all_y_trues):
+        # --- Do a feedforward (we'll need these values later)
+        sum_h1 = self.w1 * x[0] + self.w2 * x[1] + self.b1
+        h1 = sigmoid(sum_h1)
+
+        sum_h2 = self.w3 * x[0] + self.w4 * x[1] + self.b2
+        h2 = sigmoid(sum_h2)
+
+        sum_o1 = self.w5 * h1 + self.w6 * h2 + self.b3
+        o1 = sigmoid(sum_o1)
+        y_pred = o1
+
+        # --- Calculate partial derivatives.
+        # --- Naming: p_L_p_w1 stands for "partial L partial w1"
+        p_L_p_ypred = -2 * (y_true - y_pred)
+
+        # Neuron o1
+        p_ypred_p_w5 = h1 * deriv_sigmoid(sum_o1)
+        p_ypred_p_w6 = h2 * deriv_sigmoid(sum_o1)
+        p_ypred_p_b3 = deriv_sigmoid(sum_o1)
+
+        p_ypred_p_h1 = self.w5 * deriv_sigmoid(sum_o1)
+        p_ypred_p_h2 = self.w6 * deriv_sigmoid(sum_o1)
+
+        # Neuron h1
+        p_h1_p_w1 = x[0] * deriv_sigmoid(sum_h1)
+        p_h1_p_w2 = x[1] * deriv_sigmoid(sum_h1)
+        p_h1_p_b1 = deriv_sigmoid(sum_h1)
+
+        # Neuron h2
+        p_h2_p_w3 = x[0] * deriv_sigmoid(sum_h2)
+        p_h2_p_w4 = x[1] * deriv_sigmoid(sum_h2)
+        p_h2_p_b2 = deriv_sigmoid(sum_h2)
+
+        # --- Update weights and biases
+        # Neuron h1
+        self.w1 -= learn_rate * p_L_p_ypred * p_ypred_p_h1 * p_h1_p_w1
+        self.w2 -= learn_rate * p_L_p_ypred * p_ypred_p_h1 * p_h1_p_w2
+        self.b1 -= learn_rate * p_L_p_ypred * p_ypred_p_h1 * p_h1_p_b1
+
+        # Neuron h2
+        self.w3 -= learn_rate * p_L_p_ypred * p_ypred_p_h2 * p_h2_p_w3
+        self.w4 -= learn_rate * p_L_p_ypred * p_ypred_p_h2 * p_h2_p_w4
+        self.b2 -= learn_rate * p_L_p_ypred * p_ypred_p_h2 * p_h2_p_b2
+
+        # Neuron o1
+        self.w5 -= learn_rate * p_L_p_ypred * p_ypred_p_w5
+        self.w6 -= learn_rate * p_L_p_ypred * p_ypred_p_w6
+        self.b3 -= learn_rate * p_L_p_ypred * p_ypred_p_b3
+
+      # --- Calculate total loss at the end of each epoch
+      if epoch % 10 == 0:
+        y_preds = np.apply_along_axis(self.feedforward, 1, data)
+        loss = mse_loss(all_y_trues, y_preds)
+        print("Epoch %d loss: %.3f" % (epoch, loss))
+
+# Define dataset
+data = np.array([
+  [-2, -1],  # Alice
+  [25, 6],   # Bob
+  [17, 4],   # Charlie
+  [-15, -6], # Diana
+])
+all_y_trues = np.array([
+  1, # Alice
+  0, # Bob
+  0, # Charlie
+  1, # Diana
+])
+
+# Train our neural network!
+network = OurNeuralNetwork()
+network.train(data, all_y_trues)
+```
+
+Our loss steadily decreases as the network learns:
+
+![](/media/neural-network-post/loss.png)
+
+We can now use the network to predict genders:
+
+```python
+# Make some predictions
+emily = np.array([-7, -3]) # 128 pounds, 63 inches
+frank = np.array([20, 2])  # 155 pounds, 68 inches
+print("Emily: %.3f" % network.feedforward(emily)) # 0.951 - F
+print("Frank: %.3f" % network.feedforward(frank)) # 0.039 - M
+```
