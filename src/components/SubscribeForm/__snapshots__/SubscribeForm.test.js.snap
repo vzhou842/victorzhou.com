@@ -10,7 +10,7 @@ exports[`SubscribeForm renders default correctly 1`] = `
     <b>
       Subscribe
     </b>
-     to know whenever I post new stuff. No spam, for real.
+     to know whenever I post new content. I don't spam!
   </p>
   <form
     action="https://victorzhou.us20.list-manage.com/subscribe/post"
@@ -56,7 +56,7 @@ exports[`SubscribeForm renders large correctly 1`] = `
     <b>
       Subscribe
     </b>
-     to know whenever I post new stuff. No spam, for real.
+     to know whenever I post new content. I don't spam!
   </p>
   <form
     action="https://victorzhou.us20.list-manage.com/subscribe/post"
