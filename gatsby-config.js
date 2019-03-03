@@ -107,7 +107,9 @@ module.exports = {
               rel: 'noopener noreferrer',
             },
           },
+          'gatsby-remark-autolink-headers',
           {
+            // should be placed after gatsby-remark-autolink-headers
             resolve: 'gatsby-remark-prismjs',
             options: {
               inlineCodeMarker: '›',
