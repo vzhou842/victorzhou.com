@@ -1,23 +1,23 @@
 ---
-title: "Machine Learning for Beginners: Building a Neural Network from Scratch in Python"
-date: "2019-03-01T12:00:00.000Z"
+title: "Machine Learning for Beginners: An Introduction to Neural Networks"
+date: "2019-03-03T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
-slug: "/blog/neural-network-from-scratch/"
+slug: "/blog/intro-to-neural-networks/"
 img: ""
 category: "Machine Learning"
 tags:
   - "Machine Learning"
   - "Python"
-description: An introduction to what neural networks are and how they work.
+description: "A simple explanation of what they are, how they work, and how to implement one from scratch in Python."
 prev: "/blog/better-profanity-detection-with-scikit-learn/"
 next: "/blog/better-profanity-detection-with-scikit-learn/"
 ---
 
 Here's something that might surprise you: **neural networks aren't that complicated!** The term "neural network" gets used as a buzzword a lot, but in reality they're often much simpler than people imagine.
 
-**This post is intended for complete beginners and assumes ZERO prior knowledge of machine learning**. We'll walk through what a neural network is, understand how they work, and then implement one from scratch.
+**This post is intended for complete beginners and assumes ZERO prior knowledge of machine learning**. We'll walk through what a neural network is, understand how they work, and then implement one from scratch in Python.
 
 Let's get started!
 
@@ -196,7 +196,7 @@ print(network.feedforward(x)) # 0.7216325609518421
 
 We got $0.7216$ again! Looks like it works.
 
-## 3. Evaluating a Neural Network
+## 3. Training a Neural Network, Part 1
 
 Let's say we have the following measurements:
 
@@ -278,7 +278,7 @@ print(mse_loss(y_true, y_pred)) # 0.5
 
 Nice. Onwards!
 
-## 4. Training a Neural Network
+## 4. Training a Neural Network, Part 2
 
 We now have a clear goal: minimize the loss of the neural network. We know we can change the network's weights and biases to influence its predictions, but how do we do so in a way that decreases loss?
 
@@ -321,10 +321,10 @@ $$
 $$
 <figcaption>This works because of the <a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank">Chain Rule</a>.</figcaption>
 
-We can calculate $\frac{\partial L}{\partial y_{pred}}$ because we computed $L = (0.5 - y_{pred})^2$ above!
+We can calculate $\frac{\partial L}{\partial y_{pred}}$ because we computed $L = (1 - y_{pred})^2$ above!
 
 $$
-\frac{\partial L}{\partial y_{pred}} = \frac{\partial (0.5 - y_{pred})^2}{\partial y_{pred}} = \boxed{-2(0.5 - y_{pred})}
+\frac{\partial L}{\partial y_{pred}} = \frac{\partial (1 - y_{pred})^2}{\partial y_{pred}} = \boxed{-2(1 - y_{pred})}
 $$
 
 Now, let's figure out what to do with $\frac{\partial y_{pred}}{\partial w_1}$. Just like before, let $h_1, h_2, o_1$ be the outputs of the neurons they represent. Then
@@ -370,6 +370,8 @@ We're done! We've managed to break down $\frac{\partial L}{\partial w_1}$ into s
 $$
 \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y_{pred}} * \frac{\partial y_{pred}}{\partial h_1} * \frac{\partial h_1}{\partial w_1}
 $$
+
+This system of calculating partial derivatives by working backwards is known as **backpropagation**, or "backprop".
 
 Phew. That was a lot of symbols - it's alright if you're still a bit confused. Let's do an example to see this in action!
 
@@ -603,6 +605,8 @@ all_y_trues = np.array([
 network = OurNeuralNetwork()
 network.train(data, all_y_trues)
 ```
+
+> You can run / play with this code yourself on my [repl.it](https://repl.it/@vzhou842/An-Introduction-to-Neural-Networks). It's also available on my [Github](https://github.com/vzhou842/neural-network-from-scratch).
 
 Our loss steadily decreases as the network learns:
 
