@@ -617,3 +617,15 @@ frank = np.array([20, 2])  # 155 pounds, 68 inches
 print("Emily: %.3f" % network.feedforward(emily)) # 0.951 - F
 print("Frank: %.3f" % network.feedforward(frank)) # 0.039 - M
 ```
+
+## Now What?
+
+You made it! That was a complete introduction to neural networks, but there's still much more to do:
+
+- Experiment with bigger / better neural networks using proper machine learning libraries like [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), and [PyTorch](https://pytorch.org/).
+- Discover [other activation functions](https://keras.io/activations/) besides Sigmoid.
+- Discover [other optimizers](https://keras.io/optimizers/) besides Stochastic Gradient Descent (SGD).
+- Learn about [Convolutional Neural Networks](https://en.wikipedia.org/wiki/Convolutional_neural_network), often used for Computer Vision.
+- Learn about [Recurrent Neural Networks](https://en.wikipedia.org/wiki/Recurrent_neural_network), often used for Natural Language Processing (NLP).
+
+I may write about these topics or similar ones in the future, so [subscribe](http://eepurl.com/gf8JCX) if you want to get notified about new posts. Thanks for reading! 😊
