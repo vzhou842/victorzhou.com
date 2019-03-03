@@ -17,13 +17,13 @@ next: "/blog/better-profanity-detection-with-scikit-learn/"
 
 Here's something that might surprise you: **neural networks aren't that complicated!** The term "neural network" gets used as a buzzword a lot, but in reality they're often much simpler than people imagine.
 
-**This post is intended for complete beginners and assumes ZERO prior knowledge of machine learning**. We'll understand how they work while implementing one from scratch in Python.
+**This post is intended for complete beginners and assumes ZERO prior knowledge of machine learning**. We'll understand how neural networks work while implementing one from scratch in Python.
 
 Let's get started!
 
 ## 1. Building Blocks: Neurons
 
-First, we'll start with neurons, the basic unit of a neural network. **A neuron takes inputs, does some math with them, and produces one output**. Here's what a 2-input neuron looks like:
+First, we have to talk about neurons, the basic unit of a neural network. **A neuron takes inputs, does some math with them, and produces one output**. Here's what a 2-input neuron looks like:
 
 ![](/media/neural-network-post/perceptron.svg)
 
@@ -53,11 +53,11 @@ $$
 y = f(x_1 * w_1 + x_2 * w_2 + b)
 $$
 
-The activation function is used to turn a possibly unbounded input into an output that has a nice, predictable form. A commonly used activation function is the [sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function) function:
+The activation function is used to turn an unbounded input into an output that has a nice, predictable form. A commonly used activation function is the [sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function) function:
 
 ![](/media/neural-network-post/sigmoid.png)
 
-The sigmoid function has the nice property that all of its outputs are numbers in the range $[0, 1]$. You can think of it as compressing $[-\infty, +\infty]$ to $[0, 1]$ - big negative numbers become ~$0$, and big positive numbers become ~$1$.
+The sigmoid function only outputs numbers in the range $(0, 1)$. You can think of it as compressing $(-\infty, +\infty)$ to $(0, 1)$ - big negative numbers become ~$0$, and big positive numbers become ~$1$.
 
 ### A Simple Example
 Assume we have a 2-input neuron that uses the sigmoid activation function and has the following parameters:
@@ -86,7 +86,7 @@ The neuron outputs $0.999$ given the inputs $x = [2, 3]$. That's it! This proces
 
 ### Coding a Neuron
 
-Let's write some code to implement a neuron. We'll use [NumPy](http://www.numpy.org/), a popular and powerful computing library for Python, to help us do math.
+Time to implement a neuron! We'll use [NumPy](http://www.numpy.org/), a popular and powerful computing library for Python, to help us do math:
 
 ```python
 import numpy as np
@@ -136,25 +136,25 @@ $$
 h_1 = h_2 &= f(w \cdot x + b) \\
 &= f((0 * 2) + (1 * 3) + 0) \\
 &= f(3) \\
-&= 0.95257 \\
+&= 0.9526 \\
 \end{aligned}
 $$
 $$
 \begin{aligned}
 o_1 &= f(w \cdot [h_1, h_2] + b) \\
 &= f((0 * h_1) + (1 * h_2) + 0) \\
-&= f(0.95257) \\
+&= f(0.9526) \\
 &= \boxed{0.7216} \\
 \end{aligned}
 $$
 
 The output of the neural network for input $x = [2, 3]$ is $0.7216$. Pretty simple, right?
 
-A neural network can have **any number of layers** with **any number of neurons** in those layers. The basic idea stays the same: feed the input(s) forward through the neurons in the network to get the output(s) at the end. For simplicity, we'll keep using the simple network pictured above for the rest of this post.
+A neural network can have **any number of layers** with **any number of neurons** in those layers. The basic idea stays the same: feed the input(s) forward through the neurons in the network to get the output(s) at the end. For simplicity, we'll keep using the network pictured above for the rest of this post.
 
 ### Coding a Neural Network: Feedforward
 
-Let's implement feedforward for our neural network. I'm including the image of the network again for reference:
+Let's implement feedforward for our neural network. Here's the image of the network again for reference:
 
 ![](/media/neural-network-post/network.svg)
 
@@ -196,11 +196,11 @@ x = np.array([2, 3])
 print(network.feedforward(x)) # 0.7216325609518421
 ```
 
-We got $0.7216$ again! Looks like it works.
+We got $0.7216$ again! Looks like it works. 💯
 
 ## 3. Training a Neural Network, Part 1
 
-Let's say we have the following measurements:
+Say we have the following measurements:
 
 | Name | Weight (lb) | Height (in) | Gender |
 | --- | --- | --- | --- |
@@ -282,7 +282,7 @@ Nice. Onwards!
 
 ## 4. Training a Neural Network, Part 2
 
-We now have a clear goal: minimize the loss of the neural network. We know we can change the network's weights and biases to influence its predictions, but how do we do so in a way that decreases loss?
+We now have a clear goal: **minimize the loss** of the neural network. We know we can change the network's weights and biases to influence its predictions, but how do we do so in a way that decreases loss?
 
 > This section uses a bit of multivariable calculus. If you're not comfortable with calculus, feel free to skip over the math parts.
 
@@ -302,7 +302,7 @@ $$
 \end{aligned}
 $$
 
-Another way to think about loss is as a function of network weights and biases. Let's label each weight and bias in our network:
+Another way to think about loss is as a function of weights and biases. Let's label each weight and bias in our network:
 
 ![](/media/neural-network-post/network3.svg)
 
@@ -312,7 +312,7 @@ $$
 L(w_1, w_2, w_3, w_4, w_5, w_6, b_1, b_2, b_3)
 $$
 
-Let's say we wanted to tweak $w_1$. How would loss $L$ change if we changed $w_1$? That's a question the [partial derivative](https://simple.wikipedia.org/wiki/Partial_derivative) $\frac{\partial L}{\partial w_1}$ can answer. How do we calculate it?
+Imagine we wanted to tweak $w_1$. How would loss $L$ change if we changed $w_1$? That's a question the [partial derivative](https://simple.wikipedia.org/wiki/Partial_derivative) $\frac{\partial L}{\partial w_1}$ can answer. How do we calculate it?
 
 > Here's where the math starts to get more complex. **Don't be discouraged!** I recommend getting a pen and paper to follow along - it'll help you understand.
 
@@ -370,7 +370,7 @@ We'll use this nice form for $f'(x)$ later.
 We're done! We've managed to break down $\frac{\partial L}{\partial w_1}$ into several parts we can calculate:
 
 $$
-\frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y_{pred}} * \frac{\partial y_{pred}}{\partial h_1} * \frac{\partial h_1}{\partial w_1}
+\boxed{\frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y_{pred}} * \frac{\partial y_{pred}}{\partial h_1} * \frac{\partial h_1}{\partial w_1}}
 $$
 
 This system of calculating partial derivatives by working backwards is known as **backpropagation**, or "backprop".
@@ -405,7 +405,7 @@ o_1 &= f(w_5h_1 + w_6h_2 + b_3) \\
 \end{aligned}
 $$
 
-The network outputs $y_{pred} = 0.524$, meaning it can't decide between Male and Female. Let's calculate $\frac{\partial L}{\partial w_1}$:
+The network outputs $y_{pred} = 0.524$, which doesn't strongly favor Male ($0$) or Female ($1$). Let's calculate $\frac{\partial L}{\partial w_1}$:
 
 $$
 \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y_{pred}} * \frac{\partial y_{pred}}{\partial h_1} * \frac{\partial h_1}{\partial w_1}
@@ -439,6 +439,8 @@ $$
 &= \boxed{0.0214} \\
 \end{aligned}
 $$
+
+> Reminder: we derived $f'(x) = f(x) * (1 - f(x))$ for our sigmoid activation function earlier.
 
 We did it! This tells us that if we were to increase $w_1$, $L$ would increase a _tiiiny_ bit as a result.
 
@@ -634,7 +636,7 @@ print("Frank: %.3f" % network.feedforward(frank)) # 0.039 - M
 You made it! A quick recap of what we did:
 
 - Introduced **neurons**, the building blocks of neural networks.
-- Used the **sigmoid** activation function in our neurons.
+- Used the **sigmoid activation function** in our neurons.
 - Saw that neural networks are just neurons connected together.
 - Created a dataset with Weight and Height as inputs (or **features**) and Gender as the output (or **label**).
 - Learned about **loss functions** and the **mean squared error** (MSE) loss.
