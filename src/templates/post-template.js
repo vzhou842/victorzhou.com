@@ -36,8 +36,8 @@ const PostTemplate = ({ data }) => {
   );
 };
 
-export const query = graphql`
-  query PostBySlug($slug: String!) {
+export const fragment = graphql`
+  fragment PostFragment on Query {
     site {
       siteMetadata {
         disqusShortname
@@ -66,6 +66,12 @@ export const query = graphql`
         twitterEmbed
       }
     }
+  }
+`;
+
+export const query = graphql`
+  query PostBySlug($slug: String!) {
+    ...PostFragment
   }
 `;
 
