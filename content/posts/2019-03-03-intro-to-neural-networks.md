@@ -10,14 +10,14 @@ category: "Machine Learning"
 tags:
   - "Machine Learning"
   - "Python"
-description: "A simple explanation of what they are, how they work, and how to implement one from scratch in Python."
+description: "A simple explanation of how they work and how to implement one from scratch in Python."
 prev: "/blog/better-profanity-detection-with-scikit-learn/"
 next: "/blog/better-profanity-detection-with-scikit-learn/"
 ---
 
 Here's something that might surprise you: **neural networks aren't that complicated!** The term "neural network" gets used as a buzzword a lot, but in reality they're often much simpler than people imagine.
 
-**This post is intended for complete beginners and assumes ZERO prior knowledge of machine learning**. We'll walk through what a neural network is, understand how they work, and then implement one from scratch in Python.
+**This post is intended for complete beginners and assumes ZERO prior knowledge of machine learning**. We'll understand how they work while implementing one from scratch in Python.
 
 Let's get started!
 
@@ -35,7 +35,7 @@ First, we'll start with neurons, the basic unit of a neural network. **A neuron 
   display: inline-block;
 }
 </style>
-3 things are happening here. First, each input is multiplied by a weight $w$: <span class="inline-square" style="background-color: rgb(200, 0, 0);"></span>
+3 things are happening here. First, each input is multiplied by a weight: <span class="inline-square" style="background-color: rgb(200, 0, 0);"></span>
 $$
 x_1 \rightarrow x_1 * w_1
 $$
@@ -57,7 +57,7 @@ The activation function is used to turn a possibly unbounded input into an outpu
 
 ![](/media/neural-network-post/sigmoid.png)
 
-The sigmoid function has the nice property that all of its outputs are numbers in the range $[0, 1]$. You can think of it as compressing $[-\infty, +\infty]$ to $[0, 1]$ - huge negative numbers become roughly $0$, and huge positive numbers become roughly $1$.
+The sigmoid function has the nice property that all of its outputs are numbers in the range $[0, 1]$. You can think of it as compressing $[-\infty, +\infty]$ to $[0, 1]$ - big negative numbers become ~$0$, and big positive numbers become ~$1$.
 
 ### A Simple Example
 Assume we have a 2-input neuron that uses the sigmoid activation function and has the following parameters:
@@ -82,7 +82,7 @@ $$
 y = f(w \cdot x + b) = f(7) = \boxed{0.999}
 $$
 
-The neuron outputs $0.999$ given the inputs $x = [2, 3]$. That's it! The process of passing inputs through the neuron to get an output is known as **feedforward**.
+The neuron outputs $0.999$ given the inputs $x = [2, 3]$. That's it! This process of passing inputs forward to get an output is known as **feedforward**.
 
 ### Coding a Neuron
 
@@ -122,6 +122,8 @@ A neural network is nothing more than a bunch of neurons connected together. Her
 ![](/media/neural-network-post/network.svg)
 
 This network has 2 inputs, a hidden layer with 2 neurons ($h_1$ and $h_2$), and an output layer with 1 neuron ($o_1$). Notice that the inputs for $o_1$ are the outputs from $h_1$ and $h_2$! That's what makes this a network.
+
+> A **hidden layer** is any layer between the input (first) layer and output (last) layer. There can be multiple hidden layers!
 
 ### An Example: Feedfoward
 
@@ -442,13 +444,18 @@ We did it! This tells us that if we were to increase $w_1$, $L$ would increase a
 
 ### Training: Stochastic Gradient Descent
 
-**We have all the tools we need to train a neural network now!** We'll use a method called [Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) (SGD). That's basically just a fancy phrase for the following update equation:
+**We have all the tools we need to train a neural network now!** We'll use an optimization algorithm called [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) (SGD) that tells us how to change our weights and biases to minimize loss. It's basically just this update equation:
 
 $$
-w_1 = w_1 - \eta \frac{\partial L}{\partial w_1}
+w_1 \leftarrow w_1 - \eta \frac{\partial L}{\partial w_1}
 $$
 
-$\eta$ is a constant called the **learning rate** that controls how fast we train. If $\frac{\partial L}{\partial w_1}$ is positive, we decrease $w_1$ proportionally to decrease $L$. Similarly, if $\frac{\partial L}{\partial w_1}$ is negative, we increase $w_1$. If we do this for every weight and bias in the network, the loss will slowly decrease and our network will improve!
+$\eta$ is a constant called the **learning rate** that controls how fast we train. All we're doing is subtracting $\eta \frac{\partial L}{\partial w_1}$ from $w_1$:
+
+- If $\frac{\partial L}{\partial w_1}$ is positive, $w_1$ will decrease, which makes $L$ decrease.
+- If $\frac{\partial L}{\partial w_1}$ is negative, $w_1$ will increase, which makes $L$ decrease.
+
+If we do this for every weight and bias in the network, the loss will slowly decrease and our network will improve!
 
 Our training process will look like this:
 
@@ -544,42 +551,42 @@ class OurNeuralNetwork:
         y_pred = o1
 
         # --- Calculate partial derivatives.
-        # --- Naming: p_L_p_w1 stands for "partial L partial w1"
-        p_L_p_ypred = -2 * (y_true - y_pred)
+        # --- Naming: d_L_d_w1 represents "partial L / partial w1"
+        d_L_d_ypred = -2 * (y_true - y_pred)
 
         # Neuron o1
-        p_ypred_p_w5 = h1 * deriv_sigmoid(sum_o1)
-        p_ypred_p_w6 = h2 * deriv_sigmoid(sum_o1)
-        p_ypred_p_b3 = deriv_sigmoid(sum_o1)
+        d_ypred_d_w5 = h1 * deriv_sigmoid(sum_o1)
+        d_ypred_d_w6 = h2 * deriv_sigmoid(sum_o1)
+        d_ypred_d_b3 = deriv_sigmoid(sum_o1)
 
-        p_ypred_p_h1 = self.w5 * deriv_sigmoid(sum_o1)
-        p_ypred_p_h2 = self.w6 * deriv_sigmoid(sum_o1)
+        d_ypred_d_h1 = self.w5 * deriv_sigmoid(sum_o1)
+        d_ypred_d_h2 = self.w6 * deriv_sigmoid(sum_o1)
 
         # Neuron h1
-        p_h1_p_w1 = x[0] * deriv_sigmoid(sum_h1)
-        p_h1_p_w2 = x[1] * deriv_sigmoid(sum_h1)
-        p_h1_p_b1 = deriv_sigmoid(sum_h1)
+        d_h1_d_w1 = x[0] * deriv_sigmoid(sum_h1)
+        d_h1_d_w2 = x[1] * deriv_sigmoid(sum_h1)
+        d_h1_d_b1 = deriv_sigmoid(sum_h1)
 
         # Neuron h2
-        p_h2_p_w3 = x[0] * deriv_sigmoid(sum_h2)
-        p_h2_p_w4 = x[1] * deriv_sigmoid(sum_h2)
-        p_h2_p_b2 = deriv_sigmoid(sum_h2)
+        d_h2_d_w3 = x[0] * deriv_sigmoid(sum_h2)
+        d_h2_d_w4 = x[1] * deriv_sigmoid(sum_h2)
+        d_h2_d_b2 = deriv_sigmoid(sum_h2)
 
         # --- Update weights and biases
         # Neuron h1
-        self.w1 -= learn_rate * p_L_p_ypred * p_ypred_p_h1 * p_h1_p_w1
-        self.w2 -= learn_rate * p_L_p_ypred * p_ypred_p_h1 * p_h1_p_w2
-        self.b1 -= learn_rate * p_L_p_ypred * p_ypred_p_h1 * p_h1_p_b1
+        self.w1 -= learn_rate * d_L_d_ypred * d_ypred_d_h1 * d_h1_d_w1
+        self.w2 -= learn_rate * d_L_d_ypred * d_ypred_d_h1 * d_h1_d_w2
+        self.b1 -= learn_rate * d_L_d_ypred * d_ypred_d_h1 * d_h1_d_b1
 
         # Neuron h2
-        self.w3 -= learn_rate * p_L_p_ypred * p_ypred_p_h2 * p_h2_p_w3
-        self.w4 -= learn_rate * p_L_p_ypred * p_ypred_p_h2 * p_h2_p_w4
-        self.b2 -= learn_rate * p_L_p_ypred * p_ypred_p_h2 * p_h2_p_b2
+        self.w3 -= learn_rate * d_L_d_ypred * d_ypred_d_h2 * d_h2_d_w3
+        self.w4 -= learn_rate * d_L_d_ypred * d_ypred_d_h2 * d_h2_d_w4
+        self.b2 -= learn_rate * d_L_d_ypred * d_ypred_d_h2 * d_h2_d_b2
 
         # Neuron o1
-        self.w5 -= learn_rate * p_L_p_ypred * p_ypred_p_w5
-        self.w6 -= learn_rate * p_L_p_ypred * p_ypred_p_w6
-        self.b3 -= learn_rate * p_L_p_ypred * p_ypred_p_b3
+        self.w5 -= learn_rate * d_L_d_ypred * d_ypred_d_w5
+        self.w6 -= learn_rate * d_L_d_ypred * d_ypred_d_w6
+        self.b3 -= learn_rate * d_L_d_ypred * d_ypred_d_b3
 
       # --- Calculate total loss at the end of each epoch
       if epoch % 10 == 0:
@@ -606,7 +613,7 @@ network = OurNeuralNetwork()
 network.train(data, all_y_trues)
 ```
 
-> You can run / play with this code yourself on my [repl.it](https://repl.it/@vzhou842/An-Introduction-to-Neural-Networks). It's also available on my [Github](https://github.com/vzhou842/neural-network-from-scratch).
+> You can [**run / play with this code yourself**](https://repl.it/@vzhou842/An-Introduction-to-Neural-Networks). It's also available on [Github](https://github.com/vzhou842/neural-network-from-scratch).
 
 Our loss steadily decreases as the network learns:
 
@@ -624,12 +631,24 @@ print("Frank: %.3f" % network.feedforward(frank)) # 0.039 - M
 
 ## Now What?
 
-You made it! That was a complete introduction to neural networks, but there's still much more to do:
+You made it! A quick recap of what we did:
+
+- Introduced **neurons**, the building blocks of neural networks.
+- Used the **sigmoid** activation function in our neurons.
+- Saw that neural networks are just neurons connected together.
+- Created a dataset with Weight and Height as inputs (or **features**) and Gender as the output (or **label**).
+- Learned about **loss functions** and the **mean squared error** (MSE) loss.
+- Realized that training a network is just minimizing its loss.
+- Used **backpropagation** to calculate partial derivatives.
+- Used **stochastic gradient descent** (SGD) to train our network.
+
+There's still much more to do:
 
 - Experiment with bigger / better neural networks using proper machine learning libraries like [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), and [PyTorch](https://pytorch.org/).
-- Discover [other activation functions](https://keras.io/activations/) besides Sigmoid.
-- Discover [other optimizers](https://keras.io/optimizers/) besides Stochastic Gradient Descent (SGD).
-- Learn about [Convolutional Neural Networks](https://en.wikipedia.org/wiki/Convolutional_neural_network), often used for Computer Vision.
+- Tinker with [a neural network in your browser](https://playground.tensorflow.org).
+- Discover [other activation functions](https://keras.io/activations/) besides sigmoid.
+- Discover [other optimizers](https://keras.io/optimizers/) besides SGD.
+- Learn about [Convolutional Neural Networks](https://en.wikipedia.org/wiki/Convolutional_neural_network), which revolutionized the field of Computer Vision.
 - Learn about [Recurrent Neural Networks](https://en.wikipedia.org/wiki/Recurrent_neural_network), often used for Natural Language Processing (NLP).
 
 I may write about these topics or similar ones in the future, so [subscribe](http://eepurl.com/gf8JCX) if you want to get notified about new posts. Thanks for reading! 😊
