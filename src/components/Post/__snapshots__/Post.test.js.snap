@@ -153,7 +153,7 @@ exports[`Post renders correctly 1`] = `
             className="pagination__next-link"
             rel="next"
           >
-            → NEXT
+            NEXT →
           </Link>
         </div>
       </div>
