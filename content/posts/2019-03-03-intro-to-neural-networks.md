@@ -123,11 +123,11 @@ A neural network is nothing more than a bunch of neurons connected together. Her
 
 ![](/media/neural-network-post/network.svg)
 
-This network has 2 inputs, a hidden layer with 2 neurons ($h_1$ and $h_2$), and an output layer with 1 neuron ($o_1$). Notice that the inputs for $o_1$ are the outputs from $h_1$ and $h_2$! That's what makes this a network.
+This network has 2 inputs, a hidden layer with 2 neurons ($h_1$ and $h_2$), and an output layer with 1 neuron ($o_1$). Notice that the inputs for $o_1$ are the outputs from $h_1$ and $h_2$ - that's what makes this a network.
 
 > A **hidden layer** is any layer between the input (first) layer and output (last) layer. There can be multiple hidden layers!
 
-### An Example: Feedfoward
+### An Example: Feedforward
 
 Let's use the network pictured above and assume all neurons have the same weights $w = [0, 1]$, the same bias $b = 0$, and the same sigmoid activation function. Let $h_1, h_2, o_1$ denote the _outputs_ of the neurons they represent.
 
@@ -198,7 +198,7 @@ x = np.array([2, 3])
 print(network.feedforward(x)) # 0.7216325609518421
 ```
 
-We got $0.7216$ again! Looks like it works. 💯
+We got $0.7216$ again! Looks like it works.
 
 ## 3. Training a Neural Network, Part 1
 
@@ -325,7 +325,7 @@ $$
 $$
 <figcaption>This works because of the <a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank">Chain Rule</a>.</figcaption>
 
-We can calculate $\frac{\partial L}{\partial y_{pred}}$ because we computed $L = (1 - y_{pred})^2$ above!
+We can calculate $\frac{\partial L}{\partial y_{pred}}$ because we computed $L = (1 - y_{pred})^2$ above:
 
 $$
 \frac{\partial L}{\partial y_{pred}} = \frac{\partial (1 - y_{pred})^2}{\partial y_{pred}} = \boxed{-2(1 - y_{pred})}
@@ -346,7 +346,7 @@ $$
 $$
 \frac{\partial y_{pred}}{\partial h_1} = \boxed{w_5 * f'(w_5h_1 + w_6h_2 + b_3)}
 $$
-<figcaption>More Chain Rule!</figcaption>
+<figcaption>More Chain Rule.</figcaption>
 
 We do the same thing for $\frac{\partial h_1}{\partial w_1}$:
 
@@ -459,7 +459,7 @@ $\eta$ is a constant called the **learning rate** that controls how fast we trai
 - If $\frac{\partial L}{\partial w_1}$ is positive, $w_1$ will decrease, which makes $L$ decrease.
 - If $\frac{\partial L}{\partial w_1}$ is negative, $w_1$ will increase, which makes $L$ decrease.
 
-If we do this for every weight and bias in the network, the loss will slowly decrease and our network will improve!
+If we do this for every weight and bias in the network, the loss will slowly decrease and our network will improve.
 
 Our training process will look like this:
 
@@ -655,4 +655,6 @@ There's still much more to do:
 - Learn about [Convolutional Neural Networks](https://en.wikipedia.org/wiki/Convolutional_neural_network), which revolutionized the field of Computer Vision.
 - Learn about [Recurrent Neural Networks](https://en.wikipedia.org/wiki/Recurrent_neural_network), often used for Natural Language Processing (NLP).
 
-I may write about these topics or similar ones in the future, so [subscribe](http://eepurl.com/gf8JCX) if you want to get notified about new posts. Thanks for reading! 😊
+I may write about these topics or similar ones in the future, so [subscribe](http://eepurl.com/gf8JCX) if you want to get notified about new posts.
+
+Thanks for reading!
