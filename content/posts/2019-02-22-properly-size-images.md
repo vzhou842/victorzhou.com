@@ -13,7 +13,7 @@ tags:
   - "Performance"
 description: "Even weather.com is doing this wrong - are you?"
 prev: "/blog/why-you-should-use-webpack/"
-next: "/blog/why-you-should-use-webpack/"
+next: "/blog/intro-to-neural-networks/"
 twitterEmbed: true
 ---
 

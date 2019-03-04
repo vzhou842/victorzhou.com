@@ -11,7 +11,7 @@ tags:
   - "Machine Learning"
   - "Python"
 description: "A simple explanation of how they work and how to implement one from scratch in Python."
-prev: "/blog/better-profanity-detection-with-scikit-learn/"
+prev: "/blog/properly-size-images/"
 next: "/blog/better-profanity-detection-with-scikit-learn/"
 ---
 
