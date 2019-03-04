@@ -5,7 +5,7 @@ template: "post"
 usesKatex: true
 draft: false
 slug: "/blog/intro-to-neural-networks/"
-img: "/media/neural-network-post/network3.svg"
+img: "/media/neural-network-post/network3.png"
 category: "Machine Learning"
 tags:
   - "Machine Learning"
