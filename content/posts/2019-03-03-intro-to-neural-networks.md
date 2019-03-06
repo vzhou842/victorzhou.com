@@ -224,6 +224,8 @@ We'll represent Male with a $0$ and Female with a $1$, and we'll also shift the 
 | Charlie | 17 | 4 | 0 |
 | Diana | -15 | -6 | 1 |
 
+> I arbitrarily chose the shift amounts ($135$ and $66$) to make the numbers look nice. Normally, you'd shift by the mean.
+
 ### Loss
 
 Before we train our network, we first need a way to quantify how "good" it's doing so that it can try to do "better". That's what the **loss** is.
