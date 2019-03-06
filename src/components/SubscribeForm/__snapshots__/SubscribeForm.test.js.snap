@@ -14,7 +14,7 @@ exports[`SubscribeForm renders default correctly 1`] = `
   </p>
   <form
     action="https://victorzhou.us20.list-manage.com/subscribe/post"
-    method="POST"
+    method="post"
     target="_blank"
   >
     <input
@@ -60,7 +60,7 @@ exports[`SubscribeForm renders large correctly 1`] = `
   </p>
   <form
     action="https://victorzhou.us20.list-manage.com/subscribe/post"
-    method="POST"
+    method="post"
     target="_blank"
   >
     <input

@@ -17,7 +17,7 @@ exports[`MovableSidebarContent renders correctly 1`] = `
     </p>
     <form
       action="https://victorzhou.us20.list-manage.com/subscribe/post"
-      method="POST"
+      method="post"
       target="_blank"
     >
       <input

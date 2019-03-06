@@ -8,7 +8,7 @@ const SubscribeForm = ({ large }) => (
     </p>
     <form
       action="https://victorzhou.us20.list-manage.com/subscribe/post"
-      method="POST"
+      method="post"
       target="_blank"
     >
       <input type="hidden" name="u" value="7cd5089a9bbc5253e6890ae15" />
