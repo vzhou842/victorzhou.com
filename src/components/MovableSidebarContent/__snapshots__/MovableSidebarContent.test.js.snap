@@ -5,7 +5,7 @@ exports[`MovableSidebarContent renders correctly 1`] = `
   className=""
 >
   <div
-    className="container "
+    className="container  "
   >
     <p
       className="description"

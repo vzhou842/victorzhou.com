@@ -32,7 +32,7 @@ exports[`Post renders correctly 1`] = `
     className="post__subscribeForm"
   >
     <div
-      className="container large"
+      className="container large "
     >
       <p
         className="description"

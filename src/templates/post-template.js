@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
 import NavHeader from '../components/NavHeader';
+import SubscribePopup from '../components/SubscribePopup';
 
 const PostTemplate = ({ data }) => {
   const { title: siteTitle, subtitle: siteSubtitle, url: siteUrl } = data.site.siteMetadata;
@@ -32,6 +33,7 @@ const PostTemplate = ({ data }) => {
         </Helmet>
         <Post post={data.markdownRemark} />
       </Layout>
+      <SubscribePopup />
     </div>
   );
 };

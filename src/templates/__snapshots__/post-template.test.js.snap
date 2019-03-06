@@ -23,5 +23,61 @@ exports[`PostTemplate renders correctly 1`] = `
   <StaticQuery
     render={[Function]}
   />
+  <div
+    className="container hidden"
+  >
+    <h4
+      className="title"
+    >
+      At least this isn't a full screen popup
+    </h4>
+    <p
+      className="description"
+    >
+      That would be more annoying. Anyways, if you like what you're reading, consider subscribing to my newsletter! I'll notify you when I publish new posts - no spam.
+    </p>
+    <div
+      className="container  no-spacing"
+    >
+      <form
+        action="https://victorzhou.us20.list-manage.com/subscribe/post"
+        method="post"
+        target="_blank"
+      >
+        <input
+          name="u"
+          type="hidden"
+          value="7cd5089a9bbc5253e6890ae15"
+        />
+        <input
+          name="id"
+          type="hidden"
+          value="9f367a1f47"
+        />
+        <input
+          aria-label="Email Address"
+          autoCapitalize="off"
+          autoCorrect="off"
+          id="subscribe-popup-input"
+          name="MERGE0"
+          placeholder="example@domain.com"
+          size="25"
+          type="email"
+        />
+        <br />
+        <input
+          name="submit"
+          type="submit"
+          value="SUBSCRIBE"
+        />
+      </form>
+    </div>
+    <button
+      className="close"
+      onClick={[Function]}
+    >
+      ✕
+    </button>
+  </div>
 </div>
 `;

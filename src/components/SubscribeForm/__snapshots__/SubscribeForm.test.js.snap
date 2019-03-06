@@ -2,7 +2,7 @@
 
 exports[`SubscribeForm renders default correctly 1`] = `
 <div
-  className="container "
+  className="container  "
 >
   <p
     className="description"
@@ -48,7 +48,7 @@ exports[`SubscribeForm renders default correctly 1`] = `
 
 exports[`SubscribeForm renders large correctly 1`] = `
 <div
-  className="container large"
+  className="container large "
 >
   <p
     className="description"
