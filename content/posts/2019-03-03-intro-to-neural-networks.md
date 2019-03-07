@@ -366,7 +366,7 @@ $$
 f(x) = \frac{1}{1 + e^{-x}}
 $$
 $$
-f'(x) = \frac{e^x}{(1 + e^{-x})^2} = f(x) * (1 - f(x))
+f'(x) = \frac{e^{-x}}{(1 + e^{-x})^2} = f(x) * (1 - f(x))
 $$
 
 We'll use this nice form for $f'(x)$ later.
