@@ -167,6 +167,10 @@
       font-size: $typographic-base-font-size * 1.25;
       border-spacing: 0;
     }
+
+    :global(.crossed-out) {
+      text-decoration: line-through;
+    }
     // stylelint-enable
 
     & img {
