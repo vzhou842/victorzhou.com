@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
@@ -8,17 +9,14 @@ import Pagination from '../components/Pagination';
 import MovableSidebarContent from '../components/MovableSidebarContent';
 
 const IndexTemplate = ({ data, pageContext }) => {
-  const {
-    title: siteTitle,
-    subtitle: siteSubtitle,
-  } = data.site.siteMetadata;
+  const { title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
 
   const {
     currentPage,
     hasNextPage,
     hasPrevPage,
     prevPagePath,
-    nextPagePath
+    nextPagePath,
   } = pageContext;
 
   const { edges } = data.allMarkdownRemark;
@@ -27,6 +25,24 @@ const IndexTemplate = ({ data, pageContext }) => {
   return (
     <div>
       <Layout title={pageTitle} description={siteSubtitle}>
+        <Helmet>
+          <script type="application/ld+json">
+            {
+`{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Victor Zhou",
+  "url": "https://victorzhou.com",
+  "sameAs": [
+    "https://www.facebook.com/zhouvictor",
+    "https://twitter.com/victorczhou",
+    "https://www.instagram.com/victorczhou/",
+    "https://www.linkedin.com/in/vzhou842/"
+  ]
+}`
+            }
+          </script>
+        </Helmet>
         <Sidebar />
         <Page>
           <Feed edges={edges} />
