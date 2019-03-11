@@ -1,8 +1,9 @@
 import React from 'react';
 import './CarbonAd.css';
+import styles from './CarbonAd.module.scss';
 
 export const CarbonAd = () => (
-  <div>
+  <div className={styles['container']}>
     <script
       async
       type="text/javascript"

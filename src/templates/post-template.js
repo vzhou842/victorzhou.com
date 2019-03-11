@@ -5,6 +5,7 @@ import Layout from '../components/Layout';
 import Post from '../components/Post';
 import NavHeader from '../components/NavHeader';
 import SubscribePopup from '../components/SubscribePopup';
+import CarbonAd from '../components/CarbonAd';
 
 const PostTemplate = ({ data }) => {
   const { title: siteTitle, subtitle: siteSubtitle, url: siteUrl } = data.site.siteMetadata;
@@ -34,6 +35,15 @@ const PostTemplate = ({ data }) => {
         <Post post={data.markdownRemark} />
       </Layout>
       <SubscribePopup />
+      <div
+        style={{
+          position: 'absolute',
+          top: 'calc((100% - 217px) / 2)',
+          right: 'calc(((100% - 700px) / 2 - 150px) / 2)',
+        }}
+      >
+        <CarbonAd />
+      </div>
     </div>
   );
 };

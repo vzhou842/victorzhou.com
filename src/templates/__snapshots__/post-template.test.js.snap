@@ -79,5 +79,23 @@ exports[`PostTemplate renders correctly 1`] = `
       ✕
     </button>
   </div>
+  <div
+    style={
+      Object {
+        "position": "absolute",
+        "right": "calc(((100% - 700px) / 2 - 150px) / 2)",
+        "top": "calc((100% - 217px) / 2)",
+      }
+    }
+  >
+    <div>
+      <script
+        async={true}
+        id="_carbonads_js"
+        src="//cdn.carbonads.com/carbon.js?serve=CK7I4237&placement=victorzhoucom"
+        type="text/javascript"
+      />
+    </div>
+  </div>
 </div>
 `;
