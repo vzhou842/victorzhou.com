@@ -88,14 +88,10 @@ exports[`PostTemplate renders correctly 1`] = `
       }
     }
   >
-    <div>
-      <script
-        async={true}
-        id="_carbonads_js"
-        src="//cdn.carbonads.com/carbon.js?serve=CK7I4237&placement=victorzhoucom"
-        type="text/javascript"
-      />
-    </div>
+    <div
+      className="container"
+      id="carbonads-container"
+    />
   </div>
 </div>
 `;
