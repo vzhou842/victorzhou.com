@@ -5,7 +5,10 @@ import styles from './CBA.module.scss';
 class CarbonAd extends React.PureComponent {
   componentDidMount() {
     const { minDisplayWidth } = this.props;
-    if (!minDisplayWidth || (minDisplayWidth && window.innerWidth >= minDisplayWidth)) {
+    if (
+      (!minDisplayWidth || (minDisplayWidth && window.innerWidth >= minDisplayWidth)) &&
+      window.location.hostname !== 'localhost'
+    ) {
       const container = document.getElementById('cba-container');
       const script = document.createElement('script');
       script.id = '_carbonads_js';
@@ -16,9 +19,7 @@ class CarbonAd extends React.PureComponent {
   }
 
   render() {
-    return (
-      <div id='cba-container' className={styles['container']} />
-    );
+    return <div id="cba-container" className={styles['container']} />;
   }
 }
 
