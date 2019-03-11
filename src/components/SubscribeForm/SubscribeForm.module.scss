@@ -55,14 +55,14 @@
 @include breakpoint-sm {
   .container {
     border-radius: 5px;
-    @include margin-bottom(1);
+    @include margin-bottom(0.75);
   }
 }
 
 @include breakpoint-md {
   .container.large {
     @include padding-equal(1);
-    @include margin-bottom(1);
+    @include margin-bottom(0.75);
 
     p {
       font-size: $typographic-base-font-size * 1.2;

@@ -4,12 +4,16 @@ import SubscribeForm from '../SubscribeForm';
 import Contacts from '../Contacts';
 import Copyright from '../Copyright';
 import DisplayIf from '../DisplayIf';
+import CarbonAd from '../CarbonAd';
 
 export const PureMovableSidebarContent = ({ mobile, desktop, hideSubscribeForm, data }) => {
   const { author, copyright } = data.site.siteMetadata;
   return (
     <DisplayIf mobile={mobile} desktop={desktop}>
       {!hideSubscribeForm && <SubscribeForm />}
+      {desktop && (
+        <CarbonAd />
+      )}
       <Contacts contacts={author.contacts} />
       <Copyright copyright={copyright} />
     </DisplayIf>
