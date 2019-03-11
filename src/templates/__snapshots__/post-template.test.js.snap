@@ -90,7 +90,7 @@ exports[`PostTemplate renders correctly 1`] = `
   >
     <div
       className="container"
-      id="carbonads-container"
+      id="cba-container"
     />
   </div>
 </div>

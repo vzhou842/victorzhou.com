@@ -1,12 +1,12 @@
 import React from 'react';
 import './CarbonAd.css';
-import styles from './CarbonAd.module.scss';
+import styles from './CBA.module.scss';
 
 class CarbonAd extends React.PureComponent {
   componentDidMount() {
     const { minDisplayWidth } = this.props;
     if (!minDisplayWidth || (minDisplayWidth && window.innerWidth >= minDisplayWidth)) {
-      const container = document.getElementById('carbonads-container');
+      const container = document.getElementById('cba-container');
       const script = document.createElement('script');
       script.id = '_carbonads_js';
       script.async = true;
@@ -17,7 +17,7 @@ class CarbonAd extends React.PureComponent {
 
   render() {
     return (
-      <div id='carbonads-container' className={styles['container']} />
+      <div id='cba-container' className={styles['container']} />
     );
   }
 }
