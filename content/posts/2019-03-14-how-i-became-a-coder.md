@@ -2,7 +2,7 @@
 title: How I Became a Programmer
 date: "2019-03-14T12:00:00.000Z"
 template: "post"
-draft: false
+draft: true
 slug: "/blog/how-i-became-a-programmer/"
 img: 
 category: "Programming"
