@@ -6,7 +6,7 @@ slug: "/about"
 
 I studied Computer Science at Princeton University (Class of 2019), and I'm going to be a Software Engineer (SWE) at Facebook starting in August 2019. I've done SWE internships at Facebook (2015 and 2018), Google (2016), and Airbnb (2017).
 
-A few of the projects I'm most known for include:
+A few of my more well-known projects include:
 
 - [**generals.io**](http://generals.io) [[subreddit](https://reddit.com/r/generalsio), [Hacker News](https://news.ycombinator.com/item?id=13145781), [Product Hunt](https://www.producthunt.com/posts/generals-io)], a multiplayer browser strategy game with half a million monthly players and a [Bot API](http://dev.generals.io) [[Hacker News](https://news.ycombinator.com/item?id=13562866)]. Sold in January 2018.
 - [**faster.js**](https://github.com/vzhou842/faster.js) [[Hacker News](https://news.ycombinator.com/item?id=16886494)], a micro-optimizing Javascript compiler.
