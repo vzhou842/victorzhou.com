@@ -1,10 +1,10 @@
 ---
 title: How I Became a Programmer
-date: "2019-03-14T12:00:00.000Z"
+date: "2019-03-13T12:00:00.000Z"
 template: "post"
 draft: true
 slug: "/blog/how-i-became-a-programmer/"
-img: 
+img: "/media/laptop-code.jpg"
 category: "Programming"
 tags:
   - "Programming"
