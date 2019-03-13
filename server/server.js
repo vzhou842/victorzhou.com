@@ -5,6 +5,7 @@ const PUBLIC_PATH = path.join(__dirname, '../public-live');
 
 const app = express();
 
+// Serve the public folder
 app.use(express.static(PUBLIC_PATH));
 
 // Route legacy paths
@@ -24,6 +25,11 @@ app.use(
 );
 app.use(['/blog', '/cloak'], (req, res) => {
   res.redirect(301, '/');
+});
+
+// Redirect categories to tags
+app.use('/category/:id', (req, res) => {
+  res.redirect(301, `/tag/${req.params.id}`);
 });
 
 // Catch 404

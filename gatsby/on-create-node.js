@@ -31,7 +31,7 @@ const onCreateNode = ({ node, actions, getNode }) => {
     }
 
     if (node.frontmatter.category) {
-      const categorySlug = `/category/${_.kebabCase(node.frontmatter.category)}/`;
+      const categorySlug = `/tag/${_.kebabCase(node.frontmatter.category)}/`;
       createNodeField({ node, name: 'categorySlug', value: categorySlug });
     }
   }
