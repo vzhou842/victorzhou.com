@@ -8,14 +8,15 @@
 
 @include breakpoint-sm {
   .container {
-    width: 400px;
+    width: 375px;
     position: fixed;
-    right: 0;
-    bottom: 0;
+    right: 10px;
+    bottom: 10px;
     background-color: $color-gray-bg;
-    box-shadow: 0 0 15px $color-gray;
+    box-shadow: 0 0 15px $color-gray-shadow;
     opacity: 1;
     visibility: visible;
+    border-radius: 5px;
     @include padding-equal(0.5);
     @include transition(opacity);
 
