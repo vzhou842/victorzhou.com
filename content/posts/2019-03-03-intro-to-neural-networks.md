@@ -13,8 +13,8 @@ tags:
   - "Python"
   - "For Beginners"
 description: "A simple explanation of how they work and how to implement one from scratch in Python."
-prev: "/blog/properly-size-images/"
-next: "/blog/better-profanity-detection-with-scikit-learn/"
+prev: "/blog/better-profanity-detection-with-scikit-learn/"
+next: "/blog/how-i-became-a-programmer/"
 ---
 
 Here's something that might surprise you: **neural networks aren't that complicated!** The term "neural network" gets used as a buzzword a lot, but in reality they're often much simpler than people imagine.

@@ -11,7 +11,7 @@ tags:
   - "Debugging"
   - "Programming"
 description: "This is an actual bug I had once."
-prev: "/blog/better-profanity-detection-with-scikit-learn/"
+prev: "/blog/properly-size-images/"
 next: "/blog/why-you-should-use-webpack/"
 ---
 

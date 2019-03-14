@@ -13,8 +13,8 @@ tags:
   - "scikit-learn"
 description: "Why existing libraries are uninspiring and how I built a better one."
 canonical: https://medium.com/@victorczhou/building-a-better-profanity-detection-library-with-scikit-learn-3638b2f2c4c2
-prev: "/blog/a-javascript-bug-i-had-once/"
-next: "/blog/intro-to-neural-networks/"
+prev: "/blog/intro-to-neural-networks/"
+next: "/blog/a-javascript-bug-i-had-once/"
 ---
 
 A few months ago, I needed a way to detect profanity in user-submitted text strings:
