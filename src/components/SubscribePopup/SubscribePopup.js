@@ -29,6 +29,12 @@ class SubscribePopup extends React.Component {
     this.setState({ visible: false });
   };
 
+  onKeyDown = e => {
+    if (e.key === 'Escape') {
+      this.close();
+    }
+  };
+
   render() {
     const { visible } = this.state;
 
@@ -44,6 +50,7 @@ class SubscribePopup extends React.Component {
           noDescription
           noSpacing
           inputId={inputId}
+          onKeyDown={this.onKeyDown}
         />
         <button className={styles['close']} onClick={this.close}>
           ✕

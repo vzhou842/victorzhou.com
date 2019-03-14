@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './SubscribeForm.module.scss';
 
-const SubscribeForm = ({ signupSource, large, noDescription, noSpacing, inputId }) => (
+const SubscribeForm = ({ signupSource, large, noDescription, noSpacing, inputId, onKeyDown }) => (
   <div
     className={`${styles['container']} ${large ? styles['large'] : ''} ${
       noSpacing ? styles['no-spacing'] : ''
@@ -30,6 +30,7 @@ const SubscribeForm = ({ signupSource, large, noDescription, noSpacing, inputId 
         size="25"
         placeholder="example@domain.com"
         aria-label="Email Address"
+        onKeyDown={onKeyDown}
       />
       <br />
       <input type="submit" name="submit" value="SUBSCRIBE" />

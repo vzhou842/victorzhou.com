@@ -60,6 +60,7 @@ exports[`PostTemplate renders correctly 1`] = `
           autoCorrect="off"
           id="subscribe-popup-input"
           name="MERGE0"
+          onKeyDown={[Function]}
           placeholder="example@domain.com"
           size="25"
           type="email"
