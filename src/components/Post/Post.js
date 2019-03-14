@@ -10,15 +10,13 @@ import Author from '../Author';
 import SubscribeForm from '../SubscribeForm';
 import Share from '../Share';
 
-const Post = ({ post }) => {
+const Post = ({ post, prevPost, nextPost }) => {
   const {
     tags,
     title,
     disqusIdentifier,
     date,
     description,
-    next,
-    prev,
     slug,
   } = post.frontmatter;
 
@@ -38,7 +36,7 @@ const Post = ({ post }) => {
       <div className={styles['post__footer']}>
         <Meta date={date} />
         <Tags tags={tags} tagSlugs={tagSlugs} />
-        <ReadMore prev={prev} next={next} />
+        <ReadMore prevPost={prevPost} nextPost={nextPost} />
         <div className={styles['post__authorContainer']}>
           <Author showBio />
         </div>

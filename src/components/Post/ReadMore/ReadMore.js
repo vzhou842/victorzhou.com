@@ -1,17 +1,22 @@
 import React from 'react';
-import Pagination from '../../Pagination';
+import moment from 'moment';
 import styles from './ReadMore.module.scss';
 
-const ReadMore = ({ prev, next }) => (
+const ReadMoreLink = ({ post: { frontmatter: { date, description, slug, title } } }) => (
+  <div>
+    <a href={slug}><b>{title}</b></a>
+    <p><b>{moment(date).format('MMMM D, YYYY')}</b></p>
+    <p>{description}</p>
+  </div>
+);
+
+const ReadMore = ({ prevPost, nextPost }) => (
   <div className={styles['readmore']}>
-    <h4 className={styles['readmore-title']}>READ MORE</h4>
-    <Pagination
-      classes={styles['readmore-pagination']}
-      prevPagePath={prev}
-      nextPagePath={next}
-      hasPrevPage
-      hasNextPage
-    />
+    <h4 className={styles['readmore-title']}>YOU MIGHT ALSO LIKE</h4>
+    <div className={styles['readmore-links']}>
+      <ReadMoreLink post={prevPost} />
+      <ReadMoreLink post={nextPost} />
+      </div>
   </div>
 );
 

@@ -7,17 +7,22 @@ import NavHeader from '../components/NavHeader';
 import SubscribePopup from '../components/SubscribePopup';
 import CarbonAd from '../components/CarbonAd';
 
-const PostTemplate = ({ data }) => {
+const PostTemplate = ({ data, pageContext }) => {
   const { title: siteTitle, subtitle: siteSubtitle, url: siteUrl } = data.site.siteMetadata;
+  const { edges } = data.allMarkdownRemark;
+  const { slug, prev, next } = pageContext;
+
+  const [slugNode, prevNode, nextNode] = [slug, prev, next].map(
+    s => edges.filter(e => e.node.frontmatter.slug === s)[0].node,
+  );
 
   const {
     canonical,
-    img: postImage,
+    img,
     title: postTitle,
     description: postDescription,
     twitterEmbed,
-    slug
-  } = data.markdownRemark.frontmatter;
+  } = slugNode.frontmatter;
 
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
 
@@ -28,12 +33,12 @@ const PostTemplate = ({ data }) => {
         <Helmet>
           {canonical && <link rel="canonical" href={canonical} />}
           <meta property="og:type" content="article" />
-          <meta property="og:image" content={siteUrl + postImage} />
+          <meta property="og:image" content={siteUrl + img} />
           {twitterEmbed && (
             <script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8" />
           )}
         </Helmet>
-        <Post post={data.markdownRemark} />
+        <Post post={slugNode} prevPost={prevNode} nextPost={nextNode} />
       </Layout>
       <SubscribePopup postSlug={slug} />
       <div
@@ -53,37 +58,38 @@ export const fragment = graphql`
   fragment PostFragment on Query {
     site {
       siteMetadata {
-        disqusShortname
         subtitle
         title
         url
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
-      html
-      fields {
-        tagSlugs
-      }
-      frontmatter {
-        canonical
-        disqusIdentifier
-        date
-        description
-        img
-        next
-        prev
-        slug
-        tags
-        title
-        twitterEmbed
+    allMarkdownRemark(filter: { frontmatter: { slug: { in: [$slug, $prev, $next] } } }) {
+      edges {
+        node {
+          id
+          html
+          fields {
+            tagSlugs
+          }
+          frontmatter {
+            canonical
+            disqusIdentifier
+            date
+            description
+            img
+            slug
+            tags
+            title
+            twitterEmbed
+          }
+        }
       }
     }
   }
 `;
 
 export const query = graphql`
-  query PostBySlug($slug: String!) {
+  query PostBySlug($slug: String!, $prev: String!, $next: String!) {
     ...PostFragment
   }
 `;

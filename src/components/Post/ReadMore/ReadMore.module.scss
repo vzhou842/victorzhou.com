@@ -15,4 +15,30 @@
   &-pagination {
     margin: 0;
   }
+
+  &-links {
+    display: flex;
+    flex-direction: column;
+
+    > div {
+      flex: 1;
+      background-color: $color-gray-bg;
+      text-align: center;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 4px;
+
+      p {
+        margin: 0;
+        font-size: $typographic-base-font-size * 0.9;
+        @include line-height(0.9);
+      }
+    }
+  }
+}
+
+@include breakpoint-sm {
+  .readmore-links {
+    flex-direction: row;
+  }
 }

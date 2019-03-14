@@ -35,6 +35,8 @@ const createPages = async ({ graphql, actions }) => {
             frontmatter {
               template
               usesKatex
+              prev
+              next
             }
             fields {
               slug
@@ -48,6 +50,8 @@ const createPages = async ({ graphql, actions }) => {
   const { edges } = result.data.allMarkdownRemark;
 
   _.each(edges, edge => {
+    const prev = _.get(edge, 'node.frontmatter.prev');
+    const next = _.get(edge, 'node.frontmatter.next');
     let template = _.get(edge, 'node.frontmatter.template');
     if (_.get(edge, 'node.frontmatter.usesKatex')) {
       template = 'math-post';
@@ -55,7 +59,7 @@ const createPages = async ({ graphql, actions }) => {
     createPage({
       path: edge.node.fields.slug,
       component: path.resolve(`./src/templates/${template}-template.js`),
-      context: { slug: edge.node.fields.slug },
+      context: { slug: edge.node.fields.slug, prev, next },
     });
   });
 

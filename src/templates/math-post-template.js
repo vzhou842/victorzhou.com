@@ -4,7 +4,7 @@ import PostTemplate from './post-template';
 require('katex/dist/katex.min.css');
 
 export const query = graphql`
-  query MathPostBySlug($slug: String!) {
+  query MathPostBySlug($slug: String!, $prev: String!, $next: String!) {
     ...PostFragment
   }
 `;

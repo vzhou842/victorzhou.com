@@ -131,30 +131,40 @@ exports[`Post renders correctly 1`] = `
       <h4
         className="readmore-title"
       >
-        READ MORE
+        YOU MIGHT ALSO LIKE
       </h4>
       <div
-        className="pagination readmore-pagination"
+        className="readmore-links"
       >
-        <div
-          className="pagination__prev"
-        >
-          <Link
-            className="pagination__prev-link"
-            rel="prev"
+        <div>
+          <a
+            href="test"
           >
-            ← PREV
-          </Link>
+            <b>
+              test
+            </b>
+          </a>
+          <p>
+            <b>
+              September 1, 2016
+            </b>
+          </p>
+          <p />
         </div>
-        <div
-          className="pagination__next"
-        >
-          <Link
-            className="pagination__next-link"
-            rel="next"
+        <div>
+          <a
+            href="test"
           >
-            NEXT →
-          </Link>
+            <b>
+              test
+            </b>
+          </a>
+          <p>
+            <b>
+              September 1, 2016
+            </b>
+          </p>
+          <p />
         </div>
       </div>
     </div>

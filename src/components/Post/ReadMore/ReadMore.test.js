@@ -2,11 +2,15 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import ReadMore from './ReadMore';
 
+const post = () => ({
+  frontmatter: {},
+});
+
 describe('ReadMore', () => {
   it('renders correctly', () => {
     const props = {
-      next: '/',
-      prev: '/',
+      nextPost: post(),
+      prevPost: post(),
     };
 
     const tree = renderer.create(<ReadMore {...props} />).toJSON();
