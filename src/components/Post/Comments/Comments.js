@@ -25,8 +25,12 @@ export class CommentsContainer extends React.PureComponent {
       disqusShortname
     } = data.site.siteMetadata;
 
-    if (!disqusShortname || !this.state.show) {
+    if (!disqusShortname) {
       return null;
+    }
+
+    if (!this.state.show) {
+      return <div style={{ paddingBottom: '450px' }} />
     }
 
     return (
