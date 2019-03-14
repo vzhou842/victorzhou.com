@@ -4,12 +4,12 @@ import SubscribeForm from './SubscribeForm';
 
 describe('SubscribeForm', () => {
   it('renders default correctly', () => {
-    const tree = renderer.create(<SubscribeForm />).toJSON();
+    const tree = renderer.create(<SubscribeForm signupSource="test" />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('renders large correctly', () => {
-    const tree = renderer.create(<SubscribeForm large />).toJSON();
+    const tree = renderer.create(<SubscribeForm signupSource="test" large />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

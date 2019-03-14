@@ -13,13 +13,14 @@ const SubscribeForm = ({ signupSource, large, noDescription, noSpacing, inputId 
       </p>
     )}
     <form
-      action="https://victorzhou.us20.list-manage.com/subscribe/post"
+      action={`https://victorzhou.us20.list-manage.com/subscribe/post?SIGNUP=${encodeURIComponent(
+        signupSource,
+      )}`}
       method="post"
       target="_blank"
     >
       <input type="hidden" name="u" value="7cd5089a9bbc5253e6890ae15" />
       <input type="hidden" name="id" value="9f367a1f47" />
-      <input type="hidden" name="SOURCE" value={signupSource} />
       <input
         id={inputId}
         type="email"

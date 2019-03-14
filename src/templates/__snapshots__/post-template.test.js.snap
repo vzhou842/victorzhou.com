@@ -40,7 +40,7 @@ exports[`PostTemplate renders correctly 1`] = `
       className="container  no-spacing"
     >
       <form
-        action="https://victorzhou.us20.list-manage.com/subscribe/post"
+        action="https://victorzhou.us20.list-manage.com/subscribe/post?SIGNUP=Popup%3Atest"
         method="post"
         target="_blank"
       >
@@ -53,11 +53,6 @@ exports[`PostTemplate renders correctly 1`] = `
           name="id"
           type="hidden"
           value="9f367a1f47"
-        />
-        <input
-          name="SOURCE"
-          type="hidden"
-          value="Popup:undefined"
         />
         <input
           aria-label="Email Address"

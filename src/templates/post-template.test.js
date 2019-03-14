@@ -26,6 +26,7 @@ describe('PostTemplate', () => {
         frontmatter: {
           date: '2016-09-01',
           description: 'test',
+          slug: 'test',
           title: 'test',
           tags: [
             'test_0',

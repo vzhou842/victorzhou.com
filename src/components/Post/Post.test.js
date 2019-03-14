@@ -14,6 +14,7 @@ describe('Post', () => {
       },
       frontmatter: {
         date: '2016-09-01',
+        slug: 'test',
         tags: [
           'test_0',
           'test_1'
