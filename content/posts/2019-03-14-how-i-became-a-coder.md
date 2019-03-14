@@ -2,7 +2,7 @@
 title: How I Became a Programmer
 date: "2019-03-14T12:00:00.000Z"
 template: "post"
-draft: true
+draft: false
 slug: "/blog/how-i-became-a-programmer/"
 img: "/media/laptop-code.jpg"
 category: "Programming"
@@ -23,7 +23,7 @@ The obvious solution was to
 1. Make a better version of Runescape that required less grinding, and then
 2. Convince millions of players to play my version instead.
 
-With this foolproof 2-step plan in place, I set out to complete Step 1. I remember googling "_How was Runescape made_," reading that it was built in Java, and then googling "_How to code in Java_." Over the next 20 minutes, I would come to realize that learning Java on your own as a 12-year-old is not that easy. Thus, I made the brilliant decision to pivot: I would now make a better version of Runescape **_without writing any code_**. <span class="emph-special">I'll just not do the parts that require coding</span>, I thought. <span class="emph-special">This way, I'll finish it faster, too</span>. See? Brilliant.
+With this foolproof 2-step plan in place, I set out to complete Step 1. I remember googling "_How was Runescape made_," reading that it was built in Java, and then googling "_How to code in Java_." Over the next 20 minutes, I would come to realize that learning Java on your own as a 12-year-old is not that easy. Thus, I made the brilliant decision to pivot: I would now make a better version of Runescape **_without writing any code_**. <span class="emph-special">I'll just skip the parts that require coding</span>, I thought. <span class="emph-special">This way, I'll finish it faster, too</span>. See? Brilliant.
 
 I ended up actually finding a way to make games without writing code: [GameMaker](https://www.yoyogames.com/gamemaker). I downloaded it and began making simple, codeless games. One of my favorite memories from middle school was bringing a USB loaded with a [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders)-style game I'd made to the computer lab and passing it around between my friends. That proud feeling of seeing people use something I built has been driving me ever since.
 
