@@ -31,6 +31,9 @@ app.use(['/blog', '/cloak'], (req, res) => {
 app.use('/category/:id', (req, res) => {
   res.redirect(301, `/tag/${req.params.id}`);
 });
+app.use('/categories/', (req, res) => {
+  res.redirect(301, '/tags/');
+});
 
 // Catch 404
 app.use((req, res) => {
