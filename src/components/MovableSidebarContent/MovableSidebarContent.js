@@ -10,10 +10,10 @@ export const PureMovableSidebarContent = ({ mobile, desktop, hideSubscribeForm, 
   const { author, copyright } = data.site.siteMetadata;
   return (
     <DisplayIf mobile={mobile} desktop={desktop}>
-      {!hideSubscribeForm && <SubscribeForm />}
-      {desktop && (
-        <CarbonAd minDisplayWidth={685} />
+      {!hideSubscribeForm && (
+        <SubscribeForm signupSource={`Sidebar:${mobile ? 'mobile' : 'desktop'}`} />
       )}
+      {desktop && <CarbonAd minDisplayWidth={685} />}
       <Contacts contacts={author.contacts} />
       <Copyright copyright={copyright} />
     </DisplayIf>

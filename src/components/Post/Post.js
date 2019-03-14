@@ -32,7 +32,7 @@ const Post = ({ post }) => {
       </div>
 
       <div className={styles['post__subscribeForm']}>
-        <SubscribeForm large />
+        <SubscribeForm signupSource={`Post:${slug}`} large />
       </div>
 
       <div className={styles['post__footer']}>

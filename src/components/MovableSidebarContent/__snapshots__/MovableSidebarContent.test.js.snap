@@ -31,6 +31,11 @@ exports[`MovableSidebarContent renders correctly 1`] = `
         value="9f367a1f47"
       />
       <input
+        name="SOURCE"
+        type="hidden"
+        value="Sidebar:desktop"
+      />
+      <input
         aria-label="Email Address"
         autoCapitalize="off"
         autoCorrect="off"

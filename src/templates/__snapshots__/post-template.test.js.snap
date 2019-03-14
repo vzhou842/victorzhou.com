@@ -55,6 +55,11 @@ exports[`PostTemplate renders correctly 1`] = `
           value="9f367a1f47"
         />
         <input
+          name="SOURCE"
+          type="hidden"
+          value="Popup:undefined"
+        />
+        <input
           aria-label="Email Address"
           autoCapitalize="off"
           autoCorrect="off"

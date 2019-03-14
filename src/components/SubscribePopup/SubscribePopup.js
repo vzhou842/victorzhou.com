@@ -39,8 +39,15 @@ class SubscribePopup extends React.Component {
           That would be more annoying. Anyways, if you like what you're reading, consider
           subscribing to my newsletter! I'll notify you when I publish new posts - no spam.
         </p>
-        <SubscribeForm noDescription noSpacing inputId={inputId} />
-        <button className={styles['close']} onClick={this.close}>✕</button>
+        <SubscribeForm
+          signupSource={`Popup:${this.props.postSlug}`}
+          noDescription
+          noSpacing
+          inputId={inputId}
+        />
+        <button className={styles['close']} onClick={this.close}>
+          ✕
+        </button>
       </div>
     );
   }

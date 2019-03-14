@@ -16,6 +16,7 @@ const PostTemplate = ({ data }) => {
     title: postTitle,
     description: postDescription,
     twitterEmbed,
+    slug
   } = data.markdownRemark.frontmatter;
 
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
@@ -34,7 +35,7 @@ const PostTemplate = ({ data }) => {
         </Helmet>
         <Post post={data.markdownRemark} />
       </Layout>
-      <SubscribePopup />
+      <SubscribePopup postSlug={slug} />
       <div
         style={{
           position: 'absolute',

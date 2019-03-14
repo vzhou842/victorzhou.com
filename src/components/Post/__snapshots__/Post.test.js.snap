@@ -58,6 +58,11 @@ exports[`Post renders correctly 1`] = `
           value="9f367a1f47"
         />
         <input
+          name="SOURCE"
+          type="hidden"
+          value="Post:undefined"
+        />
+        <input
           aria-label="Email Address"
           autoCapitalize="off"
           autoCorrect="off"
