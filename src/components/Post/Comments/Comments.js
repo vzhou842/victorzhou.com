@@ -30,7 +30,7 @@ export class CommentsContainer extends React.PureComponent {
     }
 
     if (!this.state.show) {
-      return <div style={{ paddingBottom: '450px' }} />
+      return <div style={{ paddingBottom: '450px' }} />;
     }
 
     return (

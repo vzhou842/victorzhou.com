@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import ReadMore from './ReadMore';
 
 const post = () => ({
-  frontmatter: {},
+  frontmatter: { date: new Date('3/14/19') },
 });
 
 describe('ReadMore', () => {
