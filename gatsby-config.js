@@ -125,11 +125,17 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-gtagjs',
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingId: siteConfig.googleAnalyticsId,
-        head: true,
-        configOptions: { optimize_id: 'GTM-KVD4JL9' },
+        trackingIds: [
+          siteConfig.googleAnalyticsId,
+        ],
+        gtagConfig: {
+          optimize_id: 'GTM-KVD4JL9',
+        },
+        pluginConfig: {
+          head: true,
+        },
       },
     },
     {
