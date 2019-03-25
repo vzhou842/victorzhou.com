@@ -20,7 +20,7 @@ I started this blog at the beginning of last month (February 2019) because
 - I wanted to become a better writer.
 - I felt like I had some interesting/useful things to say.
 - I'd <a href="/about/" target="_blank">sold both of my main side projects</a> and wanted a new challenge.
-- I didn't like [the old victorzhou.com](https://github.com/vzhou842/victorzhou.com-old) and had been itching to rewrite it for a while (this new site is also open source on [Github](https://github.com/vzhou842/victorzhou.com)).
+- I didn't like [the old victorzhou.com](https://github.com/vzhou842/victorzhou.com-old) and had been itching to rewrite it for a while.
 - I wanted to learn more about and get firsthand experience with [SEO](https://en.wikipedia.org/wiki/Search_engine_optimization).
 
 ## The Numbers
@@ -60,4 +60,4 @@ I'm going to keep blogging! During Year One, I'm aiming to
 
 Are these goals pretty ambitious? Definitely. I've got a long way to go and a lot of work to do. But I might as well aim high, right?
 
-Anyways - a **huge thank you to my readers** from the past two months! See you all on February 4, 2020 for the Year One recap where I'll look back at this post and see if I hit my goals. 🎯
+Anyways - a **huge thank you to my readers** from the past two months! See you all on February 4, 2020 for the Year One recap, where I'll look back at this post and see if I hit my goals. 🎯
