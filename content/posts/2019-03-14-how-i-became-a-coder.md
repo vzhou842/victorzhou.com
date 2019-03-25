@@ -10,7 +10,7 @@ tags:
   - "Programming"
   - "Game Development"
 description: My unlikely origin story.
-prev: "/blog/intro-to-neural-networks/"
+prev: "/blog/first-50-days-of-blogging/"
 next: "/blog/properly-size-images/"
 ---
 
