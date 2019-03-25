@@ -1,7 +1,7 @@
 ---
 title: "About Me"
 template: "page"
-slug: "/about"
+slug: "/about/"
 ---
 
 I studied Computer Science at Princeton University (Class of 2019), and I'm going to be a Software Engineer (SWE) at Facebook starting in August 2019. I've done SWE internships at Facebook (2015 and 2018), Google (2016), and Airbnb (2017). I've been [programming since I was 12](/blog/how-i-became-a-programmer/) and love to build things.
