@@ -4,7 +4,7 @@ date: "2019-03-25T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/first-50-days-of-blogging/"
-img:
+img: /media/first-50-days-post/pageviews.png
 category: "Blogging"
 tags:
   - "Blogging"
