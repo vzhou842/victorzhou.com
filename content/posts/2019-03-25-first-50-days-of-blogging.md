@@ -8,10 +8,12 @@ img:
 category: "Blogging"
 tags:
   - "Blogging"
-description: A progress report on this blog's first two months.
+description: Why I started blogging, how it's going, and where I hope it goes.
 prev: "/blog/how-i-became-a-programmer/"
 next: "/blog/intro-to-neural-networks/"
 ---
+
+## Why?
 
 I started this blog at the beginning of last month (February 2019) because:
 
@@ -19,20 +21,23 @@ I started this blog at the beginning of last month (February 2019) because:
 - I felt like I had some interesting/useful things to say.
 - I'd <a href="/about/" target="_blank">sold both of my main side projects</a> and wanted a new challenge.
 - I didn't like [the old victorzhou.com](https://github.com/vzhou842/victorzhou.com-old) and had been itching to rewrite it for a while.
+- I wanted to learn more about and get firsthand experience with [SEO](https://en.wikipedia.org/wiki/Search_engine_optimization).
+
+## The Numbers
 
 On February 4, I published <a href="/blog/better-profanity-detection-with-scikit-learn/" target="_blank">my first blog post</a> and started my journey. Since then, I've
 
 - Published 6 blog posts.
-- Gotten 70k pageviews.
+- Gotten 70k+ pageviews.
 - Received 600+ subscribers to [my newsletter](http://eepurl.com/gf8JCX).
 
-## Some More Stats
+Today is March 25, which is my blog's 50th day! 🎉
 
 Here's a graph of my blog's pageviews since its beginning:
 
 ![](/media/first-50-days-post/pageviews.png)
 
-The two spikes are both because of Hacker New posts: first from [this one on my Javascript bug post](https://news.ycombinator.com/item?id=19135552) and then [this one on my Neural Networks post](https://news.ycombinator.com/item?id=19320217). I considered titling this blog post _How I got 70,000 Page Views in My First 50 Days Blogging_ because clickbait apparently works, but there wouldn't be much for me to say - I got lucky on Hacker News.
+The two spikes are both because of Hacker New posts: first from [this one on my Javascript bug post](https://news.ycombinator.com/item?id=19135552) and then [this one on my Neural Networks post](https://news.ycombinator.com/item?id=19320217).
 
 Here are my 6 blog posts, ranked by number of pageviews:
 
@@ -53,6 +58,6 @@ I'm going to keep blogging! During Year One, I'm aiming to
 - Get a million pageviews.
 - Grow [my newsletter](http://eepurl.com/gf8JCX) to 10,000 subscribers.
 
-Are these goals pretty ambitious? Definitely. But I might as well aim high, right?
+Are these goals pretty ambitious? Definitely. I've got a long way to go and a lot of work to do. But I might as well aim high, right?
 
-Anyways, thank you to everyone who's been following my blog for the past two months. See you all on February 4, 2020, for the Year One recap 🎉.
+Anyways - a **huge thank you to my readers** from the past two months! See you all on February 4, 2020 for the Year One recap where I'll look back at this post and see if I hit my goals. 🎯
