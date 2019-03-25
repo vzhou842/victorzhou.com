@@ -29,7 +29,7 @@ app.use(['/blog', '/cloak'], (req, res) => {
 
 // Redirect categories to tags
 app.use('/category/:id', (req, res) => {
-  res.redirect(301, `/tag/${req.params.id}`);
+  res.redirect(301, `/tag/${req.params.id}/`);
 });
 app.use('/categories/', (req, res) => {
   res.redirect(301, '/tags/');
