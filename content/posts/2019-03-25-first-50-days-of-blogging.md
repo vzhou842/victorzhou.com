@@ -19,13 +19,13 @@ I started this blog at the beginning of last month (February 2019) because
 
 - I wanted to become a better writer.
 - I felt like I had some interesting/useful things to say.
-- I'd <a href="/about/" target="_blank">sold both of my main side projects</a> and wanted a new challenge.
+- I'd [sold both of my main side projects](/about/) and wanted a new challenge.
 - I didn't like [the old victorzhou.com](https://github.com/vzhou842/victorzhou.com-old) and had been itching to rewrite it for a while.
 - I wanted to learn more about and get firsthand experience with [SEO](https://en.wikipedia.org/wiki/Search_engine_optimization).
 
 ## The Numbers
 
-On February 4, I published <a href="/blog/better-profanity-detection-with-scikit-learn/" target="_blank">my first blog post</a> and started my journey. Since then, I've
+On February 4, I published [my first blog post](/blog/better-profanity-detection-with-scikit-learn/) and started my journey. Since then, I've
 
 - Published 6 blog posts.
 - Gotten 70k+ pageviews.
@@ -43,12 +43,12 @@ Here are all 6 blog posts ranked by number of pageviews:
 
 | Page | Pageviews |
 | ---- | --------- |
-| <a class="no-underline" href="/blog/intro-to-neural-networks/" target="_blank">/blog/intro-to-neural-networks/</a> | 36,453 |
-| <a class="no-underline" href="/blog/a-javascript-bug-i-had-once/" target="_blank">/blog/a-javascript-bug-i-had-once/</a> | 6,675 |
-| <a class="no-underline" href="/blog/properly-size-images/" target="_blank">/blog/properly-size-images/</a> | 3,721 |
-| <a class="no-underline" href="/blog/how-i-became-a-programmer/" target="_blank">/blog/how-i-became-a-programmer/</a> | 2,122 |
-| <a class="no-underline" href="/blog/why-you-should-use-webpack/" target="_blank">/blog/why-you-should-use-webpack/</a> | 1,753 |
-| <a class="no-underline" href="/blog/better-profanity-detection-with-scikit-learn/" target="_blank">/blog/better-profanity-detection-with-scikit-learn/</a> | 1,331 |
+| <a class="no-underline" href="/blog/intro-to-neural-networks/">/blog/intro-to-neural-networks/</a> | 36,453 |
+| <a class="no-underline" href="/blog/a-javascript-bug-i-had-once/">/blog/a-javascript-bug-i-had-once/</a> | 6,675 |
+| <a class="no-underline" href="/blog/properly-size-images/">/blog/properly-size-images/</a> | 3,721 |
+| <a class="no-underline" href="/blog/how-i-became-a-programmer/">/blog/how-i-became-a-programmer/</a> | 2,122 |
+| <a class="no-underline" href="/blog/why-you-should-use-webpack/">/blog/why-you-should-use-webpack/</a> | 1,753 |
+| <a class="no-underline" href="/blog/better-profanity-detection-with-scikit-learn/">/blog/better-profanity-detection-with-scikit-learn/</a> | 1,331 |
 
 ## Goals for Year One
 

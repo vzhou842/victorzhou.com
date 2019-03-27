@@ -171,7 +171,7 @@ I wrapped my entire bundle in an IIFE to avoid the global scope and then wrapped
 
 However, this didn’t fix the Dependencies problem: I still had to manually order files to satisfy all dependencies. To make matters worse, I now also had to care about stuff like not using `playSingleplayer` before assigning it.
 
-> One of the most interesting bugs I’ve fixed in my time was caused by these IIFEs - <a href="/blog/a-javascript-bug-i-had-once/" target="_blank"><strong>want to see if you can spot it</strong></a>?
+> One of the most interesting bugs I’ve fixed in my time was caused by these IIFEs - [**want to see if you can spot it**](/blog/a-javascript-bug-i-had-once/)?
 
 ## Stage 4: Webpack
 
