@@ -5,7 +5,6 @@ module.exports = {
   title: 'victorzhou.com',
   subtitle: 'Computer Science at Princeton University. I blog about web development, machine learning, programming, and more.',
   copyright: '© Victor Zhou 2019',
-  disqusShortname: 'victorzhou',
   postsPerPage: 8,
   googleAnalyticsId: 'UA-58664433-1',
   menu: [

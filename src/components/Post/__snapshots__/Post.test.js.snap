@@ -182,8 +182,12 @@ exports[`Post renders correctly 1`] = `
   <div
     className="post__comments"
   >
-    <StaticQuery
-      render={[Function]}
+    <div
+      style={
+        Object {
+          "paddingBottom": "320px",
+        }
+      }
     />
   </div>
 </div>

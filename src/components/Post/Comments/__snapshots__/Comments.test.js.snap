@@ -4,7 +4,7 @@ exports[`Comments renders correctly 1`] = `
 <div
   style={
     Object {
-      "paddingBottom": "450px",
+      "paddingBottom": "320px",
     }
   }
 />

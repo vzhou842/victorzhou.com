@@ -14,7 +14,6 @@ const Post = ({ post, prevPost, nextPost }) => {
   const {
     tags,
     title,
-    disqusIdentifier,
     date,
     description,
     slug,
@@ -44,7 +43,7 @@ const Post = ({ post, prevPost, nextPost }) => {
       </div>
 
       <div className={styles['post__comments']}>
-        <Comments postSlug={slug} postTitle={title} identifier={disqusIdentifier} />
+        <Comments />
       </div>
     </div>
   );

@@ -73,7 +73,6 @@ export const fragment = graphql`
           }
           frontmatter {
             canonical
-            disqusIdentifier
             date
             description
             img

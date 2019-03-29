@@ -1,8 +1,7 @@
 import React from 'react';
-import { graphql, StaticQuery } from 'gatsby';
-import ReactDisqusComments from 'react-disqus-comments';
+import ReactCommento from './ReactCommento';
 
-export class CommentsContainer extends React.PureComponent {
+export class Comments extends React.PureComponent {
   state = { show: false };
 
   componentDidMount() {
@@ -19,45 +18,14 @@ export class CommentsContainer extends React.PureComponent {
   };
 
   render() {
-    const { data, postTitle, postSlug, identifier } = this.props;
-    const {
-      url,
-      disqusShortname
-    } = data.site.siteMetadata;
-
-    if (!disqusShortname) {
-      return null;
-    }
-
     if (!this.state.show) {
-      return <div style={{ paddingBottom: '450px' }} />;
+      return <div style={{ paddingBottom: '320px' }} />;
     }
 
     return (
-      <ReactDisqusComments
-        shortname={disqusShortname}
-        identifier={identifier || postTitle}
-        title={postTitle}
-        url={url + postSlug}
-      />
+      <ReactCommento />
     );
   }
 }
-
-export const Comments = (props) => (
-  <StaticQuery
-    query={graphql`
-      query CommentsQuery {
-        site {
-          siteMetadata {
-            disqusShortname
-            url
-          }
-        }
-      }
-    `}
-    render={(data) => <CommentsContainer {...props} data={data}/>}
-  />
-);
 
 export default Comments;
