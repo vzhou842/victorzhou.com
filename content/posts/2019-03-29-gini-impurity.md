@@ -5,7 +5,7 @@ template: "post"
 usesKatex: true
 draft: false
 slug: "/blog/gini-impurity/"
-img: "/media/gini-impurity-post/dataset-imperfect-split.svg"
+img: "/media/gini-impurity-post/dataset-imperfect-split.png"
 category: "Machine Learning"
 tags:
   - "Machine Learning"
