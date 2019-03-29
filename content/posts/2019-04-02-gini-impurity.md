@@ -21,19 +21,19 @@ If you look at the documentation for the [DecisionTreeClassifier](https://scikit
 
 ![](/media/gini-impurity-post/scikit-learn.png)
 
-The default criterion is "gini" for the **Gini Impurity**. What is that?!
+The [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) documentation says the same thing. Both mention that the default criterion is "gini" for the **Gini Impurity**. What is that?!
 
 > TLDR: Read the [Recap](#recap)
 
 ## Decision Trees 🌲
 
-Training a decision tree consists of iteratively splitting the current dataset into two parts. Say we had the following datapoints:
+Training a decision tree consists of iteratively splitting the current data into two branches. Say we had the following datapoints:
 
 ![The Dataset](/media/gini-impurity-post/dataset.svg)
 
 <style>
 .inline-point {
-  margin: 0 1px;
+  margin: 2px 1px;
   width: 8px;
   height: 8px;
   border-radius: 4px;
@@ -45,32 +45,47 @@ Training a decision tree consists of iteratively splitting the current dataset i
 .inline-point.green {
   background-color: #0F9640;
 }
+.inline-point.red {
+  background-color: red;
+}
 </style>
-Right now, we have 1 group with 5 blues and 5 greens. <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span>
+Right now, we have 1 branch with 5 blues and 5 greens. <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span>
 
 Let's make a split at $$x = 2$$:
 
 ![A Perfect Split](/media/gini-impurity-post/dataset-perfect-split.svg)
 
-This is a **perfect** split! It breaks our dataset into two groups:
+This is a **perfect** split! It breaks our dataset into two perfect branches:
 
-- Left group, with 5 blues. <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span>
-- Right group, with 5 greens. <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span>
+- Left branch, with 5 blues. <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span>
+- Right branch, with 5 greens. <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span>
 
 What if we'd made a split at $$x = 1.5$$ instead?
 
 ![An Imperfect Split](/media/gini-impurity-post/dataset-imperfect-split.svg)
 
-This imperfect split breaks our dataset into these groups:
+This imperfect split breaks our dataset into these branches:
 
-- Left group, with 4 blues. <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span>
-- Right group, with 1 blue and 5 greens. <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span>
+- Left branch, with 4 blues. <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span>
+- Right branch, with 1 blue and 5 greens. <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span>
 
 It's obvious that this split is worse, but **how can we quantify that?**
 
+Being able to measure the quality of a split becomes even more important if we add a third class, reds <span class="inline-point red"></span>. Imagine the following split:
+
+- Branch 1, with 3 blues, 1 green, and 1 red. <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point red"></span>
+- Branch 2, with 3 greens and 1 red. <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point red"></span>
+
+Compare that against this split:
+
+- Branch 1, with 3 blues, 1 green, and 2 reds. <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point red"></span> <span class="inline-point red"></span>
+- Branch 2, with 3 greens. <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span>
+
+Which split is better? It's no longer immediately obvious. We need a way to **quantitatively evaluate** how good a split is.
+
 ## Gini Impurity
 
-Gini Impurity is a metric that will help us determine the quality of a split.
+This is where the Gini Impurity metric comes in.
 
 Suppose we
 
@@ -89,12 +104,12 @@ What's the probability we classify our datapoint **incorrectly**?
 
 | Event | Probability |
 | ----- | ----------- |
-| Pick Blue, Classify Blue | 25% |
-| Pick Blue, Classify Green | 25% |
-| Pick Green, Classify Blue | 25% |
-| Pick Green, Classify Green | 25% |
+| Pick Blue, Classify Blue <span class="checkmark">✓</span> | 25% |
+| Pick Blue, Classify Green ❌ | 25% |
+| Pick Green, Classify Blue ❌ | 25% |
+| Pick Green, Classify Green <span class="checkmark">✓</span> | 25% |
 
-We only classify it incorrectly when we Pick Blue, Classify Green or Pick Green, Classify Blue. Thus, our total probability is 25% + 25% = 50%, so the Gini Impurity is $\boxed{0.5}$.
+We only classify it incorrectly in 2 of the events above. Thus, our total probability is 25% + 25% = 50%, so the Gini Impurity is $\boxed{0.5}$.
 
 ### The Formula
 
@@ -118,35 +133,35 @@ which matches what we calculated!
 
 ### Example 2: A Perfect Split
 
-Let's go back to the perfect split we had. What are the Gini Impurities of the two groups after the split?
+Let's go back to the perfect split we had. What are the Gini Impurities of the two branches after the split?
 
 ![A Perfect Split](/media/gini-impurity-post/dataset-perfect-split.svg)
 
-Left Group has only blues, so its Gini Impurity is
+Left Branch has only blues, so its Gini Impurity is
 
 $$
 G_{left} = 1 * (1 - 1) + 0 * (1 - 0) = \boxed{0}
 $$
 
-Right Group has only greens, so its Gini Impurity is
+Right Branch has only greens, so its Gini Impurity is
 
 $$
 G_{right} = 0 * (1 - 0) + 1 * (1 - 1) = \boxed{0}
 $$
 
-Both groups have $0$ impurity! The perfect split turned a dataset with $0.5$ impurity into 2 groups with $0$ impurity.
+Both branches have $0$ impurity! The perfect split turned a dataset with $0.5$ impurity into 2 branches with $0$ impurity.
 
 **A Gini Impurity of 0 is the lowest and best possible impurity**. It can only be achieved when everything is the same class (e.g. only blues or only greens).
 
 ### Example 3: An Imperfect Split
 
-Finally, let's go back to our imperfect split.
+Finally, let's return to our imperfect split.
 
 ![An Imperfect Split](/media/gini-impurity-post/dataset-imperfect-split.svg)
 
-Left Group has only blues, so we know that $G_{left} = \boxed{0}$.
+Left Branch has only blues, so we know that $G_{left} = \boxed{0}$.
 
-Right Group has 1 blue and 5 greens, so
+Right Branch has 1 blue and 5 greens, so
 
 $$
 \begin{aligned}
@@ -158,19 +173,19 @@ $$
 
 ## Picking The Best Split
 
-It's finally time to answer the question we posed earlier: _how can we measure the quality of a split?_
+It's finally time to answer the question we posed earlier: **how can we quantitatively evaluate the quality of a split?**
 
-Let's go back to the imperfect split. Here it is yet again:
+Here's the imperfect split yet again:
 
 ![An Imperfect Split](/media/gini-impurity-post/dataset-imperfect-split.svg)
 
 We've already calculated the Gini Impurities for:
 
 - Before the split (the entire dataset): $0.5$
-- Left Group: $0$
-- Right Group $0.278$
+- Left Branch: $0$
+- Right Branch: $0.278$
 
-We'll determine the quality of the split by **weighting the impurity of each group (branch) by how many elements it has**. Since Left Group has 4 elements and Right Group has 6, we get:
+We'll determine the quality of the split by **weighting the impurity of each branch by how many elements it has**. Since Left Branch has 4 elements and Right Branch has 6, we get:
 
 $$
 (0.4 * 0) + (0.6 * 0.278) = 0.167
@@ -182,7 +197,7 @@ $$
 0.5 - 0.167 = \boxed{0.333}
 $$
 
-I'll call this value the Gini Gain. **This is what's used to pick the best split in a decision tree!** Higher Gini Gain = Better Split. For example, it's easy to verify that the Gini Gain of the perfect split on our dataset is $0.5 > 0.333$.
+I'll call this value the Gini Gain. This is what's used to pick the best split in a decision tree! **Higher Gini Gain = Better Split**. For example, it's easy to verify that the Gini Gain of the perfect split on our dataset is $0.5 > 0.333$.
 
 ## Recap
 
