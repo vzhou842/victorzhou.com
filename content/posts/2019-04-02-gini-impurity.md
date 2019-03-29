@@ -5,14 +5,14 @@ template: "post"
 usesKatex: true
 draft: false
 slug: "/blog/gini-impurity/"
-img:
+img: "/media/gini-impurity-post/dataset-imperfect-split.svg"
 category: "Machine Learning"
 tags:
   - "Machine Learning"
   - "Python"
-  - "Random Forests"
+  - "Decision Trees"
   - "For Beginners"
-description: A beginner's guide to Gini Impurity, Gini Gain, and how they're used to train Decision Trees.
+description: What Gini Impurity is (with examples) and how it's used to train Decision Trees.
 prev: "/blog/intro-to-neural-networks/"
 next: "/blog/better-profanity-detection-with-scikit-learn/"
 ---
@@ -23,18 +23,20 @@ If you look at the documentation for the [DecisionTreeClassifier](https://scikit
 
 The default criterion is "gini" for the **Gini Impurity**. What is that?!
 
+> TLDR: Read the [Recap](#recap)
+
 ## Decision Trees 🌲
 
 Training a decision tree consists of iteratively splitting the current dataset into two parts. Say we had the following datapoints:
 
-![](/media/gini-impurity-post/dataset.svg)
+![The Dataset](/media/gini-impurity-post/dataset.svg)
 
 <style>
 .inline-point {
-  margin: 0 2px;
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
+  margin: 0 1px;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
   display: inline-block;
 }
 .inline-point.blue {
@@ -48,7 +50,7 @@ Right now, we have 1 group with 5 blues and 5 greens. <span class="inline-point 
 
 Let's make a split at $$x = 2$$:
 
-![](/media/gini-impurity-post/dataset-perfect-split.svg)
+![A Perfect Split](/media/gini-impurity-post/dataset-perfect-split.svg)
 
 This is a **perfect** split! It breaks our dataset into two groups:
 
@@ -57,20 +59,25 @@ This is a **perfect** split! It breaks our dataset into two groups:
 
 What if we'd made a split at $$x = 1.5$$ instead?
 
-![](/media/gini-impurity-post/dataset-imperfect-split.svg)
+![An Imperfect Split](/media/gini-impurity-post/dataset-imperfect-split.svg)
 
 This imperfect split breaks our dataset into these groups:
 
 - Left group, with 4 blues. <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span>
 - Right group, with 1 blue and 5 greens. <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span>
 
-It's obvious that this split is worse, but how can we quantify that?
+It's obvious that this split is worse, but **how can we quantify that?**
 
 ## Gini Impurity
 
-Gini Impurity is a metric that's used to **measure the quality of a split**.
+Gini Impurity is a metric that will help us determine the quality of a split.
 
-Suppose we randomly pick a datapoint in our dataset. Now, let's **randomly classify it according to the class distribution in the dataset**. For our dataset, we'd give it a $\frac{5}{10}$ chance of being blue and a $\frac{5}{10}$ chance of being green, since we have 5 of each color. **What's the probability we classify it incorrectly?** Gini Impurity is the answer to that question.
+Suppose we
+
+1. Randomly pick a datapoint in our dataset, then
+2. **Randomly classify it according to the class distribution in the dataset**. For our dataset, we'd classify it as blue $\frac{5}{10}$ of the time and as green $\frac{5}{10}$ of the time, since we have 5 datapoints of each color.
+
+**What's the probability we classify the datapoint incorrectly?** The answer to that question is the Gini Impurity.
 
 ### Example 1: The Whole Dataset
 
@@ -107,13 +114,13 @@ G &= p(1) * (1 - p(1)) + p(2) * (1 - p(2)) \\
 \end{aligned}
 $$
 
-which matches with what we calculated!
+which matches what we calculated!
 
 ### Example 2: A Perfect Split
 
 Let's go back to the perfect split we had. What are the Gini Impurities of the two groups after the split?
 
-![](/media/gini-impurity-post/dataset-perfect-split.svg)
+![A Perfect Split](/media/gini-impurity-post/dataset-perfect-split.svg)
 
 Left Group has only blues, so its Gini Impurity is
 
@@ -135,7 +142,7 @@ Both groups have $0$ impurity! The perfect split turned a dataset with $0.5$ imp
 
 Finally, let's go back to our imperfect split.
 
-![](/media/gini-impurity-post/dataset-imperfect-split.svg)
+![An Imperfect Split](/media/gini-impurity-post/dataset-imperfect-split.svg)
 
 Left Group has only blues, so we know that $G_{left} = \boxed{0}$.
 
@@ -149,7 +156,47 @@ G_{right} &= \frac{1}{6} * (1 - \frac{1}{6}) + \frac{5}{6} * (1 - \frac{5}{6}) \
 \end{aligned}
 $$
 
-## Gini Gain
+## Picking The Best Split
 
+It's finally time to answer the question we posed earlier: _how can we measure the quality of a split?_
 
+Let's go back to the imperfect split. Here it is yet again:
+
+![An Imperfect Split](/media/gini-impurity-post/dataset-imperfect-split.svg)
+
+We've already calculated the Gini Impurities for:
+
+- Before the split (the entire dataset): $0.5$
+- Left Group: $0$
+- Right Group $0.278$
+
+We'll determine the quality of the split by **weighting the impurity of each group (branch) by how many elements it has**. Since Left Group has 4 elements and Right Group has 6, we get:
+
+$$
+(0.4 * 0) + (0.6 * 0.278) = 0.167
+$$
+
+Thus, the amount of impurity we've "removed" with this split is
+
+$$
+0.5 - 0.167 = \boxed{0.333}
+$$
+
+I'll call this value the Gini Gain. **This is what's used to pick the best split in a decision tree!** Higher Gini Gain = Better Split. For example, it's easy to verify that the Gini Gain of the perfect split on our dataset is $0.5 > 0.333$.
+
+## Recap
+
+**Gini Impurity** is the probability of _incorrectly_ classifying a randomly chosen element in the dataset if it were randomly labeled _according to the class distribution_ in the dataset. It's calculated as
+
+$$
+G = \sum_{i=1}^C p(i) * (1 - p(i))
+$$
+
+where $C$ is the number of classes and $p(i)$ is the probability of randomly picking an element of class $i$.
+
+When training a decision tree, the best split is chosen by **maximizing the Gini Gain**, which is calculated by subtracting the weighted impurities of the branches from the original impurity.
+
+## FAQ: What does "Gini" mean?
+
+It's not an acronym or anything - the Gini Impurity is named after [Corrado Gini](https://en.wikipedia.org/wiki/Corrado_Gini).
 
