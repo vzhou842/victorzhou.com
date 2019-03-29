@@ -23,7 +23,7 @@ If you look at the documentation for the [DecisionTreeClassifier](https://scikit
 
 The [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) documentation says the same thing. Both mention that the default criterion is "gini" for the **Gini Impurity**. What is that?!
 
-> TLDR: Read the [Recap](#recap)
+> TLDR: Read the [Recap](#recap).
 
 ## Decision Trees 🌲
 
@@ -55,7 +55,7 @@ Let's make a split at $$x = 2$$:
 
 ![A Perfect Split](/media/gini-impurity-post/dataset-perfect-split.svg)
 
-This is a **perfect** split! It breaks our dataset into two perfect branches:
+This is a **perfect** split! It breaks our dataset perfectly into two branches:
 
 - Left branch, with 5 blues. <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span>
 - Right branch, with 5 greens. <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span>
@@ -210,8 +210,4 @@ $$
 where $C$ is the number of classes and $p(i)$ is the probability of randomly picking an element of class $i$.
 
 When training a decision tree, the best split is chosen by **maximizing the Gini Gain**, which is calculated by subtracting the weighted impurities of the branches from the original impurity.
-
-## FAQ: What does "Gini" mean?
-
-It's not an acronym or anything - the Gini Impurity is named after [Corrado Gini](https://en.wikipedia.org/wiki/Corrado_Gini).
 
