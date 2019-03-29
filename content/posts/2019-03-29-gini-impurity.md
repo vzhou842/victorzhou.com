@@ -1,6 +1,6 @@
 ---
 title: A Simple Explanation of Gini Impurity
-date: "2019-04-02T12:00:00.000Z"
+date: "2019-03-29T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
@@ -9,9 +9,9 @@ img: "/media/gini-impurity-post/dataset-imperfect-split.svg"
 category: "Machine Learning"
 tags:
   - "Machine Learning"
-  - "Python"
-  - "Decision Trees"
   - "For Beginners"
+  - "Decision Trees"
+  - "Random Forests"
 description: What Gini Impurity is (with examples) and how it's used to train Decision Trees.
 prev: "/blog/intro-to-neural-networks/"
 next: "/blog/better-profanity-detection-with-scikit-learn/"
