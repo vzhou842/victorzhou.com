@@ -6,6 +6,7 @@ export default class ReactCommento extends React.PureComponent {
     script.async = true;
     script.type = 'text/javascript';
     script.src = '//cdn.commento.io/js/commento.js';
+    script.setAttribute('data-css-override', '/commento.min.css');
 
     const head = document.getElementsByTagName('head')[0];
     head.appendChild(script);
