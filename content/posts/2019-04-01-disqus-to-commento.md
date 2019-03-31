@@ -1,5 +1,5 @@
 ---
-title: Why I Migrated Away from Disqus
+title: Why I Replaced Disqus and You Should Too
 date: "2019-04-01T12:00:00.000Z"
 template: "post"
 draft: false
@@ -10,9 +10,9 @@ tags:
   - "Web Development"
   - "Performance"
   - "Best Practices"
-description: How replacing Disqus with Commento reduced my page weight by 10x.
-prev: "/blog/intro-to-neural-networks/"
-next: "/blog/better-profanity-detection-with-scikit-learn/"
+description: How switching from Disqus to Commento reduced my page weight by 10x.
+prev: "/blog/properly-size-images/"
+next: "/blog/why-you-should-use-webpack/"
 ---
 
 ![](/media/commento-post/migration-small.png)
@@ -26,7 +26,7 @@ Here's the thing: I've always known that using Disqus came at the cost of some p
 <img src="/media/commento-post/requests1.png" style="width: 600px;" />
 <img src="/media/commento-post/size1.png" style="width: 600px;" />
 
-**Adding Disqus increased my page weight by over 10x and my request count by over 6x**. That's ridiculous! I immediately started looking to replace Disqus.
+**Adding Disqus increased my page weight by over 10x and my request count by over 6x**. That's ridiculous! I immediately started looking to replace Disqus - [web performance is important](https://developers.google.com/web/fundamentals/performance/why-performance-matters/).
 
 ## An Alternative: Commento
 
@@ -35,7 +35,7 @@ A while back, I saw a [Hacker News](https://news.ycombinator.com/item?id=1921069
 <img src="/media/commento-post/requests2.png" style="width: 600px;" />
 <img src="/media/commento-post/size2.png" style="width: 600px;" />
 
-Wow. **Commento is _orders of magnitude_ lighter than Disqus**.
+What a difference. **Commento is _orders of magnitude_ lighter than Disqus**.
 
 It gets even better. Here are more reasons I was sold on Commento:
 
@@ -45,6 +45,6 @@ It gets even better. Here are more reasons I was sold on Commento:
 - It's [configurable](https://docs.commento.io/configuration/frontend/). If you scroll down to the comments of this post, you'll see that the styling of the Commento integration matches the styling of the rest of the site.
 - It has an **Import from Disqus** tool that's easy to use. I was able to quickly migrate all of my old Disqus comments to Commento.
 
-Commento works great for me, but I'm not trying to say it's the right solution for everyone - there are several good, **_fast_** commenting platforms out there.
+Commento works great for me, but I'm not trying to say it's the right solution for everyone - there are several good, _lightweight_ commenting platforms out there.
 
 **Are you still using Disqus?** Did you know how much bloat it adds to your page? What's keeping you from switching?
