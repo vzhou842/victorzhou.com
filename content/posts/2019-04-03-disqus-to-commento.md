@@ -4,7 +4,7 @@ date: "2019-04-03T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/migrating-disqus-to-commento/"
-img:
+img: "/media/commento-post/migration.png"
 category: "Web Development"
 tags:
   - "Web Development"
@@ -14,6 +14,8 @@ description: How replacing Disqus with Commento reduced my page weight by 10x.
 prev: "/blog/intro-to-neural-networks/"
 next: "/blog/better-profanity-detection-with-scikit-learn/"
 ---
+
+![](/media/commento-post/migration-small.png)
 
 When I started this blog, I used [Disqus](https://disqus.com/) for comments on posts. This was a natural choice: I'd seen sites use Disqus all over the internet, it was easy to setup, and they had a free tier. I happily integrated Disqus and moved on.
 
