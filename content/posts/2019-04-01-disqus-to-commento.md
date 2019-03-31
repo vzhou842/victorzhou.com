@@ -1,6 +1,6 @@
 ---
 title: Why I Migrated Away from Disqus
-date: "2019-04-03T12:00:00.000Z"
+date: "2019-04-01T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/migrating-disqus-to-commento/"
