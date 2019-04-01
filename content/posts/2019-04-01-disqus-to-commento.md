@@ -3,7 +3,7 @@ title: Why I Replaced Disqus and You Should Too
 date: "2019-04-01T12:00:00.000Z"
 template: "post"
 draft: false
-slug: "/blog/migrating-disqus-to-commento/"
+slug: "/blog/replacing-disqus/"
 img: "/media/commento-post/migration.png"
 category: "Web Development"
 tags:
