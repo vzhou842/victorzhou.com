@@ -175,6 +175,10 @@
     :global(a.no-underline) {
       text-decoration: none;
     }
+
+    :global(a.anchor) {
+      display: none;
+    }
     // stylelint-enable
 
     & img {
@@ -213,6 +217,10 @@
 
       :global(.spacing) {
         @include padding(0.5, 0, 0.5, 0);
+      }
+
+      :global(a.anchor) {
+        display: initial;
       }
       // stylelint-enable
     }
