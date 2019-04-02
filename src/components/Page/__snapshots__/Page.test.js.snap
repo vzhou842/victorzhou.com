@@ -8,7 +8,7 @@ exports[`Page renders correctly 1`] = `
     className="page__inner"
   >
     <h1
-      className="page__title"
+      className="page__title "
     >
       test
     </h1>

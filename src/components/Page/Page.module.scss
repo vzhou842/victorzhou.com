@@ -15,6 +15,17 @@
     @include line-height(2);
     @include margin-top(0);
     @include margin-bottom(1.45);
+
+    &.with-subtitle {
+      @include margin-bottom(0);
+    }
+  }
+
+  &__subtitle {
+    font-weight: 500;
+    font-size: $typographic-base-font-size * 1.25;
+    @include margin-top(0);
+    @include margin-bottom(1.45);
   }
 
   &__body {
@@ -22,7 +33,6 @@
     @include line-height(1);
     @include margin(0, 0, 1);
   }
-
 }
 
 @include breakpoint-sm {
@@ -33,9 +43,7 @@
     &__inner {
       padding: 30px 20px;
     }
-
   }
-
 }
 
 @include breakpoint-md {
@@ -45,7 +53,5 @@
     &__inner {
       padding: 40px 35px;
     }
-
   }
-
 }

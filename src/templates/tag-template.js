@@ -27,7 +27,7 @@ const TagTemplate = ({ data, pageContext }) => {
   return (
     <Layout title={pageTitle} description={siteSubtitle}>
       <Sidebar />
-      <Page title={tag}>
+      <Page title={tag} subtitle={<a href="/tags/">← Back to All Tags</a>}>
         <Feed edges={edges} />
         <Pagination
           prevPagePath={prevPagePath}
