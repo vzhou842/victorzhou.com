@@ -18,6 +18,13 @@ exports[`Post renders correctly 1`] = `
       <h2
         className="content__subtitle"
       />
+      <p
+        className="content__date"
+      >
+        <time>
+          September 01, 2016
+        </time>
+      </p>
       <div
         className="content__body"
         dangerouslySetInnerHTML={
@@ -78,16 +85,6 @@ exports[`Post renders correctly 1`] = `
   <div
     className="post__footer"
   >
-    <div
-      className="meta"
-    >
-      <p
-        className="meta__date"
-      >
-        Published 
-        1 Sep 2016
-      </p>
-    </div>
     <div
       className="tags"
     >

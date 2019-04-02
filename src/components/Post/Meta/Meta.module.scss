@@ -1,9 +1,0 @@
-@import '../../../assets/scss/variables';
-@import '../../../assets/scss/mixins';
-
-.meta {
-  &__date {
-    font-style: italic;
-    @include margin-bottom(0.5);
-  }
-}

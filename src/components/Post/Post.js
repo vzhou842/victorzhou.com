@@ -1,7 +1,6 @@
 import React from 'react';
 import Comments from './Comments';
 import Content from './Content';
-import Meta from './Meta';
 import Tags from './Tags';
 import ReadMore from './ReadMore';
 import styles from './Post.module.scss';
@@ -25,7 +24,7 @@ const Post = ({ post, prevPost, nextPost }) => {
   return (
     <div className={styles['post']}>
       <div className={styles['post__content']}>
-        <Content body={html} title={title} subtitle={description} />
+        <Content body={html} title={title} subtitle={description} date={date} />
       </div>
 
       <div className={styles['post__subscribeForm']}>
@@ -33,7 +32,6 @@ const Post = ({ post, prevPost, nextPost }) => {
       </div>
 
       <div className={styles['post__footer']}>
-        <Meta date={date} />
         <Tags tags={tags} tagSlugs={tagSlugs} />
         <ReadMore prevPost={prevPost} nextPost={nextPost} />
         <div className={styles['post__authorContainer']}>

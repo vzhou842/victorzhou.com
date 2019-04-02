@@ -6,7 +6,7 @@
   padding: 0 $layout-mobile-padding;
   margin: 0 auto;
 
-  &__title, &__subtitle {
+  &__title, &__subtitle, &__date {
     max-width: $layout-post-width;
     margin: 0 auto;
   }
@@ -23,6 +23,13 @@
     color: $typographic-light-font-color;
     font-size: $typographic-base-font-size * 1.5;
     @include line-height(1.125);
+    @include margin-top(0.2);
+  }
+
+  &__date {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: $typographic-small-font-size;
     @include margin-top(0.2);
     @include margin-bottom(0.75);
   }
@@ -240,6 +247,9 @@
     &__subtitle {
       font-size: $typographic-base-font-size * 1.875;
       @include line-height(1.5);
+    }
+
+    &__date {
       @include margin-bottom(1);
     }
 
