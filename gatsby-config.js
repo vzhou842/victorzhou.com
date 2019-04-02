@@ -93,7 +93,7 @@ module.exports = {
         plugins: [
           {
             resolve: 'gatsby-remark-images',
-            options: { maxWidth: 700, showCaptions: true },
+            options: { maxWidth: 700, showCaptions: true, linkImagesToOriginal: false },
           },
           {
             resolve: 'gatsby-remark-responsive-iframe',
