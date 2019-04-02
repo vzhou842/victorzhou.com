@@ -2,7 +2,6 @@ import React from 'react';
 import SubscribeForm from '../SubscribeForm';
 import styles from './SubscribePopup.module.scss';
 
-const inputId = 'subscribe-popup-input';
 const hideDateKey = 'SubscribePopup-hide-date';
 const HIDE_DURATION = 1000 * 60 * 60 * 24; // 24 hours
 
@@ -20,7 +19,6 @@ class SubscribePopup extends React.Component {
       if (window.scrollY + window.innerHeight / 2 >= threshold) {
         this.setState({ visible: true });
         window.removeEventListener('scroll', this.scrollListener);
-        document.getElementById(inputId).focus();
       }
     };
     if (window.innerWidth >= 720) {
@@ -57,7 +55,6 @@ class SubscribePopup extends React.Component {
           signupSource={`Popup:${this.props.postSlug}`}
           noDescription
           noSpacing
-          inputId={inputId}
           onKeyDown={this.onKeyDown}
         />
         <button className={styles['close']} onClick={this.close}>
