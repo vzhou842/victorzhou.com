@@ -19,7 +19,7 @@ next: "/blog/better-profanity-detection-with-scikit-learn/"
 
 If you look at the documentation for the [DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html) class in [scikit-learn](https://scikit-learn.org), you'll see something like this for the `criterion` parameter:
 
-![](/media/gini-impurity-post/scikit-learn.png)
+![](./media-link/gini-impurity-post/scikit-learn.png)
 
 The [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) documentation says the same thing. Both mention that the default criterion is "gini" for the **Gini Impurity**. What is that?!
 
@@ -29,7 +29,7 @@ The [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/s
 
 Training a decision tree consists of iteratively splitting the current data into two branches. Say we had the following datapoints:
 
-![The Dataset](/media/gini-impurity-post/dataset.svg)
+![The Dataset](./media-link/gini-impurity-post/dataset.svg)
 
 <style>
 .inline-point {
@@ -53,7 +53,7 @@ Right now, we have 1 branch with 5 blues and 5 greens. <span class="inline-point
 
 Let's make a split at $$x = 2$$:
 
-![A Perfect Split](/media/gini-impurity-post/dataset-perfect-split.svg)
+![A Perfect Split](./media-link/gini-impurity-post/dataset-perfect-split.svg)
 
 This is a **perfect** split! It breaks our dataset perfectly into two branches:
 
@@ -62,7 +62,7 @@ This is a **perfect** split! It breaks our dataset perfectly into two branches:
 
 What if we'd made a split at $$x = 1.5$$ instead?
 
-![An Imperfect Split](/media/gini-impurity-post/dataset-imperfect-split.svg)
+![An Imperfect Split](./media-link/gini-impurity-post/dataset-imperfect-split.svg)
 
 This imperfect split breaks our dataset into these branches:
 
@@ -135,7 +135,7 @@ which matches what we calculated!
 
 Let's go back to the perfect split we had. What are the Gini Impurities of the two branches after the split?
 
-![A Perfect Split](/media/gini-impurity-post/dataset-perfect-split.svg)
+![A Perfect Split](./media-link/gini-impurity-post/dataset-perfect-split.svg)
 
 Left Branch has only blues, so its Gini Impurity is
 
@@ -157,7 +157,7 @@ Both branches have $0$ impurity! The perfect split turned a dataset with $0.5$ i
 
 Finally, let's return to our imperfect split.
 
-![An Imperfect Split](/media/gini-impurity-post/dataset-imperfect-split.svg)
+![An Imperfect Split](./media-link/gini-impurity-post/dataset-imperfect-split.svg)
 
 Left Branch has only blues, so we know that $G_{left} = \boxed{0}$.
 
@@ -177,7 +177,7 @@ It's finally time to answer the question we posed earlier: **how can we quantita
 
 Here's the imperfect split yet again:
 
-![An Imperfect Split](/media/gini-impurity-post/dataset-imperfect-split.svg)
+![An Imperfect Split](./media-link/gini-impurity-post/dataset-imperfect-split.svg)
 
 We've already calculated the Gini Impurities for:
 

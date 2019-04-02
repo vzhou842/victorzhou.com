@@ -48,7 +48,7 @@ To my dismay, `better-profanity` and `profanityfilter` both took the same approa
 This is bad because **profanity detection libraries based on wordlists are extremely subjective.** For example, `better-profanity`'s wordlist includes the word “suck.” Are you willing to say that any sentence containing the word “suck” is profane? Furthermore, any hard-coded list of bad words will inevitably be incomplete — do you think `profanity`'s 32 bad words are the only ones out there?
 
 
-![](/media/xkcd-290.png)
+![](./media-link/xkcd-290.png)
 <figcaption>
   Fucking Blue Shells. source: <a href="https://xkcd.com/290/" target="_blank">xkcd</a>
 </figcaption>

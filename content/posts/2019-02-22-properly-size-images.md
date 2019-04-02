@@ -63,7 +63,7 @@ Here's another instance of the same issue on weather.com:
 
 The <a href="/media/image-sizing-post/clouds-big.jpg" target="_blank">original image</a> is 2600 x 1733, but it's used as the `css›background-image:` for a `html›<div>` that's much smaller:
 
-![](/media/image-sizing-post/clouds-inspected.png)
+![](./media-link/image-sizing-post/clouds-inspected.png)
 
 Only 595 x 350 (or 1190 x 700 on Retina displays) of the original image is visible, so the rest can just be cropped out. Even on a Retina display, **82%** of the original image goes unused.
 

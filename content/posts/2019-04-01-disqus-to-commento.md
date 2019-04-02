@@ -15,7 +15,7 @@ prev: "/blog/properly-size-images/"
 next: "/blog/why-you-should-use-webpack/"
 ---
 
-![](/media/commento-post/migration-small.png)
+![](./media-link/commento-post/migration-small.png)
 
 When I started this blog, I used [Disqus](https://disqus.com/) for comments on posts. This was a natural choice: I'd seen sites use Disqus all over the internet, it was easy to setup, and they had a free tier. I happily integrated Disqus and moved on.
 

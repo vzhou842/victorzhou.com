@@ -35,7 +35,7 @@ Today is March 25, which is my blog's 50th day! 🎉
 
 Here's a graph of my blog's pageviews since its beginning:
 
-![](/media/first-50-days-post/pageviews.png)
+![](./media-link/first-50-days-post/pageviews.png)
 
 The two spikes are both from my posts reaching the front page of Hacker News: first [my Javascript bug post](https://news.ycombinator.com/item?id=19135552) and then [my Neural Networks post](https://news.ycombinator.com/item?id=19320217).
 

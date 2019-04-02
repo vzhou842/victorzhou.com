@@ -27,7 +27,7 @@ Let's get started!
 
 First, we have to talk about neurons, the basic unit of a neural network. **A neuron takes inputs, does some math with them, and produces one output**. Here's what a 2-input neuron looks like:
 
-![](/media/neural-network-post/perceptron.svg)
+![](./media-link/neural-network-post/perceptron.svg)
 
 <style>
 .inline-square {
@@ -57,7 +57,7 @@ $$
 
 The activation function is used to turn an unbounded input into an output that has a nice, predictable form. A commonly used activation function is the [sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function) function:
 
-![](/media/neural-network-post/sigmoid.png)
+![](./media-link/neural-network-post/sigmoid.png)
 
 The sigmoid function only outputs numbers in the range $(0, 1)$. You can think of it as compressing $(-\infty, +\infty)$ to $(0, 1)$ - big negative numbers become ~$0$, and big positive numbers become ~$1$.
 
@@ -121,7 +121,7 @@ Recognize those numbers? That's the example we just did! We get the same answer 
 
 A neural network is nothing more than a bunch of neurons connected together. Here's what a simple neural network might look like:
 
-![](/media/neural-network-post/network.svg)
+![](./media-link/neural-network-post/network.svg)
 
 This network has 2 inputs, a hidden layer with 2 neurons ($h_1$ and $h_2$), and an output layer with 1 neuron ($o_1$). Notice that the inputs for $o_1$ are the outputs from $h_1$ and $h_2$ - that's what makes this a network.
 
@@ -158,7 +158,7 @@ A neural network can have **any number of layers** with **any number of neurons*
 
 Let's implement feedforward for our neural network. Here's the image of the network again for reference:
 
-![](/media/neural-network-post/network.svg)
+![](./media-link/neural-network-post/network.svg)
 
 ```python
 import numpy as np
@@ -213,7 +213,7 @@ Say we have the following measurements:
 
 Let's train our network to predict someone's gender given their weight and height:
 
-![](/media/neural-network-post/network2.svg)
+![](./media-link/neural-network-post/network2.svg)
 
 We'll represent Male with a $0$ and Female with a $1$, and we'll also shift the data to make it easier to use:
 
@@ -308,7 +308,7 @@ $$
 
 Another way to think about loss is as a function of weights and biases. Let's label each weight and bias in our network:
 
-![](/media/neural-network-post/network3.svg)
+![](./media-link/neural-network-post/network3.svg)
 
 Then, we can write loss as a multivariable function:
 
@@ -483,7 +483,7 @@ It's _finally_ time to implement a complete neural network:
 | Charlie | 17 | 4 | 0 |
 | Diana | -15 | -6 | 1 |
 
-![](/media/neural-network-post/network3.svg)
+![](./media-link/neural-network-post/network3.svg)
 
 ```python
 import numpy as np
@@ -623,7 +623,7 @@ network.train(data, all_y_trues)
 
 Our loss steadily decreases as the network learns:
 
-![](/media/neural-network-post/loss.png)
+![](./media-link/neural-network-post/loss.png)
 
 We can now use the network to predict genders:
 
