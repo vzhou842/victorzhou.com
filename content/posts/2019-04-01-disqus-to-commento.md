@@ -39,7 +39,7 @@ What a difference. **Commento is _orders of magnitude_ lighter than Disqus**.
 
 It gets even better. Here are more reasons I was sold on Commento:
 
-- It's [open source](https://gitlab.com/commento).
+- It's [open source](https://gitlab.com/commento) and can be self-hosted.
 - It's [privacy focused](https://commento.io/privacy) - it doesn't sell user data and tries to collect as little as possible. This is especially nice given that my blog's audience is probably more privacy-conscious than the average internet user.
 - You can [pay what you want](https://commento.io/pricing). Disqus's free tier is ad-supported, and its cheapest paid tier is $9/month. Commento is actually cheaper (if you want it to be)!
 - It's [configurable](https://docs.commento.io/configuration/frontend/). If you scroll down to the comments of this post, you'll see that the styling of the Commento integration matches the styling of the rest of the site.
