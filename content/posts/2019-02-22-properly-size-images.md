@@ -4,7 +4,7 @@ date: "2019-02-22T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/properly-size-images/"
-img: "/media/image-sizing-post/map-big.jpg"
+img: "https://victorzhou.com/media/image-sizing-post/map-big.jpg"
 category: "Web Development"
 tags:
   - "Web Development"

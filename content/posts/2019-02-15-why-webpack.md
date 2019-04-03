@@ -4,7 +4,7 @@ date: "2019-02-15T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/why-you-should-use-webpack/"
-img: "/media/webpack.png"
+img: "https://victorzhou.com/media/webpack.png"
 category: "Web Development"
 tags:
   - "Web Development"

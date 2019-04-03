@@ -4,7 +4,7 @@ date: "2019-03-14T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/how-i-became-a-programmer/"
-img: "/media/laptop-code.jpg"
+img: "https://victorzhou.com/media/laptop-code.jpg"
 category: "Programming"
 tags:
   - "Programming"

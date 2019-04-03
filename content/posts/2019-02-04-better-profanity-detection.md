@@ -4,7 +4,7 @@ date: "2019-02-04T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/better-profanity-detection-with-scikit-learn/"
-img: "/media/xkcd-290.png"
+img: "https://victorzhou.com/media/xkcd-290.png"
 category: "Machine Learning"
 tags:
   - "Machine Learning"

@@ -8,7 +8,7 @@ import SubscribePopup from '../components/SubscribePopup';
 import CarbonAd from '../components/CarbonAd';
 
 const PostTemplate = ({ data, pageContext }) => {
-  const { title: siteTitle, subtitle: siteSubtitle, url: siteUrl } = data.site.siteMetadata;
+  const { title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
   const { edges } = data.allMarkdownRemark;
   const { slug, prev, next } = pageContext;
 
@@ -18,7 +18,7 @@ const PostTemplate = ({ data, pageContext }) => {
 
   const {
     canonical,
-    img,
+    img: imgUrl,
     title: postTitle,
     description: postDescription,
     twitterEmbed,
@@ -33,7 +33,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <Helmet>
           {canonical && <link rel="canonical" href={canonical} />}
           <meta property="og:type" content="article" />
-          <meta property="og:image" content={siteUrl + img} />
+          <meta property="og:image" content={imgUrl} />
           {twitterEmbed && (
             <script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8" />
           )}
@@ -60,7 +60,6 @@ export const fragment = graphql`
       siteMetadata {
         subtitle
         title
-        url
       }
     }
     allMarkdownRemark(filter: { frontmatter: { slug: { in: [$slug, $prev, $next] } } }) {
