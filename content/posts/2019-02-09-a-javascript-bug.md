@@ -13,6 +13,7 @@ tags:
 description: "This is an actual bug I had once."
 prev: "/blog/properly-size-images/"
 next: "/blog/why-you-should-use-webpack/"
+discussLinkHN: https://news.ycombinator.com/item?id=19135552
 ---
 
 Here's a bit of Javascript that prints "Hello World!" on two lines:
