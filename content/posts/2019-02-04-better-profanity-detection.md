@@ -15,6 +15,9 @@ description: "Why existing libraries are uninspiring and how I built a better on
 canonical: https://medium.com/@victorczhou/building-a-better-profanity-detection-library-with-scikit-learn-3638b2f2c4c2
 prev: "/blog/intro-to-neural-networks/"
 next: "/blog/a-javascript-bug-i-had-once/"
+discussLinkTwitter: https://twitter.com/victorczhou/status/1092487435546705921
+discussLinkHN: https://news.ycombinator.com/item?id=19086530
+discussLinkReddit: https://www.reddit.com/r/learnmachinelearning/comments/an2o7t/building_a_better_profanity_detection_library/
 ---
 
 A few months ago, I needed a way to detect profanity in user-submitted text strings:
