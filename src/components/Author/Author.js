@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, StaticQuery, Link, withPrefix } from 'gatsby';
 import styles from './Author.module.scss';
 
-export const PureAuthor = ({ author, showBio }) => {
+export const PureAuthor = ({ author, showBio, showTwitter }) => {
   const photoSize = showBio ? 60 : 48;
 
   return (
@@ -18,16 +18,29 @@ export const PureAuthor = ({ author, showBio }) => {
         </Link>
         <div className={styles['author__header-right']}>
           <h4 className={styles['author__header-right-name']}>
-            <Link className={styles['author__header-right-name-link']} to="/">{author.name}</Link>
+            <Link className={styles['author__header-right-name-link']} to="/">
+              {author.name}
+            </Link>
+            {showTwitter && ' '}
+            {showTwitter && (
+              <a style={{ fontWeight: 500 }} href="https://twitter.com/victorczhou" target="_blank">
+                @victorczhou
+              </a>
+            )}
           </h4>
-          {showBio && <p className={styles['author__header-right-bio']} dangerouslySetInnerHTML={{ __html: author.bio }} />}
+          {showBio && (
+            <p
+              className={styles['author__header-right-bio']}
+              dangerouslySetInnerHTML={{ __html: author.bio }}
+            />
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export const Author = (props) => (
+export const Author = props => (
   <StaticQuery
     query={graphql`
       query AuthorQuery {
@@ -42,7 +55,7 @@ export const Author = (props) => (
         }
       }
     `}
-    render={(data) => <PureAuthor {...props} author={data.site.siteMetadata.author} />}
+    render={data => <PureAuthor {...props} author={data.site.siteMetadata.author} />}
   />
 );
 

@@ -39,7 +39,7 @@ const Post = ({ post, prevPost, nextPost }) => {
         <Tags tags={tags} tagSlugs={tagSlugs} />
         <ReadMore prevPost={prevPost} nextPost={nextPost} />
         <div className={styles['post__authorContainer']}>
-          <Author showBio />
+          <Author showBio showTwitter />
         </div>
         <Share url={slug} title={title} />
         <Discuss twitter={discussLinkTwitter} hn={discussLinkHN} reddit={discussLinkReddit} />
