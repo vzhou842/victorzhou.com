@@ -1,0 +1,64 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.discuss {
+  @include margin-top(0.75);
+
+  &-title {
+    margin: 0;
+    font-size: $typographic-base-font-size * 1;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    button {
+      width: 100%;
+      flex-basis: 25%;
+      padding: 10px 20px;
+      text-align: center;
+      white-space: nowrap;
+      color: white;
+    }
+
+    .discuss-button {
+      &-hn {
+        background-color: $color-hn;
+
+        &:hover {
+          background-color: darken($color-hn, 10%);
+        }
+      }
+
+      &-twitter {
+        background-color: $color-twitter;
+
+        &:hover {
+          background-color: darken($color-twitter, 10%);
+        }
+      }
+
+      &-reddit {
+        background-color: $color-reddit;
+
+        &:hover {
+          background-color: darken($color-reddit, 10%);
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint-sm {
+  .discuss {
+    @include margin-top(1);
+
+    &-buttons button {
+      padding: 15px 30px;
+    }
+  }
+}

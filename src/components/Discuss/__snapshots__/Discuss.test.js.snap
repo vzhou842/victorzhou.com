@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Discuss renders correctly 1`] = `
+<div
+  className="discuss"
+>
+  <h4
+    className="discuss-title"
+  >
+    DISCUSS ON
+  </h4>
+  <div
+    className="discuss-buttons"
+  >
+    <button
+      className="discuss-button-twitter"
+      onClick={[Function]}
+    >
+      Twitter
+    </button>
+    <button
+      className="discuss-button-hn"
+      onClick={[Function]}
+    >
+      Hacker News
+    </button>
+    <button
+      className="discuss-button-reddit"
+      onClick={[Function]}
+    >
+      Reddit
+    </button>
+  </div>
+</div>
+`;

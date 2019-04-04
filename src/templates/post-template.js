@@ -79,6 +79,9 @@ export const fragment = graphql`
             tags
             title
             twitterEmbed
+            discussLinkTwitter
+            discussLinkHN
+            discussLinkReddit
           }
         }
       }

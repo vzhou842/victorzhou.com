@@ -8,6 +8,7 @@ import styles from './Post.module.scss';
 import Author from '../Author';
 import SubscribeForm from '../SubscribeForm';
 import Share from '../Share';
+import Discuss from '../Discuss';
 
 const Post = ({ post, prevPost, nextPost }) => {
   const {
@@ -16,6 +17,9 @@ const Post = ({ post, prevPost, nextPost }) => {
     date,
     description,
     slug,
+    discussLinkTwitter,
+    discussLinkHN,
+    discussLinkReddit,
   } = post.frontmatter;
 
   const { html } = post;
@@ -38,6 +42,7 @@ const Post = ({ post, prevPost, nextPost }) => {
           <Author showBio />
         </div>
         <Share url={slug} title={title} />
+        <Discuss twitter={discussLinkTwitter} hn={discussLinkHN} reddit={discussLinkReddit} />
       </div>
 
       <div className={styles['post__comments']}>
