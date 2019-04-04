@@ -10,7 +10,7 @@ tags:
   - "Web Development"
   - "Performance"
   - "Best Practices"
-description: How switching from Disqus to Commento reduced my page weight by 10x.
+description: How switching from Disqus to Commento reduced my page weight by 90%.
 prev: "/blog/properly-size-images/"
 next: "/blog/why-you-should-use-webpack/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1112797222486401024
