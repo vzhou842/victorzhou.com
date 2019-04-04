@@ -14,6 +14,7 @@ description: "Even weather.com is doing this wrong - are you?"
 prev: "/blog/why-you-should-use-webpack/"
 next: "/blog/a-javascript-bug-i-had-once/"
 twitterEmbed: true
+discussLinkTwitter: https://twitter.com/css/status/1100912724295454721
 ---
 
 I usually check the weather on my phone, but last week I visited [weather.com](https://weather.com) on my laptop. Here's what I saw:
