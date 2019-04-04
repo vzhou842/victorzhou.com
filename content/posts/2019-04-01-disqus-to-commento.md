@@ -13,6 +13,9 @@ tags:
 description: How switching from Disqus to Commento reduced my page weight by 10x.
 prev: "/blog/properly-size-images/"
 next: "/blog/why-you-should-use-webpack/"
+discussLinkTwitter: https://twitter.com/victorczhou/status/1112797222486401024
+discussLinkHN: https://news.ycombinator.com/item?id=19555665
+discussLinkReddit: https://www.reddit.com/r/programming/comments/b9022a/switching_off_of_disqus_reduced_my_page_weight_by/
 ---
 
 ![](./media-link/commento-post/migration-small.png)
