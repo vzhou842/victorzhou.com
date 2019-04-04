@@ -15,6 +15,9 @@ tags:
 description: "A simple explanation of how they work and how to implement one from scratch in Python."
 prev: "/blog/better-profanity-detection-with-scikit-learn/"
 next: "/blog/how-i-became-a-programmer/"
+discussLinkTwitter: https://twitter.com/victorczhou/status/1102644406727966722
+discussLinkHN: https://news.ycombinator.com/item?id=19320217
+discussLinkReddit: https://www.reddit.com/r/Python/comments/axnvut/implementing_a_neural_network_from_scratch_in/
 ---
 
 Here's something that might surprise you: **neural networks aren't that complicated!** The term "neural network" gets used as a buzzword a lot, but in reality they're often much simpler than people imagine.
