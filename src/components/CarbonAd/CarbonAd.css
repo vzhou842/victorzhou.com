@@ -1,6 +1,6 @@
 #carbonads {
-  --width: 150px;
-  --font-size: 12px;
+  --width: 180px;
+  --font-size: 14px;
 }
 
 #carbonads {
@@ -63,9 +63,9 @@
   line-height: 0;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 759px) {
+/* 685 should match $layout-breakpoint-sm */
+@media only screen and (max-width: 685px) {
   #carbonads {
-    float: none;
     margin: 0 auto;
     max-width: 330px;
   }
@@ -75,20 +75,26 @@
   #carbonads > span {
     max-width: none;
   }
+
+  #carbonads .carbon-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
   .carbon-img {
-    float: left;
     margin: 0;
+    flex-grow: 0;
   }
 
   .carbon-img img {
     max-width: 130px !important;
   }
   .carbon-text {
-    float: left;
     margin-bottom: 0;
-    padding: 8px 20px;
+    padding: 8px 10px;
     text-align: left;
-    max-width: calc(100% - 130px - 3em);
+    flex-grow: 1;
   }
   .carbon-poweredby {
     left: 130px;

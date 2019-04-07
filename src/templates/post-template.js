@@ -48,7 +48,7 @@ const PostTemplate = ({ data, pageContext }) => {
           right: 'calc(((100% - 700px) / 2 - 150px) / 2)',
         }}
       >
-        <CarbonAd minDisplayWidth={1100} />
+        <CarbonAd largeOnly />
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ export const PureMovableSidebarContent = ({ mobile, desktop, hideSubscribeForm, 
       {!hideSubscribeForm && (
         <SubscribeForm signupSource={`Sidebar:${mobile ? 'mobile' : 'desktop'}`} />
       )}
-      {desktop && <CarbonAd minDisplayWidth={685} />}
+      {desktop && <CarbonAd />}
       <Contacts contacts={author.contacts} />
       <Copyright copyright={copyright} />
     </DisplayIf>

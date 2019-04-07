@@ -87,11 +87,6 @@ exports[`PostTemplate renders correctly 1`] = `
         "top": "calc((100% - 217px) / 2)",
       }
     }
-  >
-    <div
-      className="container"
-      id="cba-container"
-    />
-  </div>
+  />
 </div>
 `;

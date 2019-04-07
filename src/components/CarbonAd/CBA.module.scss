@@ -1,12 +1,18 @@
 @import '../../assets/scss/variables';
 @import '../../assets/scss/mixins';
 
-.container {
+.container-large {
   display: none;
 }
 
+@include breakpoint-sm {
+  .container-small {
+    display: none;
+  }
+}
+
 @include breakpoint-lg {
-  .container {
+  .container-large {
     display: unset;
   }
 }

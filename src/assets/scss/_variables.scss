@@ -50,3 +50,8 @@ $layout-breakpoint-md: 960px;
 $layout-breakpoint-lg: 1100px;
 
 $layout-mobile-padding: 15px;
+
+:export {
+  layout-breakpoint-sm: $layout-breakpoint-sm;
+  layout-breakpoint-lg: $layout-breakpoint-lg;
+}
