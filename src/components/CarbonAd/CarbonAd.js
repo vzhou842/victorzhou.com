@@ -1,19 +1,27 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import './CarbonAd.css';
 import styles from './CBA.module.scss';
 
 const SMALL_THRESHOLD = 685; // $layout-breakpoint-sm
 const LARGE_THRESHOLD = 1100; // $layout-breakpoint-lg
 
-class CarbonAd extends React.PureComponent {
-  constructor(props) {
+type Props = {|
+  +smallOnly: ?boolean,
+  +largeOnly: ?boolean,
+|};
+
+class CarbonAd extends React.PureComponent<Props> {
+  ref: { current: null | HTMLDivElement };
+
+  constructor(props: Props) {
     super(props);
     this.ref = React.createRef();
   }
 
   componentDidMount() {
-    if (this.shouldDisplay()) {
-      const container = this.ref.current;
+    const container = this.ref.current;
+    if (container && this.shouldDisplay()) {
       const script = document.createElement('script');
       script.id = '_carbonads_js';
       script.async = true;
