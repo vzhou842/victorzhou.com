@@ -1,19 +1,19 @@
 import React from 'react';
 import './CarbonAd.css';
 import styles from './CBA.module.scss';
-import styleVars from '../../assets/scss/_variables.scss';
 
-function thresholdFromStyle(key) {
-  return parseInt(styleVars[key].replace('px', ''), 10);
-}
-
-const SMALL_THRESHOLD = thresholdFromStyle('layout-breakpoint-sm');
-const LARGE_THRESHOLD = thresholdFromStyle('layout-breakpoint-lg');
+const SMALL_THRESHOLD = 685; // $layout-breakpoint-sm
+const LARGE_THRESHOLD = 1100; // $layout-breakpoint-lg
 
 class CarbonAd extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.ref = React.createRef();
+  }
+
   componentDidMount() {
     if (this.shouldDisplay()) {
-      const container = document.getElementById('cba-container');
+      const container = this.ref.current;
       const script = document.createElement('script');
       script.id = '_carbonads_js';
       script.async = true;
@@ -33,14 +33,14 @@ class CarbonAd extends React.PureComponent {
 
   render() {
     const { smallOnly, largeOnly } = this.props;
-    return this.shouldDisplay() ? (
+    return (
       <div
-        id="cba-container"
+        ref={this.ref}
         className={
           largeOnly ? styles['container-large'] : smallOnly ? styles['container-small'] : null
         }
       />
-    ) : null;
+    );
   }
 }
 
