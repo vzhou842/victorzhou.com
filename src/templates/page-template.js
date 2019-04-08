@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
@@ -5,7 +6,11 @@ import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
 import MovableSidebarContent from '../components/MovableSidebarContent';
 
-const PageTemplate = ({ data }) => {
+type Props = {|
+  +data: Object,
+|};
+
+const PageTemplate = ({ data }: Props) => {
   const {
     title: siteTitle,
     subtitle: siteSubtitle

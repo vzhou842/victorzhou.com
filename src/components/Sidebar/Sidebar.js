@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import Author from './Author';
@@ -5,7 +6,15 @@ import Menu from '../Menu';
 import MovableSidebarContent from '../MovableSidebarContent';
 import styles from './Sidebar.module.scss';
 
-export const PureSidebar = ({ data, hideSubscribeForm }) => {
+type Props = {
+  +hideSubscribeForm: ?boolean,
+};
+
+type PureProps = Props & {
+  +data: Object,
+};
+
+export const PureSidebar = ({ data, hideSubscribeForm }: PureProps) => {
   const {
     author,
   } = data.site.siteMetadata;
@@ -21,7 +30,7 @@ export const PureSidebar = ({ data, hideSubscribeForm }) => {
   );
 };
 
-export const Sidebar = (props) => (
+export const Sidebar = (props: Props) => (
   <StaticQuery
     query={graphql`
       query SidebarQuery {

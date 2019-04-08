@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
@@ -8,7 +9,12 @@ import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 import MovableSidebarContent from '../components/MovableSidebarContent';
 
-const IndexTemplate = ({ data, pageContext }) => {
+type Props = {|
+  +data: Object,
+  +pageContext: Object,
+|};
+
+const IndexTemplate = ({ data, pageContext }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
 
   const {
