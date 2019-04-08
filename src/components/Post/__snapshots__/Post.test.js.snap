@@ -123,6 +123,9 @@ exports[`Post renders correctly 1`] = `
       </ul>
     </div>
     <div
+      className="container-small"
+    />
+    <div
       className="readmore"
     >
       <h4
