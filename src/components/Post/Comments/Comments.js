@@ -6,11 +6,12 @@ export class Comments extends React.PureComponent {
 
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll);
-    setTimeout(this.onScroll, 5000);
+    this.timeout = setTimeout(this.onScroll, 5000);
   }
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
+    clearTimeout(this.timeout);
   }
 
   onScroll = () => {
