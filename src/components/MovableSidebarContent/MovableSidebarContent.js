@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import SubscribeForm from '../SubscribeForm';
@@ -6,7 +7,22 @@ import Copyright from '../Copyright';
 import DisplayIf from '../DisplayIf';
 import CarbonAd from '../CarbonAd';
 
-export const PureMovableSidebarContent = ({ mobile, desktop, hideSubscribeForm, data }) => {
+type Props = {
+  +mobile: ?boolean,
+  +desktop: ?boolean,
+  +hideSubscribeForm: ?boolean,
+};
+
+type PureProps = Props & {
+  +data: Object,
+};
+
+export const PureMovableSidebarContent = ({
+  mobile,
+  desktop,
+  hideSubscribeForm,
+  data,
+}: PureProps) => {
   const { author, copyright } = data.site.siteMetadata;
   return (
     <DisplayIf mobile={mobile} desktop={desktop}>
@@ -20,7 +36,7 @@ export const PureMovableSidebarContent = ({ mobile, desktop, hideSubscribeForm, 
   );
 };
 
-export const MovableSidebarContent = props => (
+export const MovableSidebarContent = (props: Props) => (
   <StaticQuery
     query={graphql`
       query MovableSidebarContentQuery {
