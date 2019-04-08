@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="330" width="330" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 330 330.00001">
+ <metadata id="metadata7">
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g id="layer1" transform="translate(0 -722.36)">
+  <path id="path4170" d="m187.5 1014.9v-240" stroke="#000" stroke-dasharray="4.5, 4.5" stroke-width="1.5" fill="none"/>
+  <g id="g4168" transform="matrix(.75 0 0 .75 .000298 263.09)">
+   <path id="path4155" d="m50 682.36v320h320" stroke="#000" stroke-width="4" fill="none"/>
+   <g>
+    <text id="text4157" style="word-spacing:0px;letter-spacing:0px" line-height="125%" font-size="40px" y="1012.3622" x="379.13574" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4159" font-size="30px" y="1012.3622" x="379.13574">x</tspan></text>
+    <text id="text4161" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="40px" y="665.36218" x="41.135742" font-family="sans-serif" line-height="125%" fill="#000000"><tspan id="tspan4163" font-size="30px" y="665.36218" x="41.135742">y</tspan></text>
+    <circle id="path4165" cy="765.36" cx="158" r="5" fill="#164bc5"/>
+   </g>
+   <g stroke="#000" stroke-width="2" fill="none">
+    <path id="path4167" d="m150 1012.4v-10"/>
+    <path id="path4169" d="m250 1012.4v-10"/>
+    <path id="path4171" d="m350 1012.4v-10"/>
+   </g>
+   <g font-size="40px" font-family="sans-serif" fill="#000000">
+    <text id="text4173" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="1028.3622" x="29" xml:space="preserve"><tspan id="tspan4175" font-size="20px" y="1028.3622" x="29">0</tspan></text>
+    <text id="text4177" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" y="1034.3622" x="143" line-height="125%"><tspan id="tspan4179" font-size="20px" y="1034.3622" x="143">1</tspan></text>
+    <text id="text4181" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="1034.3622" x="245" xml:space="preserve"><tspan id="tspan4183" font-size="20px" y="1034.3622" x="245">2</tspan></text>
+    <text id="text4185" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" y="1034.079" x="343.47656" line-height="125%"><tspan id="tspan4187" font-size="20px" y="1034.079" x="343.47656">3</tspan></text>
+   </g>
+   <g stroke="#000" stroke-width="2" fill="none">
+    <path id="path4189" d="m40 702.36h10"/>
+    <path id="path4191" d="m40 802.36h10"/>
+    <path id="path4193" d="m40 902.36h10"/>
+   </g>
+   <g font-size="40px" font-family="sans-serif" fill="#000000">
+    <text id="text4227" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="909.44904" x="20.633759" xml:space="preserve"><tspan id="tspan4229" font-size="20px" y="909.44904" x="20.633759">1</tspan></text>
+    <text id="text4231" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" y="808.02521" x="20.946259" line-height="125%"><tspan id="tspan4233" font-size="20px" y="808.02521" x="20.946259">2</tspan></text>
+    <text id="text4235" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="709.17755" x="20.575165" xml:space="preserve"><tspan id="tspan4237" font-size="20px" y="709.17755" x="20.575165">3</tspan></text>
+   </g>
+   <g fill="#164bc5">
+    <circle id="circle4269" cx="79" cy="852.36" r="5"/>
+    <circle id="circle4271" cy="878.36" cx="121" r="5"/>
+    <circle id="circle4273" cx="221" cy="955.36" r="5"/>
+   </g>
+   <g fill="#0f9640">
+    <circle id="circle4275" cy="830.36" cx="275" r="5"/>
+    <circle id="circle4279" cx="299" cy="870.36" r="5"/>
+    <circle id="circle4281" cx="337" cy="793.36" r="5"/>
+    <circle id="circle4283" cy="700.36" cx="295" r="5"/>
+    <circle id="circle4285" cx="340" cy="947.36" r="5"/>
+   </g>
+   <circle id="circle4287" cy="970.36" cx="107" r="5" fill="#164bc5"/>
+  </g>
+ </g>
+</svg>
