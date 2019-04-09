@@ -121,7 +121,7 @@ Welcome back!
 
 > Hopefully, you just read [my Gini Impurity post](/blog/gini-impurity/). If you didn't, here's a very short TL;DR: We can use Gini Impurity to calculate a value called **Gini Gain** for any split. **A better split has higher Gini Gain**.
 
-Back to the problem of determining our root decision node. Now that we have a way to evaluate splits, all we have to do to is find the best split possible! For the sake of simplicity, we're just going to **try every possible split** and use the best one (the one with the highest Gini Gain). **This is not the best way to find the best split**, but it is the easiest to understand and still works.
+Back to the problem of determining our root decision node. Now that we have a way to evaluate splits, all we have to do to is find the best split possible! For the sake of simplicity, we're just going to **try every possible split** and use the best one (the one with the highest Gini Gain). **This is not the fastest way to find the best split**, but it is the easiest to understand.
 
 Trying every split means trying
 
@@ -132,7 +132,7 @@ For example, here are the thresholds we might try if we wanted to use the $x$ co
 
 ![](/media/random-forest-post/dataset2-thresholds.svg)
 
-After trying all threshold for both $x$ and $y$, we'd see that the $x = 2$ split has the highest Gini Gain, so we'd make our root decision node use the $x$ feature with a threshold of $2$. We did it! Here's what we've got:
+After trying all threshold for both $x$ and $y$, we'd see that the $x = 2$ split has the highest Gini Gain, so we'd make our root decision node use the $x$ feature with a threshold of $2$. We did it! Here's what we've got so far:
 
 ![](/media/random-forest-post/decision-tree2-build1.svg)
 
@@ -155,10 +155,51 @@ Again, we try all the possible splits, but they all
 
 > Confused about what I just said? I told you you should've read [my Gini Impurity post](/blog/gini-impurity/). It'll explain all of this Gini stuff.
 
-It doesn't makes sense to add a decision node here because doing so wouldn't improve our decision tree. Thus, we'll make this node a **leaf node** and slap the Green label on it. This means that **we'll label any datapoint that reaches this node in our tree as Green**.
+It doesn't makes sense to add a decision node here because doing so wouldn't improve our decision tree. Thus, we'll make this node a **leaf node** and slap the Green label on it. This means that **we'll classify any datapoint that reaches this node as Green**.
 
 If we continue to the 2 remaining nodes, the same thing will happen: we'll make the bottom left node our Blue leaf node, and we'll make the bottom right node our Red leaf node. That brings us to the final result:
 
 ![](/media/random-forest-post/decision-tree2.svg)
 
 **Once all possible branches in our decision tree end in leaf nodes, we're done.** We've trained a decision tree!
+
+## 3. Random Forests 🌲🌳🌲🌳🌲
+
+We're finally ready to talk about Random Forests. Remember what I said earlier?
+
+> A Random Forest is actually just a bunch of Decision Trees bundled together.
+
+That's true, but is a bit of a simplification. Here's how we train a Random Forest with $t$ trees given some dataset:
+
+1. Sample, **with replacement**, $n$ training examples from the dataset, for some $n$.
+2. Train a decision tree on the $n$ samples.
+3. Repeat $t$ times.
+
+To make a prediction using a random forest, we aggregate the predictions from the individual decision trees and either
+
+- Take the **majority vote** if our trees produce class labels (like colors).
+- Take the **average** if our trees produce numerical values (e.g. predicting temperature, price, etc).
+
+![A Random Forest predicting color](/media/random-forest-post/random-forest.svg)
+
+This technique is called bagging, or [**b**ootstrap **agg**regating](https://en.wikipedia.org/wiki/Bootstrap_aggregating). The sampling with replacement we did is known as a [bootstrap](https://en.wikipedia.org/wiki/Bootstrapping_(statistics)) sample.
+
+## 4. Now What?
+
+That's a complete introduction to Random Forests! A quick recap of what we did:
+
+- Introduced **decision trees**, the building blocks of Random Forests.
+- Learned how to train decision trees by iteratively making the best split possible.
+- Defined [Gini Impurity](/blog/gini-impurity/), a metric used to quantify how "good" a split is.
+- Saw that **a random forest is just a bunch of decision trees.**
+- Learned how to train random forests by training decision trees on random samples of the data.
+
+A few things you could do from here:
+
+- Experiment with scikit-learn's [DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html) and [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) classes on real datasets.
+- Try writing a simple Random Forest implementation from scratch. I'm happy to give guidance or code review! Just [tweet at me](https://twitter.com/victorczhou) or [email me](mailto:vzhou842@gmail.com).
+- Read about [Gradient Boosted Decision Trees](https://en.wikipedia.org/wiki/Gradient_boosting#Gradient_tree_boosting) and play with [XGBoost](https://xgboost.readthedocs.io/en/latest/), a powerful gradient boosting library.
+
+I like [writing about Machine Learning](/tag/machine-learning) (but also other topics), so [subscribe](http://eepurl.com/gf8JCX) if you want to get notified about new posts.
+
+Thanks for reading!
