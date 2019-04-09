@@ -51,6 +51,11 @@
       margin-right: auto;
     }
 
+    hr {
+      width: 50%;
+      min-width: 200px;
+    }
+
     video {
       display: block;
       @include margin-top(1.5);

@@ -73,15 +73,14 @@ img {
 }
 
 hr {
-  margin-top: 52px;
-  margin-bottom: 52px;
+  @include margin-top(2);
+  @include margin-bottom(2);
+  margin-right: auto;
+  margin-left: auto;
   border: 0;
   display: block;
   height: 2px;
-  margin-right: auto;
-  margin-left: auto;
   background-color: $color-gray;
-  width: 100px;
 }
 
 a {
