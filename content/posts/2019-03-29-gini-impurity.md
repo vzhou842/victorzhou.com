@@ -14,7 +14,7 @@ tags:
   - "Random Forests"
 description: What Gini Impurity is (with examples) and how it's used to train Decision Trees.
 prev: "/blog/intro-to-neural-networks/"
-next: "/blog/better-profanity-detection-with-scikit-learn/"
+next: "/blog/intro-to-random-forests/"
 ---
 
 If you look at the documentation for the [DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html) class in [scikit-learn](https://scikit-learn.org), you'll see something like this for the `criterion` parameter:
