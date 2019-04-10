@@ -129,9 +129,6 @@ module.exports = {
         trackingIds: [
           siteConfig.googleAnalyticsId,
         ],
-        gtagConfig: {
-          optimize_id: 'GTM-KVD4JL9',
-        },
         pluginConfig: {
           head: true,
         },
