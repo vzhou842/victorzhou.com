@@ -25,7 +25,7 @@ Ready? Let's dive in.
 
 ## 1. Decision Trees 🌲
 
-A Random Forest 🌲🌲🌲 is actually just a bunch of Decision Trees 🌲 bundled together (ohhhhh 💡 that's why it's called a _forest_). We need to talk about trees before we can get into forests.
+A Random Forest 🌲🌲🌲 is actually just a bunch of Decision Trees 🌲 bundled together (ohhhhh that's why it's called a _forest_). We need to talk about trees before we can get into forests.
 
 Look at the following dataset:
 
