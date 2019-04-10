@@ -10,7 +10,6 @@ category: "Machine Learning"
 tags:
   - "Machine Learning"
   - "For Beginners"
-  - "Python"
   - "Decision Trees"
   - "Random Forests"
 description: The definitive guide to Random Forests and Decision Trees.
@@ -152,8 +151,9 @@ Finally, we calculate Gini Gain by subtracting the weighted branch impurities fr
 
 $$
 \begin{aligned}
-G_{initial} - \frac{1}{9} G_{left} - \frac{8}{9} G_{right} &= \frac{2}{3} - \frac{1}{9} * 0 - \frac{8}{9} * \frac{21}{32} \\
-&= \boxed{0.0833} \\
+\text{Gain} &= G_{initial} - \frac{1}{9} G_{left} - \frac{8}{9} G_{right} \\
+&= \frac{2}{3} - \frac{1}{9} * 0 - \frac{8}{9} * \frac{21}{32} \\
+&= \boxed{0.083} \\
 \end{aligned}
 $$
 
@@ -163,20 +163,20 @@ We can calculate Gini Gain for every possible split in the same way:
 
 | Split | Left Branch | Right Branch | Gini Gain |
 | --- | --- | --- | --- |
-| $x = 0.4$ | <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.0833$ |
-| $x = 0.8$ | <span class="inline-point blue"></span> <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.0476$ |
-| $x = 1.1$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.1333$ |
-| $x = 1.3$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.2333$ |
-| $x = 2$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> | <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.3333$ |
-| $x = 2.4$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> | <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.1905$ |
-| $x = 2.8$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point green"></span> | $0.0833$ |
-| $y = 0.8$ | <span class="inline-point blue"> | </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.0833$ |
-| $y = 1.2$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> | </span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.1111$ |
-| $y = 1.8$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> | <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.2333$ |
-| $y = 2.1$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> | $0.2333$ |
-| $y = 2.4$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> | $0.1111$ |
-| $y = 2.7$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point red"></span> <span class="inline-point green"></span> | $0.0476$ |
-| $y = 2.9$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point green"></span> | $0.0833$ |
+| $x = 0.4$ | <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.083$ |
+| $x = 0.8$ | <span class="inline-point blue"></span> <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.048$ |
+| $x = 1.1$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.133$ |
+| $x = 1.3$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.233$ |
+| $x = 2$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> | <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.333$ |
+| $x = 2.4$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> | <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.191$ |
+| $x = 2.8$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point green"></span> | $0.083$ |
+| $y = 0.8$ | <span class="inline-point blue"> | </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.083$ |
+| $y = 1.2$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> | </span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.111$ |
+| $y = 1.8$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> | <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.233$ |
+| $y = 2.1$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> | $0.233$ |
+| $y = 2.4$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> | $0.111$ |
+| $y = 2.7$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point red"></span> <span class="inline-point green"></span> | $0.048$ |
+| $y = 2.9$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point green"></span> | $0.083$ |
 
 ![](/media/random-forest-post/dataset2-thresholds.svg)
 
@@ -232,7 +232,7 @@ This technique is called bagging, or [**b**ootstrap **agg**regating](https://en.
 
 ## 4. Now What?
 
-That's a complete introduction to Random Forests! A quick recap of what we did:
+That's a beginner's introduction to Random Forests! A quick recap of what we did:
 
 - Introduced **decision trees**, the building blocks of Random Forests.
 - Learned how to train decision trees by iteratively making the best split possible.
