@@ -1,296 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="svg2"
-   height="330"
-   width="330"
-   version="1.1"
-   viewBox="0 0 330 330.00001"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="dataset2-thresholds-x.svg">
-  <defs
-     id="defs57" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1680"
-     inkscape:window-height="1005"
-     id="namedview55"
-     showgrid="false"
-     inkscape:zoom="2.4333333"
-     inkscape:cx="66.780819"
-     inkscape:cy="165"
-     inkscape:window-x="0"
-     inkscape:window-y="1"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <path
-     id="path4155"
-     d="m 37.5,52.5 0,240 240,0"
-     inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:3" />
-  <text
-     sodipodi:linespacing="125%"
-     xml:space="preserve"
-     x="284.35181"
-     y="300.00165"
-     font-size="40px"
-     line-height="125%"
-     style="font-size:30px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4157"><tspan
-       style="font-size:22.5px"
-       x="284.35181"
-       y="300.00165"
-       font-size="30px"
-       id="tspan4159">x</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     line-height="125%"
-     x="30.851807"
-     y="39.751637"
-     font-size="40px"
-     xml:space="preserve"
-     style="font-size:30px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4161"><tspan
-       style="font-size:22.5px"
-       x="30.851807"
-       y="39.751637"
-       font-size="30px"
-       id="tspan4163">y</tspan></text>
-  <circle
-     style="fill:#164bc5"
-     r="3.75"
-     cx="112"
-     cy="178.44862"
-     id="path4165" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5"
-     inkscape:connector-curvature="0"
-     d="m 112.5,300.03 0,-7.5"
-     id="path4167" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5"
-     inkscape:connector-curvature="0"
-     d="m 187.5,300.03 0,-7.5"
-     id="path4169" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5"
-     inkscape:connector-curvature="0"
-     d="m 262.5,300.03 0,-7.5"
-     id="path4171" />
-  <text
-     sodipodi:linespacing="125%"
-     xml:space="preserve"
-     x="21.75"
-     y="312.00165"
-     line-height="125%"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4173"><tspan
-       style="font-size:15px"
-       x="21.75"
-       y="312.00165"
-       font-size="20px"
-       id="tspan4175">0</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     line-height="125%"
-     x="107.25"
-     y="316.50165"
-     xml:space="preserve"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4177"><tspan
-       style="font-size:15px"
-       x="107.25"
-       y="316.50165"
-       font-size="20px"
-       id="tspan4179">1</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     xml:space="preserve"
-     x="183.75"
-     y="316.50165"
-     line-height="125%"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4181"><tspan
-       style="font-size:15px"
-       x="183.75"
-       y="316.50165"
-       font-size="20px"
-       id="tspan4183">2</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     line-height="125%"
-     x="257.60742"
-     y="316.28925"
-     xml:space="preserve"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4185"><tspan
-       style="font-size:15px"
-       x="257.60742"
-       y="316.28925"
-       font-size="20px"
-       id="tspan4187">3</tspan></text>
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5"
-     inkscape:connector-curvature="0"
-     d="m 30,67.5 7.5,0"
-     id="path4189" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5"
-     inkscape:connector-curvature="0"
-     d="m 30,142.5 7.5,0"
-     id="path4191" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5"
-     inkscape:connector-curvature="0"
-     d="m 30,217.5 7.5,0"
-     id="path4193" />
-  <text
-     sodipodi:linespacing="125%"
-     xml:space="preserve"
-     x="15.475319"
-     y="222.81677"
-     line-height="125%"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4227"><tspan
-       style="font-size:15px"
-       x="15.475319"
-       y="222.81677"
-       font-size="20px"
-       id="tspan4229">1</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     line-height="125%"
-     x="15.709694"
-     y="146.7489"
-     xml:space="preserve"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4231"><tspan
-       style="font-size:15px"
-       x="15.709694"
-       y="146.7489"
-       font-size="20px"
-       id="tspan4233">2</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     xml:space="preserve"
-     x="15.431374"
-     y="72.613167"
-     line-height="125%"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4235"><tspan
-       style="font-size:15px"
-       x="15.431374"
-       y="72.613167"
-       font-size="20px"
-       id="tspan4237">3</tspan></text>
-  <circle
-     style="fill:#164bc5"
-     r="3.75"
-     cy="217.5"
-     cx="150.95547"
-     id="circle4273" />
-  <circle
-     style="fill:#0f9640"
-     r="3.75"
-     cx="262.55136"
-     cy="217.5"
-     id="circle4275" />
-  <circle
-     style="fill:#0f9640"
-     r="3.75"
-     cy="139.06163"
-     cx="207.86644"
-     id="circle4279" />
-  <circle
-     style="fill:#0f9640"
-     r="3.75"
-     cx="225.75"
-     cy="63.287666"
-     id="circle4283" />
-  <circle
-     id="circle4287"
-     cy="251.65068"
-     cx="79.428085"
-     r="3.75"
-     style="fill:#164bc5" />
-  <circle
-     id="circle4307"
-     cx="57.328762"
-     cy="81.112991"
-     r="3.75"
-     style="fill:#ff0000;fill-opacity:1" />
-  <circle
-     id="circle4313"
-     cx="112"
-     cy="101.24998"
-     r="3.75"
-     style="fill:#ff0000;fill-opacity:1" />
-  <circle
-     style="fill:#ff0000;fill-opacity:1"
-     r="3.75"
-     cy="117.44176"
-     cx="137.79451"
-     id="circle4315" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5"
-     inkscape:connector-curvature="0"
-     d="m 187.5,292.5 0,-240"
-     id="path4170" />
-  <path
-     id="path5018"
-     d="m 216.75,292.5 0,-240"
-     inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5"
-     inkscape:connector-curvature="0"
-     d="m 245.5,292.5 0,-240"
-     id="path5020" />
-  <path
-     id="path5024"
-     d="m 144.75,292.5 0,-240"
-     inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5"
-     inkscape:connector-curvature="0"
-     d="m 125.5,292.5 0,-240"
-     id="path5026" />
-  <path
-     id="path5028"
-     d="m 97.5,292.5 0,-240"
-     inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5"
-     inkscape:connector-curvature="0"
-     d="m 67.5,292.5 0,-240"
-     id="path5030" />
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="330" viewBox="0 0 330 330.00001" width="330" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <path id="path4155" d="m37.5 52.5v240h240" stroke="#000" stroke-width="3" fill="none"/>
+ <text id="text4157" font-size="30px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="300.00165" x="284.35181" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4159" y="300.00165" x="284.35181" font-size="22.5px">x</tspan></text>
+ <text id="text4161" font-size="30px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="39.751637" x="30.851807" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4163" y="39.751637" x="30.851807" font-size="22.5px">y</tspan></text>
+ <circle id="path4165" cy="178.45" cx="112" r="3.75" fill="#164bc5"/>
+ <g stroke="#000" stroke-width="1.5" fill="none">
+  <path id="path4167" d="m112.5 300.03v-7.5"/>
+  <path id="path4169" d="m187.5 300.03v-7.5"/>
+  <path id="path4171" d="m262.5 300.03v-7.5"/>
+ </g>
+ <g font-size="9px" font-family="sans-serif" fill="#000000">
+  <text id="text4173" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="312.00165" x="21.75" xml:space="preserve"><tspan id="tspan4175" y="312.00165" x="21.75" font-size="15px">0</tspan></text>
+  <text id="text4177" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="316.50165" x="107.25" xml:space="preserve"><tspan id="tspan4179" y="316.50165" x="107.25" font-size="15px">1</tspan></text>
+  <text id="text4181" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="316.50165" x="183.75" xml:space="preserve"><tspan id="tspan4183" y="316.50165" x="183.75" font-size="15px">2</tspan></text>
+  <text id="text4185" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="316.28925" x="257.60742" xml:space="preserve"><tspan id="tspan4187" y="316.28925" x="257.60742" font-size="15px">3</tspan></text>
+ </g>
+ <g stroke="#000" stroke-width="1.5" fill="none">
+  <path id="path4189" d="m30 67.5h7.5"/>
+  <path id="path4191" d="m30 142.5h7.5"/>
+  <path id="path4193" d="m30 217.5h7.5"/>
+ </g>
+ <g font-size="9px" font-family="sans-serif" fill="#000000">
+  <text id="text4227" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="222.81677" x="15.475319" xml:space="preserve"><tspan id="tspan4229" y="222.81677" x="15.475319" font-size="15px">1</tspan></text>
+  <text id="text4231" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="146.7489" x="15.709694" xml:space="preserve"><tspan id="tspan4233" y="146.7489" x="15.709694" font-size="15px">2</tspan></text>
+  <text id="text4235" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="72.613167" x="15.431374" xml:space="preserve"><tspan id="tspan4237" y="72.613167" x="15.431374" font-size="15px">3</tspan></text>
+ </g>
+ <circle id="circle4273" cy="217.5" cx="150.96" r="3.75" fill="#164bc5"/>
+ <g fill="#0f9640">
+  <circle id="circle4275" cy="217.5" cx="262.55" r="3.75"/>
+  <circle id="circle4279" cy="139.06" cx="207.87" r="3.75"/>
+  <circle id="circle4283" cy="63.288" cx="225.75" r="3.75"/>
+ </g>
+ <circle id="circle4287" cy="251.65" cx="79.428" r="3.75" fill="#164bc5"/>
+ <g fill="#f00">
+  <circle id="circle4307" cy="81.113" cx="57.329" r="3.75"/>
+  <circle id="circle4313" cy="101.25" cx="112" r="3.75"/>
+  <circle id="circle4315" cy="117.44" cx="137.79" r="3.75"/>
+ </g>
+ <g stroke="#000" stroke-width="1.5" stroke-dasharray="4.5, 4.5" fill="none">
+  <path id="path4170" d="m187.5 292.5v-240"/>
+  <path id="path5018" d="m216.75 292.5v-240"/>
+  <path id="path5020" d="m245.5 292.5v-240"/>
+  <path id="path5024" d="m144.75 292.5v-240"/>
+  <path id="path5026" d="m125.5 292.5v-240"/>
+  <path id="path5028" d="m97.5 292.5v-240"/>
+  <path id="path5030" d="m67.5 292.5v-240"/>
+ </g>
 </svg>

@@ -1,272 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="svg2"
-   height="330"
-   width="330"
-   version="1.1"
-   viewBox="0 0 330 330.00001"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="dataset2-split.svg">
-  <defs
-     id="defs57" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1680"
-     inkscape:window-height="1005"
-     id="namedview55"
-     showgrid="false"
-     inkscape:zoom="2.4333333"
-     inkscape:cx="132.53425"
-     inkscape:cy="165"
-     inkscape:window-x="0"
-     inkscape:window-y="1"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5"
-     inkscape:connector-curvature="0"
-     d="m 187.5,292.5 0,-239.999998"
-     id="path4170" />
-  <path
-     id="path4848"
-     d="m 186.75,142.5 -149.25,0"
-     inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5"
-     sodipodi:nodetypes="cc" />
-  <path
-     id="path4155"
-     d="m 37.500048,52.500352 0,239.999998 240.000002,0"
-     inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:3" />
-  <text
-     sodipodi:linespacing="125%"
-     xml:space="preserve"
-     x="284.35187"
-     y="300.00201"
-     font-size="40px"
-     line-height="125%"
-     style="font-size:30px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4157"><tspan
-       style="font-size:22.5px"
-       x="284.35187"
-       y="300.00201"
-       font-size="30px"
-       id="tspan4159">x</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     line-height="125%"
-     x="30.851854"
-     y="39.751987"
-     font-size="40px"
-     xml:space="preserve"
-     style="font-size:30px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4161"><tspan
-       style="font-size:22.5px"
-       x="30.851854"
-       y="39.751987"
-       font-size="30px"
-       id="tspan4163">y</tspan></text>
-  <circle
-     style="fill:#164bc5"
-     r="3.75"
-     cx="112"
-     cy="178.44897"
-     id="path4165" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5"
-     inkscape:connector-curvature="0"
-     d="m 112.50005,300.03035 0,-7.5"
-     id="path4167" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5"
-     inkscape:connector-curvature="0"
-     d="m 187.50005,300.03035 0,-7.5"
-     id="path4169" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5"
-     inkscape:connector-curvature="0"
-     d="m 262.50005,300.03035 0,-7.5"
-     id="path4171" />
-  <text
-     sodipodi:linespacing="125%"
-     xml:space="preserve"
-     x="21.750048"
-     y="312.00201"
-     line-height="125%"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4173"><tspan
-       style="font-size:15px"
-       x="21.750048"
-       y="312.00201"
-       font-size="20px"
-       id="tspan4175">0</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     line-height="125%"
-     x="107.25005"
-     y="316.50201"
-     xml:space="preserve"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4177"><tspan
-       style="font-size:15px"
-       x="107.25005"
-       y="316.50201"
-       font-size="20px"
-       id="tspan4179">1</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     xml:space="preserve"
-     x="183.75005"
-     y="316.50201"
-     line-height="125%"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4181"><tspan
-       style="font-size:15px"
-       x="183.75005"
-       y="316.50201"
-       font-size="20px"
-       id="tspan4183">2</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     line-height="125%"
-     x="257.60748"
-     y="316.28961"
-     xml:space="preserve"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4185"><tspan
-       style="font-size:15px"
-       x="257.60748"
-       y="316.28961"
-       font-size="20px"
-       id="tspan4187">3</tspan></text>
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5"
-     inkscape:connector-curvature="0"
-     d="m 30.000048,67.500352 7.5,0"
-     id="path4189" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5"
-     inkscape:connector-curvature="0"
-     d="m 30.000048,142.50035 7.5,0"
-     id="path4191" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5"
-     inkscape:connector-curvature="0"
-     d="m 30.000048,217.50035 7.5,0"
-     id="path4193" />
-  <text
-     sodipodi:linespacing="125%"
-     xml:space="preserve"
-     x="15.475368"
-     y="222.81712"
-     line-height="125%"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4227"><tspan
-       style="font-size:15px"
-       x="15.475368"
-       y="222.81712"
-       font-size="20px"
-       id="tspan4229">1</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     line-height="125%"
-     x="15.709743"
-     y="146.74925"
-     xml:space="preserve"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4231"><tspan
-       style="font-size:15px"
-       x="15.709743"
-       y="146.74925"
-       font-size="20px"
-       id="tspan4233">2</tspan></text>
-  <text
-     sodipodi:linespacing="125%"
-     xml:space="preserve"
-     x="15.431422"
-     y="72.613518"
-     line-height="125%"
-     style="font-size:9px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000"
-     id="text4235"><tspan
-       style="font-size:15px"
-       x="15.431422"
-       y="72.613518"
-       font-size="20px"
-       id="tspan4237">3</tspan></text>
-  <circle
-     style="fill:#164bc5"
-     r="3.75"
-     cy="217.5"
-     cx="150.95552"
-     id="circle4273" />
-  <circle
-     style="fill:#0f9640"
-     r="3.75"
-     cx="262.55142"
-     cy="217.5"
-     id="circle4275" />
-  <circle
-     style="fill:#0f9640"
-     r="3.75"
-     cy="139.06198"
-     cx="207.86649"
-     id="circle4279" />
-  <circle
-     style="fill:#0f9640"
-     r="3.75"
-     cx="225.75005"
-     cy="63.288017"
-     id="circle4283" />
-  <circle
-     id="circle4287"
-     cy="251.65103"
-     cx="79.428131"
-     r="3.75"
-     style="fill:#164bc5" />
-  <circle
-     id="circle4307"
-     cx="57.328812"
-     cy="81.113342"
-     r="3.75"
-     style="fill:#ff0000;fill-opacity:1" />
-  <circle
-     id="circle4313"
-     cx="112"
-     cy="101.25033"
-     r="3.75"
-     style="fill:#ff0000;fill-opacity:1" />
-  <circle
-     style="fill:#ff0000;fill-opacity:1"
-     r="3.75"
-     cy="117.44211"
-     cx="137.79456"
-     id="circle4315" />
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="330" viewBox="0 0 330 330.00001" width="330" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <g stroke="#000" fill="none">
+  <path id="path4170" d="m187.5 292.5v-240" stroke-dasharray="4.5, 4.5" stroke-width="1.5"/>
+  <path id="path4848" d="m186.75 142.5h-149.25" stroke-dasharray="4.5, 4.5" stroke-width="1.5"/>
+  <path id="path4155" d="m37.5 52.5v240h240" stroke-width="3"/>
+ </g>
+ <text id="text4157" font-size="30px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="300.00201" x="284.35187" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4159" y="300.00201" x="284.35187" font-size="22.5px">x</tspan></text>
+ <text id="text4161" font-size="30px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="39.751987" x="30.851854" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4163" y="39.751987" x="30.851854" font-size="22.5px">y</tspan></text>
+ <circle id="path4165" cy="178.45" cx="112" r="3.75" fill="#164bc5"/>
+ <g stroke="#000" stroke-width="1.5" fill="none">
+  <path id="path4167" d="m112.5 300.03v-7.5"/>
+  <path id="path4169" d="m187.5 300.03v-7.5"/>
+  <path id="path4171" d="m262.5 300.03v-7.5"/>
+ </g>
+ <g font-size="9px" font-family="sans-serif" fill="#000000">
+  <text id="text4173" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="312.00201" x="21.750048" xml:space="preserve"><tspan id="tspan4175" y="312.00201" x="21.750048" font-size="15px">0</tspan></text>
+  <text id="text4177" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="316.50201" x="107.25005" xml:space="preserve"><tspan id="tspan4179" y="316.50201" x="107.25005" font-size="15px">1</tspan></text>
+  <text id="text4181" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="316.50201" x="183.75005" xml:space="preserve"><tspan id="tspan4183" y="316.50201" x="183.75005" font-size="15px">2</tspan></text>
+  <text id="text4185" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="316.28961" x="257.60748" xml:space="preserve"><tspan id="tspan4187" y="316.28961" x="257.60748" font-size="15px">3</tspan></text>
+ </g>
+ <g stroke="#000" stroke-width="1.5" fill="none">
+  <path id="path4189" d="m30 67.5h7.5"/>
+  <path id="path4191" d="m30 142.5h7.5"/>
+  <path id="path4193" d="m30 217.5h7.5"/>
+ </g>
+ <g font-size="9px" font-family="sans-serif" fill="#000000">
+  <text id="text4227" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="222.81712" x="15.475368" xml:space="preserve"><tspan id="tspan4229" y="222.81712" x="15.475368" font-size="15px">1</tspan></text>
+  <text id="text4231" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="146.74925" x="15.709743" xml:space="preserve"><tspan id="tspan4233" y="146.74925" x="15.709743" font-size="15px">2</tspan></text>
+  <text id="text4235" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="72.613518" x="15.431422" xml:space="preserve"><tspan id="tspan4237" y="72.613518" x="15.431422" font-size="15px">3</tspan></text>
+ </g>
+ <circle id="circle4273" cy="217.5" cx="150.96" r="3.75" fill="#164bc5"/>
+ <g fill="#0f9640">
+  <circle id="circle4275" cy="217.5" cx="262.55" r="3.75"/>
+  <circle id="circle4279" cy="139.06" cx="207.87" r="3.75"/>
+  <circle id="circle4283" cy="63.288" cx="225.75" r="3.75"/>
+ </g>
+ <circle id="circle4287" cy="251.65" cx="79.428" r="3.75" fill="#164bc5"/>
+ <g fill="#f00">
+  <circle id="circle4307" cy="81.113" cx="57.329" r="3.75"/>
+  <circle id="circle4313" cy="101.25" cx="112" r="3.75"/>
+  <circle id="circle4315" cy="117.44" cx="137.79" r="3.75"/>
+ </g>
 </svg>
