@@ -13,18 +13,20 @@ tags:
   - "Python"
   - "Decision Trees"
   - "Random Forests"
-description: What they are, how they work, and how to implement one from scratch in Python.
+description: The definitive guide to Random Forests and Decision Trees.
 prev: "/blog/intro-to-neural-networks/"
-next: "/blog/better-profanity-detection-with-scikit-learn/"
+next: "/blog/gini-impurity/"
 ---
 
-After the positive feedback from my [introduction to Neural Networks for beginners](/blog/intro-to-neural-networks/), I'm even more convinced of the value of introductions to ML concepts that build from the ground up and implement simple versions of those concepts along the way.
+In my opinion, most Machine Learning tutorials aren't beginner-friendly enough.
 
-This post will adopt the same strategy, meaning it's again **intended for complete beginners and assumes ZERO prior knowledge of machine learning**. We'll learn what Random Forests are and how they work while implementing one from scratch in Python.
+Last month, I wrote an [introduction to Neural Networks **for complete beginners**](/blog/intro-to-neural-networks/). This post will adopt the same strategy, meaning it again **assumes ZERO prior knowledge of machine learning**. We'll learn what Random Forests are and how they work from the ground up.
+
+Ready? Let's dive in.
 
 ## 1. Decision Trees 🌲
 
-A Random Forest 🌲🌲🌲 is actually just a bunch of Decision Trees 🌲 bundled together (ohhhhh 💡 that's why it's called a _forest_). Before we talk about forests, we need to first go over trees. 
+A Random Forest 🌲🌲🌲 is actually just a bunch of Decision Trees 🌲 bundled together (ohhhhh 💡 that's why it's called a _forest_). We need to talk about trees before we can get into forests.
 
 Look at the following dataset:
 
@@ -61,12 +63,11 @@ That's a simple decision tree with one **decision node** that **tests** $x < 2$.
 
 ![](/media/random-forest-post/dataset-split.svg)
 
-Decision Trees are commonly used to answer that kind of question: given a **labelled** dataset, how do we **classify** new examples?
+Decision Trees are often used to answer that kind of question: given a **labelled** dataset, how should we **classify** new samples?
 
-In case you haven't seen that terminology before:
+> **Labelled**: Our dataset is _labelled_ because each point has a **class** (color): blue or green.
 
-- **Labelled**: Our dataset is _labelled_ because each point has a **class** (color): blue or green.
-- **Classify**: To _classify_ a new datapoint is to assign a class (color) to it.
+> **Classify**: To _classify_ a new datapoint is to assign a class (color) to it.
 
 Here's a dataset that has 3 classes now instead of 2:
 
@@ -83,27 +84,13 @@ We need to add another **decision node** to our decision tree:
 
 ![](/media/random-forest-post/dataset2-split.svg)
 
-Pretty simple, right? That's all there is to decision trees.
+Pretty simple, right? That's the basic idea behind decision trees.
 
 ## 2. Training a Decision Tree
 
-Let's use the 3 class dataset again and write out numeric values for each datapoint:
+Let's start training a decision tree! We'll use the 3 class dataset again:
 
 ![The Dataset v2](/media/random-forest-post/dataset2.svg)
-
-| X | Y | Color |
-| - | - | ----- |
-| 0.5 | 0.5 | <span class="inline-point blue"/> |
-| 1 | 1.5 | <span class="inline-point blue"/> |
-| 1.5 | 1 | <span class="inline-point blue"/> |
-| 3 | 1 | <span class="inline-point green"/> |
-| 2.2 | 2 | <span class="inline-point green"/> |
-| 2.5 | 3 | <span class="inline-point green"/> |
-| 0.2 | 2.8 | <span class="inline-point red"/> |
-| 1 | 2.5 | <span class="inline-point red"/> |
-| 1.3 | 2.3 | <span class="inline-point red"/> |
-
-Let's start training a decision tree from this data!
 
 ### 2.1 Training a Decision Tree: The Root Node
 
@@ -113,7 +100,7 @@ Our first task is to determine the root decision node in our tree. Which feature
 
 Intuitively, we want a decision node that makes a "good" split, where "good" can be loosely defined as **separating different classes as much as possible**. The root decision node above makes a "good" split: _all_ the greens are on the right, and _no_ greens are on the left.
 
-Thus, our goal is now to pick a root node that gives us the "best" split possible. **But how do we quantify how good a split is?** It's complicated. I wrote [an entire blog post about a common way to do this using a metric called Gini Impurity](/blog/gini-impurity/). **← I recommend reading it right now** before you continue.
+Thus, our goal is now to pick a root node that gives us the "best" split possible. **But how do we quantify how good a split is?** It's complicated. I wrote [an entire blog post about one way to do this using a metric called Gini Impurity](/blog/gini-impurity/). **← I recommend reading it right now** before you continue.
 
 ---
 
@@ -126,13 +113,74 @@ Back to the problem of determining our root decision node. Now that we have a wa
 Trying every split means trying
 
 - Every feature ($x$ or $y$).
-- All unique threshold. For a given feature, **we only need to try thresholds that produce different splits.**
+- All unique thresholds. For a given feature, **we only need to try thresholds that produce different splits.**
 
-For example, here are the thresholds we might try if we wanted to use the $x$ coordinate:
+For example, here are the thresholds we might select if we wanted to use the $x$ coordinate:
+
+![](/media/random-forest-post/dataset2-thresholds-x.svg)
+
+Let's do an example Gini Gain calculation for the $x = 0.4$ split.
+
+| Split | Left Branch | Right Branch |
+| --- | --- | --- |
+| $x = 0.4$ | <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> |
+
+First, we calculate the Gini Impurity of the whole dataset:
+
+$$
+\begin{aligned}
+G_{initial} &= \sum_{i=1}^3 p(i) * (1 - p(i)) \\
+&= 3 * (\frac{1}{3} * \frac{2}{3}) \\
+&= \boxed{\frac{2}{3}} \\
+\end{aligned}
+$$
+
+Then, we calculate the Gini Impurities of the two branches:
+
+$$
+G_{left} = 0 * 1 + 1 * 0 + 0 * 1 = \boxed{0}
+$$
+
+$$
+\begin{aligned}
+G_{right} &= \frac{3}{8} * \frac{5}{8} + \frac{2}{8} * \frac{6}{8} + \frac{3}{8} * \frac{5}{8} \\
+&= \boxed{\frac{21}{32}} \\
+\end{aligned}
+$$
+
+Finally, we calculate Gini Gain by subtracting the weighted branch impurities from the original impurity:
+
+$$
+\begin{aligned}
+G_{initial} - \frac{1}{9} G_{left} - \frac{8}{9} G_{right} &= \frac{2}{3} - \frac{1}{9} * 0 - \frac{8}{9} * \frac{21}{32} \\
+&= \boxed{0.0833} \\
+\end{aligned}
+$$
+
+> Confused about what just happened? I told you you should've read [my Gini Impurity post](/blog/gini-impurity/). It'll explain all of this Gini stuff.
+
+We can calculate Gini Gain for every possible split in the same way:
+
+| Split | Left Branch | Right Branch | Gini Gain |
+| --- | --- | --- | --- |
+| $x = 0.4$ | <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.0833$ |
+| $x = 0.8$ | <span class="inline-point blue"></span> <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.0476$ |
+| $x = 1.1$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.1333$ |
+| $x = 1.3$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> | <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.2333$ |
+| $x = 2$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> | <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.3333$ |
+| $x = 2.4$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> | <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.1905$ |
+| $x = 2.8$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point green"></span> | $0.0833$ |
+| $y = 0.8$ | <span class="inline-point blue"> | </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.0833$ |
+| $y = 1.2$ | <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> | </span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.1111$ |
+| $y = 1.8$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> | <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | $0.2333$ |
+| $y = 2.1$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> | $0.2333$ |
+| $y = 2.4$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> | $0.1111$ |
+| $y = 2.7$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point red"></span> <span class="inline-point green"></span> | $0.0476$ |
+| $y = 2.9$ | <span class="inline-point blue"></span> </span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point red"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> | <span class="inline-point green"></span> | $0.0833$ |
 
 ![](/media/random-forest-post/dataset2-thresholds.svg)
 
-After trying all threshold for both $x$ and $y$, we'd see that the $x = 2$ split has the highest Gini Gain, so we'd make our root decision node use the $x$ feature with a threshold of $2$. We did it! Here's what we've got so far:
+After trying all thresholds for both $x$ and $y$, we've found that the $x = 2$ split has the highest Gini Gain, so we'll make our root decision node use the $x$ feature with a threshold of $2$. We did it! Here's what we've got so far:
 
 ![](/media/random-forest-post/decision-tree2-build1.svg)
 
@@ -152,8 +200,6 @@ Again, we try all the possible splits, but they all
 
 - Are equally good.
 - Have a Gini Gain of 0 because the Gini Impurity was already 0 and can't go any lower.
-
-> Confused about what I just said? I told you you should've read [my Gini Impurity post](/blog/gini-impurity/). It'll explain all of this Gini stuff.
 
 It doesn't makes sense to add a decision node here because doing so wouldn't improve our decision tree. Thus, we'll make this node a **leaf node** and slap the Green label on it. This means that **we'll classify any datapoint that reaches this node as Green**.
 

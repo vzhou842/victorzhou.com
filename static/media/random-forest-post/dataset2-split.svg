@@ -32,7 +32,7 @@
      id="namedview55"
      showgrid="false"
      inkscape:zoom="2.4333333"
-     inkscape:cx="93.904109"
+     inkscape:cx="132.53425"
      inkscape:cy="165"
      inkscape:window-x="0"
      inkscape:window-y="1"
@@ -97,7 +97,7 @@
   <circle
      style="fill:#164bc5"
      r="3.75"
-     cx="113.56854"
+     cx="112"
      cy="178.44897"
      id="path4165" />
   <path
@@ -224,14 +224,14 @@
   <circle
      style="fill:#164bc5"
      r="3.75"
-     cy="216.56541"
+     cy="217.5"
      cx="150.95552"
      id="circle4273" />
   <circle
      style="fill:#0f9640"
      r="3.75"
      cx="262.55142"
-     cy="218.56883"
+     cy="217.5"
      id="circle4275" />
   <circle
      style="fill:#0f9640"
@@ -259,7 +259,7 @@
      style="fill:#ff0000;fill-opacity:1" />
   <circle
      id="circle4313"
-     cx="111.57538"
+     cx="112"
      cy="101.25033"
      r="3.75"
      style="fill:#ff0000;fill-opacity:1" />

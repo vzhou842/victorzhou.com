@@ -15,7 +15,7 @@
    version="1.1"
    viewBox="0 0 330 330.00001"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="dataset2-thresholds.svg">
+   sodipodi:docname="dataset2-thresholds-x.svg">
   <defs
      id="defs57" />
   <sodipodi:namedview
@@ -32,7 +32,7 @@
      id="namedview55"
      showgrid="false"
      inkscape:zoom="2.4333333"
-     inkscape:cx="132.53424"
+     inkscape:cx="66.780819"
      inkscape:cy="165"
      inkscape:window-x="0"
      inkscape:window-y="1"
@@ -293,39 +293,4 @@
      inkscape:connector-curvature="0"
      d="m 67.5,292.5 0,-240"
      id="path5030" />
-  <path
-     id="path4173"
-     d="m 277.5,234.5 -240,0"
-     inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5"
-     inkscape:connector-curvature="0"
-     d="m 277.5,196.5 -240,0"
-     id="path4175" />
-  <path
-     id="path4177"
-     d="m 277.5,158.5 -240,0"
-     inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5"
-     inkscape:connector-curvature="0"
-     d="m 277.5,126.5 -240,0"
-     id="path4179" />
-  <path
-     id="path4181"
-     d="m 277.5,108.5 -240,0"
-     inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5" />
-  <path
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5"
-     inkscape:connector-curvature="0"
-     d="m 277.5,90.5 -240,0"
-     id="path4183" />
-  <path
-     id="path4185"
-     d="m 277.5,72.5 -240,0"
-     inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.5;stroke-dasharray:4.5, 4.5" />
 </svg>
