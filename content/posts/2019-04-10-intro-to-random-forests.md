@@ -1,11 +1,11 @@
 ---
 title: Random Forests for Complete Beginners
-date: "2019-04-04T12:00:00.000Z"
+date: "2019-04-10T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
 slug: "/blog/intro-to-random-forests/"
-img: 
+img: "https://victorzhou.com/media/random-forest-post/random-forest.png"
 category: "Machine Learning"
 tags:
   - "Machine Learning"
