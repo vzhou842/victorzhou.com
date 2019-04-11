@@ -15,6 +15,9 @@ tags:
 description: The definitive guide to Random Forests and Decision Trees.
 prev: "/blog/intro-to-neural-networks/"
 next: "/blog/gini-impurity/"
+discussLinkTwitter: https://twitter.com/victorczhou/status/1116006217581772801
+discussLinkHN: https://news.ycombinator.com/item?id=19632052
+discussLinkReddit: https://www.reddit.com/r/learnmachinelearning/comments/bbneto/random_forests_for_complete_beginners/
 ---
 
 In my opinion, most Machine Learning tutorials aren't beginner-friendly enough.
