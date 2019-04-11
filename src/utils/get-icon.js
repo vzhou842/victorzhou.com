@@ -13,6 +13,9 @@ const getIcon = (name) => {
     case 'email':
       icon = ICONS.EMAIL;
       break;
+    case 'rss':
+      icon = ICONS.RSS;
+      break;
     default:
       icon = {};
       break;

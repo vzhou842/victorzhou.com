@@ -47,6 +47,7 @@ export const MovableSidebarContent = (props: Props) => (
                 twitter
                 github
                 email
+                rss
               }
             }
             copyright

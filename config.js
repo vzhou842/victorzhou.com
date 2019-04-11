@@ -26,6 +26,7 @@ module.exports = {
       email: 'vzhou842@gmail.com',
       twitter: 'victorczhou',
       github: 'vzhou842',
+      rss: '/rss.xml',
     }
   }
 };

@@ -8,7 +8,8 @@ describe('Contacts', () => {
       email: '#',
       twitter: '#',
       github: '#',
-    }
+      rss: '#',
+    },
   };
 
   it('renders correctly', () => {
