@@ -88,7 +88,7 @@ All the source code is in the `src/` folder. `client/` and `server/` are pretty 
 As mentioned before, we're using the [Webpack](https://webpack.js.org/) module bundler to build our project. Let's take a look at our Webpack configs:
 
 ```js
-// --- webpack.common.js
+// header: webpack.common.js
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -141,7 +141,7 @@ To summarize:
 The `webpack.common.js` file is a base config file that we import in our development and production configuations:
 
 ```js
-// --- webpack.dev.js
+// Header: webpack.dev.js
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
@@ -151,7 +151,7 @@ module.exports = merge(common, {
 ```
 
 ```js
-// --- webpack.prod.js
+// Header: webpack.prod.js
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 const TerserJSPlugin = require('terser-webpack-plugin');
@@ -170,7 +170,7 @@ We use `webpack.dev.js` for efficiency while developing, and we switch to `webpa
 Here's an excerpt from `src/server/server.js` showing how we use `webpack.dev.js`:
 
 ```js
-// --- src/server/server.js
+// Header: src/server/server.js
 const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -203,6 +203,7 @@ and visit [localhost:3000](http://localhost:3000) in your web browser!
 Let's get to the actual game code. Here's an very abridged version of our `index.html`:
 
 ```html
+// Header: index.html
 <!DOCTYPE html>
 <html>
 <head>
@@ -230,7 +231,7 @@ We have:
 Once the homepage is loaded in your browser, the first thing that runs is `src/client/index.js`, our client-side entrypoint. Here's a slightly shortened version of it:
 
 ```js
-// --- src/client/index.js
+// Header: src/client/index.js
 import { connect, play } from './networking';
 import { startRendering, stopRendering } from './render';
 import { startCapturingInput, stopCapturingInput } from './input';

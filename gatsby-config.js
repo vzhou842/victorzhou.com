@@ -92,6 +92,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          'gatsby-remark-code-headers',
           {
             resolve: 'gatsby-remark-images',
             options: { maxWidth: 700, showCaptions: true, linkImagesToOriginal: false },
