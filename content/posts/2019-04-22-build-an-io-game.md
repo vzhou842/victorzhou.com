@@ -26,7 +26,9 @@ A quick description in case you've never heard of .io games before: they're free
 
 In this post, we're going to **understand how to build an .io game by breaking down an example one**. All you need is a working knowledge of Javascript: you should have seen things like [ES6](https://www.w3schools.com/js/js_es6.asp) syntax, the `this` keyword, and [Promises](https://developers.google.com/web/fundamentals/primers/promises) before.
 
-Here's the game we're going to learn from:
+## An Example .io Game
+
+Below is the game we're going to learn from. Go ahead, try it out! You can play it right here on this page:
 
 <style>
 @media screen and (max-height: 750px) {
@@ -43,7 +45,16 @@ Here's the game we're going to learn from:
 <div id="example-io-game" height="700px">
     <iframe src="https://example-io-game.victorzhou.com" width="100%" height="700px" /></iframe>
 </div>
-<figcaption>Try it out - it works on mobile, too! Play it fullscreen at <a href="https://example-io-game.victorzhou.com" target="_blank">https://example-io-game.victorzhou.com</a></figcaption>
+<figcaption>It works on mobile, too! Play it fullscreen at <a href="https://example-io-game.victorzhou.com" target="_blank">https://example-io-game.victorzhou.com</a></figcaption>
+
+## Table of Contents
+
+Here's what we'll cover in this post:
+
+1. [Project Overview / Structure](#1-project-overview--structure): A high level view of the project.
+2. [Builds](#2-builds): Development Tooling and configuration.
+3. [Client Entrypoints](#3-client-entrypoints): `index.html` and `index.js`.
+4. [Client Networking](#4-client-networking): How we communicate with the server.
 
 ## 1. Project Overview / Structure
 
@@ -170,7 +181,7 @@ We use `webpack.dev.js` for efficiency while developing, and we switch to `webpa
 Here's an excerpt from `src/server/server.js` showing how we use `webpack.dev.js`:
 
 ```js
-// Header: src/server/server.js
+// Header: server.js
 const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -198,7 +209,7 @@ $ npm run develop
 
 and visit [localhost:3000](http://localhost:3000) in your web browser!
 
-## 3. The Homepage
+## 3. Client Entrypoints
 
 Let's get to the actual game code. Here's an very abridged version of our `index.html`:
 
@@ -231,7 +242,7 @@ We have:
 Once the homepage is loaded in your browser, the first thing that runs is `src/client/index.js`, our client-side entrypoint. Here's a slightly shortened version of it:
 
 ```js
-// Header: src/client/index.js
+// Header: index.js
 import { connect, play } from './networking';
 import { startRendering, stopRendering } from './render';
 import { startCapturingInput, stopCapturingInput } from './input';
@@ -270,3 +281,51 @@ This might seem complicated, but there's actually not that much going on here:
 3. Run `js›connect()` to establish a connection to the server, and run `js›downloadAssets()` to download the images we need to render the game.
 4. _Once step 3 has finished_, display the main menu (`js›playMenu`).
 5. Setup a click handler for the "PLAY" button. If clicked, initialize the game and tell the server we're ready to play.
+
+The meat of our client-side logic resides in those other files that are imported by `index.js`. We'll go through each of those next.
+
+## 4. Client Networking
+
+A major component of the client-side code is networking. We have one file, `src/client/networking.js`, that takes care of **all** communication with the server:
+
+```js
+// Header: networking.js
+import io from 'socket.io-client';
+import { processGameUpdate } from './state';
+
+const Constants = require('../shared/constants');
+
+const socket = io(`ws://${window.location.host}`);
+const connectedPromise = new Promise(resolve => {
+  socket.on('connect', () => {
+    console.log('Connected to server!');
+    resolve();
+  });
+});
+
+export const connect = onGameOver => (
+  connectedPromise.then(() => {
+    // Register callbacks
+    socket.on(Constants.MSG_TYPES.GAME_UPDATE, processGameUpdate);
+    socket.on(Constants.MSG_TYPES.GAME_OVER, onGameOver);
+  })
+);
+
+export const play = username => {
+  socket.emit(Constants.MSG_TYPES.JOIN_GAME, username);
+};
+
+export const updateDirection = dir => {
+  socket.emit(Constants.MSG_TYPES.INPUT, dir);
+};
+```
+<figcaption>This code was slightly abridged for clarity, as I've been doing with other files.</figcaption>
+
+We're using the well-known [socket.io](https://socket.io/) library to communicate with the server. Socket.io includes built-in support for [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API), which are great for two-way communication: we can send messages to the server _and_ the server can send messages to us over the same connection.
+
+3 major things happen in this file:
+
+- We try to connect to the server. `js›connectedPromise` only resolves once we've established a connection.
+- If the connection succeeds, we register callbacks (`js›processGameUpdate()` and `js›onGameOver()`) for messages we might receive from the server.
+- We export `js›play()` and `js›updateDirection()` for other files to use.
+
