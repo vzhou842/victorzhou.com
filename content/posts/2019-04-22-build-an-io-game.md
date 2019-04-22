@@ -56,6 +56,7 @@ Here's what we'll cover in this post:
 3. [Client Entrypoints](#3-client-entrypoints): `index.html` and `index.js`.
 4. [Client Networking](#4-client-networking): Communicating with the server.
 5. [Client Rendering](#5-client-rendering): Downloading image assets + Rendering the game.
+6. [Client Input](#6-client-input): Letting users actually play the game.
 
 ## 1. Project Overview / Structure
 
@@ -425,4 +426,39 @@ function renderBullet(me, bullet) {
 ```
 
 Notice how we're using the `js›getAsset()` method we saw earlier from `asset.js`!
+
+## 6. Client Input
+
+It's time to actually _play_ the game! Our control scheme is very simple: use the mouse (on desktop) or touch the screen (on mobile) to control the direction of movement. `src/client/input.js` takes care of it all:
+
+```js
+// Header: input.js
+import { updateDirection } from './networking';
+
+function onMouseInput(e) {
+  handleInput(e.clientX, e.clientY);
+}
+
+function onTouchInput(e) {
+  const touch = e.touches[0];
+  handleInput(touch.clientX, touch.clientY);
+}
+
+function handleInput(x, y) {
+  const dir = Math.atan2(x - window.innerWidth / 2, window.innerHeight / 2 - y);
+  updateDirection(dir);
+}
+
+export function startCapturingInput() {
+  window.addEventListener('mousemove', onMouseInput);
+  window.addEventListener('touchmove', onTouchInput);
+}
+
+export function stopCapturingInput() {
+  window.removeEventListener('mousemove', onMouseInput);
+  window.removeEventListener('touchmove', onTouchInput);
+}
+```
+
+`js›onMouseInput()` and `js›onTouchInput()` are [Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) that call `js›updateDirection()` from `networking.js` when an input event happens (e.g. the mouse moves). `js›updateDirection()` takes care of messaging the server, which handles the input event.
 
