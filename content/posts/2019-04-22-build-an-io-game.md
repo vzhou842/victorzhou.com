@@ -54,7 +54,8 @@ Here's what we'll cover in this post:
 1. [Project Overview / Structure](#1-project-overview--structure): A high level view of the project.
 2. [Builds](#2-builds): Development Tooling and configuration.
 3. [Client Entrypoints](#3-client-entrypoints): `index.html` and `index.js`.
-4. [Client Networking](#4-client-networking): How we communicate with the server.
+4. [Client Networking](#4-client-networking): Communicating with the server.
+5. [Client Rendering](#5-client-rendering): Downloading image assets + Rendering the game.
 
 ## 1. Project Overview / Structure
 
@@ -328,4 +329,100 @@ We're using the well-known [socket.io](https://socket.io/) library to communicat
 - We try to connect to the server. `js›connectedPromise` only resolves once we've established a connection.
 - If the connection succeeds, we register callbacks (`js›processGameUpdate()` and `js›onGameOver()`) for messages we might receive from the server.
 - We export `js›play()` and `js›updateDirection()` for other files to use.
+
+## 5. Client Rendering
+
+Before we can render the game, we need to download all the images we need to do so. `src/client/assets.js` manages these assets (images):
+
+```js
+// Header: assets.js
+const ASSET_NAMES = ['ship.svg', 'bullet.svg'];
+
+const assets = {};
+const downloadPromise = Promise.all(ASSET_NAMES.map(downloadAsset));
+
+function downloadAsset(assetName) {
+  return new Promise(resolve => {
+    const asset = new Image();
+    asset.onload = () => {
+      console.log(`Downloaded ${assetName}`);
+      assets[assetName] = asset;
+      resolve();
+    };
+    asset.src = `/assets/${assetName}`;
+  });
+}
+
+export const downloadAssets = () => downloadPromise;
+export const getAsset = assetName => assets[assetName];
+```
+
+Managing assets isn't so hard to implement! The main idea is keeping an `js›assets` object that maps a filename key to an `js›Image` object value. We resolve `downloadPromise` once each individual asset download Promise has resolved (meaning **all** assets have been downloaded).
+
+With downloading assets out of the way, we can move on to rendering. As mentioned earlier, we're using an [HTML5 Canvas](https://www.w3schools.com/html/html5_canvas.asp) (`html›<canvas>`) to draw to our webpage. One file controls all rendering logic: `src/client/render.js`. Here are the important parts:
+
+```js
+// Header: render.js
+import { getAsset } from './assets';
+import { getCurrentState } from './state';
+
+const Constants = require('../shared/constants');
+const { PLAYER_RADIUS, PLAYER_MAX_HP, BULLET_RADIUS, MAP_SIZE } = Constants;
+
+// Get the canvas graphics context
+const canvas = document.getElementById('game-canvas');
+const context = canvas.getContext('2d');
+
+// Make the canvas fullscreen
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+function render() {
+  const { me, others, bullets } = getCurrentState();
+  if (!me) {
+    return;
+  }
+
+  // Draw background
+  renderBackground(me.x, me.y);
+
+  // Draw all bullets
+  bullets.forEach(renderBullet.bind(null, me));
+
+  // Draw all players
+  renderPlayer(me, me);
+  others.forEach(renderPlayer.bind(null, me));
+}
+
+// ... Helper functions here excluded
+
+let renderInterval = null;
+export function startRendering() {
+  renderInterval = setInterval(render, 1000 / 60);
+}
+export function stopRendering() {
+  clearInterval(renderInterval);
+}
+```
+<figcaption>This code was also slightly edited for clarity.</figcaption>
+
+`js›render()` is the primary function of this file - when invoked, it draws the current game state to our canvas. `js›startRendering()` and `js›stopRendering()` control activation of the 60 FPS render loop.
+
+The specific implementations of the individual render helper functions (e.g. `js›renderBullet()`) are not as relevant / up to you, but here's one simple example:
+
+```js
+// Header: render.js
+function renderBullet(me, bullet) {
+  const { x, y } = bullet;
+  context.drawImage(
+    getAsset('bullet.svg'),
+    canvas.width / 2 + x - me.x - BULLET_RADIUS,
+    canvas.height / 2 + y - me.y - BULLET_RADIUS,
+    BULLET_RADIUS * 2,
+    BULLET_RADIUS * 2,
+  );
+}
+```
+
+Notice how we're using the `js›getAsset()` method we saw earlier from `asset.js`!
 
