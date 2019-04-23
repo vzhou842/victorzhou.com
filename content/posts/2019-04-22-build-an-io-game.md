@@ -28,7 +28,7 @@ In this post, we're going to **understand how to build an .io game by breaking d
 
 ## An Example .io Game
 
-Below is the game we're going to learn from. Go ahead, try it out! You can play it right here on this page:
+Below is the game we're going to learn from. Go ahead, try it out! **You can play it right here on this page:**
 
 <style>
 @media screen and (max-height: 750px) {
@@ -108,11 +108,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
-    game: './src/client/index.js',
+    game: './src/client/index.js', // highlight-line
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js', // highlight-line
+    path: path.resolve(__dirname, 'dist'), // highlight-line
   },
   module: {
     rules: [
@@ -122,7 +122,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env'],
+            presets: ['@babel/preset-env'], // highlight-line
           },
         },
       },
@@ -139,20 +139,20 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].bundle.css',
+      filename: '[name].bundle.css', // highlight-line
     }),
   ],
 };
 ```
 
-To summarize:
+A few key lines are highlighted above:
 
 - `src/client/index.js` is the Javascript (JS) client entrypoint. Webpack will start there and recursively look for other files that are imported.
 - The JS output of our Webpack build will be a file called `game.bundle.js` in the `dist/` directory.
 - We're using [Babel](https://babeljs.io/), specifically the [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) config, to transpile our JS code for older browsers.
 - We're using a plugin to extract all CSS referenced by our JS files and bundle it together into a file called `game.bundle.css`.
 
-The `webpack.common.js` file is a base config file that we import in our development and production configuations:
+The `webpack.common.js` file is a base config file that we import in our development and production configurations. For example, here's the development config:
 
 ```js
 // Header: webpack.dev.js
@@ -161,21 +161,6 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   mode: 'development',
-});
-```
-
-```js
-// Header: webpack.prod.js
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
-const TerserJSPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
-module.exports = merge(common, {
-  mode: 'production',
-  optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
-  },
 });
 ```
 
@@ -188,15 +173,15 @@ Here's an excerpt from `src/server/server.js` showing how we use `webpack.dev.js
 const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackConfig = require('../../webpack.dev.js');
+const webpackConfig = require('../../webpack.dev.js'); // highlight-line
 
 // Setup an Express server
 const app = express();
 
 if (process.env.NODE_ENV === 'development') {
   // Setup Webpack for development
-  const compiler = webpack(webpackConfig);
-  app.use(webpackDevMiddleware(compiler));
+  const compiler = webpack(webpackConfig); // highlight-line
+  app.use(webpackDevMiddleware(compiler)); // highlight-line
 }
 
 app.listen(3000);
@@ -222,7 +207,7 @@ Let's get to the actual game code. Here's an very abridged version of our `index
 <html>
 <head>
   <title>An example .io game</title>
-  <link type="text/css" rel="stylesheet" href="/game.bundle.css"></script>
+  <link type="text/css" rel="stylesheet" href="/game.bundle.css">
 </head>
 <body>
   <canvas id="game-canvas"></canvas>
@@ -410,7 +395,7 @@ export function stopRendering() {
 
 `js›render()` is the primary function of this file - when invoked, it draws the current game state to our canvas. `js›startRendering()` and `js›stopRendering()` control activation of the 60 FPS render loop.
 
-The specific implementations of the individual render helper functions (e.g. `js›renderBullet()`) are not as relevant / up to you, but here's one simple example:
+The specific implementations of the individual render helper functions (e.g. `js›renderBullet()`) are not as important, but here's one simple example:
 
 ```js
 // Header: render.js
