@@ -57,6 +57,7 @@ Here's what we'll cover in this post:
 4. [Client Networking](#4-client-networking): Communicating with the server.
 5. [Client Rendering](#5-client-rendering): Downloading image assets + Rendering the game.
 6. [Client Input](#6-client-input): Letting users actually play the game.
+7. [Client State](#7-client-state): Processing game updates from the server.
 
 ## 1. Project Overview / Structure
 
@@ -462,3 +463,188 @@ export function stopCapturingInput() {
 
 `js›onMouseInput()` and `js›onTouchInput()` are [Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) that call `js›updateDirection()` from `networking.js` when an input event happens (e.g. the mouse moves). `js›updateDirection()` takes care of messaging the server, which handles the input event.
 
+## 7. Client State
+
+> This section is the most advanced one in this post. Don't be discouraged if you don't understand everything on the first readthrough! Feel free to skip this section and come back to it later, too.
+
+The last piece of the puzzle we need to complete the client-side code is the **state**. Remember this bit of code from the [Client Rendering](#5-client-rendering) section?
+
+```js
+// Header: render.js
+import { getCurrentState } from './state';
+
+function render() {
+  const { me, others, bullets } = getCurrentState(); // highlight-line
+
+  // Do the rendering
+  // ...
+}
+```
+
+`js›getCurrentState()` must be able to give us the client's current game state **at any point in time** based on game updates received from the server. Here's an example game update the server might send:
+
+```js
+{
+  "t": 1555960373725,
+  "me": {
+    "x": 2213.8050880413657,
+    "y": 1469.370893425012,
+    "direction": 1.3082443894581433,
+    "id": "AhzgAtklgo2FJvwWAADO",
+    "hp": 100
+  },
+  "others": [],
+  "bullets": [
+    {
+      "id": "RUJfJ8Y18n",
+      "x": 2354.029197099604,
+      "y": 1431.6848318262666
+    },
+    {
+      "id": "ctg5rht5s",
+      "x": 2260.546457727445,
+      "y": 1456.8088728920968
+    }
+  ],
+  "leaderboard": [
+    {
+      "username": "Player",
+      "score": 3
+    }
+  ]
+}
+```
+
+Each game update has these same 5 fields:
+
+- **t**: The server timestamp at which this update was created.
+- **me**: The player info for the player receiving the update.
+- **others**: An array of player info for other players in the same game.
+- **bullets**: An array of bullet info for bullets in the game.
+- **leaderboard**: The current leaderboard data.
+
+### 7.1 Naive Client State
+
+A naive implementation of `js›getCurrentState()` could just directly return the data from the most recently received game update.
+
+```js
+// Header: naive-state.js
+let lastGameUpdate = null;
+
+// Handle a newly received game update.
+export function processGameUpdate(update) {
+  lastGameUpdate = update;
+}
+
+export function getCurrentState() {
+  return lastGameUpdate;
+}
+```
+
+Nice and clean! If only it were that easy. One reason this implementation is problematic is because it **limits the render frame rate to the server tick rate**.
+
+> **Frame Rate**: The number of frames (i.e. `js›render()` calls) per second, or FPS. Games generally target at least 60 FPS.
+
+> **Tick Rate**: The rate at which the server sends game updates to clients. **This is often lower than the frame rate**. For our game, the server operates at 30 ticks per second.
+
+If we just render the most recent game update, our effective FPS cannot exceed 30 because _we'll never receive more then 30 updates per second from the server_. Even if we call `js›render()` 60 times per second, half of those calls would just redraw the exact same thing, effectively doing nothing.
+
+Another problem with the naive implementation is that it's **prone to lag**. Under perfect internet conditions, the client would receive a game update exactly every 33 ms (30 per second):
+
+![](/media/io-game-post/game-updates-ideal.svg)
+
+Sadly, nothing is ever that perfect. A more realistic representation might look like this:
+
+![](/media/io-game-post/game-updates-nonideal.svg)
+
+The naive implementation is pretty much the worst case scenario when it comes to lag. If a game update arrives 50 ms late, **the client freezes** for an extra 50 ms because it's still rendering the game state of the previous update. You can imagine how that'd be a bad experience for the player: the game would be jittery and feel unstable because it randomly freezes.
+
+### 7.2 Better Client State
+
+We'll make a few simple improvements to the naive implementation. The first is to use a **render delay** of 100 ms, meaning the "current" client state will always be 100 ms behind the server's game state. For example, if the server is at time **150**, the state rendered on the client will be what the server state was at time **50**:
+
+![](/media/io-game-post/game-updates-ideal-render-delay.svg)
+
+This gives us a 100 ms buffer to tolerate unpredictable game update arrivals:
+
+![](/media/io-game-post/game-updates-nonideal-render-delay.svg)
+
+The cost of doing this is a constant 100 ms [input lag](https://en.wikipedia.org/wiki/Input_lag). That's a small price to pay to have consistent, smooth gameplay - the majority of players (especially casual players) won't even notice the delay. It's much easier for humans to adjust to a constant 100 ms lag than try to play with unpredictable lag.
+
+The other improvement we'll make is to use **linear interpolation**. Because of the render delay, we'll usually already have at least 1 update ahead of current client time. Whenever `js›getCurrentState()` is called, we can [linearly interpolate](https://en.wikipedia.org/wiki/Linear_interpolation) between the game updates immediately before and after current client time:
+
+![](/media/io-game-post/game-updates-nonideal-lerp.svg)
+
+This solves our frame rate problem: we can now render unique frames as often as we want!
+
+Here's an abridged `src/client/state.js` implementation that uses both a render delay and linear interpolation:
+
+```js
+// Header: state.js
+const RENDER_DELAY = 100;
+
+const gameUpdates = [];
+let gameStart = 0;
+let firstServerTimestamp = 0;
+
+export function initState() {
+  gameStart = 0;
+  firstServerTimestamp = 0;
+}
+
+export function processGameUpdate(update) {
+  if (!firstServerTimestamp) {
+    firstServerTimestamp = update.t;
+    gameStart = Date.now();
+  }
+  gameUpdates.push(update);
+
+  // Keep only one game update before the current server time
+  const base = getBaseUpdate();
+  if (base > 0) {
+    gameUpdates.splice(0, base);
+  }
+}
+
+function currentServerTime() {
+  return firstServerTimestamp + (Date.now() - gameStart) - RENDER_DELAY;
+}
+
+// Returns the index of the base update, the first game update before
+// current server time, or -1 if N/A.
+function getBaseUpdate() {
+  const serverTime = currentServerTime();
+  for (let i = gameUpdates.length - 1; i >= 0; i--) {
+    if (gameUpdates[i].t <= serverTime) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+export function getCurrentState() {
+  if (!firstServerTimestamp) {
+    return {};
+  }
+
+  const base = getBaseUpdate();
+  const serverTime = currentServerTime();
+
+  // If base is the most recent update we have, use its state.
+  // Else, interpolate between its state and the state of (base + 1).
+  if (base < 0) {
+    return gameUpdates[0];
+  } else if (base === gameUpdates.length - 1) {
+    return gameUpdates[base];
+  } else {
+    const baseUpdate = gameUpdates[base];
+    const next = gameUpdates[base + 1];
+    const r = (serverTime - baseUpdate.t) / (next.t - baseUpdate.t);
+    return {
+      me: interpolateObject(baseUpdate.me, next.me, r),
+      others: interpolateObjectArray(baseUpdate.others, next.others, r),
+      bullets: interpolateObjectArray(baseUpdate.bullets, next.bullets, r),
+    };
+  }
+}
+```

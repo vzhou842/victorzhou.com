@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="140" viewBox="0 0 700.00001 140" width="700" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <g stroke="#164bc5" stroke-width="3" fill="none">
+  <path id="path4163" d="m150.14 60v30"/>
+  <path id="path4165" d="m200.11 60v30"/>
+  <path id="path4167" d="m250.07 60v30"/>
+  <path id="path4169" d="m300.04 60v30"/>
+  <path id="path4171" d="m350 60v30"/>
+  <g stroke-opacity=".39216">
+   <path id="path4173" d="m399.96 60v30"/>
+   <path id="path4175" d="m449.93 60v30"/>
+   <path id="path4177" d="m499.89 60v30"/>
+   <path id="path4179" d="m549.86 60v30"/>
+  </g>
+ </g>
+ <g id="g4196" stroke="#000" stroke-width="4" fill="none" transform="translate(0,-10)">
+  <path id="path4187" d="m590 110.04 10-10-10-10"/>
+  <path id="path4185" d="m110 90.04-10 10 10 10"/>
+  <path id="path4155" d="m100 100.04h500"/>
+ </g>
+ <g stroke="#000" stroke-width="3" fill="none">
+  <path id="path4216" d="m365.06 77.878 10 10 10-10"/>
+  <path id="path4218" d="m375.06 87.883v-50"/>
+  <path id="path4238" d="m215.06 77.878 10 10 10-10"/>
+  <path id="path4240" d="m225.06 87.883v-50"/>
+ </g>
+ <text id="text4242" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="40px" line-height="125%" y="25.819397" x="183.77927" font-family="sans-serif" fill="#000000"><tspan id="tspan4244" y="25.819397" x="183.77927" font-size="15px">Client Time</tspan></text>
+ <text id="text4246" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="40px" line-height="125%" y="25.819397" x="329.77927" font-family="sans-serif" fill="#000000"><tspan id="tspan4248" y="25.819397" x="329.77927" font-size="15px">Server Time</tspan></text>
+ <g id="g4212" transform="translate(0,-16)" stroke="#0f9640" stroke-width="2" fill="none">
+  <path id="path4203" d="m367 128.04 8-8-8-8"/>
+  <path id="path4205" d="m233 112.04-8 8 8 8"/>
+  <path id="path4207" d="m225 120.04h150"/>
+ </g>
+ <text id="text4217" font-size="40px" xml:space="preserve" style="word-spacing:0px;letter-spacing:0px" y="124.75226" x="276.37573" font-family="sans-serif" line-height="125%" fill="#000000"><tspan id="tspan4219" y="124.75226" x="276.37573" font-size="15px">Buffer</tspan></text>
+</svg>

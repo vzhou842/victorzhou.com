@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="100" width="700" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 700.00001 100">
+ <g id="layer1" transform="translate(0 -952.36)" fill="none">
+  <g stroke="#164bc5" stroke-width="3">
+   <path id="path4163" d="m150.14 982.36v30"/>
+   <path id="path4165" d="m200.11 982.36v30"/>
+   <path id="path4167" d="m250.07 982.36v30"/>
+   <path id="path4169" d="m300.04 982.36v30"/>
+   <path id="path4171" d="m350 982.36v30"/>
+   <path id="path4173" d="m399.96 982.36v30"/>
+   <path id="path4175" d="m449.93 982.36v30"/>
+   <path id="path4177" d="m499.89 982.36v30"/>
+   <path id="path4179" d="m549.86 982.36v30"/>
+  </g>
+  <g stroke="#000" stroke-width="4">
+   <path id="path4185" d="m110 1002.4-10 10 10 10"/>
+   <path id="path4187" d="m590 1022.4 10-10-10-10"/>
+   <path id="path4155" d="m100 1012.4h500"/>
+  </g>
+ </g>
+</svg>
