@@ -76,11 +76,12 @@ Here's what the project directory structure look like:
 public/
     assets/
         ...
-    index.html
 src/
     client/
         css/
             ...
+        html/
+            index.html
         index.js
         ...
     server/
@@ -92,7 +93,7 @@ src/
 
 ### `public/`
 
-Anything in the `public/` folder will be statically served by our server. `index.html` is our HTML homepage, and `public/assets/` contains images used by our project.
+Anything in the `public/` folder will be statically served by our server. `public/assets/` contains images used by our project.
 
 ### `src/`
 
@@ -112,7 +113,7 @@ module.exports = {
     game: './src/client/index.js', // highlight-line
   },
   output: {
-    filename: '[name].bundle.js', // highlight-line
+    filename: '[name].[contenthash].js', // highlight-line
     path: path.resolve(__dirname, 'dist'), // highlight-line
   },
   module: {
@@ -140,7 +141,11 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].bundle.css', // highlight-line
+      filename: '[name].[contenthash].css', // highlight-line
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'src/client/html/index.html',
     }),
   ],
 };
@@ -149,9 +154,11 @@ module.exports = {
 A few key lines are highlighted above:
 
 - `src/client/index.js` is the Javascript (JS) client entrypoint. Webpack will start there and recursively look for other files that are imported.
-- The JS output of our Webpack build will be a file called `game.bundle.js` in the `dist/` directory. I'll refer to this as our **JS bundle**.
+- The JS output of our Webpack build will be placed in the `dist/` directory. I'll refer to this file as our **JS bundle**.
 - We're using [Babel](https://babeljs.io/), specifically the [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) config, to transpile our JS code for older browsers.
-- We're using a plugin to extract all CSS referenced by our JS files and bundle it together into a file called `game.bundle.css`. I'll refer to this as our **CSS bundle**.
+- We're using a plugin to extract all CSS referenced by our JS files and bundle it together. I'll refer to this as our **CSS bundle**.
+
+You may have noticed the strange `js›'[name].[contenthash].ext'` bundle filenames. They include Webpack [filename substitutions](https://webpack.js.org/configuration/output/#output-filename): `[name]` will be replaced with the entrypoint name (which is `game`), and `[contenthash]` will be replaced with a hash of the file contents. We do this to [optimize for caching](https://webpack.js.org/guides/caching/#output-filenames) - we can tell browsers to cache our JS bundles forever, because **if the bundle changes its filename will change, too** (the `contenthash` changes). The final result is a filename like `game.dbeee76e91a97d0c7207.js`.
 
 The `webpack.common.js` file is a base config file that we import in our development and production configurations. For example, here's the development config:
 
