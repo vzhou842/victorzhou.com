@@ -83,6 +83,11 @@
       }
     }
 
+    iframe {
+      border: none;
+      outline: none;
+    }
+
     figure {
       @include margin-bottom(1.5);
     }
@@ -106,7 +111,6 @@
       color: $typographic-base-font-color;
       font-style: normal;
       padding: 3px 4px;
-      border-radius: 2px;
     }
 
     // stylelint-disable
@@ -119,6 +123,7 @@
     }
 
     :global(.gatsby-highlight pre[class*='language-']) {
+      @include margin-top(0);
       @include line-height(0.8);
       @include padding-equal(0.5);
       padding-left: $layout-mobile-padding;
@@ -138,6 +143,20 @@
       padding-right: 1em;
       padding-left: 0.75em;
       border-left: 0.2em solid $color-primary;
+    }
+
+    :global(.gatsby-code-header) {
+      margin-left: -$layout-mobile-padding;
+      @include margin-top(0.5);
+    }
+
+    :global(.gatsby-code-header) h5 {
+      margin: 0;
+      @include padding(0.1, 0.75, 0.1, 0.75);
+      display: inline-block;
+      background-color: rgb(245, 242, 240);
+      border-top-right-radius: 5px;
+      border-bottom: 1px solid $color-gray-shadow;
     }
 
     :global(.checkmark) {
@@ -225,6 +244,19 @@
 
       & :global(.gatsby-highlight code[class*='language-']) {
         font-size: $typographic-base-font-size * 1;
+      }
+
+      & :global(.gatsby-code-header) + :global(.gatsby-highlight) pre[class*='language-'] {
+        border-top-left-radius: 0;
+      }
+
+      :global(.gatsby-code-header) {
+        margin-left: auto;
+      }
+
+      :global(.gatsby-code-header) h5 {
+        @include padding(0.1, 1, 0.1, 1);
+        border-top-left-radius: 5px;
       }
 
       :global(.spacing) {
