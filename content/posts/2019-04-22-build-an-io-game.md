@@ -1,5 +1,5 @@
 ---
-title: How to Build a Multiplayer (.io) Web Game
+title: How to Build a Multiplayer (.io) Web Game, Part 1
 date: "2019-04-22T12:00:00.000Z"
 template: "post"
 draft: false
@@ -10,9 +10,8 @@ tags:
   - "Game Development"
   - "Web Development"
   - "Javascript"
-  - "Node.js"
   - "For Beginners"
-description: A deep dive into an example open-source .io game.
+description: A deep dive into the client-side Javascript of a .io game.
 prev: "/blog/intro-to-neural-networks/"
 next: "/blog/gini-impurity/"
 discussLinkTwitter:
@@ -22,13 +21,13 @@ discussLinkReddit:
 
 When [Agar.io](https://agar.io) came out in 2015, it inspired a new [**.io game**](https://www.google.com/search?q=.io+game) genre that has since exploded in popularity. I experienced the rise of .io games firsthand: I've [built and sold 2 .io games](/about/) in the past 3 years.
 
-A quick description in case you've never heard of .io games before: they're free, multiplayer web games that are easy to join (no account required) and usually pit many players against each other in one arena. Other famous .io games include [Slither.io](https://slither.io) and [Diep.io](https://diep.io).
+In case you've never heard of .io games before: they're free, multiplayer web games that are easy to join (no account required) and usually pit many players against each other in one arena. Other famous .io games include [Slither.io](https://slither.io) and [Diep.io](https://diep.io).
 
-In this post, we're going to **understand how to build an .io game by breaking down an example one**. All you need is a working knowledge of Javascript: you should have seen things like [ES6](https://www.w3schools.com/js/js_es6.asp) syntax, the `this` keyword, and [Promises](https://developers.google.com/web/fundamentals/primers/promises) before.
+In this post, we're going to **understand how to build an .io game from scratch**. All you need is a working knowledge of Javascript: you should be comfortable with things like [ES6](https://www.w3schools.com/js/js_es6.asp) syntax, the `this` keyword, and [Promises](https://developers.google.com/web/fundamentals/primers/promises).
 
 ## An Example .io Game
 
-Below is the game we're going to learn from. Go ahead, try it out! **You can play it right here on this page:**
+To help us learn, we're going to be referencing the [example .io game](https://example-io-game.victorzhou.com) embedded below. Go ahead, try it out! **You can play it right here on this page:**
 
 <style>
 @media screen and (max-height: 750px) {
@@ -49,7 +48,7 @@ Below is the game we're going to learn from. Go ahead, try it out! **You can pla
 
 ## Table of Contents
 
-Here's what we'll cover in this post:
+This is Part 1 of a two-part series. Here's what we'll cover in this post:
 
 1. [Project Overview / Structure](#1-project-overview--structure): A high level view of the project.
 2. [Builds](#2-builds): Development Tooling and configuration.
@@ -59,6 +58,8 @@ Here's what we'll cover in this post:
 6. [Client Input](#6-client-input): Letting users actually play the game.
 7. [Client State](#7-client-state): Processing game updates from the server.
 
+We'll go over the Server in Part 2. [Subscribe](http://eepurl.com/gf8JCX) if you want to get an email when that comes out!
+
 ## 1. Project Overview / Structure
 
 > I recommend [**downloading the source code**](https://github.com/vzhou842/example-.io-game) for the example game so you can follow along.
@@ -67,7 +68,7 @@ Our example game uses:
 
 - [Express](https://expressjs.com/), the most popular web framework for Node.js, to power its web server.
 - [socket.io](https://socket.io/), a websocket library, to communicate between the browser and the server.
-- [Webpack](https://webpack.js.org/), a module bundler. Learn more about <a href="/blog/why-you-should-use-webpack/" target="_blank">why you should use Webpack</a>.
+- [Webpack](https://webpack.js.org/), a module bundler. I've written about [why you should use Webpack](/blog/why-you-should-use-webpack/).
 
 Here's what the project directory structure look like:
 
@@ -95,11 +96,11 @@ Anything in the `public/` folder will be statically served by our server. `index
 
 ### `src/`
 
-All the source code is in the `src/` folder. `client/` and `server/` are pretty self explanatory, and `shared/` contains a constants file that's imported by **both the client and the server**.
+All the source code is in the `src/` folder. `client/` and `server/` are pretty self explanatory, and `shared/` contains a constants file that's imported by both the client and the server.
 
 ## 2. Builds
 
-As mentioned before, we're using the [Webpack](https://webpack.js.org/) module bundler to build our project. Let's take a look at our Webpack configs:
+As mentioned before, we're using the [Webpack](https://webpack.js.org/) module bundler to build our project. Let's take a look at our Webpack configuration:
 
 ```js
 // header: webpack.common.js
@@ -148,9 +149,9 @@ module.exports = {
 A few key lines are highlighted above:
 
 - `src/client/index.js` is the Javascript (JS) client entrypoint. Webpack will start there and recursively look for other files that are imported.
-- The JS output of our Webpack build will be a file called `game.bundle.js` in the `dist/` directory.
+- The JS output of our Webpack build will be a file called `game.bundle.js` in the `dist/` directory. I'll refer to this as our **JS bundle**.
 - We're using [Babel](https://babeljs.io/), specifically the [@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) config, to transpile our JS code for older browsers.
-- We're using a plugin to extract all CSS referenced by our JS files and bundle it together into a file called `game.bundle.css`.
+- We're using a plugin to extract all CSS referenced by our JS files and bundle it together into a file called `game.bundle.css`. I'll refer to this as our **CSS bundle**.
 
 The `webpack.common.js` file is a base config file that we import in our development and production configurations. For example, here's the development config:
 
@@ -166,40 +167,27 @@ module.exports = merge(common, {
 
 We use `webpack.dev.js` for efficiency while developing, and we switch to `webpack.prod.js` to optimize bundle sizes when deploying to production.
 
-Here's an excerpt from `src/server/server.js` showing how we use `webpack.dev.js`:
+### Local Setup
 
-```js
-// Header: server.js
-const express = require('express');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackConfig = require('../../webpack.dev.js'); // highlight-line
+I recommend installing the project on your local machine so you can follow along with the rest of this post. Setup is simple: first, make sure you have [Node](https://nodejs.org/en/download/) and [NPM](https://www.npmjs.com/get-npm) installed. Then,
 
-// Setup an Express server
-const app = express();
-
-if (process.env.NODE_ENV === 'development') {
-  // Setup Webpack for development
-  const compiler = webpack(webpackConfig); // highlight-line
-  app.use(webpackDevMiddleware(compiler)); // highlight-line
-}
-
-app.listen(3000);
+```bash
+$ git clone https://github.com/vzhou842/example-.io-game.git
+$ cd example-.io-game
+$ npm install
 ```
 
-`webpack-dev-middleware` is an [Express](https://expressjs.com/) middleware that watches the filesystem and automatically rebuilds our JS/CSS bundles when needed.
-
-To develop, just run
+and you're ready to go! To run the development server, simply
 
 ```bash
 $ npm run develop
 ```
 
-and visit [localhost:3000](http://localhost:3000) in your web browser!
+and visit [localhost:3000](http://localhost:3000) in your web browser. The dev server will automatically rebuild the JS and CSS bundles when you edit code - just refresh to see your changes!
 
 ## 3. Client Entrypoints
 
-Let's get to the actual game code. Here's an very abridged version of our `index.html`:
+Let's get to the actual game code. To start, we need an `index.html` page, which is the first thing your browser loads when it visits a site. Ours will be pretty simple:
 
 ```html
 // Header: index.html
@@ -219,6 +207,7 @@ Let's get to the actual game code. Here's an very abridged version of our `index
 </body>
 </html>
 ```
+<figcaption>This code sample is slightly abridged for clarity, as many code samples in this post will be. You can always see the full code on <a href="https://github.com/vzhou842/example-.io-game" target="_blank">Github</a>.</figcaption>
 
 We have:
 
@@ -227,7 +216,7 @@ We have:
 - A `html›<script>` include for our Javascript bundle.
 - The main menu, with a username `html›<input>` and a "PLAY" `html›<button>`.
 
-Once the homepage is loaded in your browser, the first thing that runs is `src/client/index.js`, our client-side entrypoint. Here's a slightly shortened version of it:
+Once the homepage is loaded in your browser, our Javascript code will start executing, beginning with our JS entrypoint file: `src/client/index.js`.
 
 ```js
 // Header: index.js
@@ -274,7 +263,9 @@ The meat of our client-side logic resides in those other files that are imported
 
 ## 4. Client Networking
 
-A major component of the client-side code is networking. We have one file, `src/client/networking.js`, that takes care of **all** communication with the server:
+For this game, we'll use the well-known [socket.io](https://socket.io/) library to communicate with the server. Socket.io includes built-in support for [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API), which are great for two-way communication: we can send messages to the server _and_ the server can send messages to us over the same connection.
+
+We'll have one file, `src/client/networking.js`, that takes care of **all** communication with the server:
 
 ```js
 // Header: networking.js
@@ -307,9 +298,7 @@ export const updateDirection = dir => {
   socket.emit(Constants.MSG_TYPES.INPUT, dir);
 };
 ```
-<figcaption>This code was slightly abridged for clarity, as I've been doing with other files.</figcaption>
-
-We're using the well-known [socket.io](https://socket.io/) library to communicate with the server. Socket.io includes built-in support for [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API), which are great for two-way communication: we can send messages to the server _and_ the server can send messages to us over the same connection.
+<figcaption>This code was again slightly abridged for clarity.</figcaption>
 
 3 major things happen in this file:
 
@@ -317,9 +306,13 @@ We're using the well-known [socket.io](https://socket.io/) library to communicat
 - If the connection succeeds, we register callbacks (`js›processGameUpdate()` and `js›onGameOver()`) for messages we might receive from the server.
 - We export `js›play()` and `js›updateDirection()` for other files to use.
 
+
+
 ## 5. Client Rendering
 
-Before we can render the game, we need to download all the images we need to do so. `src/client/assets.js` manages these assets (images):
+Time to make stuff show up on screen!
+
+...but before we can do that, we must download all the images (assets) we need to do so. Let's write an Assets manager:
 
 ```js
 // Header: assets.js
@@ -344,9 +337,16 @@ export const downloadAssets = () => downloadPromise;
 export const getAsset = assetName => assets[assetName];
 ```
 
-Managing assets isn't so hard to implement! The main idea is keeping an `js›assets` object that maps a filename key to an `js›Image` object value. We resolve `downloadPromise` once each individual asset download Promise has resolved (meaning **all** assets have been downloaded).
+Managing assets isn't so hard to implement! The main idea is to keep an `js›assets` object that maps a filename key to an `js›Image` object value. When an asset is finished downloading, we save it to the `js›assets` object for easy retrieval later. Finally, once each individual asset download has resolved (meaning **all** assets have been downloaded), we resolve `downloadPromise`.
 
-With downloading assets out of the way, we can move on to rendering. As mentioned earlier, we're using an [HTML5 Canvas](https://www.w3schools.com/html/html5_canvas.asp) (`html›<canvas>`) to draw to our webpage. One file controls all rendering logic: `src/client/render.js`. Here are the important parts:
+With downloading assets out of the way, we can move on to rendering. As mentioned earlier, we're using an [HTML5 Canvas](https://www.w3schools.com/html/html5_canvas.asp) (`html›<canvas>`) to draw to our webpage. Our game is pretty simple, so all we need to draw is:
+
+1. The background
+2. Our player's ship
+3. Other players in the game
+4. Bullets
+
+Here are the important parts of `src/client/render.js`, which draws exactly those 4 things I listed above:
 
 ```js
 // Header: render.js
@@ -393,7 +393,7 @@ export function stopRendering() {
 ```
 <figcaption>This code was also slightly edited for clarity.</figcaption>
 
-`js›render()` is the primary function of this file - when invoked, it draws the current game state to our canvas. `js›startRendering()` and `js›stopRendering()` control activation of the 60 FPS render loop.
+`js›render()` is the primary function of this file. `js›startRendering()` and `js›stopRendering()` control activation of the 60 FPS render loop.
 
 The specific implementations of the individual render helper functions (e.g. `js›renderBullet()`) are not as important, but here's one simple example:
 
@@ -413,9 +413,13 @@ function renderBullet(me, bullet) {
 
 Notice how we're using the `js›getAsset()` method we saw earlier from `asset.js`!
 
+> Read the rest of [src/client/render.js](https://github.com/vzhou842/example-.io-game/blob/master/src/client/render.js) if you're interested in seeing the other render helper functions.
+
 ## 6. Client Input
 
-It's time to actually _play_ the game! Our control scheme is very simple: use the mouse (on desktop) or touch the screen (on mobile) to control the direction of movement. `src/client/input.js` takes care of it all:
+It's time to make the game _playable_! Our control scheme is very simple: use the mouse (on desktop) or touch the screen (on mobile) to control the direction of movement. To do this, we'll register [Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) for Mouse and Touch events.
+
+`src/client/input.js` takes care of it all:
 
 ```js
 // Header: input.js
@@ -446,7 +450,7 @@ export function stopCapturingInput() {
 }
 ```
 
-`js›onMouseInput()` and `js›onTouchInput()` are [Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) that call `js›updateDirection()` from `networking.js` when an input event happens (e.g. the mouse moves). `js›updateDirection()` takes care of messaging the server, which handles the input event.
+`js›onMouseInput()` and `js›onTouchInput()` are Event Listeners that call `js›updateDirection()` (from `networking.js`) when an input event happens (e.g. the mouse moves). `js›updateDirection()`takes care of messaging the server, which handles the input event and updates the game state accordingly.
 
 ## 7. Client State
 
