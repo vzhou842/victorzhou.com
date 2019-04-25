@@ -562,10 +562,12 @@ The other improvement we'll make is to use **linear interpolation**. Because of 
 
 This solves our frame rate problem: we can now render unique frames as often as we want!
 
-Here's an abridged `src/client/state.js` implementation that uses both a render delay and linear interpolation:
+### 7.3 Implementing Better Client State
+
+The example implementation in `src/client/state.js` uses both a render delay and linear interpolation, but it's a little long. Let's break it down into parts. Here's the first:
 
 ```js
-// Header: state.js
+// Header: state.js, Part 1
 const RENDER_DELAY = 100;
 
 const gameUpdates = [];
@@ -606,7 +608,28 @@ function getBaseUpdate() {
   }
   return -1;
 }
+```
 
+The first thing to understand is what `js›currentServerTime()` does. As we saw before, every game update includes a server timestamp. We want to use a render delay to render 100 ms behind the server, but **we'll never know what the current time is on the server** because we can't know how long it took for any given update to arrive. The internet is unpredictable and can vary widely!
+
+To get around this issue, we'll use a reasonable approximation: we **pretend the first update arrived instantly**. If that were true, then we'd know the server time at that exact instant! We store the server timestamp in `js›firstServerTimestamp`, and we store our **local** (client) timestamp at that same instant in `js›gameStart`.
+
+<span class="emph-special">Woah, wait a second. <b>Shouldn't time on the server = time on the client?</b> Why is there a distinction between the "server timestamp" and the "client timestamp"?</span> That's a great question, reader! Turns out, they aren't the same. `js›Date.now()` will return different timestamps on the client and the server based on factors local to those machines. **Never assume that your timestamps will be consistent across machines.**
+
+Now it's clear what `js›currentServerTime()` does: it returns **the server timestamp of the current render time**. In other words, it's the current server time (`js›firstServerTimestamp + (Date.now() - gameStart)`) minus the render delay (`js›RENDER_DELAY`).
+
+Next, let's understand how we're handling game updates. `js›processGameUpdate()` is called whenever an update is received from the server, and we store the new update in our `js›gameUpdates` array. Then, to keep our memory use in check, we remove any old updates from before the **base update**, since we won't need those anymore.
+
+What exactly is the base update? It's **the first update we find when going backwards from current server time**. Remember this drawing?
+
+![](/media/io-game-post/game-updates-nonideal-lerp.svg)
+
+The game update immediately to the left of "Client Render Time" is the base update.
+
+What's the base update used for? Why can we throw away updates from before the base update? Let's _finally_ look at the implementation of `js›getCurrentState()` to find out:
+
+```js
+// Header: state.js, Part 2
 export function getCurrentState() {
   if (!firstServerTimestamp) {
     return {};
@@ -618,7 +641,7 @@ export function getCurrentState() {
   // If base is the most recent update we have, use its state.
   // Else, interpolate between its state and the state of (base + 1).
   if (base < 0) {
-    return gameUpdates[0];
+    return gameUpdates[gameUpdates.length - 1];
   } else if (base === gameUpdates.length - 1) {
     return gameUpdates[base];
   } else {
@@ -633,3 +656,15 @@ export function getCurrentState() {
   }
 }
 ```
+
+There are 3 cases we handle:
+
+1. `base < 0`, meaning there are no updates before the current render time (see implementation of `js›getBaseUpdate()` above). This can happen right at the start of the game due to the render delay. In this case, we use the most recent update we have.
+2. `base` is the most recent update we have (😢). This can happen because of lag or poor internet connectivity. In this case, we also use the most recent update we have.
+3. We have an update both before and after the current render time, so we can **interpolate**!
+
+All that's left in `state.js` is the implementation of linear interpolation, which is just some simple (but boring) math. If you want to see it for yourself, look at `state.js` on [Github](https://github.com/vzhou842/example-.io-game/blob/master/src/client/state.js).
+
+## Conclusion
+
+You made it!
