@@ -12,8 +12,8 @@ tags:
   - "Javascript"
   - "For Beginners"
 description: A deep dive into the client-side Javascript of an .io game.
-prev: "/blog/intro-to-neural-networks/"
-next: "/blog/gini-impurity/"
+prev: "/blog/why-you-should-use-webpack/"
+next: "/blog/how-i-became-a-programmer/"
 discussLinkTwitter:
 discussLinkHN:
 discussLinkReddit:
@@ -57,7 +57,7 @@ This is Part 1 of a two-part series. Here's what we'll cover in this post:
 3. [Client Entrypoints](#3-client-entrypoints): `index.html` and `index.js`.
 4. [Client Networking](#4-client-networking): Communicating with the server.
 5. [Client Rendering](#5-client-rendering): Downloading image assets + Rendering the game.
-6. [Client Input](#6-client-input): Letting users actually play the game.
+6. [Client Input](#6-client-input-%EF%B8%8F): Letting users actually play the game.
 7. [Client State](#7-client-state): Processing game updates from the server.
 
 We'll go over the Server in Part 2. [Subscribe](http://eepurl.com/gf8JCX) if you want to get an email when that comes out!
@@ -424,7 +424,7 @@ Notice how we're using the `js›getAsset()` method we saw earlier from `asset.j
 
 > Read the rest of [src/client/render.js](https://github.com/vzhou842/example-.io-game/blob/master/src/client/render.js) if you're interested in seeing the other render helper functions.
 
-## 6. Client Input
+## 6. Client Input 🕹️
 
 It's time to make the game _playable_! Our control scheme is very simple: use the mouse (on desktop) or touch the screen (on mobile) to control the direction of movement. To do this, we'll register [Event Listeners](https://developer.mozilla.org/en-US/docs/Web/API/EventListener) for Mouse and Touch events.
 
@@ -519,7 +519,7 @@ Each game update has these same 5 fields:
 - **me**: The player info for the player receiving the update.
 - **others**: An array of player info for other players in the same game.
 - **bullets**: An array of bullet info for bullets in the game.
-- **leaderboard**: The current leaderboard data.
+- **leaderboard**: The current leaderboard data. We're ignoring this for this post.
 
 ### 7.1 Naive Client State
 
