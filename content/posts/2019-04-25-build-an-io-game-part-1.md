@@ -1,9 +1,9 @@
 ---
 title: How to Build a Multiplayer (.io) Web Game, Part 1
-date: "2019-04-22T12:00:00.000Z"
+date: "2019-04-25T12:00:00.000Z"
 template: "post"
 draft: false
-slug: "/blog/build-an-io-game/"
+slug: "/blog/build-an-io-game-part-1/"
 img:
 category: "Game Development"
 tags:
@@ -11,7 +11,7 @@ tags:
   - "Web Development"
   - "Javascript"
   - "For Beginners"
-description: A deep dive into the client-side Javascript of a .io game.
+description: A deep dive into the client-side Javascript of an .io game.
 prev: "/blog/intro-to-neural-networks/"
 next: "/blog/gini-impurity/"
 discussLinkTwitter:
@@ -671,4 +671,10 @@ All that's left in `state.js` is the implementation of linear interpolation, whi
 
 ## Conclusion
 
-You made it!
+You made it! We've covered the entire game client of an .io web game in this post.
+
+In Part 2 of this series, we'll switch to the backend and talk about to build an .io game server. [Subscribe to my mailing list](http://eepurl.com/gf8JCX) if you want to get an email when it comes out!
+
+Have questions? Leave a comment below or [tweet at me](https://twitter.com/victorczhou). Found a bug in my code? Submit an issue or PR to the [example-.io-game Github repo](https://github.com/vzhou842/example-.io-game).
+
+Thanks for reading!
