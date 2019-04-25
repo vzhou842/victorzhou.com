@@ -4,7 +4,7 @@ date: "2019-04-25T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/build-an-io-game-part-1/"
-img:
+img: "https://victorzhou.com/media/io-game-post/screenshot.png"
 category: "Game Development"
 tags:
   - "Game Development"
@@ -23,7 +23,7 @@ When [Agar.io](https://agar.io) came out in 2015, it inspired a new [**.io game*
 
 In case you've never heard of .io games before: they're free, multiplayer web games that are easy to join (no account required) and usually pit many players against each other in one arena. Other famous .io games include [Slither.io](https://slither.io) and [Diep.io](https://diep.io).
 
-In this post, we're going to **understand how to build an .io game from scratch**. All you need is a working knowledge of Javascript: you should be comfortable with things like [ES6](https://www.w3schools.com/js/js_es6.asp) syntax, the `this` keyword, and [Promises](https://developers.google.com/web/fundamentals/primers/promises).
+In this post, we're going to **understand how to build an .io game from scratch**. All you need is a working knowledge of Javascript: you should be comfortable with things like [ES6](https://www.w3schools.com/js/js_es6.asp) syntax, the `this` keyword, and [Promises](https://developers.google.com/web/fundamentals/primers/promises). Even if you're not the most familiar with Javascript, you should still be able to get through most of this post.
 
 ## An Example .io Game
 
@@ -46,12 +46,14 @@ To help us learn, we're going to be referencing the [example .io game](https://e
 </div>
 <figcaption>It works on mobile, too! Play it fullscreen at <a href="https://example-io-game.victorzhou.com" target="_blank">https://example-io-game.victorzhou.com</a></figcaption>
 
+It's a pretty simple game: you control a ship in an arena with other players. Your ship automatically fires bullets, and you're trying to hit other players with your bullets while avoiding theirs.
+
 ## Table of Contents
 
 This is Part 1 of a two-part series. Here's what we'll cover in this post:
 
 1. [Project Overview / Structure](#1-project-overview--structure): A high level view of the project.
-2. [Builds](#2-builds): Development Tooling and configuration.
+2. [Builds / Project Setup](#2-builds--project-setup): Development tooling, configuration, and setup.
 3. [Client Entrypoints](#3-client-entrypoints): `index.html` and `index.js`.
 4. [Client Networking](#4-client-networking): Communicating with the server.
 5. [Client Rendering](#5-client-rendering): Downloading image assets + Rendering the game.
@@ -68,7 +70,7 @@ Our example game uses:
 
 - [Express](https://expressjs.com/), the most popular web framework for Node.js, to power its web server.
 - [socket.io](https://socket.io/), a websocket library, to communicate between the browser and the server.
-- [Webpack](https://webpack.js.org/), a module bundler. I've written about [why you should use Webpack](/blog/why-you-should-use-webpack/).
+- [Webpack](https://webpack.js.org/), a module bundler. Read more about [why you should use Webpack](/blog/why-you-should-use-webpack/).
 
 Here's what the project directory structure look like:
 
@@ -99,7 +101,7 @@ Anything in the `public/` folder will be statically served by our server. `publi
 
 All the source code is in the `src/` folder. `client/` and `server/` are pretty self explanatory, and `shared/` contains a constants file that's imported by both the client and the server.
 
-## 2. Builds
+## 2. Builds / Project Setup
 
 As mentioned before, we're using the [Webpack](https://webpack.js.org/) module bundler to build our project. Let's take a look at our Webpack configuration:
 
@@ -678,10 +680,10 @@ All that's left in `state.js` is the implementation of linear interpolation, whi
 
 ## Conclusion
 
-You made it! We've covered the entire game client of an .io web game in this post.
+You made it! That was the entire game client of an .io game distilled to its essentials.
 
 In Part 2 of this series, we'll switch to the backend and talk about to build an .io game server. [Subscribe to my mailing list](http://eepurl.com/gf8JCX) if you want to get an email when it comes out!
 
-Have questions? Leave a comment below or [tweet at me](https://twitter.com/victorczhou). Found a bug in my code? Submit an issue or PR to the [example-.io-game Github repo](https://github.com/vzhou842/example-.io-game).
+Have questions? Leave a comment below or [tweet at me](https://twitter.com/victorczhou). Found a bug or spot a problem in my code? Submit an issue or PR to the [example-.io-game Github repo](https://github.com/vzhou842/example-.io-game).
 
 Thanks for reading!
