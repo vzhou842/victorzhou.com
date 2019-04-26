@@ -14,7 +14,7 @@ tags:
 description: A deep dive into the client-side Javascript of an .io game.
 prev: "/blog/why-you-should-use-webpack/"
 next: "/blog/how-i-became-a-programmer/"
-discussLinkTwitter:
+discussLinkTwitter: https://twitter.com/victorczhou/status/1121503205425332224
 discussLinkHN:
 discussLinkReddit:
 ---
