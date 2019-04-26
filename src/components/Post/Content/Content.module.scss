@@ -159,6 +159,10 @@
       border-bottom: 1px solid $color-gray-shadow;
     }
 
+    :global(.token.operator) {
+      background: initial;
+    }
+
     :global(.checkmark) {
       color: $color-secondary;
       font-weight: bold;
