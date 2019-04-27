@@ -459,7 +459,7 @@ export function stopCapturingInput() {
 }
 ```
 
-`js›onMouseInput()` and `js›onTouchInput()` are Event Listeners that call `js›updateDirection()` (from `networking.js`) when an input event happens (e.g. the mouse moves). `js›updateDirection()`takes care of messaging the server, which handles the input event and updates the game state accordingly.
+`js›onMouseInput()` and `js›onTouchInput()` are Event Listeners that call `js›updateDirection()` (from `networking.js`) when an input event happens (e.g. the mouse moves). `js›updateDirection()` takes care of messaging the server, which handles the input event and updates the game state accordingly.
 
 ## 7. Client State
 
