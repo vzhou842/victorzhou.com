@@ -57,6 +57,7 @@ We'll cover the following topics in this post:
 
 1. [Server Entrypoint](#1-server-entrypoint): Setting up Express and socket.io.
 2. [The Server Game](#2-the-server-game): Managing server-side game state.
+3. [Server Game Objects](#3-server-game-objects): Implementing Players and Bullets.
 
 ## 1. Server Entrypoint
 
@@ -187,8 +188,6 @@ class Game {
 
   // ...
 }
-
-module.exports = Game;
 ```
 
 Our convention for this game will be to identify players by the `id` field of their socket.io socket (refer back to `server.js` if you're confused). Socket.io takes care of assigning each socket a unique `id` for us, so we don't have to worry about it. I'll refer to this as a **player ID**.
@@ -330,3 +329,130 @@ class Game {
 `js›getLeaderboard()` is pretty simple - it sorts the players by score, takes the top 5, and returns the username and score for each.
 
 `js›createUpdate()` is used in `js›update()` to create game updates to send to players. It primarily operates by invoking the `js›serializeForUpdate()` methods implemented for the `Player` and `Bullet` classes. Notice also that it only sends data to any given player about **nearby** players and bullets - there's no need to include info about game objects far away from the player!
+
+## 3. Server Game Objects
+
+In our game, Players and Bullets are actually quite similar: both are ephemeral, circular, moving game objects. To take advantage of this similarity when implementing Players and Bullets, we'll start out with a base `Object` class:
+
+```js
+// Header: object.js
+class Object {
+  constructor(id, x, y, dir, speed) {
+    this.id = id;
+    this.x = x;
+    this.y = y;
+    this.direction = dir;
+    this.speed = speed;
+  }
+
+  update(dt) {
+    this.x += dt * this.speed * Math.sin(this.direction);
+    this.y -= dt * this.speed * Math.cos(this.direction);
+  }
+
+  distanceTo(object) {
+    const dx = this.x - object.x;
+    const dy = this.y - object.y;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  setDirection(dir) {
+    this.direction = dir;
+  }
+
+  serializeForUpdate() {
+    return {
+      id: this.id,
+      x: this.x,
+      y: this.y,
+    };
+  }
+}
+```
+
+Nothing fancy here. This gives us a good starting point that can be extended. Let's see how the `Bullet` class uses `Object`:
+
+```js
+// Header: bullet.js
+const shortid = require('shortid');
+const ObjectClass = require('./object');
+const Constants = require('../shared/constants');
+
+class Bullet extends ObjectClass {
+  constructor(parentID, x, y, dir) {
+    super(shortid(), x, y, dir, Constants.BULLET_SPEED);
+    this.parentID = parentID;
+  }
+
+  // Returns true if the bullet should be destroyed
+  update(dt) {
+    super.update(dt);
+    return this.x < 0 || this.x > Constants.MAP_SIZE || this.y < 0 || this.y > Constants.MAP_SIZE;
+  }
+}
+```
+
+`Bullet`'s implementation is so short! The only extensions we add to `Object` are:
+
+- Using the [shortid](https://www.npmjs.com/package/shortid) package to randomly generate an `id` for our bullet.
+- Adding a `parentID` field so we can track which player created this bullet.
+- Adding a return value to `js›update()` that's `js›true` if the bullet is out of bounds (remember talking about this in the previous section?).
+
+Onwards to `Player`:
+
+```js
+// Header: player.js
+const ObjectClass = require('./object');
+const Bullet = require('./bullet');
+const Constants = require('../shared/constants');
+
+class Player extends ObjectClass {
+  constructor(id, username, x, y) {
+    super(id, x, y, Math.random() * 2 * Math.PI, Constants.PLAYER_SPEED);
+    this.username = username;
+    this.hp = Constants.PLAYER_MAX_HP;
+    this.fireCooldown = 0;
+    this.score = 0;
+  }
+
+  // Returns a newly created bullet, or null.
+  update(dt) {
+    super.update(dt);
+
+    // Update score
+    this.score += dt * Constants.SCORE_PER_SECOND;
+
+    // Make sure the player stays in bounds
+    this.x = Math.max(0, Math.min(Constants.MAP_SIZE, this.x));
+    this.y = Math.max(0, Math.min(Constants.MAP_SIZE, this.y));
+
+    // Fire a bullet, if needed
+    this.fireCooldown -= dt;
+    if (this.fireCooldown <= 0) {
+      this.fireCooldown += Constants.PLAYER_FIRE_COOLDOWN;
+      return new Bullet(this.id, this.x, this.y, this.direction);
+    }
+    return null;
+  }
+
+  takeBulletDamage() {
+    this.hp -= Constants.BULLET_DAMAGE;
+  }
+
+  onDealtDamage() {
+    this.score += Constants.SCORE_BULLET_HIT;
+  }
+
+  serializeForUpdate() {
+    return {
+      ...(super.serializeForUpdate()),
+      direction: this.direction,
+      hp: this.hp,
+    };
+  }
+}
+```
+
+Players are more complex than bullets, so this class needs to store a couple extra fields. Its `js›update()` method does a few extra things, notably returning a newly fired bullet if there is no `fireCooldown` left (remember talking about this in the previous section?). It also extends the `js›serializeForUpdate()` method, since we need to inlude extra fields for a player in a game update.
+
+**Having a base `Object` class is key for preventing code repetition**. For example, without the `Object` class, every game object would have the exact same implementation of `js›distanceTo()`, and it'd be a nightmare to keep all of those copy-pasted implementations in sync across different files. **This becomes especially important for larger projects**, as the number of classes extending `Object` grows.
