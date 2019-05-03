@@ -7,7 +7,7 @@ exports[`Post renders correctly 1`] = `
   <div
     className="post__content"
   >
-    <div
+    <article
       className="content"
     >
       <h1
@@ -33,7 +33,7 @@ exports[`Post renders correctly 1`] = `
           }
         }
       />
-    </div>
+    </article>
   </div>
   <div
     className="post__subscribeForm"
