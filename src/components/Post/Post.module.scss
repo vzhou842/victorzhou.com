@@ -2,7 +2,7 @@
 @import '../../assets/scss/mixins';
 
 .post {
-  &__footer, &__comments {
+  &__footer, &__comments, &__viewSource {
     max-width: $layout-post-width;
     margin: 0 auto;
     padding: 0 15px;
@@ -15,6 +15,11 @@
   &__authorContainer {
     border-top: 1px solid $color-gray-border;
     border-bottom: 1px solid $color-gray-border;
+  }
+
+  &__viewSource p {
+    @include margin-top(0.5);
+    @include margin-bottom(0.5);
   }
 }
 

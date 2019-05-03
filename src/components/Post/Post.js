@@ -36,6 +36,18 @@ const Post = ({ post, prevPost, nextPost }) => {
         <SubscribeForm signupSource={`Post:${slug}`} large />
       </div>
 
+      <div className={styles['post__viewSource']}>
+        <p>
+          <i>
+            This blog is{' '}
+            <a href="https://github.com/vzhou842/victorzhou.com" target="_blank">
+              open-source on Github
+            </a>
+            .
+          </i>
+        </p>
+      </div>
+
       <div className={styles['post__footer']}>
         <Tags tags={tags} tagSlugs={tagSlugs} />
         <CarbonAd smallOnly />
