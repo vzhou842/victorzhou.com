@@ -569,6 +569,8 @@ This gives us a 100 ms buffer to tolerate unpredictable game update arrivals:
 
 The cost of doing this is a constant 100 ms [input lag](https://en.wikipedia.org/wiki/Input_lag). That's a small price to pay to have consistent, smooth gameplay - the majority of players (especially casual players) won't even notice the delay. It's much easier for humans to adjust to a constant 100 ms lag than try to play with unpredictable lag.
 
+> There's a different technique we can use called [client-side prediction](https://en.wikipedia.org/wiki/Client-side_prediction) that's good at reducing perceived lag, but that's outside of the scope of this post.
+
 The other improvement we'll make is to use **linear interpolation**. Because of the render delay, we'll usually already have at least 1 update ahead of current client time. Whenever `js›getCurrentState()` is called, we can [linearly interpolate](https://en.wikipedia.org/wiki/Linear_interpolation) between the game updates immediately before and after current client time:
 
 ![](/media/io-game-post/game-updates-nonideal-lerp.svg)
