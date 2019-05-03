@@ -44,7 +44,7 @@ To help us learn, we're going to be referencing the [example .io game](https://e
 <div id="example-io-game" height="700px">
     <iframe src="https://example-io-game.victorzhou.com" width="100%" height="700px" /></iframe>
 </div>
-<figcaption>It works on mobile, too! Play it fullscreen at <a href="https://example-io-game.victorzhou.com" target="_blank">https://example-io-game.victorzhou.com</a></figcaption>
+<figcaption>On mobile, it works best fullscreen at <a href="https://example-io-game.victorzhou.com" target="_blank">https://example-io-game.victorzhou.com</a></figcaption>
 
 It's a pretty simple game: you control a ship in an arena with other players. Your ship automatically fires bullets, and you're trying to hit other players with your bullets while avoiding theirs.
 
