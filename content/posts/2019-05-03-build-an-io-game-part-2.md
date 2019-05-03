@@ -15,7 +15,7 @@ tags:
 description: A look into the backend server behind an .io game.
 prev: "/blog/why-you-should-use-webpack/"
 next: "/blog/how-i-became-a-programmer/"
-discussLinkTwitter:
+discussLinkTwitter: https://twitter.com/victorczhou/status/1124325065326256128
 discussLinkHN:
 discussLinkReddit:
 ---
