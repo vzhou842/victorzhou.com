@@ -294,6 +294,10 @@ The `js›update()` method contains arguably the most important server-side logi
 5. Notify and remove any dead players.
 6. Send a game update to all players **every other** time `js›update()` is called. The `shouldSendUpdate` helper variable mentioned earlier helps us track this. Since `js›update()` is called 60 times / second, we send game updates 30 times / second. Thus, our server's **tick rate** is 30 ticks / second (we discussed tick rate in [Part 1](/blog/build-an-io-game-part-1/#71-naive-client-state)).
 
+> <span class="emph-special">**Why only send game updates _every other_ time?**</span> To save bandwidth. 30 game updates per second is plenty!
+
+> <span class="emph-special">**Why not just call `js›update()` 30 times / second then?**</span> To improve the quality of the game simulation. The more times `js›update()` is called, the more precise the game simulation will be. We don't want to go too crazy with `js›update()` calls, though, because that'd be computationally expensive - 60 per second is good.
+
 The remainder of our `Game` class consists of helper methods used in `js›update()`:
 
 ```js
