@@ -12,7 +12,7 @@ tags:
   - "Javascript"
   - "For Beginners"
 description: A deep dive into the client-side Javascript of an .io game.
-prev: "/blog/why-you-should-use-webpack/"
+prev: "/blog/build-an-io-game-part-2/"
 next: "/blog/how-i-became-a-programmer/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1121503205425332224
 discussLinkHN:
@@ -60,7 +60,7 @@ This is Part 1 of a two-part series. Here's what we'll cover in this post:
 6. [Client Input](#6-client-input-%EF%B8%8F): Letting users actually play the game.
 7. [Client State](#7-client-state): Processing game updates from the server.
 
-We'll go over the Server in Part 2. [Subscribe](http://eepurl.com/gf8JCX) if you want to get an email when that comes out!
+We'll go over the Server in [Part 2](/blog/build-an-io-game-part-2/).
 
 ## 1. Project Overview / Structure
 
@@ -682,7 +682,7 @@ All that's left in `state.js` is the implementation of linear interpolation, whi
 
 You made it! That was the entire game client of an .io game distilled to its essentials.
 
-In Part 2 of this series, we'll switch to the backend and talk about to build an .io game server. [Subscribe to my mailing list](http://eepurl.com/gf8JCX) if you want to get an email when it comes out!
+In [Part 2](/blog/build-an-io-game-part-2/) of this series, we'll switch to the backend and talk about to build an .io game server.
 
 Have questions? Leave a comment below or [tweet at me](https://twitter.com/victorczhou). Found a bug or spot a problem in my code? Submit an issue or PR to the [example-.io-game Github repo](https://github.com/vzhou842/example-.io-game).
 
