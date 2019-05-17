@@ -114,11 +114,4 @@ Finally, we place our result in the destination pixel of our output image. Since
 
 We do the same thing to generate the rest of the output image:
 
-![](/media/cnn-post/convolve-output-2.svg)
-
-![](/media/cnn-post/convolve-output-3.svg)
-
-Negative results are perfectly fine, too!
-
-![](/media/cnn-post/convolve-output-4.svg)
-
+![](/media/cnn-post/convolve-output.gif)

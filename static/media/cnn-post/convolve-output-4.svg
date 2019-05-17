@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.5925433"
-     inkscape:cx="393.08194"
+     inkscape:cx="828.86287"
      inkscape:cy="187.47057"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -54,6 +54,13 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-651.36205)">
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect6012"
+       width="751.00012"
+       height="401.00006"
+       x="0"
+       y="651.362" />
     <rect
        y="952.36206"
        x="1.0000001"
@@ -428,7 +435,7 @@
        height="99.000015"
        width="99.000015"
        id="rect4149-6"
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#164bc5;stroke-width:2.00000024;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:#164bc5;stroke-width:4.00000024;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <text
        sodipodi:linespacing="125%"
        id="text4151-1"
