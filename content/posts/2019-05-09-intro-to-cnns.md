@@ -2,6 +2,7 @@
 title: Convolutional Neural Networks Explained for Beginners
 date: "2019-05-09T12:00:00.000Z"
 template: "post"
+usesKatex: true
 draft: false
 slug: "/blog/intro-to-cnns/"
 img:
@@ -59,4 +60,65 @@ Enough buildup. Let's get into CNNs!
 
 ## 3. Convolutions
 
-The C in CNN stands for Convolutional.
+They're called Convolutional Neural Networks because they use Convolutional (conv) Layers, which are based on the mathematical operation of convolution.
+
+Conv layers consist of a set of **filters**, which are basically just 2d matrices of numbers. Here's an example 3x3 filter:
+
+![A 3x3 filter](./media-link/cnn-post/example-filter.svg)
+
+A conv layer uses an input image and a filter to produce an output image by **convolving** the filter with the input image. This consists of
+
+1. Overlaying the filter on top of the image at some location.
+2. Performing **element-wise multiplication** between the values in the filter and their corresponding values in the image.
+3. Summing up all the element-wise products. This sum is the output value for the **destination pixel** in the output image.
+4. Repeating for all locations.
+
+> Side Note: We (along with many CNN implementations) are technically actually using [cross-correlation](https://en.wikipedia.org/wiki/Cross-correlation) instead of convolution here, but they do almost the same thing. I won't go into the difference in this post, but feel free to look this up if you're curious.
+
+That 4-step description was a little abstract, so let's do an example. Consider this tiny 4x4 grayscale image and this 3x3 filter:
+
+![A 4x4 image (left) and a 3x3 filter (right)](/media/cnn-post/convolve-example-1.svg)
+
+The numbers in the image represent pixel intensities, where 0 is black and 255 is white. We'll convolve the input image and the filter to produce a 2x2 output image:
+
+![A 2x2 output image](/media/cnn-post/example-output.svg)
+
+To start, lets overlay our filter in the top left corner of the image:
+
+![Step 1: Overlay the filter on top of the image](/media/cnn-post/convolve-example-2.svg)
+
+Next, we perform element-wise multiplication between the overlapping image values and filter values. Here are the results, starting from the top left corner:
+
+| Image Value | Filter Value | Result |
+| ---- | ---- | ---- |
+| 0 | 0 | 0 |
+| 50 | -1 | -50 |
+| 0 | 0 | 0 |
+| 0 | -1 | 0 |
+| 80 | 4 | 320 |
+| 31 | -1 | -31 |
+| 33 | 0 | 0 |
+| 90 | -1 | -90 |
+| 0 | 0 | 0 |
+<figcaption>Step 2: Performing element-wise multiplication.</figcaption>
+
+Next, we sum up all the results. That's easy enough:
+
+$$
+320 - 50 - 31 - 90 = \boxed{149}
+$$
+
+Finally, we place our result in the destination pixel of our output image. Since our filter is overlayed in the top left corner of the input image, our destination pixel is the top left pixel of the output image:
+
+![](/media/cnn-post/convolve-output-1.svg)
+
+We do the same thing to generate the rest of the output image:
+
+![](/media/cnn-post/convolve-output-2.svg)
+
+![](/media/cnn-post/convolve-output-3.svg)
+
+Negative results are perfectly fine, too!
+
+![](/media/cnn-post/convolve-output-4.svg)
+
