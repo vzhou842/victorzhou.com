@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="301" viewBox="0 0 600.00005 301.00001" width="600" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <rect id="rect4245" height="49.5" width="49.5" stroke="#000" y="51" x=".5" fill="none"/>
+ <rect id="rect4191" height="49.5" width="49.5" stroke="#000" y="201" x="50.5"/>
+ <text id="text4193" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="231.21227" x="70.481956" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4195" font-size="15px" y="231.21227" x="70.481956" fill="#ffffff">0</tspan></text>
+ <rect id="rect4198" height="49.5" width="49.5" stroke="#000" y="201" x="100.5" fill="#090909"/>
+ <text id="text4200" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="231.21959" x="120.53323" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4202" font-size="15px" y="231.21959" x="120.53323" fill="#ffffff">9</tspan></text>
+ <rect id="rect4204" height="49.5" width="49.5" stroke="#000" y="201" x="150.5"/>
+ <text id="text4206" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="231.21227" x="170.48196" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4208" font-size="15px" y="231.21227" x="170.48196" fill="#ffffff">0</tspan></text>
+ <rect id="rect4210" height="49.5" width="49.5" stroke="#000" y="151" x="150.5"/>
+ <text id="text4212" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="181.21959" x="170.48196" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4214" font-size="15px" y="181.21959" x="170.48196" fill="#ffffff">0</tspan></text>
+ <rect id="rect4216" height="49.5" width="49.5" stroke="#000" y="101" x="150.5" fill="#1f1f1f"/>
+ <text id="text4218" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="131.21227" x="165.82376" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4220" font-size="15px" y="131.21227" x="165.82376" fill="#ffffff">31</tspan></text>
+ <rect id="rect4222" height="49.5" width="49.5" stroke="#164bc5" y="101" x="100.5" stroke-width="2" fill="#505050"/>
+ <text id="text4224" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="131.21959" x="115.69192" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4226" font-size="15px" y="131.21959" x="115.69192" fill="#ffffff">80</tspan></text>
+ <rect id="rect4228" height="49.5" width="49.5" stroke="#000" y="151" x="100.5" stroke-width=".5" fill="#5a5a5a"/>
+ <text id="text4230" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="181.21227" x="115.72854" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4232" font-size="15px" y="181.21227" x="115.72854" fill="#ffffff">90</tspan></text>
+ <rect id="rect4234" height="49.5" width="49.5" stroke="#000" y="151" x="50.5" fill="#212121"/>
+ <text id="text4236" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="181.21959" x="65.732185" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4238" font-size="15px" y="181.21959" x="65.732185" fill="#ffffff">33</tspan></text>
+ <rect id="rect4240" height="49.5" width="49.5" stroke="#164bc5" y="101" x="50.5" stroke-width="2"/>
+ <text id="text4242" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="131.21227" x="70.481956" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4244" font-size="15px" y="131.21227" x="70.481956" fill="#ffffff">0</tspan></text>
+ <rect id="rect4275" height="49.5" width="49.5" stroke="#000" y="201" x="200.5" fill="#5f5f5f"/>
+ <text id="text4277" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="231.21227" x="215.88602" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4279" font-size="15px" y="231.21227" x="215.88602" fill="#ffffff">95</tspan></text>
+ <rect id="rect4281" height="49.5" width="49.5" stroke="#000" y="151" x="200.5" fill="#4b4b4b"/>
+ <text id="text4283" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="181.21959" x="215.74319" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4285" font-size="15px" y="181.21959" x="215.74319" fill="#ffffff">75</tspan></text>
+ <rect id="rect4287" height="49.5" width="49.5" stroke="#000" y="101" x="200.5" fill="#020202"/>
+ <text id="text4289" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="131.21227" x="220.48199" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4291" font-size="15px" y="131.21227" x="220.48199" fill="#ffffff">2</tspan></text>
+ <rect id="rect4293" height="49.5" width="49.5" stroke="#164bc5" y="51" x="50.5" stroke-width="2"/>
+ <text id="text4295" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="81.212265" x="70.481956" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4297" font-size="15px" y="81.212265" x="70.481956" fill="#ffffff">0</tspan></text>
+ <rect id="rect4299" height="49.5" width="49.5" stroke="#164bc5" y="51" x="100.5" stroke-width="2" fill="#323232"/>
+ <text id="text4301" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="81.212265" x="115.62234" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4303" font-size="15px" y="81.212265" x="115.62234" fill="#ffffff">50</tspan></text>
+ <rect id="rect4305" height="49.5" width="49.5" stroke="#000" y="51" x="150.5"/>
+ <text id="text4307" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="81.212265" x="170.48196" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4309" font-size="15px" y="81.212265" x="170.48196" fill="#ffffff">0</tspan></text>
+ <rect id="rect4311" height="49.5" width="49.5" stroke="#000" y="51" x="200.5" fill="#1d1d1d"/>
+ <text id="text4313" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="10px" line-height="125%" y="81.219589" x="215.68094" font-family="sans-serif" fill="#ffffff"><tspan id="tspan4315" font-size="15px" y="81.219589" x="215.68094" fill="#ffffff">29</tspan></text>
+ <g fill="none">
+  <g id="g57" stroke="#000" transform="translate(-25.75 -751.11)">
+   <rect id="rect4136-4" y="852.11" x="425.75" height="49.5" width="49.5"/>
+   <rect id="rect4149-6" y="852.11" x="475.75" height="49.5" width="49.5"/>
+   <rect id="rect4197-0" y="802.11" x="475.75" height="49.5" width="49.5"/>
+  </g>
+  <rect id="rect4205-0" height="49.5" width="49.5" stroke="#164bc5" y="51" x="400" stroke-width="3"/>
+  <g stroke="#000">
+   <g id="g4215" transform="translate(-25.75 -751.11)">
+    <rect id="rect4203" y="852.11" width="49.5" x="525.75" height="49.5"/>
+    <rect id="rect4205" y="852.11" width="49.5" x="575.75" height="49.5"/>
+    <rect id="rect4207" y="802.11" width="49.5" x="575.75" height="49.5"/>
+    <rect id="rect4209" y="802.11" width="49.5" x="525.75" height="49.5"/>
+   </g>
+   <g id="g4221" transform="translate(-25.75 -651.11)">
+    <rect id="rect4223" y="852.11" width="49.5" x="525.75" height="49.5"/>
+    <rect id="rect4225" y="852.11" width="49.5" x="575.75" height="49.5"/>
+    <rect id="rect4227" y="802.11" width="49.5" x="575.75" height="49.5"/>
+    <rect id="rect4229" y="802.11" width="49.5" x="525.75" height="49.5"/>
+   </g>
+   <g id="g73" transform="translate(-25.75,-742.36)">
+    <rect id="rect4233" y="943.36" width="49.5" x="425.75" height="49.5"/>
+    <rect id="rect4235" y="943.36" width="49.5" x="475.75" height="49.5"/>
+    <rect id="rect4237" y="893.36" width="49.5" x="475.75" height="49.5"/>
+    <rect id="rect4239" y="893.36" width="49.5" x="425.75" height="49.5"/>
+   </g>
+  </g>
+  <rect id="rect4249" height="49.5" width="49.5" stroke="#164bc5" y="51" x=".5" stroke-width="2"/>
+ </g>
+ <text id="text4274" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="81.212265" x="20.481934" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4276" font-size="15px" y="81.212265" x="20.481934" fill="#000000">0</tspan></text>
+ <rect id="rect4282" height="49.5" width="49.5" stroke="#000" y="101" x=".5" fill="none"/>
+ <rect id="rect4286" height="49.5" width="49.5" stroke="#164bc5" y="101" x=".5" stroke-width="2" fill="none"/>
+ <text id="text4290" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="131.21227" x="20.481934" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4292" font-size="15px" y="131.21227" x="20.481934" fill="#000000">0</tspan></text>
+ <rect id="rect4298" height="49.5" width="49.5" stroke="#000" y="151" x=".5" fill="none"/>
+ <rect id="rect4302" height="49.5" width="49.5" stroke="#000" y="151" x=".5" fill="none"/>
+ <text id="text4306" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="181.21227" x="20.481934" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4308" font-size="15px" y="181.21227" x="20.481934" fill="#000000">0</tspan></text>
+ <rect id="rect4314" height="49.5" width="49.5" stroke="#000" y="201" x=".5" fill="none"/>
+ <rect id="rect4318" height="49.5" width="49.5" stroke="#000" y="201" x=".5" fill="none"/>
+ <text id="text4322" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="231.21227" x="20.481934" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4324" font-size="15px" y="231.21227" x="20.481934" fill="#000000">0</tspan></text>
+ <rect id="rect4330" height="49.5" width="49.5" stroke="#000" y=".99999" x=".5" fill="none"/>
+ <rect id="rect4334" height="49.5" width="49.5" stroke="#164bc5" y=".99999" x=".5" stroke-width="2" fill="none"/>
+ <text id="text4338" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="31.212265" x="20.481934" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4340" font-size="15px" y="31.212265" x="20.481934" fill="#000000">0</tspan></text>
+ <rect id="rect4362" height="49.5" width="49.5" stroke="#164bc5" y=".99999" x="50.5" stroke-width="2" fill="none"/>
+ <text id="text4364" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="31.212265" x="70.481941" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4366" font-size="15px" y="31.212265" x="70.481941" fill="#000000">0</tspan></text>
+ <rect id="rect4374" height="49.5" width="49.5" stroke="#164bc5" y=".99999" x="100.5" stroke-width="2" fill="none"/>
+ <text id="text4376" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="31.212265" x="120.48194" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4378" font-size="15px" y="31.212265" x="120.48194" fill="#000000">0</tspan></text>
+ <rect id="rect4386" height="49.5" width="49.5" stroke="#000" y=".99999" x="150.5" fill="none"/>
+ <text id="text4388" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="31.212265" x="170.48195" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4390" font-size="15px" y="31.212265" x="170.48195" fill="#000000">0</tspan></text>
+ <rect id="rect4398" height="49.5" width="49.5" stroke="#000" y=".99999" x="200.5" fill="none"/>
+ <text id="text4400" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="31.212265" x="220.48196" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4402" font-size="15px" y="31.212265" x="220.48196" fill="#000000">0</tspan></text>
+ <rect id="rect4410" height="49.5" width="49.5" stroke="#000" y=".99999" x="250.5" fill="none"/>
+ <text id="text4412" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="31.212265" x="270.48196" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4414" font-size="15px" y="31.212265" x="270.48196" fill="#000000">0</tspan></text>
+ <rect id="rect4434" height="49.5" width="49.5" stroke="#000" y="101" x="250.5" fill="none"/>
+ <text id="text4436" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="131.21227" x="270.48196" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4438" font-size="15px" y="131.21227" x="270.48196" fill="#000000">0</tspan></text>
+ <rect id="rect4440" height="49.5" width="49.5" stroke="#000" y="51" x="250.5" fill="none"/>
+ <text id="text4442" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="81.212265" x="270.48196" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4444" font-size="15px" y="81.212265" x="270.48196" fill="#000000">0</tspan></text>
+ <rect id="rect4458" height="49.5" width="49.5" stroke="#000" y="201" x="250.5" fill="none"/>
+ <text id="text4460" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="231.21227" x="270.48196" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4462" font-size="15px" y="231.21227" x="270.48196" fill="#000000">0</tspan></text>
+ <rect id="rect4464" height="49.5" width="49.5" stroke="#000" y="151" x="250.5" fill="none"/>
+ <text id="text4466" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="181.21227" x="270.48196" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4468" font-size="15px" y="181.21227" x="270.48196" fill="#000000">0</tspan></text>
+ <rect id="rect4488" height="49.5" width="49.5" stroke="#000" y="251.04" x="250.5" fill="none"/>
+ <text id="text4490" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="281.2124" x="270.48196" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4492" font-size="15px" y="281.2124" x="270.48196" fill="#000000">0</tspan></text>
+ <rect id="rect4512" height="49.5" width="49.5" stroke="#000" y="251.04" x="150.5" fill="none"/>
+ <text id="text4514" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="281.2124" x="170.48196" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4516" font-size="15px" y="281.2124" x="170.48196" fill="#000000">0</tspan></text>
+ <rect id="rect4524" height="49.5" width="49.5" stroke="#000" y="251.04" x="200.5" fill="none"/>
+ <text id="text4526" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="281.2124" x="220.48196" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4528" font-size="15px" y="281.2124" x="220.48196" fill="#000000">0</tspan></text>
+ <rect id="rect4536" height="49.5" width="49.5" stroke="#000" y="251.04" x="50.5" fill="none"/>
+ <text id="text4538" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="281.2124" x="70.481956" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4540" font-size="15px" y="281.2124" x="70.481956" fill="#000000">0</tspan></text>
+ <rect id="rect4548" height="49.5" width="49.5" stroke="#000" y="251.04" x="100.5" fill="none"/>
+ <text id="text4550" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="281.2124" x="120.48196" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4552" font-size="15px" y="281.2124" x="120.48196" fill="#000000">0</tspan></text>
+ <rect id="rect4572" height="49.5" width="49.5" stroke="#000" y="251.04" x=".50002" fill="none"/>
+ <text id="text4574" font-size="10px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="281.2124" x="20.481949" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4576" font-size="15px" y="281.2124" x="20.481949" fill="#000000">0</tspan></text>
+ <rect id="rect4257" height="148.5" width="148.5" stroke="#164bc5" y="1.5" x="1" stroke-width="3" fill="none"/>
+</svg>

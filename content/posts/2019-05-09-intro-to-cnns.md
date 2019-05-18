@@ -66,7 +66,7 @@ Conv layers consist of a set of **filters**, which are basically just 2d matrice
 
 ![A 3x3 filter](./media-link/cnn-post/vertical-sobel.svg)
 
-A conv layer uses an input image and a filter to produce an output image by **convolving** the filter with the input image. This consists of
+We can use an input image and a filter to produce an output image by **convolving** the filter with the input image. This consists of
 
 1. Overlaying the filter on top of the image at some location.
 2. Performing **element-wise multiplication** between the values in the filter and their corresponding values in the image.
@@ -116,7 +116,7 @@ We do the same thing to generate the rest of the output image:
 
 ![](./media-link/cnn-post/convolve-output.gif)
 
-### How is this useful?
+### 3.1 How is this useful?
 
 Let's zoom out for a second and see this at a higher level. What does convolving an image with a filter do? We can start by using the example 3x3 filter we've been using, which is commonly known as the vertical [Sobel filter](https://en.wikipedia.org/wiki/Sobel_operator):
 
@@ -134,4 +134,24 @@ Similarly, there's also a horizontal Sobel filter:
 
 See what's happening? **Sobel filters are edge-detectors**. The vertical Sobel filter detects vertical edges, and the horizontal Sobel filter detects horizontal edges. The output images are now easily interpreted: a bright pixel (one that has a high value) in the output image indicates that there's an edge around there in the original image. 
 
-Can you see why an edge-detected image might be more useful than the raw image? Think back to our MNIST handwritten digit classification problem for a second. A CNN trained on MNIST might look for the digit 1, for example, by using an edge-detection filter and checking for two prominent vertical edges near the center of the image. In general, **conv layers let us look for specific features** (like edges) that we can use later in the network.
+Can you see why an edge-detected image might be more useful than the raw image? Think back to our MNIST handwritten digit classification problem for a second. A CNN trained on MNIST might look for the digit 1, for example, by using an edge-detection filter and checking for two prominent vertical edges near the center of the image. In general, **convolution helps us look for specific localized features** (like edges) that we can use later in the network.
+
+### 3.2 Padding
+
+Remember convolving a 4x4 input image with a 3x3 filter earlier to produce a 2x2 output image? Often times, we'd prefer to have the output image be the same size as the input image. To do this, we add zeros around the image so we can overlay the filter in more places. A 3x3 filter requires 1 pixel of padding:
+
+![A 4x4 input convolved with a 3x3 filter to produce a 4x4 output](/media/cnn-post/padding.svg)
+
+This is called **"same" padding**, since the input and output have the same dimensions. Not using any padding, which is what we've been doing and will continue to do for this post, is sometimes referred to as **"valid" padding**.
+
+### 3.3 Conv Layers
+
+Now that we know how image convolution works and why it's useful, let's see how it's actually used in CNNs. As mentioned before, CNNs include **conv layers** that use a set of filters to turn input images into output images. A conv layer's primary parameter is the **number of filters** it has.
+
+For our MNIST CNN, we'll use a small conv layer with 8 filters as the initial layer in our network. This means it'll turn the 28x28 input image into a 26x26x8 output **volume**:
+
+![](/media/cnn-post/cnn-dims-1.svg)
+
+> Reminder: The output is 26x26x8 and not 28x28x8 because we're using **valid padding**, which decreases the input's width and height by 2.
+
+Each of the 4 filters in the conv layer produces a 26x26 output, so stacked together they make up a 26x26x8 volume. All of this happens because of 3 $\times$ 3 (filter size) $\times$ 8 (number of filters)  = **only 72 weights**!
