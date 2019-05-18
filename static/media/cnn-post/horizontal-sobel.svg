@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="301" width="301" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 301.00002 301.00001">
+ <g id="layer1" transform="translate(0 -751.36)">
+  <rect id="rect4136" height="99" width="99" stroke="#000" y="952.36" x="1" stroke-width="2" fill="none"/>
+  <text id="text4138" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="20px" y="1012.7825" x="36.188484" font-family="sans-serif" line-height="125%" fill="#000000"><tspan id="tspan4140" font-size="30px" y="1012.7825" x="36.188484">-1</tspan></text>
+  <rect id="rect4149" height="99" width="99" stroke="#000" y="952.36" x="101" stroke-width="2" fill="none"/>
+  <text id="text4151" style="word-spacing:0px;letter-spacing:0px" line-height="125%" font-size="20px" y="1012.7971" x="136.30569" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4153" font-size="30px" y="1012.7971" x="136.30569">-2</tspan></text>
+  <rect id="rect4157" height="99" width="99" stroke="#000" y="952.36" x="201" stroke-width="2" fill="none"/>
+  <text id="text4159" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="20px" y="1012.7825" x="236.18849" font-family="sans-serif" line-height="125%" fill="#000000"><tspan id="tspan4161" font-size="30px" y="1012.7825" x="236.18849">-1</tspan></text>
+  <rect id="rect4165" height="99" width="99" stroke="#000" y="852.36" x="201" stroke-width="2" fill="none"/>
+  <text id="text4167" style="word-spacing:0px;letter-spacing:0px" line-height="125%" font-size="20px" y="912.79712" x="240.96388" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4169" font-size="30px" y="912.79712" x="240.96388">0</tspan></text>
+  <rect id="rect4173" height="99" width="99" stroke="#000" y="752.36" x="201" stroke-width="2" fill="none"/>
+  <text id="text4175" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="20px" y="812.78247" x="240.69289" font-family="sans-serif" line-height="125%" fill="#000000"><tspan id="tspan4177" font-size="30px" y="812.78247" x="240.69289">1</tspan></text>
+  <rect id="rect4181" height="99" width="99" stroke="#000" y="752.36" x="101" stroke-width="2" fill="none"/>
+  <text id="text4183" style="word-spacing:0px;letter-spacing:0px" line-height="125%" font-size="20px" y="812.79712" x="141.35941" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4185" font-size="30px" y="812.79712" x="141.35941">2</tspan></text>
+  <rect id="rect4197" height="99" width="99" stroke="#000" y="852.36" x="101" fill="none"/>
+  <text id="text4199" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="20px" y="912.79712" x="140.9639" font-family="sans-serif" line-height="125%" fill="#000000"><tspan id="tspan4201" font-size="30px" y="912.79712" x="140.9639">0</tspan></text>
+  <rect id="rect4205" height="99" width="99" stroke="#000" y="852.36" x="1" stroke-width="2" fill="none"/>
+  <text id="text4207" style="word-spacing:0px;letter-spacing:0px" line-height="125%" font-size="20px" y="912.79712" x="40.963875" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4209" font-size="30px" y="912.79712" x="40.963875">0</tspan></text>
+  <rect id="rect4213" height="99" width="99" stroke="#000" y="752.36" x="1" stroke-width="2" fill="none"/>
+  <text id="text4215" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="20px" y="812.78247" x="40.692879" font-family="sans-serif" line-height="125%" fill="#000000"><tspan id="tspan4217" font-size="30px" y="812.78247" x="40.692879">1</tspan></text>
+ </g>
+</svg>

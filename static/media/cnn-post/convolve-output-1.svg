@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.5925433"
-     inkscape:cx="618.50751"
+     inkscape:cx="375.49999"
      inkscape:cy="200.5"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -435,18 +435,18 @@
        height="99.000015"
        width="99.000015"
        id="rect4205-0"
-       style="opacity:1;fill:#959595;fill-opacity:1;stroke:#164bc5;stroke-width:4.00000024;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="opacity:1;fill:#1d1d1d;fill-opacity:1;stroke:#164bc5;stroke-width:4.00000024;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <text
        sodipodi:linespacing="125%"
        id="text4207-5"
        y="812.79712"
-       x="521.26178"
+       x="531.36188"
        style="font-style:normal;font-weight:normal;font-size:20px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          style="font-size:30.00000381px;fill:#ffffff;fill-opacity:1"
          y="812.79712"
-         x="521.26178"
+         x="531.36188"
          id="tspan4209-8"
-         sodipodi:role="line">149</tspan></text>
+         sodipodi:role="line">29</tspan></text>
   </g>
 </svg>

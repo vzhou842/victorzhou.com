@@ -34,7 +34,7 @@ Good question.
 
 ### Reason 1: Images are Big
 
-Images used for Computer Vision problems nowadays are often 224x224 or larger. Imagine building a neural network to process 224x224 color images: including the 3 color channels (RGB) in the image, that comes out to 224 x 224 x 3 = **150,528** input features! A typical hidden layer in such a network might have 1000 nodes, so we'd have to train 150,528 x 1000 = **over 150 million weights for the first layer alone**. Our network would be _huge_ and nearly impossible to train.
+Images used for Computer Vision problems nowadays are often 224x224 or larger. Imagine building a neural network to process 224x224 color images: including the 3 color channels (RGB) in the image, that comes out to 224 x 224 x 3 = **150,528** input features! A typical hidden layer in such a network might have 1024 nodes, so we'd have to train 150,528 x 1024 = **150+ million weights for the first layer alone**. Our network would be _huge_ and nearly impossible to train.
 
 It's not like we need that many weights, either. The nice thing about images is that we know **pixels are most useful in the context of their neighbors**. Objects in images are made up of small, _localized_ features, like the circular iris of an eye or the square corner of a piece of paper. Doesn't it seem wasteful for _every_ node in the first hidden layer to look at _every_ pixel?
 
@@ -64,7 +64,7 @@ They're called Convolutional Neural Networks because they use Convolutional (con
 
 Conv layers consist of a set of **filters**, which are basically just 2d matrices of numbers. Here's an example 3x3 filter:
 
-![A 3x3 filter](./media-link/cnn-post/example-filter.svg)
+![A 3x3 filter](./media-link/cnn-post/vertical-sobel.svg)
 
 A conv layer uses an input image and a filter to produce an output image by **convolving** the filter with the input image. This consists of
 
@@ -91,21 +91,21 @@ Next, we perform element-wise multiplication between the overlapping image value
 
 | Image Value | Filter Value | Result |
 | ---- | ---- | ---- |
-| 0 | 0 | 0 |
-| 50 | -1 | -50 |
-| 0 | 0 | 0 |
 | 0 | -1 | 0 |
-| 80 | 4 | 320 |
-| 31 | -1 | -31 |
-| 33 | 0 | 0 |
-| 90 | -1 | -90 |
-| 0 | 0 | 0 |
+| 50 | 0 | 0 |
+| 0 | 1 | 0 |
+| 0 | -2 | 0 |
+| 80 | 0 | 0 |
+| 31 | 2 | 62 |
+| 33 | -1 | -33 |
+| 90 | 0 | 0 |
+| 0 | 1 | 0 |
 <figcaption>Step 2: Performing element-wise multiplication.</figcaption>
 
 Next, we sum up all the results. That's easy enough:
 
 $$
-320 - 50 - 31 - 90 = \boxed{149}
+62 - 33 = \boxed{29}
 $$
 
 Finally, we place our result in the destination pixel of our output image. Since our filter is overlayed in the top left corner of the input image, our destination pixel is the top left pixel of the output image:
@@ -114,4 +114,24 @@ Finally, we place our result in the destination pixel of our output image. Since
 
 We do the same thing to generate the rest of the output image:
 
-![](/media/cnn-post/convolve-output.gif)
+![](./media-link/cnn-post/convolve-output.gif)
+
+### How is this useful?
+
+Let's zoom out for a second and see this at a higher level. What does convolving an image with a filter do? We can start by using the example 3x3 filter we've been using, which is commonly known as the vertical [Sobel filter](https://en.wikipedia.org/wiki/Sobel_operator):
+
+![The vertical Sobel filter](/media/cnn-post/vertical-sobel.svg)
+
+Here's an example of what the vertical Sobel filter does:
+
+![](./media-link/cnn-post/lenna+vertical.png "An image convolved with the vertical Sobel filter")
+
+Similarly, there's also a horizontal Sobel filter:
+
+![The horizontal Sobel filter](/media/cnn-post/horizontal-sobel.svg)
+
+![](./media-link/cnn-post/lenna+horizontal.png "An image convolved with the horizontal Sobel filter")
+
+See what's happening? **Sobel filters are edge-detectors**. The vertical Sobel filter detects vertical edges, and the horizontal Sobel filter detects horizontal edges. The output images are now easily interpreted: a bright pixel (one that has a high value) in the output image indicates that there's an edge around there in the original image. 
+
+Can you see why an edge-detected image might be more useful than the raw image? Think back to our MNIST handwritten digit classification problem for a second. A CNN trained on MNIST might look for the digit 1, for example, by using an edge-detection filter and checking for two prominent vertical edges near the center of the image. In general, **conv layers let us look for specific features** (like edges) that we can use later in the network.
