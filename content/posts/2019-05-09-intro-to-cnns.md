@@ -140,7 +140,7 @@ Can you see why an edge-detected image might be more useful than the raw image? 
 
 Remember convolving a 4x4 input image with a 3x3 filter earlier to produce a 2x2 output image? Often times, we'd prefer to have the output image be the same size as the input image. To do this, we add zeros around the image so we can overlay the filter in more places. A 3x3 filter requires 1 pixel of padding:
 
-![A 4x4 input convolved with a 3x3 filter to produce a 4x4 output](/media/cnn-post/padding.svg)
+![A 4x4 input convolved with a 3x3 filter to produce a 4x4 output using same padding](/media/cnn-post/padding.svg)
 
 This is called **"same" padding**, since the input and output have the same dimensions. Not using any padding, which is what we've been doing and will continue to do for this post, is sometimes referred to as **"valid" padding**.
 
@@ -227,3 +227,75 @@ print(output.shape) # (26, 26, 8)
 ```
 
 ## 4. Pooling
+
+Neighboring pixels in images tend to have similar values, so conv layers will typically also produce similar values for neighboring pixels in outputs. As a result, **much of the information contained in a conv layer's output is redundant**. For example, if we use an edge-detecting filter and find a strong edge at a certain location, chances are that we'll also find relatively strong edges at locations 1 pixel shifted from the original one. However, **these are all the same edge!** We're not finding anything new.
+
+Pooling layers solve this problem. All they do is reduce the size of the input it's given by (you guessed it) _pooling_ values together in the input. The pooling is usually done by a simple operation like `max`, `min`, or `average`. Here's an example of a Max Pooling layer with a pooling size of 2:
+
+![Max Pooling (pool size 2) on a 4x4 image to produce a 2x2 output](./media-link/cnn-post/pool.gif)
+
+To perform _max_ pooling, we traverse the input image in 2x2 blocks (because pool size = 2) and put the _max_ value into the output image at the corresponding pixel. That's it!
+
+**Pooling divides the input's width and height by the pool size**. For our MNIST CNN, we'll place a Max Pooling layer with a pool size of 2 right after our initial conv layer. The pooling layer will transform a 26x26x8 input into a 13x13x8 output:
+
+![](/media/cnn-post/cnn-dims-2.svg)
+
+### 4.1 Implementing Pooling
+
+We'll implement a `MaxPool` class with the same methods as our conv class from the previous section:
+
+```python
+# Header: maxpool.py
+import numpy as np
+
+class MaxPool:
+  def __init__(self, size):
+    self.size = size
+
+  def forward(self, input):
+    '''
+    Performs a forward pass of the maxpool layer using the given input.
+    Returns a 3d numpy array with dimensions (h / size, w / size, num_filters).
+    - input is a 3d numpy array with dimensions (h, w, num_filters)
+    '''
+    size = self.size
+    h, w, num_filters = input.shape
+    new_h = h // size
+    new_w = h // size
+    output = np.zeros((new_h, new_w, num_filters))
+
+    for i in range(new_h):
+      for j in range(new_w):
+        i_range = (i * size):((i + 1) * size)
+        j_range = (j * size):((j + 1) * size)
+        im_region = input[i_range, j_range]
+        output[i, j] = np.amax(im_region, axis=(0, 1)) # highlight-line
+
+    return output
+```
+
+This class works similarly to the `Conv3x3` class we implemented previously. The critical line is again highlighted: to find the max from a given image region, we use [np.amax()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.amax.html), numpy's array max method. We set `python›axis=(0, 1)` because we only want to maximize over the first two dimensions, height and width.
+
+Let's test it!
+
+```python
+# Header: cnn.py
+import mnist
+from conv import Conv3x3
+from maxpool import MaxPool
+
+# The mnist package handles the MNIST dataset for us!
+# Learn more at https://github.com/datapythonista/mnist
+train_images = mnist.train_images()
+train_labels = mnist.train_labels()
+
+conv = Conv3x3(8)
+pool = MaxPool(2)
+
+output = conv.forward(train_images[0])
+output = pool.forward(output)
+print(output.shape) # (13, 13, 8)
+```
+
+Our MNIST CNN is starting to come together!
+
