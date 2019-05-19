@@ -155,3 +155,75 @@ For our MNIST CNN, we'll use a small conv layer with 8 filters as the initial la
 > Reminder: The output is 26x26x8 and not 28x28x8 because we're using **valid padding**, which decreases the input's width and height by 2.
 
 Each of the 4 filters in the conv layer produces a 26x26 output, so stacked together they make up a 26x26x8 volume. All of this happens because of 3 $\times$ 3 (filter size) $\times$ 8 (number of filters)  = **only 72 weights**!
+
+### 3.4 Implementing Convolution
+
+Time to put what we've learned into code! We'll implement a conv layer's feedforward portion, which takes care of convolving filters with an input image to produce an output volume. For simplicity, we'll assume filters are always 3x3 (which is not true - 5x5 and 7x7 filters are also very common).
+
+Let's start implementing a conv layer class:
+
+```python
+# Header: conv.py
+import numpy as np
+
+class Conv3x3:
+  def __init__(self, num_filters):
+    self.num_filters = num_filters
+
+    # filters is a 3d array with dimensions (num_filters, 3, 3)
+    # We divide by 9 just to get smaller initial values
+    self.filters = np.random.randn(num_filters, 3, 3) / 9
+```
+
+The `Conv3x3` class takes only one argument: the number of filters. In the constructor, we store the number of filters and initialize a random filters array using NumPy's [randn()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html) method.
+
+Next, the actual convolution:
+
+```python
+# Header: conv.py
+class Conv3x3:
+  # ...
+
+  def forward(self, input):
+    '''
+    Performs a forward pass of the conv layer using the given input.
+    Returns a 3d numpy array with dimensions (h, w, num_filters).
+    - input is a 2d numpy array
+    '''
+    h, w = input.shape
+    output = np.zeros((h - 2, w - 2, self.num_filters))
+
+    for i in range(h - 2):
+      for j in range(w - 2):
+        im_region = input[i:(i + 3), j:(j + 3)]
+        output[i, j] = np.sum(im_region * self.filters, axis=(1, 2)) # highlight-line
+
+    return output
+```
+
+The line of code above that performs the convolutions is highlighted. Let's break it down:
+
+- We have `im_region`, a 3x3 array containing the relevant image region.
+- We have `self.filters`, a 3d array.
+- We do `python›im_region * self.filters`, which uses numpy's [broadcasting](https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html) feature to element-wise multiply the two arrays. The result is a 3d array with the same dimension as `self.filters`.
+- We [np.sum()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html) the result of the previous step using `python›axis=(1, 2)`, which produces a 1d array of length `num_filters` where each element contains the convolution result for the corresponding filter.
+- We assign the result to `python›output[i, j]`, which contains convolution results for pixel `python›(i, j)` in the output.
+
+The sequence above is performed for each pixel in the output until we obtain our final output volume! Let's give our code a test run:
+
+```python
+# Header: cnn.py
+import mnist
+from conv import Conv3x3
+
+# The mnist package handles the MNIST dataset for us!
+# Learn more at https://github.com/datapythonista/mnist
+train_images = mnist.train_images()
+train_labels = mnist.train_labels()
+
+conv = Conv3x3(8)
+output = conv.forward(train_images[0])
+print(output.shape) # (26, 26, 8)
+```
+
+## 4. Pooling
