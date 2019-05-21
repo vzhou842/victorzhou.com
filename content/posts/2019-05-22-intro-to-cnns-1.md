@@ -1,18 +1,19 @@
 ---
-title: Convolutional Neural Networks Explained for Beginners
-date: "2019-05-09T12:00:00.000Z"
+title: "CNNs, Part 1: An Introduction to Convolutional Neural Networks"
+date: "2019-05-22T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
-slug: "/blog/intro-to-cnns/"
+slug: "/blog/intro-to-cnns-part-1/"
 img:
 category: "Machine Learning"
 tags:
   - "Machine Learning"
   - "Neural Networks"
+  - "Computer Vision"
   - "Python"
   - "For Beginners"
-description: A complete introduction to CNNs.
+description: A simple guide to what CNNs are, how they work, and how to build one from scratch in Python.
 prev: "/blog/better-profanity-detection-with-scikit-learn/"
 next: "/blog/intro-to-random-forests/"
 discussLinkTwitter:
@@ -368,19 +369,19 @@ You might have just thought to yourself, <span class="emph-special">why bother t
 What softmax really does is help us **quantify how sure we are of our prediction**, which is useful when training and evaluating our CNN. More specifically, using softmax lets us use **cross-entropy loss**, which takes into account how sure we are of each prediction. Here's how we calculate cross-entropy loss:
 
 $$
-L = -\ln(p_i)
+L = -\ln(p_c)
 $$
 
-where $i$ is the correct class (in our case, the correct digit) and $p_i$ is the predicted probability for class $i$. For example, in the best case, we'd have
+where $c$ is the correct class (in our case, the correct digit) and $p_c$ is the predicted probability for class $c$. For example, in the best case, we'd have
 
 $$
-p_i = 1, L = -\ln(1) = 0
+p_c = 1, L = -\ln(1) = 0
 $$
 
 In a more realistic case, we might have
 
 $$
-p_i = 0.8, L = -\ln(0.8) = 0.223
+p_c = 0.8, L = -\ln(0.8) = 0.223
 $$
 
 We'll be seeing cross-entropy loss again later on in this post, so keep it in mind!
@@ -448,7 +449,8 @@ def forward(image, label):
   - image is a 2d numpy array
   - label is a digit
   '''
-  # Feed forward
+  # We transform the image from [0, 255] to [-0.5, 0.5] to make it easier
+  # to work with. This is standard practice.
   out = conv.forward((image / 255) - 0.5)
   out = pool.forward(out)
   out = softmax.forward(out)
@@ -490,4 +492,3 @@ MNIST CNN initialized!
 This makes sense: with random weight initialization, you'd expect the CNN to be exactly as good as random guessing. Random guessing would yield 10% accuracy (since there are 10 classes) and a cross-entropy loss of ${-\ln(0.1)} = 2.302$, which is what we get!
 
 **Want to try or tinker with this code yourself? [Run this CNN in your browser](https://repl.it/@vzhou842/A-CNN-from-scratch-Part-1).**
-
