@@ -167,15 +167,21 @@ Let's start implementing a conv layer class:
 import numpy as np
 
 class Conv3x3:
+  '''
+  A Convolution layer using 3x3 filters.
+  '''
+
   def __init__(self, num_filters):
     self.num_filters = num_filters
 
     # filters is a 3d array with dimensions (num_filters, 3, 3)
-    # We divide by 9 just to get smaller initial values
+    # We divide by 9 to reduce the variance of our initial values
     self.filters = np.random.randn(num_filters, 3, 3) / 9
 ```
 
 The `Conv3x3` class takes only one argument: the number of filters. In the constructor, we store the number of filters and initialize a random filters array using NumPy's [randn()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html) method.
+
+> Note: Diving by 9 during the initialization is more important than you may think. If the initial values are too large or too small, training the network will be ineffective. To learn more, read about [Xavier Initialization](https://www.quora.com/What-is-an-intuitive-explanation-of-the-Xavier-Initialization-for-Deep-Neural-Networks).
 
 Next, the actual convolution:
 
@@ -183,6 +189,18 @@ Next, the actual convolution:
 # Header: conv.py
 class Conv3x3:
   # ...
+
+  def iterate_regions(self, image):
+    '''
+    Generates all possible 3x3 image regions using valid padding.
+    - image is a 2d numpy array
+    '''
+    h, w = image.shape
+
+    for i in range(h - 2):
+      for j in range(w - 2):
+        im_region = image[i:(i + 3), j:(j + 3)]
+        yield im_region, i, j
 
   def forward(self, input):
     '''
@@ -193,15 +211,15 @@ class Conv3x3:
     h, w = input.shape
     output = np.zeros((h - 2, w - 2, self.num_filters))
 
-    for i in range(h - 2):
-      for j in range(w - 2):
-        im_region = input[i:(i + 3), j:(j + 3)]
-        output[i, j] = np.sum(im_region * self.filters, axis=(1, 2)) # highlight-line
+    for im_region, i, j in self.iterate_regions(input):
+      output[i, j] = np.sum(im_region * self.filters, axis=(1, 2)) # highlight-line
 
     return output
 ```
 
-The line of code above that performs the convolutions is highlighted. Let's break it down:
+`python›iterate_regions()` is a helper [generator](https://wiki.python.org/moin/Generators) method that yields all valid 3x3 image regions for us. This will be useful for implementing the backwards portion of this class later on.
+
+The line of code that actually performs the convolutions is highlighted above. Let's break it down:
 
 - We have `im_region`, a 3x3 array containing the relevant image region.
 - We have `self.filters`, a 3d array.
@@ -242,39 +260,47 @@ To perform _max_ pooling, we traverse the input image in 2x2 blocks (because poo
 
 ### 4.1 Implementing Pooling
 
-We'll implement a `MaxPool` class with the same methods as our conv class from the previous section:
+We'll implement a `MaxPool2` class with the same methods as our conv class from the previous section:
 
 ```python
 # Header: maxpool.py
 import numpy as np
 
-class MaxPool:
-  def __init__(self, size):
-    self.size = size
+class MaxPool2:
+  '''
+  A Max Pooling layer using a pool size of 2.
+  '''
+
+  def iterate_regions(self, image):
+    '''
+    Generates non-overlapping 2x2 image regions to pool over.
+    - image is a 2d numpy array
+    '''
+    h, w, _ = image.shape
+    new_h = h // 2
+    new_w = h // 2
+
+    for i in range(new_h):
+      for j in range(new_w):
+        im_region = image[(i * 2):(i * 2 + 2), (j * 2):(j * 2 + 2)]
+        yield im_region, i, j
 
   def forward(self, input):
     '''
     Performs a forward pass of the maxpool layer using the given input.
-    Returns a 3d numpy array with dimensions (h / size, w / size, num_filters).
+    Returns a 3d numpy array with dimensions (h / 2, w / 2, num_filters).
     - input is a 3d numpy array with dimensions (h, w, num_filters)
     '''
-    size = self.size
     h, w, num_filters = input.shape
-    new_h = h // size
-    new_w = h // size
-    output = np.zeros((new_h, new_w, num_filters))
+    output = np.zeros((h // 2, w // 2, num_filters))
 
-    for i in range(new_h):
-      for j in range(new_w):
-        i_range = (i * size):((i + 1) * size)
-        j_range = (j * size):((j + 1) * size)
-        im_region = input[i_range, j_range]
-        output[i, j] = np.amax(im_region, axis=(0, 1)) # highlight-line
+    for im_region, i, j in self.iterate_regions(input):
+      output[i, j] = np.amax(im_region, axis=(0, 1)) # highlight-line
 
     return output
 ```
 
-This class works similarly to the `Conv3x3` class we implemented previously. The critical line is again highlighted: to find the max from a given image region, we use [np.amax()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.amax.html), numpy's array max method. We set `python›axis=(0, 1)` because we only want to maximize over the first two dimensions, height and width.
+This class works similarly to the `Conv3x3` class we implemented previously. The critical line is again highlighted: to find the max from a given image region, we use [np.amax()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.amax.html), numpy's array max method. We set `python›axis=(0, 1)` because we only want to maximize over the first two dimensions, height and width, and not the third, `num_filters`.
 
 Let's test it!
 
@@ -282,7 +308,7 @@ Let's test it!
 # Header: cnn.py
 import mnist
 from conv import Conv3x3
-from maxpool import MaxPool
+from maxpool import MaxPool2
 
 # The mnist package handles the MNIST dataset for us!
 # Learn more at https://github.com/datapythonista/mnist
@@ -290,7 +316,7 @@ train_images = mnist.train_images()
 train_labels = mnist.train_labels()
 
 conv = Conv3x3(8)
-pool = MaxPool(2)
+pool = MaxPool2()
 
 output = conv.forward(train_images[0])
 output = pool.forward(output)
