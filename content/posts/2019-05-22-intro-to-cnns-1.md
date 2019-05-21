@@ -489,6 +489,19 @@ MNIST CNN initialized!
 [Step 400] Past 100 steps: Average Loss 2.302 | Accuracy: 12%
 ```
 
-This makes sense: with random weight initialization, you'd expect the CNN to be exactly as good as random guessing. Random guessing would yield 10% accuracy (since there are 10 classes) and a cross-entropy loss of ${-\ln(0.1)} = 2.302$, which is what we get!
+This makes sense: with random weight initialization, you'd expect the CNN to be only as good as random guessing. Random guessing would yield 10% accuracy (since there are 10 classes) and a cross-entropy loss of ${-\ln(0.1)} = 2.302$, which is what we get!
 
 **Want to try or tinker with this code yourself? [Run this CNN in your browser](https://repl.it/@vzhou842/A-CNN-from-scratch-Part-1).**
+
+## 6. Conclusion
+
+That's the end of this introduction to CNNs! In this post, we
+
+- Motivated why CNNs might be more useful for certain problems, like image classification.
+- Introduced the **MNIST** handwritten digit dataset.
+- Learned about **Conv layers**, which convolve filters with images to produce more useful outputs.
+- Talked about **Pooling layers**, which can help prune everything but the most useful features.
+- Implemented a **Softmax** layer so we could use **cross-entropy loss**.
+
+There's still much more that we haven't covered yet, such as how to actually train a CNN. **Part 2 of this CNN series will do a deep-dive on training a CNN**, including deriving gradients and implementing backprop. [Subscribe to my newsletter](http://eepurl.com/gf8JCX) if you want to get an email when Part 2 comes out (soon)!
+
