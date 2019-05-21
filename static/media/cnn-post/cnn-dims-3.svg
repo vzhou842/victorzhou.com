@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="250" viewBox="0 0 700.00001 250.00001" width="700" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <rect id="rect4244" height="250" width="700" y="-.000014648" x="0" fill="#fff"/>
+ <g id="g4358" transform="translate(.0000010520)">
+  <text id="text4343" font-size="40px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="149.45213" x="302.21793" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4345" y="149.45213" x="302.21793"/></text>
+  <text id="text4347" font-size="40px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="138.95213" x="322.56793" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4349" y="138.95213" x="322.56793"/></text>
+  <path id="path4321" stroke-linejoin="round" d="m201.92 144-10 10m-30-10h40l-10-10" stroke="#000" stroke-width="4" fill="none"/>
+  <text id="text4351" font-size="40px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="181.04228" x="161.812" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4353" y="181.04228" x="161.812" font-size="17.5px">conv</tspan></text>
+  <g id="g4181" transform="translate(-150.71)">
+   <path id="path4234" stroke-linejoin="round" d="m174.91 203.44h107.7v-107.7h-107.7z" fill-rule="evenodd" stroke="#000" stroke-width="2.154px" fill="#fff"/>
+   <text id="text4246" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="40px" line-height="125%" y="59.282455" x="197.32549" font-family="sans-serif" fill="#000000"><tspan id="tspan4248" y="59.282455" x="197.32549" font-size="20px">28x28</tspan></text>
+  </g>
+  <g id="g4173" transform="translate(-182.71)">
+   <g id="g4312" stroke-linejoin="round" transform="translate(20,-782.36)" stroke="#000" stroke-width="2px" fill="none">
+    <path id="path4156" d="m395.17 886.93 20-20h100v100l-20 20"/>
+    <path id="path4158" d="m495.17 886.93 20-20"/>
+    <path id="path4150" d="m395.17 886.93v100h100v-100z"/>
+   </g>
+   <text id="text4250" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="40px" line-height="125%" y="59.282455" x="431.45419" font-family="sans-serif" fill="#000000"><tspan id="tspan4252" y="59.282455" x="431.45419" font-size="20px">26x26x8</tspan></text>
+  </g>
+  <g id="g4251" transform="translate(26.122)">
+   <g id="g4153" stroke-linejoin="round" transform="matrix(.5 0 0 .5 250.12 -318.9)" stroke="#000" stroke-width="4" fill="none">
+    <path id="path4155" d="m395.17 886.93 40-40h100v100l-40 40"/>
+    <path id="path4157" d="m495.17 886.93 40-40"/>
+    <path id="path4159" d="m395.17 886.93v100h100v-100z"/>
+   </g>
+   <text id="text4161" font-size="40px" xml:space="preserve" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="59.282455" x="438.62421" font-family="sans-serif" fill="#000000"><tspan id="tspan4163" y="59.282455" x="438.62421" font-size="20px">13x13x8</tspan></text>
+  </g>
+  <g id="g4353" transform="translate(4)">
+   <path id="path4231" stroke-linejoin="round" d="m426.54 144-10 10m-30-10h40l-10-10" stroke="#000" stroke-width="4" fill="none"/>
+   <text id="text4233" font-size="40px" xml:space="preserve" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="181.04228" x="369.81198" font-family="sans-serif" fill="#000000"><tspan id="tspan4235" y="181.04228" x="369.81198" font-size="17.5px">maxpool</tspan></text>
+  </g>
+  <g id="g4236" transform="translate(18.122)">
+   <g id="g4203" stroke-linejoin="round" transform="translate(11.504 -12)" stroke="#000" stroke-width="2" fill="none">
+    <circle id="path4183" cy="99.502" cx="636.28" r="5"/>
+    <circle id="circle4185" cx="636.28" cy="114.5" r="5"/>
+    <circle id="circle4187" cy="129.5" cx="636.28" r="5"/>
+    <circle id="circle4189" cx="636.28" cy="144.5" r="5"/>
+    <circle id="circle4191" cy="159.5" cx="636.28" r="5"/>
+    <circle id="circle4193" cx="636.28" cy="174.5" r="5"/>
+    <circle id="circle4195" cy="189.5" cx="636.28" r="5"/>
+    <circle id="circle4197" cx="636.28" cy="204.5" r="5"/>
+    <circle id="circle4199" cy="219.5" cx="636.28" r="5"/>
+    <circle id="circle4201" cx="636.28" cy="234.5" r="5"/>
+   </g>
+   <text id="text4221" style="word-spacing:0px;letter-spacing:0px" font-size="40px" line-height="125%" y="59.282455" x="634.62421" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4223" y="59.282455" x="634.62421" font-size="20px">10</tspan></text>
+  </g>
+  <g id="g4231" transform="translate(16.362)">
+   <path id="path4225" stroke-linejoin="round" d="m602.25 144-10 10m-30-10h40l-10-10" stroke="#000" stroke-width="4" fill="none"/>
+   <text id="text4227" style="word-spacing:0px;letter-spacing:0px" font-size="40px" line-height="125%" y="181.04228" x="547.68951" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan4229" y="181.04228" x="547.68951" font-size="17.5px">softmax</tspan></text>
+  </g>
+ </g>
+</svg>

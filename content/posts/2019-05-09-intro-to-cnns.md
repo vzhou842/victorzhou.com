@@ -167,9 +167,7 @@ Let's start implementing a conv layer class:
 import numpy as np
 
 class Conv3x3:
-  '''
-  A Convolution layer using 3x3 filters.
-  '''
+  # A Convolution layer using 3x3 filters.
 
   def __init__(self, num_filters):
     self.num_filters = num_filters
@@ -267,9 +265,7 @@ We'll implement a `MaxPool2` class with the same methods as our conv class from 
 import numpy as np
 
 class MaxPool2:
-  '''
-  A Max Pooling layer using a pool size of 2.
-  '''
+  # A Max Pooling layer using a pool size of 2.
 
   def iterate_regions(self, image):
     '''
@@ -324,4 +320,174 @@ print(output.shape) # (13, 13, 8)
 ```
 
 Our MNIST CNN is starting to come together!
+
+## 5. Softmax
+
+To complete our CNN, we need to give it the ability to actually make predictions. We'll do that by using the standard final layer for an image classification problem: a [Softmax](https://en.wikipedia.org/wiki/Softmax_function) layer.
+
+A Softmax layer is a standard fully-connected (dense) layer that uses the softmax activation function.
+
+> Reminder: fully-connected layers have every node connected to every output from the previous layer. We used fully-connected layers in my [intro to Neural Networks](/blog/intro-to-neural-networks/).
+
+Softmax turns arbitrary real values into _probabilities_ instead. The math behind it is pretty simple: given some numbers,
+
+1. Raise [e](https://en.wikipedia.org/wiki/E_(mathematical_constant)) (the mathematical constant) to the power of each of those numbers.
+2. Sum up all the exponentials (powers of $e$) - this value is the denominator.
+3. Use each number's exponential as its numerator.
+4. $\text{Probability} = \frac{\text{Numerator}}{\text{Denominator}}$.
+
+Written more fancily, Softmax performs the following transform on $n$ numbers $x_1 \ldots x_n$:
+
+$$
+s(x_i) = \frac{e^{x_i}}{\sum_{j=1}^n e^{x_j}}
+$$
+
+Here's a simple example using the numbers -1, 0, 3, and 5:
+
+$$
+\text{Denominator} = e^{-1} + e^0 + e^3 + e^5 = 169.87
+$$
+
+| $x$ | $e^x$ | Probability ($\frac{e^x}{169.87}$) |
+| --- | --- | --- |
+| -1 | 0.368 | 0.002 |
+| 0 | 1 | 0.006 |
+| 3 | 20.09 | 0.118 |
+| 5 | 148.41 | 0.874 |
+
+### 5.1 How is this useful?
+
+We'll use a softmax layer with **10 nodes, one representing each digit,** as the final layer in our CNN. Each node in the layer will be connected to every input. After the softmax transformation is applied, **the digit represented by the node with the highest probability** will be the output of the CNN!
+
+![](/media/cnn-post/cnn-dims-3.svg)
+
+### 5.2 Cross-Entropy Loss
+
+You might have just thought to yourself, <span class="emph-special">why bother transforming the outputs into probabilities? Won't the highest output value always have the highest probability?</span> If you did, you're absolutely right. **We don't actually need to use softmax to predict a digit** - we could just pick the digit with the highest output from the network!
+
+What softmax really does is help us **quantify how sure we are of our prediction**, which is useful when training and evaluating our CNN. More specifically, using softmax lets us use **cross-entropy loss**, which takes into account how sure we are of each prediction. Here's how we calculate cross-entropy loss:
+
+$$
+L = -\ln(p_i)
+$$
+
+where $i$ is the correct class (in our case, the correct digit) and $p_i$ is the predicted probability for class $i$. For example, in the best case, we'd have
+
+$$
+p_i = 1, L = -\ln(1) = 0
+$$
+
+In a more realistic case, we might have
+
+$$
+p_i = 0.8, L = -\ln(0.8) = 0.223
+$$
+
+We'll be seeing cross-entropy loss again later on in this post, so keep it in mind!
+
+### 5.3 Implementing Softmax
+
+You know the drill by now - let's implement a `Softmax` layer class:
+
+```python
+# Header: softmax.py
+import numpy as np
+
+class Softmax:
+  # A standard fully-connected layer with softmax activation.
+
+  def __init__(self, input_len, nodes):
+    # We divide by input_len to reduce the variance of our initial values
+    self.weights = np.random.randn(input_len, nodes) / input_len
+    self.biases = np.zeros(nodes)
+
+  def forward(self, input):
+    '''
+    Performs a forward pass of the softmax layer using the given input.
+    Returns a 1d numpy array containing the respective probability values.
+    - input can be any array with any dimensions.
+    '''
+    input = input.flatten()
+
+    input_len, nodes = self.weights.shape
+
+    totals = np.dot(input, self.weights) + self.biases
+    exp = np.exp(totals)
+    return exp / np.sum(exp, axis=0)
+```
+
+There's nothing too complicated here. A few highlights:
+
+- We [flatten()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.flatten.html) the input to make it easier to work with, since we no longer need its shape.
+- [np.dot()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html) multiplies `input` and `self.weights` element-wise and then sums the results.
+- [np.exp()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.exp.html) calculates the exponentials used for Softmax.
+
+We've now completed the entire forward pass of our CNN! Putting it together:
+
+```python
+# Header: cnn.py
+import mnist
+import numpy as np
+from conv import Conv3x3
+from maxpool import MaxPool2
+from softmax import Softmax
+
+# We only use the first 1k training examples (out of 60k total)
+# in the interest of time. Feel free to change this if you want.
+train_images = mnist.train_images()[:1000]
+train_labels = mnist.train_labels()[:1000]
+
+conv = Conv3x3(8)                  # 28x28x1 -> 26x26x8
+pool = MaxPool2()                  # 26x26x8 -> 13x13x8
+softmax = Softmax(13 * 13 * 8, 10) # 13x13x8 -> 10
+
+def forward(image, label):
+  '''
+  Completes a forward pass of the CNN and calculates the accuracy and
+  cross-entropy loss.
+  - image is a 2d numpy array
+  - label is a digit
+  '''
+  # Feed forward
+  out = conv.forward((image / 255) - 0.5)
+  out = pool.forward(out)
+  out = softmax.forward(out)
+
+  # Calculate cross-entropy loss and accuracy
+  loss = -np.log(out[label])
+  acc = 1 if np.argmax(out) == label else 0
+
+  return out, loss, acc
+
+print('MNIST CNN initialized!')
+
+loss = 0
+num_correct = 0
+for i, (im, label) in enumerate(zip(train_images, train_labels)):
+  if i > 0 and i % 100 == 0:
+    print(
+      '[Step %d] Past 100 steps: Average Loss %.3f | Accuracy: %d%%' %
+      (i, loss / 100, num_correct)
+    )
+    loss = 0
+    num_correct = 0
+
+  _, l, acc = forward(im, label)
+  loss += l
+  num_correct += acc
+```
+
+Running `cnn.py` gives us output similar to this:
+
+```
+MNIST CNN initialized!
+[Step 100] Past 100 steps: Average Loss 2.302 | Accuracy: 11%
+[Step 200] Past 100 steps: Average Loss 2.302 | Accuracy: 8%
+[Step 300] Past 100 steps: Average Loss 2.302 | Accuracy: 3%
+[Step 400] Past 100 steps: Average Loss 2.302 | Accuracy: 12%
+```
+
+This makes sense: with random weight initialization, you'd expect the CNN to be exactly as good as random guessing. Random guessing would yield 10% accuracy (since there are 10 classes) and a cross-entropy loss of ${-\ln(0.1)} = 2.302$, which is what we get!
+
+**Want to try or tinker with this code yourself? [Run this CNN in your browser](https://repl.it/@vzhou842/A-CNN-from-scratch-Part-1).**
 
