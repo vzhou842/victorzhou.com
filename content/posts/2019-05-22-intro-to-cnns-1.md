@@ -433,10 +433,10 @@ from conv import Conv3x3
 from maxpool import MaxPool2
 from softmax import Softmax
 
-# We only use the first 1k training examples (out of 60k total)
+# We only use the first 1k testing examples (out of 10k total)
 # in the interest of time. Feel free to change this if you want.
-train_images = mnist.train_images()[:1000]
-train_labels = mnist.train_labels()[:1000]
+test_images = mnist.test_images()[:1000]
+test_labels = mnist.test_labels()[:1000]
 
 conv = Conv3x3(8)                  # 28x28x1 -> 26x26x8
 pool = MaxPool2()                  # 26x26x8 -> 13x13x8
@@ -455,7 +455,7 @@ def forward(image, label):
   out = pool.forward(out)
   out = softmax.forward(out)
 
-  # Calculate cross-entropy loss and accuracy
+  # Calculate cross-entropy loss and accuracy. np.log() is the natural log.
   loss = -np.log(out[label])
   acc = 1 if np.argmax(out) == label else 0
 
@@ -465,18 +465,20 @@ print('MNIST CNN initialized!')
 
 loss = 0
 num_correct = 0
-for i, (im, label) in enumerate(zip(train_images, train_labels)):
-  if i > 0 and i % 100 == 0:
-    print(
-      '[Step %d] Past 100 steps: Average Loss %.3f | Accuracy: %d%%' %
-      (i, loss / 100, num_correct)
-    )
-    loss = 0
-    num_correct = 0
-
+for i, (im, label) in enumerate(zip(test_images, test_labels)):
+  # Do a forward pass.
   _, l, acc = forward(im, label)
   loss += l
   num_correct += acc
+
+  # Print stats every 100 steps.
+  if i % 100 == 99:
+    print(
+      '[Step %d] Past 100 steps: Average Loss %.3f | Accuracy: %d%%' %
+      (i + 1, loss / 100, num_correct)
+    )
+    loss = 0
+    num_correct = 0
 ```
 
 Running `cnn.py` gives us output similar to this:
