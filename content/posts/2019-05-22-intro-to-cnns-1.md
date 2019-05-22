@@ -5,7 +5,7 @@ template: "post"
 usesKatex: true
 draft: false
 slug: "/blog/intro-to-cnns-part-1/"
-img:
+img: "https://victorzhou.com/media/cnn-post/cnn-dims-3.png"
 category: "Machine Learning"
 tags:
   - "Machine Learning"
