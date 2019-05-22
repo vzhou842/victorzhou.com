@@ -379,7 +379,7 @@ $$
 L = -\ln(p_c)
 $$
 
-where $c$ is the correct class (in our case, the correct digit) and $p_c$ is the predicted probability for class $c$. As always, a lower loss is better. For example, in the best case, we'd have
+where $c$ is the correct class (in our case, the correct digit), $p_c$ is the predicted probability for class $c$, and $\ln$ is the [natural log](https://en.wikipedia.org/wiki/Natural_logarithm). As always, a lower loss is better. For example, in the best case, we'd have
 
 $$
 p_c = 1, L = -\ln(1) = 0
@@ -514,3 +514,4 @@ That's the end of this introduction to CNNs! In this post, we
 
 There's still much more that we haven't covered yet, such as how to actually train a CNN. **Part 2 of this CNN series will do a deep-dive on training a CNN**, including deriving gradients and implementing backprop. [Subscribe to my newsletter](http://eepurl.com/gf8JCX) if you want to get an email when Part 2 comes out (soon)!
 
+If you're eager to see a trained CNN in action: this [example Keras CNN](https://keras.io/examples/mnist_cnn/) trained on MNIST achieves **99.25%** accuracy. CNNs are powerful!
