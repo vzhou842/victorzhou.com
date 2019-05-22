@@ -16,8 +16,8 @@ tags:
 description: A simple guide to what CNNs are, how they work, and how to build one from scratch in Python.
 prev: "/blog/better-profanity-detection-with-scikit-learn/"
 next: "/blog/intro-to-random-forests/"
-discussLinkTwitter:
-discussLinkHN:
+discussLinkTwitter: https://twitter.com/victorczhou/status/1131212626019721217
+discussLinkHN: https://news.ycombinator.com/item?id=19981736
 discussLinkReddit:
 ---
 
