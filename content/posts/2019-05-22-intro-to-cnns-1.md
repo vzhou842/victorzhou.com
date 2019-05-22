@@ -21,7 +21,7 @@ discussLinkHN:
 discussLinkReddit:
 ---
 
-There's been a lot of buzz about Convolution Neural Networks (CNNs) in the past few years, especially because of how they've revolutionized the field of [Computer Vision](https://en.wikipedia.org/wiki/Computer_vision). In this post, we'll build on a basic background knowledge of neural networks and explore what CNNs are, understand how they work, and build a real one from scratch (using only [numpy](https://www.numpy.org/)) in Python.
+There's been a lot of buzz about Convolution Neural Networks (CNNs) in the past few years, especially because of how they've revolutionized the field of [Computer Vision](https://en.wikipedia.org/wiki/Computer_vision). In this post, we'll build on a basic background knowledge of neural networks and **explore what CNNs are, understand how they work, and build a real one from scratch** (using only [numpy](https://www.numpy.org/)) in Python.
 
 **This post assumes only a basic knowledge of neural networks**. My [introduction to Neural Networks](/blog/intro-to-neural-networks/) covers everything you'll need to know, so you might want to read that first.
 
@@ -61,9 +61,9 @@ Enough buildup. Let's get into CNNs!
 
 ## 3. Convolutions
 
-They're called Convolutional Neural Networks because they use Convolutional (conv) Layers, which are based on the mathematical operation of convolution.
+What are Convolutional Neural Networks?
 
-Conv layers consist of a set of **filters**, which are basically just 2d matrices of numbers. Here's an example 3x3 filter:
+They're basically just neural networks that use **Convolutional layers**, a.k.a. Conv layers, which are based on the mathematical operation of [convolution](https://en.wikipedia.org/wiki/Convolution). Conv layers consist of a set of **filters**, which you can think of as just 2d matrices of numbers. Here's an example 3x3 filter:
 
 ![A 3x3 filter](./media-link/cnn-post/vertical-sobel.svg)
 
@@ -74,7 +74,7 @@ We can use an input image and a filter to produce an output image by **convolvin
 3. Summing up all the element-wise products. This sum is the output value for the **destination pixel** in the output image.
 4. Repeating for all locations.
 
-> Side Note: We (along with many CNN implementations) are technically actually using [cross-correlation](https://en.wikipedia.org/wiki/Cross-correlation) instead of convolution here, but they do almost the same thing. I won't go into the difference in this post, but feel free to look this up if you're curious.
+> Side Note: We (along with many CNN implementations) are technically actually using [cross-correlation](https://en.wikipedia.org/wiki/Cross-correlation) instead of convolution here, but they do almost the same thing. I won't go into the difference in this post because it's not that important, but feel free to look this up if you're curious.
 
 That 4-step description was a little abstract, so let's do an example. Consider this tiny 4x4 grayscale image and this 3x3 filter:
 
@@ -86,9 +86,9 @@ The numbers in the image represent pixel intensities, where 0 is black and 255 i
 
 To start, lets overlay our filter in the top left corner of the image:
 
-![Step 1: Overlay the filter on top of the image](/media/cnn-post/convolve-example-2.svg)
+![Step 1: Overlay the filter (right) on top of the image (left)](/media/cnn-post/convolve-example-2.svg)
 
-Next, we perform element-wise multiplication between the overlapping image values and filter values. Here are the results, starting from the top left corner:
+Next, we perform element-wise multiplication between the overlapping image values and filter values. Here are the results, starting from the top left corner and going right, then down:
 
 | Image Value | Filter Value | Result |
 | ---- | ---- | ---- |
@@ -133,9 +133,9 @@ Similarly, there's also a horizontal Sobel filter:
 
 ![](./media-link/cnn-post/lenna+horizontal.png "An image convolved with the horizontal Sobel filter")
 
-See what's happening? **Sobel filters are edge-detectors**. The vertical Sobel filter detects vertical edges, and the horizontal Sobel filter detects horizontal edges. The output images are now easily interpreted: a bright pixel (one that has a high value) in the output image indicates that there's an edge around there in the original image. 
+See what's happening? **Sobel filters are edge-detectors**. The vertical Sobel filter detects vertical edges, and the horizontal Sobel filter detects horizontal edges. The output images are now easily interpreted: a bright pixel (one that has a high value) in the output image indicates that there's a strong edge around there in the original image. 
 
-Can you see why an edge-detected image might be more useful than the raw image? Think back to our MNIST handwritten digit classification problem for a second. A CNN trained on MNIST might look for the digit 1, for example, by using an edge-detection filter and checking for two prominent vertical edges near the center of the image. In general, **convolution helps us look for specific localized features** (like edges) that we can use later in the network.
+Can you see why an edge-detected image might be more useful than the raw image? Think back to our MNIST handwritten digit classification problem for a second. A CNN trained on MNIST might look for the digit 1, for example, by using an edge-detection filter and checking for two prominent vertical edges near the center of the image. In general, **convolution helps us look for specific localized image features** (like edges) that we can use later in the network.
 
 ### 3.2 Padding
 
@@ -243,6 +243,8 @@ output = conv.forward(train_images[0])
 print(output.shape) # (26, 26, 8)
 ```
 
+Looks good so far.
+
 ## 4. Pooling
 
 Neighboring pixels in images tend to have similar values, so conv layers will typically also produce similar values for neighboring pixels in outputs. As a result, **much of the information contained in a conv layer's output is redundant**. For example, if we use an edge-detecting filter and find a strong edge at a certain location, chances are that we'll also find relatively strong edges at locations 1 pixel shifted from the original one. However, **these are all the same edge!** We're not finding anything new.
@@ -324,16 +326,14 @@ Our MNIST CNN is starting to come together!
 
 ## 5. Softmax
 
-To complete our CNN, we need to give it the ability to actually make predictions. We'll do that by using the standard final layer for an image classification problem: a [Softmax](https://en.wikipedia.org/wiki/Softmax_function) layer.
+To complete our CNN, we need to give it the ability to actually make predictions. We'll do that by using the standard final layer for a multiclass classification problem: the [Softmax](https://en.wikipedia.org/wiki/Softmax_function) layer, a standard fully-connected (dense) layer that uses the softmax activation function.
 
-A Softmax layer is a standard fully-connected (dense) layer that uses the softmax activation function.
+> Reminder: fully-connected layers have every node connected to every output from the previous layer. We used fully-connected layers in my [intro to Neural Networks](/blog/intro-to-neural-networks/) if you need a refresher.
 
-> Reminder: fully-connected layers have every node connected to every output from the previous layer. We used fully-connected layers in my [intro to Neural Networks](/blog/intro-to-neural-networks/).
-
-Softmax turns arbitrary real values into _probabilities_ instead. The math behind it is pretty simple: given some numbers,
+**Softmax turns arbitrary real values into _probabilities_**. The math behind it is pretty simple: given some numbers,
 
 1. Raise [e](https://en.wikipedia.org/wiki/E_(mathematical_constant)) (the mathematical constant) to the power of each of those numbers.
-2. Sum up all the exponentials (powers of $e$) - this value is the denominator.
+2. Sum up all the exponentials (powers of $e$). This result is the denominator.
 3. Use each number's exponential as its numerator.
 4. $\text{Probability} = \frac{\text{Numerator}}{\text{Denominator}}$.
 
@@ -343,10 +343,15 @@ $$
 s(x_i) = \frac{e^{x_i}}{\sum_{j=1}^n e^{x_j}}
 $$
 
+The outputs of the Softmax transform are always in the range $[0, 1]$ and add up to 1. Hence, they're **probabilities**.
+
 Here's a simple example using the numbers -1, 0, 3, and 5:
 
 $$
-\text{Denominator} = e^{-1} + e^0 + e^3 + e^5 = 169.87
+\begin{aligned}
+\text{Denominator} &= e^{-1} + e^0 + e^3 + e^5 \\
+&= \boxed{169.87} \\
+\end{aligned}
 $$
 
 | $x$ | $e^x$ | Probability ($\frac{e^x}{169.87}$) |
@@ -356,7 +361,7 @@ $$
 | 3 | 20.09 | 0.118 |
 | 5 | 148.41 | 0.874 |
 
-### 5.1 How is this useful?
+### 5.1 Usage
 
 We'll use a softmax layer with **10 nodes, one representing each digit,** as the final layer in our CNN. Each node in the layer will be connected to every input. After the softmax transformation is applied, **the digit represented by the node with the highest probability** will be the output of the CNN!
 
@@ -372,7 +377,7 @@ $$
 L = -\ln(p_c)
 $$
 
-where $c$ is the correct class (in our case, the correct digit) and $p_c$ is the predicted probability for class $c$. For example, in the best case, we'd have
+where $c$ is the correct class (in our case, the correct digit) and $p_c$ is the predicted probability for class $c$. As always, a lower loss is better. For example, in the best case, we'd have
 
 $$
 p_c = 1, L = -\ln(1) = 0
