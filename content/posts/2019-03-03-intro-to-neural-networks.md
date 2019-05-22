@@ -657,7 +657,7 @@ There's still much more to do:
 - Tinker with [a neural network in your browser](https://playground.tensorflow.org).
 - Discover [other activation functions](https://keras.io/activations/) besides sigmoid.
 - Discover [other optimizers](https://keras.io/optimizers/) besides SGD.
-- Learn about [Convolutional Neural Networks](https://en.wikipedia.org/wiki/Convolutional_neural_network), which revolutionized the field of Computer Vision.
+- Read my [introduction to Convolutional Neural Networks](/blog/intro-to-cnns-part-1/) (CNNs). CNNs revolutionized the field of Computer Vision and can be extremely powerful.
 - Learn about [Recurrent Neural Networks](https://en.wikipedia.org/wiki/Recurrent_neural_network), often used for Natural Language Processing (NLP).
 
 I may write about these topics or similar ones in the future, so [subscribe](http://eepurl.com/gf8JCX) if you want to get notified about new posts.
