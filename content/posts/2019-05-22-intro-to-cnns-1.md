@@ -245,6 +245,8 @@ print(output.shape) # (26, 26, 8)
 
 Looks good so far.
 
+> Note: in our `Conv3x3` implementation, we assume the input is a **2d** numpy array for simplicity, because that's how our MNIST images are stored. This works for us because we use it as the first layer in our network, but most CNNs have many more Conv layers. If we were building a bigger network that needed to use `Conv3x3` multiple times, we'd have to make the input be a **3d** numpy array. 
+
 ## 4. Pooling
 
 Neighboring pixels in images tend to have similar values, so conv layers will typically also produce similar values for neighboring pixels in outputs. As a result, **much of the information contained in a conv layer's output is redundant**. For example, if we use an edge-detecting filter and find a strong edge at a certain location, chances are that we'll also find relatively strong edges at locations 1 pixel shifted from the original one. However, **these are all the same edge!** We're not finding anything new.
