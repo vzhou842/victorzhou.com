@@ -17,6 +17,7 @@ const PostTemplate = ({ data, pageContext }) => {
   );
 
   const {
+    asyncScript,
     canonical,
     img: imgUrl,
     title: postTitle,
@@ -36,6 +37,9 @@ const PostTemplate = ({ data, pageContext }) => {
           <meta property="og:image" content={imgUrl} />
           {twitterEmbed && (
             <script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8" />
+          )}
+          {asyncScript && (
+            <script async src={asyncScript} />
           )}
         </Helmet>
         <Post post={slugNode} prevPost={prevNode} nextPost={nextNode} />
@@ -71,6 +75,7 @@ export const fragment = graphql`
             tagSlugs
           }
           frontmatter {
+            asyncScript
             canonical
             date
             description
