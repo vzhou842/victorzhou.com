@@ -21,36 +21,79 @@ discussLinkHN:
 discussLinkReddit:
 ---
 
-Obviously, we'd like our CNN to do better than 10% accuracy. Luckily, training a CNN is not so different from training any other neural network. Here's how we'll train our CNN to recognize handwritten digits:
+In this post, we're going to do a deep-dive on something most introductions to Convolutional Neural Networks (CNNs) lack: **how to train a CNN**, including deriving gradients, implementing backprop _from scratch_ (using only [numpy](https://www.numpy.org/)), and ultimately building a full training pipeline!
 
-- We'll use **backpropagation** (backprop) to efficiently calculate derivatives.
-- We'll use [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent) (SGD) as our optimization method.
-- We'll use **cross-entropy loss** to evaluate our CNN, as discussed previously.
+**This post assumes a basic knowledge of CNNs**. My [introduction to CNNs](/blog/intro-to-cnns-part-1/) (Part 1 of this series) covers everything you need to know, so I'd highly recommend reading that first. If you're here because you've already read Part 1, welcome back!
 
-> If you're not familiar with backprop, SGD, or the concept of loss, I'd recommend reviewing the [Training a Neural Network](/blog/intro-to-neural-networks/#4-training-a-neural-network-part-2) section of my introduction to Neural Networks.
+**Parts of this post also assume a basic knowledge of multivariable calculus**. You can skip those sections if you want, but I recommend reading them even if you don't understand everything. We'll incrementally write code as we derive results, and even a surface-level understanding can be helpful.
 
-**The following section assumes a basic understanding of backprop, SGD, loss, and multivariable calculus**. You can skip this section if you want, but I recommend reading it even if you don't understand all of it. We'll incrementally write code as we derive results, and it can be valuable to get even a surface-level understanding of how to implement training a CNN.
+Buckle up! Time to get into it.
 
-Buckle up! Let's get into it.
+## 1. Setting the Stage
 
-### 1. Training Overview
+We'll pick back up where [Part 1](/blog/intro-to-cnns-part-1/) of this series left off. We were using a CNN to tackle the [MNIST](http://yann.lecun.com/exdb/mnist/) handwritten digit classification problem:
+
+![Sample images from the MNIST dataset](./media-link/cnn-post/mnist-examples.png "Sample images from the MNIST dataset")
+
+Our (simple) CNN consisted of a Conv layer, a Max Pooling layer, and a Softmax layer. Here's that diagram of our CNN again:
+
+![Our CNN takes a 28x28 grayscale MNIST image and outputs 10 probabilities, 1 for each digit.](/media/cnn-post/cnn-dims-3.svg)
+
+We'd written 3 classes, one for each layer: `Conv3x3`, `MaxPool`, and `Softmax`. Each class implemented a `forward()` method that we used to build the forward pass of the CNN:
+
+```python
+# Header: cnn.py
+conv = Conv3x3(8)                  # 28x28x1 -> 26x26x8
+pool = MaxPool2()                  # 26x26x8 -> 13x13x8
+softmax = Softmax(13 * 13 * 8, 10) # 13x13x8 -> 10
+
+def forward(image, label):
+  '''
+  Completes a forward pass of the CNN and calculates the accuracy and
+  cross-entropy loss.
+  - image is a 2d numpy array
+  - label is a digit
+  '''
+  # We transform the image from [0, 255] to [-0.5, 0.5] to make it easier
+  # to work with. This is standard practice.
+  out = conv.forward((image / 255) - 0.5)
+  out = pool.forward(out)
+  out = softmax.forward(out)
+
+  # Calculate cross-entropy loss and accuracy. np.log() is the natural log.
+  loss = -np.log(out[label])
+  acc = 1 if np.argmax(out) == label else 0
+
+  return out, loss, acc
+```
+
+You can **view the code or [run the CNN in your browser](https://repl.it/@vzhou842/A-CNN-from-scratch-Part-1)**. It's also available on [Github](https://github.com/vzhou842/cnn-from-scratch/tree/master).
+
+Here's what the output of our CNN looks like right now:
+
+```
+MNIST CNN initialized!
+[Step 100] Past 100 steps: Average Loss 2.302 | Accuracy: 11%
+[Step 200] Past 100 steps: Average Loss 2.302 | Accuracy: 8%
+[Step 300] Past 100 steps: Average Loss 2.302 | Accuracy: 3%
+[Step 400] Past 100 steps: Average Loss 2.302 | Accuracy: 12%
+```
+
+Obviously, we'd like to do better than 10% accuracy... let's teach this CNN a lesson.
+
+## 2. Training Overview
 
 Training a neural network typically consists of two phases:
 
 1. A **forward** phase, where the input is passed completely through the network.
-2. A **backward** phase, where gradients are calculated (backprop!) and weights are updated.
+2. A **backward** phase, where gradients are backpropagated (backprop) and weights are updated.
 
 We'll follow this pattern to train our CNN. There are also two major implementation-specific ideas we'll use:
 
 - During the forward phase, each layer will **cache** any data (like inputs, intermediate values, etc) it'll need for the backward phase. This means that any backward phase must be preceded by a forward phase.
 - During the backward phase, each layer will **receive a gradient** and also **return a gradient**. It will receive the gradient of loss with respect to its _outputs_ ($\frac{\partial L}{\partial \text{out}}$) and return the gradient of loss with respect to its _inputs_ ($\frac{\partial L}{\partial \text{in}}$).
 
-These two ideas will help keep our training implementation clean and organized. To see why, imagine a network with two layers, A and B, in that order:
-
-- During the forward phase, both layers will cache the data they need, so we don't have to pass in that data again for the backward phase.
-- The output of A's forward phase is the input to B's forward phase. Similarly, the output of B's backward phase is the input to A's backward phase!
-
-Looking at code is probably the best way to understand this. Training our CNN will ultimately look something like this:
+These two ideas will help keep our training implementation clean and organized. The best way to see why is probably by looking at code. Training our CNN will ultimately look something like this:
 
 ```python
 # Feed forward
@@ -68,7 +111,7 @@ gradient = pool.backprop(gradient)
 gradient = conv.backprop(gradient)
 ```
 
-See how nice and clean that looks? Now imagine building a network with 50 layers instead of 3. See why it's important to have good systems in place?
+See how nice and clean that looks? Now imagine building a network with 50 layers instead of 3 - it's even more valuable then to have good systems in place.
 
 ### 2. Backprop: Softmax
 
@@ -78,7 +121,11 @@ $$
 L = -\ln(p_c)
 $$
 
-where $p_c$ is the predicted probability for the correct class $c$. The first thing we need to calculate is the input to the Softmax layer's backward phase, $\frac{\partial L}{\partial out_s}$. This is pretty easy, since only $p_i$ shows up in the loss equation:
+where $p_c$ is the predicted probability for the correct class $c$.
+
+> Want a longer explanation? Read the [Cross-Entropy Loss](/blog/intro-to-cnns-part-1/#52-cross-entropy-loss) section of Part 1 of my CNNs series.
+
+The first thing we need to calculate is the input to the Softmax layer's backward phase, $\frac{\partial L}{\partial out_s}$. This is pretty easy, since only $p_i$ shows up in the loss equation:
 
 $$
 \frac{\partial L}{\partial out_s(i)} =
