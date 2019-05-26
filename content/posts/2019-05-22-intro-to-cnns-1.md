@@ -155,7 +155,7 @@ For our MNIST CNN, we'll use a small conv layer with 8 filters as the initial la
 
 > Reminder: The output is 26x26x8 and not 28x28x8 because we're using **valid padding**, which decreases the input's width and height by 2.
 
-Each of the 4 filters in the conv layer produces a 26x26 output, so stacked together they make up a 26x26x8 volume. All of this happens because of 3 $\times$ 3 (filter size) $\times$ 8 (number of filters)  = **only 72 weights**!
+Each of the 8 filters in the conv layer produces a 26x26 output, so stacked together they make up a 26x26x8 volume. All of this happens because of 3 $\times$ 3 (filter size) $\times$ 8 (number of filters)  = **only 72 weights**!
 
 ### 3.4 Implementing Convolution
 
