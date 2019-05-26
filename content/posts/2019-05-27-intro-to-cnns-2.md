@@ -219,6 +219,11 @@ class Softmax:
   # ...
 
   def backprop(self, d_L_d_out):
+    '''
+    Performs a backward pass of the softmax layer.
+    Returns the loss gradient for this layer's inputs.
+    - d_L_d_out is the loss gradient for this layer's outputs.
+    '''
     # We know only 1 element of d_L_d_out will be nonzero
     for i, gradient in enumerate(d_L_d_out):
       if gradient == 0:
@@ -293,6 +298,11 @@ class Softmax:
   # ...
 
   def backprop(self, d_L_d_out):
+    '''
+    Performs a backward pass of the softmax layer.
+    Returns the loss gradient for this layer's inputs.
+    - d_L_d_out is the loss gradient for this layer's outputs.
+    '''
     # We know only 1 element of d_L_d_out will be nonzero
     for i, gradient in enumerate(d_L_d_out):
       if gradient == 0:
@@ -340,6 +350,12 @@ class Softmax
   # ...
 
   def backprop(self, d_L_d_out, learn_rate): # highlight-line
+    '''
+    Performs a backward pass of the softmax layer.
+    Returns the loss gradient for this layer's inputs.
+    - d_L_d_out is the loss gradient for this layer's outputs.
+    - learn_rate is a float # highlight-line
+    '''
     # We know only 1 element of d_L_d_out will be nonzero
     for i, gradient in enumerate(d_L_d_out):
       if gradient == 0:
@@ -473,3 +489,83 @@ MNIST CNN initialized!
 The loss is going down and the accuracy is going up - our CNN is already learning!
 
 ## 4. Backprop: Max Pooling
+
+A Max Pooling layer can't be trained because it doesn't actually have any weights, but we still need to implement a `python›backprop()` method for it to calculate gradients. We'll start by adding forward phase caching again. All we need to cache this time is the input:
+
+```python
+# Header: maxpool.py
+class MaxPool2:
+  # ...
+
+  def forward(self, input):
+    '''
+    Performs a forward pass of the maxpool layer using the given input.
+    Returns a 3d numpy array with dimensions (h / 2, w / 2, num_filters).
+    - input is a 3d numpy array with dimensions (h, w, num_filters)
+    '''
+    self.last_input = input #highlight-line
+
+    # More implementation
+    # ...
+```
+
+During the forward pass, the Max Pooling layer takes an input volume and halves its width and height dimensions by picking the max values over 2x2 blocks. The backward pass does the opposite: **we'll double the width and height** of the loss gradient by assigning each gradient value to **where the original max value was** in its corresponding 2x2 block.
+
+Here's an example. Consider this forward phase for a Max Pooling layer:
+
+![An example forward phase that transforms a 4x4 input to a 2x2 output](/media/cnn-post/maxpool-forward.svg)
+
+The backward phase of that same layer would look like this:
+
+![An example backward phase that transforms a 2x2 gradient to a 4x4 gradient](/media/cnn-post/maxpool-backprop.svg)
+
+Each gradient value is assigned to where the original max value was, and every other value is zero.
+
+We can implement this pretty quickly using the `python›iterate_regions()` helper method we [wrote in Part 1](/blog/intro-to-cnns-part-1/#41-implementing-pooling). I'll include it again as a reminder:
+
+```python
+# Header: maxpool.py
+class MaxPool2:
+  # ...
+
+  def iterate_regions(self, image):
+    '''
+    Generates non-overlapping 2x2 image regions to pool over.
+    - image is a 2d numpy array
+    '''
+    h, w, _ = image.shape
+    new_h = h // 2
+    new_w = w // 2
+
+    for i in range(new_h):
+      for j in range(new_w):
+        im_region = image[(i * 2):(i * 2 + 2), (j * 2):(j * 2 + 2)]
+        yield im_region, i, j
+
+  def backprop(self, d_L_d_out):
+    '''
+    Performs a backward pass of the maxpool layer.
+    Returns the loss gradient for this layer's inputs.
+    - d_L_d_out is the loss gradient for this layer's outputs.
+    '''
+    d_L_d_input = np.zeros(self.last_input.shape)
+
+    for im_region, i, j in self.iterate_regions(self.last_input):
+      h, w, f = im_region.shape
+      amax = np.amax(im_region, axis=(0, 1))
+
+      for i2 in range(h):
+        for j2 in range(w):
+          for f2 in range(f):
+            # If this pixel was the max value, copy the gradient to it.
+            if im_region[i2, j2, f2] == amax[f2]:
+              d_L_d_input[i * 2 + i2, j * 2 + j2, f2] = d_L_d_out[i, j, f2]
+
+    return d_L_d_input
+```
+
+For each pixel in each 2x2 image region in each filter, we copy the gradient from `d_L_d_out` to `d_L_d_input` if it was the max value during the forward pass.
+
+That's it! On to our final layer.
+
+## 5. Backprop: Conv
