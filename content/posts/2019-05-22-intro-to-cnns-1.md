@@ -14,7 +14,7 @@ tags:
   - "Python"
   - "For Beginners"
 description: A simple guide to what CNNs are, how they work, and how to build one from scratch in Python.
-prev: "/blog/better-profanity-detection-with-scikit-learn/"
+prev: "/blog/intro-to-cnns-part-2/"
 next: "/blog/intro-to-random-forests/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1131212626019721217
 discussLinkHN: https://news.ycombinator.com/item?id=19981736
@@ -512,6 +512,6 @@ That's the end of this introduction to CNNs! In this post, we
 - Talked about **Pooling layers**, which can help prune everything but the most useful features.
 - Implemented a **Softmax** layer so we could use **cross-entropy loss**.
 
-There's still much more that we haven't covered yet, such as how to actually train a CNN. **Part 2 of this CNN series will do a deep-dive on training a CNN**, including deriving gradients and implementing backprop. [Subscribe to my newsletter](http://eepurl.com/gf8JCX) if you want to get an email when Part 2 comes out (soon)!
+There's still much more that we haven't covered yet, such as how to actually train a CNN. **[Part 2](/blog/intro-to-cnns-part-2/) of this CNN series does a deep-dive on training a CNN**, including deriving gradients and implementing backprop.
 
 If you're eager to see a trained CNN in action: this [example Keras CNN](https://keras.io/examples/mnist_cnn/) trained on MNIST achieves **99.25%** accuracy. CNNs are powerful!
