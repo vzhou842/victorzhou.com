@@ -659,3 +659,218 @@ With that, we're done! We've implemented a full backward pass through our CNN. T
 
 ## 6. Training a CNN
 
+We'll train our CNN for a few epochs, track its progress during training, and then test it on a separate test set. Here's the full code:
+
+```python
+# Header: cnn.py
+import mnist
+import numpy as np
+from conv import Conv3x3
+from maxpool import MaxPool2
+from softmax import Softmax
+
+# We only use the first 1k examples of each set in the interest of time.
+# Feel free to change this if you want.
+train_images = mnist.train_images()[:1000]
+train_labels = mnist.train_labels()[:1000]
+test_images = mnist.test_images()[:1000]
+test_labels = mnist.test_labels()[:1000]
+
+conv = Conv3x3(8)                  # 28x28x1 -> 26x26x8
+pool = MaxPool2()                  # 26x26x8 -> 13x13x8
+softmax = Softmax(13 * 13 * 8, 10) # 13x13x8 -> 10
+
+def forward(image, label):
+  '''
+  Completes a forward pass of the CNN and calculates the accuracy and
+  cross-entropy loss.
+  - image is a 2d numpy array
+  - label is a digit
+  '''
+  # We transform the image from [0, 255] to [-0.5, 0.5] to make it easier
+  # to work with. This is standard practice.
+  out = conv.forward((image / 255) - 0.5)
+  out = pool.forward(out)
+  out = softmax.forward(out)
+
+  # Calculate cross-entropy loss and accuracy. np.log() is the natural log.
+  loss = -np.log(out[label])
+  acc = 1 if np.argmax(out) == label else 0
+
+  return out, loss, acc
+
+def train(im, label, lr=.005):
+  '''
+  Completes a full training step on the given image and label.
+  Returns the cross-entropy loss and accuracy.
+  - image is a 2d numpy array
+  - label is a digit
+  - lr is the learning rate
+  '''
+  # Forward
+  out, loss, acc = forward(im, label)
+
+  # Calculate initial gradient
+  gradient = np.zeros(10)
+  gradient[label] = -1 / out[label]
+
+  # Backprop
+  gradient = softmax.backprop(gradient, lr)
+  gradient = pool.backprop(gradient)
+  gradient = conv.backprop(gradient, lr)
+
+  return loss, acc
+
+print('MNIST CNN initialized!')
+
+# Train the CNN for 3 epochs
+for epoch in range(3):
+  print('--- Epoch %d ---' % (epoch + 1))
+
+  # Shuffle the training data
+  permutation = np.random.permutation(len(train_images))
+  train_images = train_images[permutation]
+  train_labels = train_labels[permutation]
+
+  # Train!
+  loss = 0
+  num_correct = 0
+  for i, (im, label) in enumerate(zip(train_images, train_labels)):
+    if i > 0 and i % 100 == 99:
+      print(
+        '[Step %d] Past 100 steps: Average Loss %.3f | Accuracy: %d%%' %
+        (i + 1, loss / 100, num_correct)
+      )
+      loss = 0
+      num_correct = 0
+
+    l, acc = train(im, label)
+    loss += l
+    num_correct += acc
+
+# Test the CNN
+print('\n--- Testing the CNN ---')
+loss = 0
+num_correct = 0
+for im, label in zip(test_images, test_labels):
+  _, l, acc = forward(im, label)
+  loss += l
+  num_correct += acc
+
+num_tests = len(test_images)
+print('Test Loss:', loss / num_tests)
+print('Test Accuracy:', num_correct / num_tests)
+```
+
+Example output from running the code:
+
+```
+MNIST CNN initialized!
+--- Epoch 1 ---
+[Step 100] Past 100 steps: Average Loss 2.254 | Accuracy: 18%
+[Step 200] Past 100 steps: Average Loss 2.167 | Accuracy: 30%
+[Step 300] Past 100 steps: Average Loss 1.676 | Accuracy: 52%
+[Step 400] Past 100 steps: Average Loss 1.212 | Accuracy: 63%
+[Step 500] Past 100 steps: Average Loss 0.949 | Accuracy: 72%
+[Step 600] Past 100 steps: Average Loss 0.848 | Accuracy: 74%
+[Step 700] Past 100 steps: Average Loss 0.954 | Accuracy: 68%
+[Step 800] Past 100 steps: Average Loss 0.671 | Accuracy: 81%
+[Step 900] Past 100 steps: Average Loss 0.923 | Accuracy: 67%
+[Step 1000] Past 100 steps: Average Loss 0.571 | Accuracy: 83%
+--- Epoch 2 ---
+[Step 100] Past 100 steps: Average Loss 0.447 | Accuracy: 89%
+[Step 200] Past 100 steps: Average Loss 0.401 | Accuracy: 86%
+[Step 300] Past 100 steps: Average Loss 0.608 | Accuracy: 81%
+[Step 400] Past 100 steps: Average Loss 0.511 | Accuracy: 83%
+[Step 500] Past 100 steps: Average Loss 0.584 | Accuracy: 89%
+[Step 600] Past 100 steps: Average Loss 0.782 | Accuracy: 72%
+[Step 700] Past 100 steps: Average Loss 0.397 | Accuracy: 84%
+[Step 800] Past 100 steps: Average Loss 0.560 | Accuracy: 80%
+[Step 900] Past 100 steps: Average Loss 0.356 | Accuracy: 92%
+[Step 1000] Past 100 steps: Average Loss 0.576 | Accuracy: 85%
+--- Epoch 3 ---
+[Step 100] Past 100 steps: Average Loss 0.367 | Accuracy: 89%
+[Step 200] Past 100 steps: Average Loss 0.370 | Accuracy: 89%
+[Step 300] Past 100 steps: Average Loss 0.464 | Accuracy: 84%
+[Step 400] Past 100 steps: Average Loss 0.254 | Accuracy: 95%
+[Step 500] Past 100 steps: Average Loss 0.366 | Accuracy: 89%
+[Step 600] Past 100 steps: Average Loss 0.493 | Accuracy: 89%
+[Step 700] Past 100 steps: Average Loss 0.390 | Accuracy: 91%
+[Step 800] Past 100 steps: Average Loss 0.459 | Accuracy: 87%
+[Step 900] Past 100 steps: Average Loss 0.316 | Accuracy: 92%
+[Step 1000] Past 100 steps: Average Loss 0.460 | Accuracy: 87%
+
+--- Testing the CNN ---
+Test Loss: 0.5979384893783474
+Test Accuracy: 0.78
+```
+
+Our code works! In only 3000 training steps, we went from a model with 2.3 loss and 10% accuracy to 0.6 loss and 78% accuracy.
+
+**Want to try or tinker with this code yourself? [Run this CNN in your browser](https://repl.it/@vzhou842/A-CNN-from-scratch-Part-2).** It's also available on [Github](https://github.com/vzhou842/cnn-from-scratch/tree/master).
+
+We only used a subset of the entire MNIST dataset for this example in the interest of time - our CNN implementation isn't particularly fast. If we wanted to train a MNIST CNN for real, we'd use an ML library like [Keras](https://keras.io/). To illustrate the power of CNNs, I used Keras to implement and train the _exact same_ CNN we just built from scratch:
+
+```python
+# Header: cnn_keras.py
+import numpy as np
+import mnist
+from keras.models import Sequential
+from keras.layers import Conv2D, MaxPooling2D, Dense, Flatten
+from keras.utils import to_categorical
+from keras.optimizers import SGD
+
+train_images = mnist.train_images()
+train_labels = mnist.train_labels()
+test_images = mnist.test_images()
+test_labels = mnist.test_labels()
+
+train_images = (train_images / 255) - 0.5
+test_images = (test_images / 255) - 0.5
+
+train_images = np.expand_dims(train_images, axis=3)
+test_images = np.expand_dims(test_images, axis=3)
+
+model = Sequential([
+  Conv2D(8, 3, input_shape=(28, 28, 1), use_bias=False),
+  MaxPooling2D(pool_size=2),
+  Flatten(),
+  Dense(10, activation='softmax'),
+])
+
+model.compile(SGD(lr=.005), loss='categorical_crossentropy', metrics=['accuracy'])
+
+model.fit(
+  train_images,
+  to_categorical(train_labels),
+  batch_size=1,
+  epochs=3,
+  validation_data=(test_images, to_categorical(test_labels)),
+)
+```
+
+Running that code gives us results like this:
+
+```
+Epoch 1
+loss: 0.2433 - acc: 0.9276 - val_loss: 0.1176 - val_acc: 0.9634
+Epoch 2
+loss: 0.1184 - acc: 0.9648 - val_loss: 0.0936 - val_acc: 0.9721
+Epoch 3
+loss: 0.0930 - acc: 0.9721 - val_loss: 0.0778 - val_acc: 0.9744
+```
+
+We achieve **97.4%** test accuracy with this simple CNN! With a better CNN architecture, we could improve that even more - in this [official Keras MNIST CNN example](https://keras.io/examples/mnist_cnn/), they achieve **99.25%** test accuracy after 12 epochs. That's a _really_ good accuracy.
+
+**All code from this post is available on [Github](https://github.com/vzhou842/cnn-from-scratch/tree/master).**
+
+## What Now?
+
+We're done! In this 2-part series, we did a full walkthrough of Convolutional Neural Networks, including what they are, how they work, why they're useful, and how to train them. This is just the beginning, though. There's a lot more you could do:
+
+- Experiment with bigger / better CNN using proper ML libraries like [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), or [PyTorch](https://pytorch.org/).
+- Learn about using [Batch Normalization](https://en.wikipedia.org/wiki/Batch_normalization) with CNNs.
+- Understand how **Data Augmentation** can be used to improve image training sets.
+- Read about the [ImageNet](https://en.wikipedia.org/wiki/ImageNet) project and its famous Computer Vision contest, the ImageNet Large Scale Visual Recognition Challenge ([ILSVRC](http://image-net.org/challenges/LSVRC/)).
+
+I'll be writing more about some of these topics in the future, so [subscribe to my newsletter](http://eepurl.com/gf8JCX) if you're interested in reading more about them!
