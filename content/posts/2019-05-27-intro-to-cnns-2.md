@@ -569,3 +569,93 @@ For each pixel in each 2x2 image region in each filter, we copy the gradient fro
 That's it! On to our final layer.
 
 ## 5. Backprop: Conv
+
+We're finally here: backpropagating through a Conv layer is the core of training a CNN. The forward phase caching is simple:
+
+```python
+# Header: conv.py
+class Conv3x3
+  # ...
+
+  def forward(self, input):
+    '''
+    Performs a forward pass of the conv layer using the given input.
+    Returns a 3d numpy array with dimensions (h, w, num_filters).
+    - input is a 2d numpy array
+    '''
+    self.last_input = input # highlight-line
+
+    # More implementation
+    # ...
+```
+
+> Reminder about our implementation: for simplicity, **we assume the input to our conv layer is a 2d array**. This only works for us because we use it as the first layer in our network. If we were building a bigger network that needed to use `Conv3x3` multiple times, we'd have to make the input be a **3d** array.
+
+We're primarily interested in the loss gradient for the filters in our conv layer, since we need that to update our filter weights. We already have $\frac{\partial L}{\partial out}$ for the conv layer, so we just need $\frac{\partial out}{\partial filters}$. To calculate that, we ask ourselves this: how would changing a filter's weight affect the conv layer's output?
+
+The reality is that **changing any filter weights would affect the _entire_ output image** for that filter, since _every_ output pixel uses _every_ pixel weight during convolution. To make this even easier to think about, let's just think about one output pixel at a time: **how would modifying a filter change the output of _one_ specific output pixel?**
+
+Here's a super simple example to help think about this question:
+
+![A 3x3 image (left) convolved with a 3x3 filter (middle) to produce a 1x1 output (right)](/media/cnn-post/conv-gradient-example-1.svg)
+
+We have a 3x3 image convolved with a 3x3 filter of all zeros to produce a 1x1 output. What if we increased the center filter weight by 1? The output would increase by the center image value, 80:
+
+![](/media/cnn-post/conv-gradient-example-2.svg)
+
+Similarly, increasing any of the other filter weights by 1 would increase the output by the value of the corresponding image pixel! This suggests that the derivative of a specific output pixel with respect to a specific filter weight is just the corresponding image pixel value. Doing the math confirms this:
+
+$$
+\begin{aligned}
+\text{out(i, j)} &= \text{convolve(image, filter)} \\
+&= \sum_{x=0}^3 \sum_{y=0}^3 \text{image}(i + x, j + y) * \text{filter}(x, y) \\
+\end{aligned}
+$$
+
+$$
+\frac{\partial \text{out}(i, j)}{\partial \text{filter}(x, y)} = \text{image}(i + x, j + y)
+$$
+
+We can put it all together to find the loss gradient for specific filter weights:
+
+$$
+\begin{aligned}
+\frac{\partial L}{\partial \text{filter}(x, y)} &= \sum_i \sum_j \frac{\partial L}{\partial \text{out}(i, j)} * \frac{\partial \text{out}(i, j)}{\partial \text{filter}(x, y)}
+\end{aligned}
+$$
+
+We're ready to implement backprop for our conv layer!
+
+```python
+# Header: conv.py
+class Conv3x3
+  # ...
+
+  def backprop(self, d_L_d_out, learn_rate):
+    '''
+    Performs a backward pass of the conv layer.
+    - d_L_d_out is the loss gradient for this layer's outputs.
+    - learn_rate is a float.
+    '''
+    d_L_d_filters = np.zeros(self.filters.shape)
+
+    for im_region, i, j in self.iterate_regions(self.last_input):
+      for f in range(self.num_filters):
+        d_L_d_filters[f] += d_L_d_out[i, j, f] * im_region
+
+    # Update filters
+    self.filters -= learn_rate * d_L_d_filters
+
+    # We aren't returning anything here since we use Conv3x3 as
+    # the first layer in our CNN. Otherwise, we'd need to return
+    # the loss gradient for this layer's inputs, just like every
+    # other layer in our CNN.
+    return None
+```
+
+We apply our derived equation by iterating over every image region / filter and incrementally building the loss gradients. Once we've covered everything, we update `python›self.filters` using SGD just as before. Note the comment explaining why we're returning `python›None` - the derivation for the loss gradient of the inputs is very similar to what we just did and is left as an exercise to the reader :).
+
+With that, we're done! We've implemented a full backward pass through our CNN. Time to test it out...
+
+## 6. Training a CNN
+
