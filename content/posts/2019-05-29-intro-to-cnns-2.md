@@ -1,11 +1,11 @@
 ---
 title: "CNNs, Part 2: Training a Convolutional Neural Network"
-date: "2019-05-27T12:00:00.000Z"
+date: "2019-05-29T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
 slug: "/blog/intro-to-cnns-part-2/"
-img:
+img: "https://victorzhou.com/media/cnn-post/maxpool-backprop.png"
 category: "Machine Learning"
 tags:
   - "Machine Learning"
@@ -14,7 +14,7 @@ tags:
   - "Python"
   - "For Beginners"
 description: A simple walkthrough of deriving backpropagation for CNNs and implementing it from scratch in Python.
-prev: "/blog/intro-to-cnns-part-1/"
+prev: "/blog/better-profanity-detection-with-scikit-learn/"
 next: "/blog/intro-to-random-forests/"
 discussLinkTwitter:
 discussLinkHN:
