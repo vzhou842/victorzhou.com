@@ -90,7 +90,7 @@ Training a neural network typically consists of two phases:
 
 We'll follow this pattern to train our CNN. There are also two major implementation-specific ideas we'll use:
 
-- During the forward phase, each layer will **cache** any data (like inputs, intermediate values, etc) it'll need for the backward phase. This means that any backward phase must be preceded by a forward phase.
+- During the forward phase, each layer will **cache** any data (like inputs, intermediate values, etc) it'll need for the backward phase. This means that any backward phase must be preceded by a corresponding forward phase.
 - During the backward phase, each layer will **receive a gradient** and also **return a gradient**. It will receive the gradient of loss with respect to its _outputs_ ($\frac{\partial L}{\partial \text{out}}$) and return the gradient of loss with respect to its _inputs_ ($\frac{\partial L}{\partial \text{in}}$).
 
 These two ideas will help keep our training implementation clean and organized. The best way to see why is probably by looking at code. Training our CNN will ultimately look something like this:
@@ -103,7 +103,7 @@ out = softmax.forward(out)
 
 # Calculate initial gradient
 gradient = np.zeros(10)
-gradient[label] = -1 / out[label]
+# ...
 
 # Backprop
 gradient = softmax.backprop(gradient)
@@ -115,7 +115,7 @@ See how nice and clean that looks? Now imagine building a network with 50 layers
 
 ## 3. Backprop: Softmax
 
-We'll start our way from the end and work our way towards the beginning, since that's how backprop works. First, recall the cross-entropy loss:
+We'll start our way from the end and work our way towards the beginning, since that's how backprop works. First, recall the **cross-entropy loss**:
 
 $$
 L = -\ln(p_c)
@@ -136,7 +136,7 @@ $$
 $$
 <figcaption>Reminder: c is the correct class.</figcaption>
 
-That's where this code you saw above comes from:
+That's our initial gradient you saw referenced above:
 
 ```python
 # Calculate initial gradient
@@ -144,7 +144,7 @@ gradient = np.zeros(10)
 gradient[label] = -1 / out[label]
 ```
 
-Now that we have the initial gradient ready, it's time to implement our first backward phase. To start, let's implementing the forward phase caching we discussed earlier:
+We're almost ready to implement our first backward phase - we just need to first perform the forward phase caching we discussed earlier:
 
 ```python
 # Header: softmax.py
@@ -185,7 +185,11 @@ $$
 out_s(c) = \frac{e^{t_c}}{\sum_i e^{t_i}} = \frac{e^{t_c}}{S}
 $$
 
-where $S = \sum_i e^{t_i}$. Now, consider some class $k$ such that $k \neq c$. We can rewrite $out_s(c)$ as:
+where $S = \sum_i e^{t_i}$.
+
+> You should recognize the equation above from the [Softmax](/blog/intro-to-cnns-part-1/#5-softmax) section in Part 1 of this series.
+
+Now, consider some class $k$ such that $k \neq c$. We can rewrite $out_s(c)$ as:
 
 $$
 out_s(c) = e^{t_c} S^{-1}
@@ -211,7 +215,7 @@ $$
 \end{aligned}
 $$
 
-Phew. That was the hardest bit of calculus - it gets easier from here! Let's start implementing this:
+Phew. That was the hardest bit of calculus in this entire post - it only gets easier from here! Let's start implementing this:
 
 ```python
 # Header: softmax.py
@@ -332,6 +336,8 @@ class Softmax:
       d_L_d_b = d_L_d_t * d_t_d_b
       d_L_d_inputs = d_t_d_inputs @ d_L_d_t
       # highlight-end
+
+      # ... to be continued
 ```
 
 First, we pre-calculate `d_L_d_t` since we'll use it several times. Then, we calculate each gradient:
