@@ -67,7 +67,7 @@ def forward(image, label):
   return out, loss, acc
 ```
 
-You can **view the code or [run the CNN in your browser](https://repl.it/@vzhou842/A-CNN-from-scratch-Part-1)**. It's also available on [Github](https://github.com/vzhou842/cnn-from-scratch/tree/master).
+You can **view the code or [run the CNN in your browser](https://repl.it/@vzhou842/A-CNN-from-scratch-Part-1)**. It's also available on [Github](https://github.com/vzhou842/cnn-from-scratch).
 
 Here's what the output of our CNN looks like right now:
 
@@ -815,7 +815,7 @@ Test Accuracy: 0.78
 
 Our code works! In only 3000 training steps, we went from a model with 2.3 loss and 10% accuracy to 0.6 loss and 78% accuracy.
 
-**Want to try or tinker with this code yourself? [Run this CNN in your browser](https://repl.it/@vzhou842/A-CNN-from-scratch-Part-2).** It's also available on [Github](https://github.com/vzhou842/cnn-from-scratch/tree/master).
+**Want to try or tinker with this code yourself? [Run this CNN in your browser](https://repl.it/@vzhou842/A-CNN-from-scratch-Part-2).** It's also available on [Github](https://github.com/vzhou842/cnn-from-scratch).
 
 We only used a subset of the entire MNIST dataset for this example in the interest of time - our CNN implementation isn't particularly fast. If we wanted to train a MNIST CNN for real, we'd use an ML library like [Keras](https://keras.io/). To illustrate the power of CNNs, I used Keras to implement and train the _exact same_ CNN we just built from scratch:
 
@@ -870,7 +870,7 @@ loss: 0.0930 - acc: 0.9721 - val_loss: 0.0778 - val_acc: 0.9744
 
 We achieve **97.4%** test accuracy with this simple CNN! With a better CNN architecture, we could improve that even more - in this [official Keras MNIST CNN example](https://keras.io/examples/mnist_cnn/), they achieve **99.25%** test accuracy after 12 epochs. That's a _really_ good accuracy.
 
-**All code from this post is available on [Github](https://github.com/vzhou842/cnn-from-scratch/tree/master).**
+**All code from this post is available on [Github](https://github.com/vzhou842/cnn-from-scratch).**
 
 ## What Now?
 
