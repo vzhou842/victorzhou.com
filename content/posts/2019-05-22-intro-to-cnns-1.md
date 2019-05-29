@@ -500,7 +500,7 @@ MNIST CNN initialized!
 
 This makes sense: with random weight initialization, you'd expect the CNN to be only as good as random guessing. Random guessing would yield 10% accuracy (since there are 10 classes) and a cross-entropy loss of ${-\ln(0.1)} = 2.302$, which is what we get!
 
-**Want to try or tinker with this code yourself? [Run this CNN in your browser](https://repl.it/@vzhou842/A-CNN-from-scratch-Part-1).** It's also available on [Github](https://github.com/vzhou842/cnn-from-scratch/tree/master).
+**Want to try or tinker with this code yourself? [Run this CNN in your browser](https://repl.it/@vzhou842/A-CNN-from-scratch-Part-1).** It's also available on [Github](https://github.com/vzhou842/cnn-from-scratch/tree/forward-only).
 
 ## 6. Conclusion
 
