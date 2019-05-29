@@ -521,6 +521,8 @@ The backward phase of that same layer would look like this:
 
 Each gradient value is assigned to where the original max value was, and every other value is zero.
 
+Why does the backward phase for a Max Pooling layer work like this? Think about what $\frac{\partial L}{\partial inputs}$ intuitively should be. An input pixel that isn't the max value in its 2x2 block would have _zero_ marginal effect on the loss, because changing that value slightly wouldn't change the output at all! In other words, $\frac{\partial L}{\partial input} = 0$ for non-max pixels. On the other hand, an input pixel that _is_ the max value would have its value passed through to the output, so $\frac{\partial output}{\partial input} = 1$, meaning $\frac{\partial L}{\partial input} = \frac{\partial L}{\partial output}$.
+
 We can implement this pretty quickly using the `python›iterate_regions()` helper method we [wrote in Part 1](/blog/intro-to-cnns-part-1/#41-implementing-pooling). I'll include it again as a reminder:
 
 ```python
