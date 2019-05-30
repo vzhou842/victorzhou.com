@@ -1,7 +1,16 @@
+// @flow
 import React from 'react';
 import styles from './SubscribeForm.module.scss';
 
-const SubscribeForm = ({ signupSource, large, noDescription, noSpacing, onKeyDown }) => (
+type Props = {|
+  +signupSource: string,
+  +large: bool,
+  +noDescription: bool,
+  +noSpacing: bool,
+  +onKeyDown: Function,
+|};
+
+const SubscribeForm = ({ signupSource, large, noDescription, noSpacing, onKeyDown }: Props) => (
   <div
     className={`${styles['container']} ${large ? styles['large'] : ''} ${
       noSpacing ? styles['no-spacing'] : ''

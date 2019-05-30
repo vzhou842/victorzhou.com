@@ -1,11 +1,18 @@
+// @flow
 import React from 'react';
 import styles from './Discuss.module.scss';
+
+type Props = {|
+  +twitter: string,
+  +hn: string,
+  +reddit: string,
+|};
 
 function openLink(link) {
   window.open(link);
 }
 
-export default ({ twitter, hn, reddit }) => (
+export default ({ twitter, hn, reddit }: Props) => (
   twitter || hn || reddit ? (
     <div className={styles['discuss']}>
       <h4 className={styles['discuss-title']}>DISCUSS ON</h4>

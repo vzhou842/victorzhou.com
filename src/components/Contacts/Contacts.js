@@ -1,9 +1,14 @@
+// @flow
 import React from 'react';
 import { getContactHref, getIcon } from '../../utils';
 import Icon from '../Icon';
 import styles from './Contacts.module.scss';
 
-const Contacts = ({ contacts }) => (
+type Props = {|
+  +contacts: Object,
+|};
+
+const Contacts = ({ contacts }: Props) => (
   <div className={styles['contacts']}>
     <ul className={styles['contacts__list']}>
       {Object.keys(contacts).map((name) => (

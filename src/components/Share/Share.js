@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
 import {
@@ -8,7 +9,17 @@ import {
 } from 'react-share';
 import styles from './Share.module.scss';
 
-const PureShare = ({ title, url, shareText, twitter }) => (
+type Props = {
+  +title: string,
+  +url: string,
+  +shareText: string,
+};
+
+type PureProps = {
+  +twitter: string,
+} & Props;
+
+const PureShare = ({ title, url, shareText, twitter }: PureProps) => (
   <div className={styles['share']}>
     <h4 className={styles['share-title']}>{shareText || 'SHARE THIS POST'}</h4>
     <div className={styles['share-buttons']}>
@@ -28,7 +39,7 @@ const PureShare = ({ title, url, shareText, twitter }) => (
   </div>
 );
 
-export const Share = ({ url, ...props }) => (
+export const Share = ({ url, ...props }: Props) => (
   <StaticQuery
     query={graphql`
       query ShareQuery {

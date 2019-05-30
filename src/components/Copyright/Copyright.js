@@ -1,7 +1,12 @@
+// @flow
 import React from 'react';
 import styles from './Copyright.module.scss';
 
-const Copyright = ({ copyright }) => (
+type Props = {|
+  +copyright: string,
+|};
+
+const Copyright = ({ copyright }: Props) => (
   <p className={styles['copyright']}>
     {copyright}
   </p>
