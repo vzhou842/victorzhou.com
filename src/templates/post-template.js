@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
@@ -7,7 +8,12 @@ import NavHeader from '../components/NavHeader';
 import SubscribePopup from '../components/SubscribePopup';
 import CarbonAd from '../components/CarbonAd';
 
-const PostTemplate = ({ data, pageContext }) => {
+type Props = {|
+  +data: Object,
+  +pageContext: Object,
+|};
+
+const PostTemplate = ({ data, pageContext }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
   const { edges } = data.allMarkdownRemark;
   const { slug, prev, next } = pageContext;

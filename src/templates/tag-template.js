@@ -1,3 +1,4 @@
+// @flow
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
@@ -6,7 +7,12 @@ import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 
-const TagTemplate = ({ data, pageContext }) => {
+type Props = {|
+  +data: Object,
+  +pageContext: Object,
+|};
+
+const TagTemplate = ({ data, pageContext }: Props) => {
   const {
     title: siteTitle,
     subtitle: siteSubtitle
