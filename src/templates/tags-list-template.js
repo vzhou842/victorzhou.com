@@ -4,6 +4,7 @@ import kebabCase from 'lodash/kebabCase';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
+import MovableSidebarContent from '../components/MovableSidebarContent';
 
 const TagsListTemplate = ({ data }) => {
   const {
@@ -13,20 +14,23 @@ const TagsListTemplate = ({ data }) => {
   const { group } = data.allMarkdownRemark;
 
   return (
-    <Layout title={`Tags - ${title}`} description={subtitle}>
-      <Sidebar />
-      <Page title="Tags">
-        <ul>
-          {group.map((tag) => (
-            <li key={tag.fieldValue}>
-              <Link to={`/tag/${kebabCase(tag.fieldValue)}/`}>
-                {tag.fieldValue} ({tag.totalCount})
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Page>
-    </Layout>
+    <div>
+      <Layout title={`Tags - ${title}`} description={subtitle}>
+        <Sidebar />
+        <Page title="Tags">
+          <ul>
+            {group.map((tag) => (
+              <li key={tag.fieldValue}>
+                <Link to={`/tag/${kebabCase(tag.fieldValue)}/`}>
+                  {tag.fieldValue} ({tag.totalCount})
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Page>
+      </Layout>
+      <MovableSidebarContent mobile />
+    </div>
   );
 };
 

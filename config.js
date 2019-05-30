@@ -16,6 +16,10 @@ module.exports = {
       label: 'About',
       path: '/about/'
     },
+    {
+      label: 'Tags',
+      path: '/tags/',
+    },
   ],
   author: {
     name: 'Victor Zhou',
