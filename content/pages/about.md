@@ -13,4 +13,6 @@ A few of my more well-known projects include:
 - [**GeoArena Online**](https://geoarena.online) [[subreddit](https://reddit.com/r/geoarena), [Product Hunt](https://www.producthunt.com/posts/geoarena-online)], a fast-paced multiplayer browser game that had hundreds of thousands of monthly players. I wrote a [blog post](/blog/why-you-should-use-webpack/) about some of my experiences building GeoArena. Sold in February 2019.
 - [**profanity-check**](https://github.com/vzhou842/profanity-check) [[Hacker News](https://news.ycombinator.com/item?id=18777950)], a fast, robust Python library to check for profanity in strings. [Read my blog post](/blog/better-profanity-detection-with-scikit-learn/) about this project.
 
-The best way to get in touch with me is emailing me at [vzhou842@gmail.com](mailto:vzhou842@gmail.com).
+I've spoken on a tech podcast about my experiences [building and selling games](/blog/creating-and-selling-io-games/) like generals.io and GeoArena.
+
+The best way to get in touch with me is emailing me at [vzhou842@gmail.com](mailto:vzhou842@gmail.com) or [tweeting at me](https://twitter.com/victorczhou).
