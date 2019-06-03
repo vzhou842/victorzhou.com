@@ -16,8 +16,8 @@ tags:
 description: A simple walkthrough of deriving backpropagation for CNNs and implementing it from scratch in Python.
 prev: "/blog/better-profanity-detection-with-scikit-learn/"
 next: "/blog/intro-to-random-forests/"
-discussLinkTwitter:
-discussLinkHN:
+discussLinkTwitter: https://twitter.com/victorczhou/status/1133752584383205377
+discussLinkHN: https://news.ycombinator.com/item?id=20064900
 discussLinkReddit:
 ---
 
