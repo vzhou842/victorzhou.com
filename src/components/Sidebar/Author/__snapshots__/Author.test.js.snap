@@ -13,7 +13,7 @@ exports[`Author renders correctly 1`] = `
       <img
         alt="test"
         className="author__photo"
-        src="/photo.png"
+        src="/photo2.png"
       />
     </Link>
     <h2

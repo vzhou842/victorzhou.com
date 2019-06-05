@@ -23,8 +23,8 @@ module.exports = {
   ],
   author: {
     name: 'Victor Zhou',
-    photo: '/photo.png',
-    photoLarge: '/photo-large.png',
+    photo: '/photo2.png',
+    photoLarge: '/photo2-large.png',
     bio: 'Computer Science at Princeton University. I blog about <a href="/tag/web-development/">web development</a>, <a href="/tag/machine-learning/">machine learning</a>, <a href="/tag/programming/">programming</a>, and <a href="/tags/">more</a>.',
     contacts: {
       email: 'vzhou842@gmail.com',

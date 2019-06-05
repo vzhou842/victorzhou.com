@@ -4,7 +4,7 @@ date: "2019-05-24T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/creating-and-selling-io-games/"
-img: "https://victorzhou.com/photo-large.png"
+img: "https://victorzhou.com/photo2-large.png"
 asyncScript: "//cdn.changelog.com/embed.js"
 category: "Game Development"
 tags:
