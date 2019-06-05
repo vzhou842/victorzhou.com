@@ -6,7 +6,7 @@
   display: flex;
 
   &__prev {
-    width: 50%;
+    flex-grow: 1;
     text-align: left;
 
     &-link {
@@ -23,13 +23,11 @@
         pointer-events: none;
         color: lighten($color-gray, 20%);
       }
-
     }
-
   }
 
   &__next {
-    width: 50%;
+    flex-grow: 1;
     text-align: right;
 
     &-link {
@@ -46,9 +44,11 @@
         pointer-events: none;
         color: lighten($color-gray, 20%);
       }
-
     }
-
   }
 
+  &__text {
+    margin: 0;
+    font-weight: 600;
+  }
 }

@@ -24,7 +24,8 @@ const TagTemplate = ({ data, pageContext }: Props) => {
     prevPagePath,
     nextPagePath,
     hasPrevPage,
-    hasNextPage
+    hasNextPage,
+    numPages,
   } = pageContext;
 
   const { edges } = data.allMarkdownRemark;
@@ -36,10 +37,12 @@ const TagTemplate = ({ data, pageContext }: Props) => {
       <Page title={tag} subtitle={<a href="/tags/">← Back to All Tags</a>}>
         <Feed edges={edges} />
         <Pagination
+          currentPage={currentPage}
           prevPagePath={prevPagePath}
           nextPagePath={nextPagePath}
           hasPrevPage={hasPrevPage}
           hasNextPage={hasNextPage}
+          numPages={numPages}
         />
       </Page>
     </Layout>

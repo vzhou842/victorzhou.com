@@ -15,6 +15,11 @@ exports[`Pagination renders correctly 1`] = `
       ← PREV
     </Link>
   </div>
+  <p
+    className="pagination__text"
+  >
+    3 of 5
+  </p>
   <div
     className="pagination__next"
   >

@@ -8,10 +8,12 @@ const cx = classNames.bind(styles);
 
 const Pagination = ({
   classes,
+  currentPage,
   prevPagePath,
   nextPagePath,
   hasNextPage,
   hasPrevPage,
+  numPages,
 }) => {
   if (!hasNextPage && !hasPrevPage) {
     return null;
@@ -32,6 +34,9 @@ const Pagination = ({
       <div className={styles['pagination__prev']}>
         <Link rel="prev" to={prevPagePath} className={prevClassName}>{PAGINATION.PREV_PAGE}</Link>
       </div>
+      {(hasNextPage || hasPrevPage) && (
+        <p className={styles['pagination__text']}>{`${currentPage + 1} of ${numPages}`}</p>
+      )}
       <div className={styles['pagination__next']}>
         <Link rel="next" to={nextPagePath} className={nextClassName}>{PAGINATION.NEXT_PAGE}</Link>
       </div>
