@@ -27,9 +27,8 @@
         border-radius: 3px;
         color: $color-base;
 
-        &:hover,
-        &:focus {
-          color: $color-primary;
+        &:hover, &:focus {
+          color: $color-secondary;
         }
       }
     }
