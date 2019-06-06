@@ -1,11 +1,11 @@
 ---
 title: A Simple Explanation of Information Gain and Entropy
-date: "2019-06-06T12:00:00.000Z"
+date: "2019-06-07T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
 slug: "/blog/information-gain/"
-img:
+img: "https://victorzhou.com/media/gini-impurity-post/dataset-imperfect-split.png"
 category: "Machine Learning"
 tags:
   - "Machine Learning"
