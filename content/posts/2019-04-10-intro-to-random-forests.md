@@ -264,6 +264,7 @@ That's a beginner's introduction to Random Forests! A quick recap of what we did
 
 A few things you could do from here:
 
+- Read about [Information Gain](/blog/information-gain/), a metric similar to Gini Impurity that can also be used to quantify how "good" a split is.
 - Experiment with scikit-learn's [DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html) and [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) classes on real datasets.
 - Try writing a simple Decision Tree or Random Forest implementation from scratch. I'm happy to give guidance or code review! Just [tweet at me](https://twitter.com/victorczhou) or [email me](mailto:vzhou842@gmail.com).
 - Read about [Gradient Boosted Decision Trees](https://en.wikipedia.org/wiki/Gradient_boosting#Gradient_tree_boosting) and play with [XGBoost](https://xgboost.readthedocs.io/en/latest/), a powerful gradient boosting library.
