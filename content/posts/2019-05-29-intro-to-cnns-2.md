@@ -817,7 +817,7 @@ Our code works! In only 3000 training steps, we went from a model with 2.3 loss 
 
 **Want to try or tinker with this code yourself? [Run this CNN in your browser](https://repl.it/@vzhou842/A-CNN-from-scratch-Part-2).** It's also available on [Github](https://github.com/vzhou842/cnn-from-scratch).
 
-We only used a subset of the entire MNIST dataset for this example in the interest of time - our CNN implementation isn't particularly fast. If we wanted to train a MNIST CNN for real, we'd use an ML library like [Keras](https://keras.io/). To illustrate the power of CNNs, I used Keras to implement and train the _exact same_ CNN we just built from scratch:
+We only used a subset of the entire MNIST dataset for this example in the interest of time - our CNN implementation isn't particularly fast. If we wanted to train a MNIST CNN for real, we'd use an ML library like [Keras](https://keras.io/). To illustrate the power of our CNN, I used Keras to implement and train the _exact same_ CNN we just built from scratch:
 
 ```python
 # Header: cnn_keras.py
@@ -857,7 +857,7 @@ model.fit(
 )
 ```
 
-Running that code gives us results like this:
+Running that code on the _full_ MNIST dataset (60k training images) gives us results like this:
 
 ```
 Epoch 1
