@@ -179,7 +179,37 @@ module.exports = {
         icon: 'static/favicon.png'
       },
     },
-    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        runtimeCaching: [
+          {
+            // Use cacheFirst since these don't need to be revalidated (same RegExp
+            // and same reason as above)
+            urlPattern: /(\.js$|\.css$|static\/)/,
+            handler: 'cacheFirst',
+          },
+          {
+            // Add runtime caching of various other page resources
+            urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+            handler: 'staleWhileRevalidate',
+          },
+          {
+            // Google Fonts CSS (doesn't end in .css so we need to specify it)
+            urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
+            handler: 'staleWhileRevalidate',
+          },
+          // Everything above is from the default config.
+          {
+            // Intended to make sure the root page always hits the network.
+            // Does this actually work? idk.
+            // Why doesn't the root page always hit the network? Also idk.
+            urlPattern: new RegExp(`${siteConfig.url}/$`),
+            handler: 'networkFirst',
+          },
+        ],
+      }
+    },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
     {
