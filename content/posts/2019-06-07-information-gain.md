@@ -12,7 +12,7 @@ tags:
   - "For Beginners"
   - "Decision Trees"
   - "Random Forests"
-description: What Information Gain is (with examples) and how it's used to train Decision Trees.
+description: What Information Gain and Information Entropy are and how they're used to train Decision Trees.
 prev: "/blog/gini-impurity/"
 next: "/blog/intro-to-random-forests/"
 ---
@@ -36,7 +36,7 @@ next: "/blog/intro-to-random-forests/"
 }
 </style>
 
-Information Gain, like [Gini Impurity](/blog/gini-impurity/), is a metric used to train Decision Trees. Specifically, it measures the **quality of a split**. For example, say we have the following data:
+Information Gain, like [Gini Impurity](/blog/gini-impurity/), is a metric used to train Decision Trees. Specifically, these metrics measure the **quality of a split**. For example, say we have the following data:
 
 ![The Dataset](./media-link/gini-impurity-post/dataset.svg)
 
@@ -49,7 +49,7 @@ This imperfect split breaks our dataset into these branches:
 - Left branch, with 4 blues. <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span> <span class="inline-point blue"></span>
 - Right branch, with 1 blue and 5 greens. <span class="inline-point blue"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span> <span class="inline-point green"></span>
 
-It's clear this split isn't optimal, but how good is it? **How can we quantify the quality of a split?**
+It's clear this split isn't optimal, but how good is it? **How can we _quantify_ the quality of a split?**
 
 That's where Information Gain comes in.
 
@@ -57,18 +57,18 @@ That's where Information Gain comes in.
 
 ## Information Entropy
 
-Before we get to Information Gain, we have to talk about [Information Entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory)). In the context of training Decision Trees, Entropy can be roughly thought of as **how much variance the data has**. For example:
+Before we get to Information Gain, we have to first talk about [Information Entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory)). In the context of training Decision Trees, Entropy can be roughly thought of as **how much variance the data has**. For example:
 
 - A dataset of only blues <span class="inline-point blue"></span><span class="inline-point blue"></span><span class="inline-point blue"></span><span class="inline-point blue"></span> would have very **low** (in fact, zero) entropy.
 - A dataset of mixed blues, greens, and reds <span class="inline-point blue"></span><span class="inline-point blue"></span><span class="inline-point green"></span><span class="inline-point green"></span><span class="inline-point red"></span><span class="inline-point red"></span> would have relatively **high** entropy.
 
-Here's how we calculate Information Entropy:
+Here's how we calculate Information Entropy for a dataset with $C$ classes:
 
 $$
 E = -\sum_i^C p_i \log_2 p_i
 $$
 
-where $C$ is the total number of classes and $p_i$ is the probability of randomly picking an element of class $i$ from the dataset (i.e. the proportion of the dataset made up of class $i$).
+where $p_i$ is the probability of randomly picking an element of class $i$ (i.e. the proportion of the dataset made up of class $i$).
 
 The easiest way to understand this is with an example. Consider a dataset with 1 blue, 2 greens, and 3 reds: <span class="inline-point blue"></span><span class="inline-point green"></span><span class="inline-point green"></span><span class="inline-point red"></span><span class="inline-point red"></span><span class="inline-point red"></span>. Then
 
@@ -76,7 +76,7 @@ $$
 E = -(p_b \log_2 p_b + p_g \log_2 p_g + p_r \log_2 p_r)
 $$
 
-We know $p_b = \frac{1}{6}$ because $\frac{1}{6}$ of the dataset is blue. Similarly, $p_g = \frac{2}{6}$ and $p_r = \frac{3}{6}$. Thus,
+We know $p_b = \frac{1}{6}$ because $\frac{1}{6}$ of the dataset is blue. Similarly, $p_g = \frac{2}{6}$ (greens) and $p_r = \frac{3}{6}$ (reds). Thus,
 
 $$
 \begin{aligned}
@@ -95,9 +95,9 @@ $$
 
 It's finally time to answer the question we posed earlier: **how can we quantify the quality of a split?**
 
-Let's consider this split:
+Let's consider this split again:
 
-![](./media-link/gini-impurity-post/dataset-imperfect-split.svg)
+![An Imperfect Split](./media-link/gini-impurity-post/dataset-imperfect-split.svg)
 
 _Before_ the split, we had 5 blues and 5 greens, so the entropy was
 
@@ -121,7 +121,7 @@ E_{right} &= -(\frac{1}{6} \log_2 (\frac{1}{6}) + \frac{5}{6} \log_2 (\frac{5}{6
 \end{aligned}
 $$
 
-Now that we have the entropies for both branches, we can determine the quality of the split by **weighting the entropy of each branch by how many elements it has**. Since Left Branch has 4 elements and Right Branch has 6, we get:
+Now that we have the entropies for both branches, we can determine the quality of the split by **weighting the entropy of each branch by how many elements it has**. Since Left Branch has 4 elements and Right Branch has 6, we weight them by $0.4$ and $0.6$, respectively:
 
 $$
 \begin{aligned}
@@ -136,7 +136,7 @@ $$
 \text{Gain} = 1 - 0.39 = \boxed{0.61}
 $$
 
-This makes sense: **higher Information Gain = more Entropy removed**, which is what we want. In the perfect case, each branch would only contain one color after the split, which would be zero entropy!
+This makes sense: **higher Information Gain = more Entropy removed**, which is what we want. In the perfect case, each branch would contain only one color after the split, which would be zero entropy!
 
 ## Recap
 
@@ -153,4 +153,4 @@ $$
 
 **Information Gain** is calculated for a split by subtracting the weighted entropies of each branch from the original entropy. When training a Decision Tree using these metrics, the best split is chosen by maximizing Information Gain.
 
-Want to learn more? Check out my explanation of [Gini Impurity](/blog/gini-impurity/), a similar metric, or my guide [Random Forests for Complete Beginners](/blog/intro-to-random-forests/).
+Want to learn more? Check out my explanation of [Gini Impurity](/blog/gini-impurity/), a similar metric, or my in-depth guide [Random Forests for Complete Beginners](/blog/intro-to-random-forests/).
