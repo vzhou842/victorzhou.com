@@ -13,7 +13,7 @@ tags:
   - "Flow"
 description: Integrating the Flow static type checker with a full-stack Javascript project.
 prev: "/blog/build-an-io-game-part-1/"
-next: "/blog/why-you-should-use-webpack/"
+next: "/blog/why-static-type-check-javascript/"
 ---
 
 Javascript is untyped, meaning it doesn't have a built-in [type system](https://en.wikipedia.org/wiki/Type_system). This **lack of type safety makes it really easy to introduce bugs** in Javascript code. Here's a classic example:
