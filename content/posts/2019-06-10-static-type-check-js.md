@@ -164,7 +164,6 @@ Finally, let's initialize Flow by running
 
 ```bash
 $ npm run flow init
-
 ```
 
 This creates an empty `.flowconfig` file for us. That's it! Now we can use Flow!
