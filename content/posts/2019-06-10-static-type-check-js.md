@@ -4,13 +4,13 @@ date: "2019-06-10T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/why-static-type-check-javascript/"
-img:
+img: "https://victorzhou.com/media/flow-post/flow-homepage.png"
 category: "Javascript"
 tags:
   - "Javascript"
   - "Web Development"
   - "Flow"
-description: The pros and cons (but mostly pros) of using a static type checker for Javascript.
+description: The pros and cons of using a static type checker for Javascript.
 prev: "/blog/using-flow-with-nodejs/"
 next: "/blog/why-you-should-use-webpack/"
 ---
@@ -92,6 +92,8 @@ You get the point.
 **How can we prevent these and other kinds of type-related bugs?** How can we stop Javascript from letting us do so much nonsense?
 
 ## Static Type Checking for Javascript
+
+![](./media-link/flow-post/flow-homepage.png "The Flow homepage.")
 
 One good solution is to use a **static type checker** like [Flow](https://flow.org) or [TypeScript](https://www.typescriptlang.org/). These let you add types to your code and then remove them during build (compile) time to leave normal Javascript code. Here's a simple example of Flow trivially fixing our earlier code:
 
