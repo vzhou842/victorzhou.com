@@ -1,3 +1,4 @@
+// This is a super simple web server, so there's no need to use Flow here.
 const express = require('express');
 const path = require('path');
 
