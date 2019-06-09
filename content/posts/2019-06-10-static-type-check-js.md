@@ -241,9 +241,10 @@ Again, often times this pace slowdown is **worth the benefits**. If you're worki
 
 Using a static type checker for Javascript can greatly **improve the safety** of your code, but it does comes with drawbacks you should be thinking about.
 
-Some example open-source Flow implementations:
+Some Flow resources:
 
-- [victorzhou.com](https://github.com/vzhou842/victorzhou.com) (yes, this blog!).
-- [example-io-game](https://github.com/vzhou842/example-.io-game/tree/flow), our example from this post.
+- An example Flow implementation: [victorzhou.com](https://github.com/vzhou842/victorzhou.com) (yes, this blog!).
+- Another example: [example-io-game](https://github.com/vzhou842/example-.io-game/tree/flow), our example from this post.
+- [Try Flow in your browser](https://flow.org/try/) on the official Flow site.
 
 Did you know that you can also use Flow **with Node.js** to type-check your backend Javascript code? If you're interested, read more about [how to use Flow with a Node.js project](/blog/using-flow-with-nodejs/).
