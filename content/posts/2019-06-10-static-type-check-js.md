@@ -140,7 +140,7 @@ Then, we need to make sure Babel strips out our Flow typings at build time. This
 ```json
 // Header: .babelrc
 {
-  "presets": ["@babel/flow"]
+  "presets": ["@babel/preset-flow"]
 }
 ```
 <figcaption>We create a .babelrc since we don't already have one.</figcaption>
@@ -216,3 +216,32 @@ No errors!
 ```
 
 We can now incrementally enable Flow for the rest of our client JS files. We've fully integrated Flow!
+
+## The Bad
+
+We've seen some of The Good. What about The Bad?
+
+In my opinion, there are 2 primary kinds of drawbacks to using something like Flow: I'll refer to them broadly as **investment** and **pace**.
+
+### The Bad #1: Investment
+
+In short: learning and using Flow can be a big investment. This is especially true if you're working with other developers: are you going to make _everyone_ learn and use Flow? As with any new technology, there's work you have to put in **upfront** in order to reap rewards down the line.
+
+Often times, this investment is worth it. But, depending on the project, you might be better of skipping static typing.
+
+### The Bad #2: Pace
+
+Using Flow will almost certainly slow down how fast you can develop (but maybe that's a good thing...). Adding types will **increase the verbosity** of your code and possibly make it a bit harder to read. Plus, sometimes you'll run into situations where you know what you're doing is fine but Flow doesn't believe you, usually because it doesn't support that specific scenario well. Jumping through a few hoops to write your code the way you want to can be a bit of a nuisance.
+
+Again, often times this pace slowdown is **worth the benefits**. If you're working on a large project that's built to last, using Flow is almost certainly a good idea. On the other hand, if you're just throwing together a small weekend project, it's probably safe to skip static typing.
+
+## To Recap...
+
+Using a static type checker for Javascript can greatly **improve the safety** of your code, but it does comes with drawbacks you should be thinking about.
+
+Some example open-source Flow implementations:
+
+- [victorzhou.com](https://github.com/vzhou842/victorzhou.com) (yes, this blog!).
+- [example-io-game](https://github.com/vzhou842/example-.io-game/tree/flow), our example from this post.
+
+Did you know that you can also use Flow **with Node.js** to type-check your backend Javascript code? If you're interested, read more about [how to use Flow with a Node.js project](/blog/using-flow-with-nodejs/).
