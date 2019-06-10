@@ -5,8 +5,10 @@ import PostTemplate from './post-template';
 const edge = (slug, prev, next) => ({
   node: {
     html: '<p>test</p>',
+    excerpt: 'testing text',
     fields: {
       tagSlugs: ['/test_0', '/test_1'],
+      readingTime: { words: 100 },
     },
     frontmatter: {
       date: '2016-09-01',

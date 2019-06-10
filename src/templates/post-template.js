@@ -14,7 +14,7 @@ type Props = {|
 |};
 
 const PostTemplate = ({ data, pageContext }: Props) => {
-  const { title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
+  const { title: siteTitle, subtitle: siteSubtitle, url: siteUrl } = data.site.siteMetadata;
   const { edges } = data.allMarkdownRemark;
   const { slug, prev, next } = pageContext;
 
@@ -25,11 +25,14 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   const {
     asyncScript,
     canonical,
+    category,
+    date,
     img: imgUrl,
     title: postTitle,
     description: postDescription,
     twitterEmbed,
   } = slugNode.frontmatter;
+  const { readingTime } = slugNode.fields;
 
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
 
@@ -47,6 +50,30 @@ const PostTemplate = ({ data, pageContext }: Props) => {
           {asyncScript && (
             <script async src={asyncScript} />
           )}
+          <script type="application/ld+json">
+            {
+`{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "image": "${imgUrl}",
+  "url": "${siteUrl + slug}",
+  "headline": "${postTitle}",
+  "description": "${postDescription}",
+  "wordcount": "${readingTime.words}",
+  "dateCreated": "${date}",
+  "datePublished": "${date}",
+  "dateModified": "${date}",
+  "inLanguage": "en-US",
+  "articleBody": "${slugNode.excerpt}",
+  "articleSection": "${category}",
+  "author": {
+    "@type": "Person",
+    "name": "Victor Zhou",
+    "url": "${siteUrl}"
+  }
+}`
+            }
+          </script>
         </Helmet>
         <Post post={slugNode} prevPost={prevNode} nextPost={nextNode} />
       </Layout>
@@ -68,6 +95,7 @@ export const fragment = graphql`
   fragment PostFragment on Query {
     site {
       siteMetadata {
+        url
         subtitle
         title
       }
@@ -77,12 +105,17 @@ export const fragment = graphql`
         node {
           id
           html
+          excerpt(pruneLength: 5000)
           fields {
             tagSlugs
+            readingTime {
+              words
+            }
           }
           frontmatter {
             asyncScript
             canonical
+            category
             date
             description
             img
