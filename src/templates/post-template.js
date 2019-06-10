@@ -64,12 +64,24 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   "datePublished": "${date}",
   "dateModified": "${date}",
   "inLanguage": "en-US",
+  "mainEntityOfPage": "True",
   "articleBody": "${slugNode.excerpt}",
   "articleSection": "${category}",
   "author": {
     "@type": "Person",
     "name": "Victor Zhou",
     "url": "${siteUrl}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Victor Zhou",
+    "url": "${siteUrl}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "${siteUrl}/photo2-large.png",
+      "width":"1024",
+      "height":"1024"
+    }
   }
 }`
             }
