@@ -1,18 +1,17 @@
 ---
-title: Using Flow to Type Check a Node.js Project
+title: Using Flow to Type Check a Node.js Codebase
 date: "2019-06-10T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/using-flow-with-nodejs/"
-img:
+img: "https://victorzhou.com/media/flow-post/flow-homepage.png"
 category: "Javascript"
 tags:
   - "Javascript"
   - "Node.js"
-  - "Web Development"
   - "Flow"
-description: Integrating the Flow static type checker with a full-stack Javascript project.
-prev: "/blog/build-an-io-game-part-1/"
+description: Integrating the Flow static type checker with a Javascript backend.
+prev: "/blog/build-an-io-game-part-2/"
 next: "/blog/why-static-type-check-javascript/"
 ---
 
