@@ -18,7 +18,7 @@ export const PureAuthor = ({ author, showBio, showTwitter }) => {
         </Link>
         <div className={styles['author__header-right']}>
           <h4 className={styles['author__header-right-name']}>
-            <Link className={styles['author__header-right-name-link']} to="/">
+            <Link className={styles['author__header-right-name-link']} to="/" rel="author">
               {author.name}
             </Link>
             {showTwitter && ' '}

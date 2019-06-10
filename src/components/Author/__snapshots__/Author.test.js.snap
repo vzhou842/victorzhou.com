@@ -26,6 +26,7 @@ exports[`Author renders correctly 1`] = `
       >
         <Link
           className="author__header-right-name-link"
+          rel="author"
           to="/"
         >
           test
