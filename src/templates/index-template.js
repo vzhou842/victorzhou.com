@@ -15,7 +15,7 @@ type Props = {|
 |};
 
 const IndexTemplate = ({ data, pageContext }: Props) => {
-  const { title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
+  const { author, title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
 
   const {
     currentPage,
@@ -38,7 +38,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
 `{
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Victor Zhou",
+  "name": "${author.name}",
   "url": "https://victorzhou.com",
   "sameAs": [
     "https://www.facebook.com/zhouvictor",
@@ -72,6 +72,9 @@ export const query = graphql`
   query IndexTemplate($postsLimit: Int!, $postsOffset: Int!) {
     site {
       siteMetadata {
+        author {
+          name
+        }
         title
         subtitle
       }

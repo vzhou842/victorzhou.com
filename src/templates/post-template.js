@@ -14,7 +14,12 @@ type Props = {|
 |};
 
 const PostTemplate = ({ data, pageContext }: Props) => {
-  const { title: siteTitle, subtitle: siteSubtitle, url: siteUrl } = data.site.siteMetadata;
+  const {
+    author,
+    title: siteTitle,
+    subtitle: siteSubtitle,
+    url: siteUrl,
+  } = data.site.siteMetadata;
   const { edges } = data.allMarkdownRemark;
   const { slug, prev, next } = pageContext;
 
@@ -69,18 +74,18 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   "articleSection": "${category}",
   "author": {
     "@type": "Person",
-    "name": "Victor Zhou",
+    "name": "${author.name}",
     "url": "${siteUrl}"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Victor Zhou",
+    "name": "${author.name}",
     "url": "${siteUrl}",
     "logo": {
       "@type": "ImageObject",
-      "url": "${siteUrl}/photo2-large.png",
-      "width":"1024",
-      "height":"1024"
+      "url": "${siteUrl}${author.photoLarge}",
+      "width": "1024",
+      "height": "1024"
     }
   }
 }`
@@ -107,6 +112,10 @@ export const fragment = graphql`
   fragment PostFragment on Query {
     site {
       siteMetadata {
+        author {
+          name
+          photoLarge
+        }
         url
         subtitle
         title
