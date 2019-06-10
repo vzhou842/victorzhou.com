@@ -123,7 +123,9 @@ const string = `Welcome to ${Constants.someOthreKey}`;
 
 ![](./media-link/flow-post/flow-example-2.png)
 
-Seems useful, doesn't it? To put the cherry on top, Flow is also super easy to setup in an existing codebase. I'll prove it to you: we'll integrate Flow with my open-source [example-io-game](https://github.com/vzhou842/example-.io-game) codebase (from my [building an .io web game](/blog/build-an-io-game-part-1/) series) right now!
+Seems useful, doesn't it? These are only two of many cases where Flow could help prevent bugs.
+
+To put the cherry on top, Flow is also super easy to setup in an existing codebase. I'll prove it to you: we'll integrate Flow with my open-source [example-io-game](https://github.com/vzhou842/example-.io-game) codebase (from my [building an .io web game](/blog/build-an-io-game-part-1/) series) right now!
 
 ### Setting up Flow for a Website
 
