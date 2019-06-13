@@ -38,8 +38,10 @@ Each image in the MNIST dataset is 28x28 and contains a centered, grayscale digi
 I'm assuming you already have a basic Python installation ready (you probably do). Let's first install some packages we'll need:
 
 ```bash
-$ pip install keras numpy mnist
+$ pip install keras tensorflow numpy mnist
 ```
+
+> Note: We need to install `tensorflow` because we're going to run Keras on a [TensorFlow](https://www.tensorflow.org/) backend (i.e. TensorFlow will power Keras).
 
 You should now be able to import these packages and poke around the MNIST dataset:
 
@@ -82,7 +84,7 @@ print(train_images.shape) # (60000, 784)
 print(test_images.shape)  # (10000, 784)
 ```
 
-We're reading to start building our neural network!
+We're ready to start building our neural network!
 
 ## 3. Building the Model
 
@@ -117,7 +119,7 @@ The first two layers have 64 nodes each and use the [ReLU](https://en.wikipedia.
 
 > If you need a refresher, I [explained Softmax](http://localhost:8000/blog/intro-to-cnns-part-1/#5-softmax) in my introduction to CNNs.
 
-The last thing we need to do is **tell Keras what our network's input will look like**. We do that by specifying an `input_shape` to the first layer in the `Sequential` model:
+The last thing we always need to do is **tell Keras what our network's input will look like**. We can do that by specifying an `input_shape` to the first layer in the `Sequential` model:
 
 ```python
 model = Sequential([
@@ -156,5 +158,257 @@ model = Sequential([
 ])
 ```
 
-## 4. Training the Model
+## 4. Compiling the Model
 
+Before we can begin training, we need to configure the training process. During the compilation step, we need to decide 3 things:
+
+- The **optimizer**. We'll stick with a pretty good default: the [Adam](https://arxiv.org/abs/1412.6980) gradient-based optimizer. Keras has [many other optimizers](https://keras.io/optimizers/) you can look into as well.
+- The **loss function**. Since we're using a Softmax output layer, we'll use the Cross-Entropy loss. Keras distinguishes between `binary_crossentropy` (2 classes) and `categorical_crossentropy` (>2 classes), so we'll use the latter. [See all Keras losses](https://keras.io/losses/).
+- A list of **metrics**. Since this is a classification problem, we'll just have Keras report on the **accuracy** metric.
+
+Here's what that compilation looks like:
+
+```python
+model.compile(
+  optimizer='adam',
+  loss='categorical_crossentropy',
+  metrics=['accuracy'],
+)
+```
+
+Onwards!
+
+## 5. Training the Model
+
+Training a model in Keras literally consists only of calling `fit()` and specifying some parameters. There are [a lot of possible parameters](https://keras.io/models/sequential/#fit), but we'll only manually supply a few:
+
+- The **training data** (images and labels), commonly known as X and Y, respectively.
+- The **number of epochs** (iterations over the entire dataset) to train for.
+- The **batch size** (number of samples per gradient update) to use when training.
+
+Here's what that looks like:
+
+```python
+model.fit(
+  train_images, # training data
+  train_labels, # training targets
+  epochs=5,
+  batch_size=32,
+)
+```
+
+This doesn't actually work yet, though - we overlooked one thing. Keras expects the training targets to be _10-dimensional vectors_, since there are 10 nodes in our Softmax output layer, but we're instead supplying a _single integer representing the class_ for each image.
+
+Conveniently, Keras has a utility method that fixes this exact issue: [to_categorical](https://keras.io/utils/#to_categorical). It turns our array of class integers into an array of [one-hot](https://en.wikipedia.org/wiki/One-hot) vectors instead. For example, `2` would become `[0, 0, 1, 0, 0, 0, 0, 0, 0, 0]`.
+
+We can now put everything together to train our network:
+
+```python
+import numpy as np
+import mnist
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.utils import to_categorical
+
+train_images = mnist.train_images()
+train_labels = mnist.train_labels()
+test_images = mnist.test_images()
+test_labels = mnist.test_labels()
+
+# Normalize the images.
+train_images = (train_images / 255) - 0.5
+test_images = (test_images / 255) - 0.5
+
+# Flatten the images.
+train_images = train_images.reshape((-1, 784))
+test_images = test_images.reshape((-1, 784))
+
+# Build the model.
+model = Sequential([
+  Dense(64, activation='relu', input_shape=(784,)),
+  Dense(64, activation='relu'),
+  Dense(10, activation='softmax'),
+])
+
+# Compile the model.
+model.compile(
+  optimizer='adam',
+  loss='categorical_crossentropy',
+  metrics=['accuracy'],
+)
+
+# Train the model.
+model.fit(
+  train_images,
+  to_categorical(train_labels),
+  epochs=5,
+  batch_size=32,
+)
+```
+
+Running that code gives us something like this:
+
+```
+Epoch 1/5
+60000/60000 [==============================] - 2s 35us/step - loss: 0.3772 - acc: 0.8859
+Epoch 2/5
+60000/60000 [==============================] - 2s 31us/step - loss: 0.1928 - acc: 0.9421
+Epoch 3/5
+60000/60000 [==============================] - 2s 31us/step - loss: 0.1469 - acc: 0.9536
+Epoch 4/5
+60000/60000 [==============================] - 2s 31us/step - loss: 0.1251 - acc: 0.9605
+Epoch 5/5
+60000/60000 [==============================] - 2s 31us/step - loss: 0.1079 - acc: 0.9663
+```
+
+We reached **96.6% training accuracy** after 5 epochs! This doesn't tell us much, though - we may be overfitting. The real challenge will be seeing how our model performs on our test data.
+
+## 6. Testing the Model
+
+Evaluating the model is pretty simple:
+
+```python
+model.evaluate(
+  test_images,
+  to_categorical(test_labels)
+)
+```
+
+Running that gives us:
+
+```
+10000/10000 [==============================] - 0s 15us/step
+[0.10821614159140736, 0.965]
+```
+
+[evaluate()](https://keras.io/models/sequential/#evaluate) returns an array containing the test loss followed by any metrics we specified. Thus, our model achieves a 0.108 test loss and **96.5%** test accuracy! Not bad for your first neural network.
+
+## 7. Extensions
+
+What we've covered so far was but a brief introduction - there's much more we can do to experiment with and improve this network. I've included a few examples below:
+
+### Tuning Hyperparameters
+
+A good hyperparameters to start with is the learning rate for the [Adam](https://keras.io/optimizers/#adam) optimizer. What happens when you increase or decrease it?
+
+```python
+from keras.optimizers import SGD # highlight-line
+
+model.compile(
+  optimizer=Adam(lr=0.005), # highlight-line
+  loss='categorical_crossentropy',
+  metrics=['accuracy'],
+)
+```
+
+What about the batch size and number of epochs?
+
+```python
+model.fit(
+  train_images,
+  to_categorical(train_labels),
+  epochs=10, # highlight-line
+  batch_size=64, # highlight-line
+)
+```
+
+### Network Depth
+
+What happens if we remove or add more fully-connected layers? How does that affect training and/or the model's final performance?
+
+```python
+model = Sequential([
+  Dense(64, activation='relu', input_shape=(784,)),
+  Dense(64, activation='relu'),
+  Dense(64, activation='relu'), # highlight-line
+  Dense(64, activation='relu'), # highlight-line
+  Dense(10, activation='softmax'),
+])
+```
+
+### Activations
+
+What if we use an activation other than ReLU, e.g. [sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function)?
+
+```python
+model = Sequential([
+  Dense(64, activation='sigmoid', input_shape=(784,)), # highlight-line
+  Dense(64, activation='sigmoid'), # highlight-line
+  Dense(10, activation='softmax'),
+])
+```
+
+### Dropout
+
+What if we tried adding [Dropout](https://keras.io/layers/core/#dropout) layers, which are known to prevent overfitting?
+
+```python
+from keras.layers import Dense, Dropout # highlight-line
+
+model = Sequential([
+  Dense(64, activation='relu', input_shape=(784,)),
+  Dropout(0.5), # highlight-line
+  Dense(64, activation='relu'),
+  Dropout(0.5), # highlight-line
+  Dense(10, activation='softmax'),
+])
+```
+
+## Conclusion
+
+You've implemented your first neural network with Keras! We achieved a test accuracy of **96.5%** on the MNIST dataset after 5 epochs, which is not bad for such a simple network. I'll include the full source code again below for your reference.
+
+If you want to learn about more advanced techniques to approach MNIST, I recommend checking out my [introduction to Convolutional Neural Networks](/blog/intro-to-cnns-part-1/). In it, we see how to achieve **much higher (>99%) accuracies** on MNIST using more complex networks.
+
+Thanks for reading! Here's the full code:
+
+```python
+# The full neural network code!
+###############################
+import numpy as np
+import mnist
+from keras.models import Sequential
+from keras.layers import Dense
+from keras.utils import to_categorical
+
+train_images = mnist.train_images()
+train_labels = mnist.train_labels()
+test_images = mnist.test_images()
+test_labels = mnist.test_labels()
+
+# Normalize the images.
+train_images = (train_images / 255) - 0.5
+test_images = (test_images / 255) - 0.5
+
+# Flatten the images.
+train_images = train_images.reshape((-1, 784))
+test_images = test_images.reshape((-1, 784))
+
+# Build the model.
+model = Sequential([
+  Dense(64, activation='relu', input_shape=(784,)),
+  Dense(64, activation='relu'),
+  Dense(10, activation='softmax'),
+])
+
+# Compile the model.
+model.compile(
+  optimizer='adam',
+  loss='categorical_crossentropy',
+  metrics=['accuracy'],
+)
+
+# Train the model.
+model.fit(
+  train_images,
+  to_categorical(train_labels),
+  epochs=5,
+  batch_size=32,
+)
+
+# Evaluate the model.
+model.evaluate(
+  test_images,
+  to_categorical(test_labels)
+)
+```
