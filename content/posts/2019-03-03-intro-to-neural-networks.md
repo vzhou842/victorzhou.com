@@ -1,6 +1,7 @@
 ---
 title: "Machine Learning for Beginners: An Introduction to Neural Networks"
 date: "2019-03-03T12:00:00.000Z"
+dateModified: "2019-06-14T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
@@ -654,6 +655,7 @@ You made it! A quick recap of what we did:
 There's still much more to do:
 
 - Experiment with bigger / better neural networks using proper machine learning libraries like [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), and [PyTorch](https://pytorch.org/).
+- [Build your first neural network with Keras](/blog/keras-neural-network-tutorial/).
 - Tinker with [a neural network in your browser](https://playground.tensorflow.org).
 - Discover [other activation functions](https://keras.io/activations/) besides sigmoid.
 - Discover [other optimizers](https://keras.io/optimizers/) besides SGD.
