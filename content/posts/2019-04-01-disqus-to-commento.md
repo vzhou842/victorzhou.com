@@ -1,6 +1,7 @@
 ---
 title: Why I Replaced Disqus and You Should Too
 date: "2019-04-01T12:00:00.000Z"
+dateModified: "2019-06-14T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/replacing-disqus/"
@@ -32,6 +33,8 @@ Here's the thing: I've always known that using Disqus came at the cost of some p
 **Adding Disqus increased my page weight by over 10x and my request count by over 6x**. That's ridiculous! I immediately started looking to replace Disqus - [web performance is important](https://developers.google.com/web/fundamentals/performance/why-performance-matters/).
 
 ## An Alternative: Commento
+
+> Disclaimer: I am not being compensated for this post, nor am I affiliated with Commento in anyway. I'm simply a satisfied customer.
 
 A while back, I saw a [Hacker News](https://news.ycombinator.com/item?id=19210697) post about a fast, privacy-focused alternative to Disqus called [Commento](https://commento.io/). Having learned my lesson, I benchmarked Commento before committing to it:
 
