@@ -5,12 +5,12 @@ template: "post"
 draft: false
 slug: "/blog/keras-neural-network-tutorial/"
 img: "https://victorzhou.com/media/keras-posts/keras-logo.png"
-category: "Machine Learning"
+category: "Python"
 tags:
-  - "Machine Learning"
-  - "Keras"
-  - "Neural Networks"
   - "Python"
+  - "Keras"
+  - "Machine Learning"
+  - "Neural Networks"
   - "For Beginners"
 description: A beginner-friendly guide on using Keras to implement a simple Neural Network in Python.
 prev: "/blog/intro-to-cnns-part-1/"
