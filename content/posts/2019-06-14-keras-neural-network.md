@@ -392,6 +392,20 @@ model = Sequential([
 ])
 ```
 
+### Validation
+
+We can also use the testing dataset for **validation** during training. Keras will evaluate the model on the validation set at the end of each epoch and report the loss and any metrics we asked for. This allows us to monitor our model's progress over time during training, which can be useful to identify overfitting and even support early stopping.
+
+```python
+model.fit(
+  train_images,
+  to_categorical(train_labels),
+  epochs=5,
+  batch_size=32,
+  validation_data=(test_images, to_categorical(test_labels)) # highlight-line
+)
+```
+
 ## Conclusion
 
 You've implemented your first neural network with Keras! We achieved a test accuracy of **96.5%** on the MNIST dataset after 5 epochs, which is not bad for such a simple network. I'll include the full source code again below for your reference.
