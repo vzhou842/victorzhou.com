@@ -1,6 +1,7 @@
 ---
 title: How to Build a Multiplayer (.io) Web Game, Part 1
 date: "2019-04-25T12:00:00.000Z"
+dateModified: "2019-06-14T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/build-an-io-game-part-1/"
@@ -19,7 +20,7 @@ discussLinkHN:
 discussLinkReddit: https://www.reddit.com/r/programming/comments/birl3h/how_to_build_a_multiplayer_io_web_game/
 ---
 
-When [Agar.io](https://agar.io) came out in 2015, it inspired a new [**.io game**](https://www.google.com/search?q=.io+game) genre that has since exploded in popularity. I experienced the rise of .io games firsthand: I've [built and sold 2 .io games](/about/) in the past 3 years.
+When [Agar.io](https://agar.io) came out in 2015, it inspired a new [**.io game**](https://www.google.com/search?q=.io+game) genre that has since exploded in popularity. I experienced the rise of .io games firsthand: I've [built and sold 2 .io games](/blog/creating-and-selling-io-games/) in the past 3 years.
 
 In case you've never heard of .io games before: they're free, multiplayer web games that are easy to join (no account required) and usually pit many players against each other in one arena. Other famous .io games include [Slither.io](https://slither.io) and [Diep.io](https://diep.io).
 
