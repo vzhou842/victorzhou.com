@@ -16,6 +16,7 @@ const Post = ({ post, prevPost, nextPost }) => {
     tags,
     title,
     date,
+    dateModified,
     description,
     slug,
     discussLinkTwitter,
@@ -29,7 +30,13 @@ const Post = ({ post, prevPost, nextPost }) => {
   return (
     <div className={styles['post']}>
       <div className={styles['post__content']}>
-        <Content body={html} title={title} subtitle={description} date={date} />
+        <Content
+          body={html}
+          title={title}
+          subtitle={description}
+          date={date}
+          dateModified={dateModified}
+        />
       </div>
 
       <div className={styles['post__subscribeForm']}>

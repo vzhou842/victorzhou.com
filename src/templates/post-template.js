@@ -32,6 +32,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
     canonical,
     category,
     date,
+    dateModified,
     img: imgUrl,
     title: postTitle,
     description: postDescription,
@@ -67,7 +68,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   "wordcount": "${readingTime.words}",
   "dateCreated": "${date}",
   "datePublished": "${date}",
-  "dateModified": "${date}",
+  "dateModified": "${dateModified || date}",
   "inLanguage": "en-US",
   "mainEntityOfPage": "True",
   "articleBody": "${slugNode.excerpt}",
@@ -138,6 +139,7 @@ export const fragment = graphql`
             canonical
             category
             date
+            dateModified
             description
             img
             slug
