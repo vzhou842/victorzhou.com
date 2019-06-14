@@ -1,27 +1,27 @@
 ---
 title: "Keras for Beginners: Building Your First Neural Network"
-date: "2019-06-20T12:00:00.000Z"
+date: "2019-06-14T12:00:00.000Z"
 template: "post"
 draft: false
-slug: "/blog/neural-networks-with-keras/"
-img:
+slug: "/blog/keras-neural-network-tutorial/"
+img: "https://victorzhou.com/media/keras-posts/keras-logo.png"
 category: "Machine Learning"
 tags:
   - "Machine Learning"
+  - "Keras"
   - "Neural Networks"
   - "Python"
   - "For Beginners"
 description: A beginner-friendly guide on using Keras to implement a simple Neural Network in Python.
 prev: "/blog/intro-to-cnns-part-1/"
 next: "/blog/intro-to-random-forests/"
-discussLinkTwitter:
-discussLinkHN:
-discussLinkReddit:
 ---
+
+![](./media-link/keras-posts/keras-logo.png)
 
 [Keras](https://keras.io/) is a simple-to-use but powerful deep learning library for Python. In this post, we'll see how easy it is to build a feedforward neural network and train it to solve a real problem with Keras.
 
-This post is intended for **complete beginners to Keras** but does assume a **basic background knowledge of neural networks**. My [introduction to Neural Networks]() covers everything you need to know (and more) for this post - read that first if necessary.
+This post is intended for **complete beginners to Keras** but does assume a **basic background knowledge of neural networks**. My [introduction to Neural Networks](/blog/intro-to-neural-networks/) covers everything you need to know (and more) for this post - read that first if necessary.
 
 Let's get started!
 
@@ -160,7 +160,7 @@ model = Sequential([
 
 ## 4. Compiling the Model
 
-Before we can begin training, we need to configure the training process. During the compilation step, we need to decide 3 things:
+Before we can begin training, we need to configure the training process. We decide 3 key factors during the compilation step:
 
 - The **optimizer**. We'll stick with a pretty good default: the [Adam](https://arxiv.org/abs/1412.6980) gradient-based optimizer. Keras has [many other optimizers](https://keras.io/optimizers/) you can look into as well.
 - The **loss function**. Since we're using a Softmax output layer, we'll use the Cross-Entropy loss. Keras distinguishes between `binary_crossentropy` (2 classes) and `categorical_crossentropy` (>2 classes), so we'll use the latter. [See all Keras losses](https://keras.io/losses/).
@@ -199,7 +199,7 @@ model.fit(
 
 This doesn't actually work yet, though - we overlooked one thing. Keras expects the training targets to be _10-dimensional vectors_, since there are 10 nodes in our Softmax output layer, but we're instead supplying a _single integer representing the class_ for each image.
 
-Conveniently, Keras has a utility method that fixes this exact issue: [to_categorical](https://keras.io/utils/#to_categorical). It turns our array of class integers into an array of [one-hot](https://en.wikipedia.org/wiki/One-hot) vectors instead. For example, `2` would become `[0, 0, 1, 0, 0, 0, 0, 0, 0, 0]`.
+Conveniently, Keras has a utility method that fixes this exact issue: [to_categorical](https://keras.io/utils/#to_categorical). It turns our array of class integers into an array of [one-hot](https://en.wikipedia.org/wiki/One-hot) vectors instead. For example, `2` would become `[0, 0, 1, 0, 0, 0, 0, 0, 0, 0]` (it's zero-indexed).
 
 We can now put everything together to train our network:
 
@@ -283,7 +283,45 @@ Running that gives us:
 
 [evaluate()](https://keras.io/models/sequential/#evaluate) returns an array containing the test loss followed by any metrics we specified. Thus, our model achieves a 0.108 test loss and **96.5%** test accuracy! Not bad for your first neural network.
 
-## 7. Extensions
+## 7. Using the Model
+
+Now that we have a working, trained model, let's put it to use. The first thing we'll do is save it to disk so we can load it back up anytime:
+
+```python
+model.save_weights('model.h5')
+```
+
+We can now reload the trained model whenever we want by rebuilding it and loading in the saved weights:
+
+```python
+from keras.models import Sequential
+from keras.layers import Dense
+
+# Build the model.
+model = Sequential([
+  Dense(64, activation='relu', input_shape=(784,)),
+  Dense(64, activation='relu'),
+  Dense(10, activation='softmax'),
+])
+
+# Load the model's saved weights.
+model.load_weights('model.h5')
+```
+
+Using the trained model to make predictions is easy: we pass an array of inputs to `predict()` and it returns an array of outputs. Keep in mind that the output of our network is 10 probabilities (because of softmax), so we'll use [np.argmax()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html) to turn those into actual digits.
+
+```python
+# Predict on the first 5 test images.
+predictions = model.predict(test_images[:5])
+
+# Print our model's predictions.
+print(np.argmax(predictions, axis=1)) # [7, 2, 1, 0, 4]
+
+# Check our predictions against the ground truths.
+print(test_labels[:5]) # [7, 2, 1, 0, 4]
+```
+
+## 8. Extensions
 
 What we've covered so far was but a brief introduction - there's much more we can do to experiment with and improve this network. I've included a few examples below:
 
@@ -411,4 +449,19 @@ model.evaluate(
   test_images,
   to_categorical(test_labels)
 )
+
+# Save the model to disk.
+model.save_weights('model.h5')
+
+# Load the model from disk later using:
+# model.load_weights('model.h5')
+
+# Predict on the first 5 test images.
+predictions = model.predict(test_images[:5])
+
+# Print our model's predictions.
+print(np.argmax(predictions, axis=1)) # [7, 2, 1, 0, 4]
+
+# Check our predictions against the ground truths.
+print(test_labels[:5]) # [7, 2, 1, 0, 4]
 ```
