@@ -12,6 +12,10 @@ type Props = {|
   +pageContext: Object,
 |};
 
+const metaDescriptions = {
+  'Machine Learning': 'Machine Learning is, put simply, getting computers to generalize from examples. And that\'s what I try to do: put things simply. My posts on Machine Learning (ML) consist primarily of beginner-focused introductions to common ML models or concepts, and I strive to make my guides as clear and beginner-friendly as possible.',
+};
+
 const tagDescriptions = {
   'Machine Learning': (
     <div>
@@ -63,7 +67,7 @@ const TagTemplate = ({ data, pageContext }: Props) => {
       `All Posts tagged as "${tag}" - ${siteTitle}`;
 
   return (
-    <Layout title={pageTitle} description={siteSubtitle}>
+    <Layout title={pageTitle} description={metaDescriptions[tag] || siteSubtitle}>
       <Sidebar />
       <Page
         title={tag}
