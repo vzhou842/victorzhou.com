@@ -25,7 +25,13 @@
     font-weight: 500;
     font-size: $typographic-base-font-size * 1.25;
     @include margin-top(0);
-    @include margin-bottom(1.45);
+    @include margin-bottom(1);
+  }
+
+  &__description {
+    @include margin-top(0);
+    @include margin-bottom(2);
+    border-bottom: 1px solid $color-gray-border;
   }
 
   &__body {

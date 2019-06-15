@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Page.module.scss';
 
-const Page = ({ title, subtitle, children }) => (
+const Page = ({ title, subtitle, description, children }) => (
   <div className={styles['page']}>
     <div className={styles['page__inner']}>
       {title && (
@@ -14,6 +14,7 @@ const Page = ({ title, subtitle, children }) => (
         </h1>
       )}
       {subtitle && <h2 className={styles['page__subtitle']}>{subtitle}</h2>}
+      {description && <div className={styles['page__description']}>{description}</div>}
       <div className={styles['page__body']}>{children}</div>
     </div>
   </div>

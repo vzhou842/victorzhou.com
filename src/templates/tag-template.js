@@ -12,6 +12,8 @@ type Props = {|
   +pageContext: Object,
 |};
 
+const tagDescriptions = {};
+
 const TagTemplate = ({ data, pageContext }: Props) => {
   const {
     title: siteTitle,
@@ -34,7 +36,7 @@ const TagTemplate = ({ data, pageContext }: Props) => {
   return (
     <Layout title={pageTitle} description={siteSubtitle}>
       <Sidebar />
-      <Page title={tag} subtitle={<a href="/tags/">← Back to All Tags</a>}>
+      <Page title={tag} subtitle={<a href="/tags/">← Back to All Tags</a>} description={tagDescriptions[tag]}>
         <Feed edges={edges} />
         <Pagination
           currentPage={currentPage}
