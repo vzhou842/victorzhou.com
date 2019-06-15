@@ -117,7 +117,7 @@ model = Sequential([
 
 The first two layers have 64 nodes each and use the [ReLU](https://en.wikipedia.org/wiki/Rectifier_(neural_networks)) activation function. The last layer is a Softmax output layer with 10 nodes, one for each class.
 
-> If you need a refresher, I [explained Softmax](http://localhost:8000/blog/intro-to-cnns-part-1/#5-softmax) in my introduction to CNNs.
+> If you need a refresher, I [explained Softmax](/blog/intro-to-cnns-part-1/#5-softmax) in my introduction to CNNs.
 
 The last thing we always need to do is **tell Keras what our network's input will look like**. We can do that by specifying an `input_shape` to the first layer in the `Sequential` model:
 
