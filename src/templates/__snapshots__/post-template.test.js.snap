@@ -40,25 +40,25 @@ exports[`PostTemplate renders correctly 1`] = `
       className="container  no-spacing"
     >
       <form
-        action="https://victorzhou.us20.list-manage.com/subscribe/post?SIGNUP=Popup%3Atest"
+        action="/subscribe"
         method="post"
         target="_blank"
       >
         <input
-          name="u"
+          name="lists"
           type="hidden"
-          value="7cd5089a9bbc5253e6890ae15"
+          value="ml,web,misc"
         />
         <input
-          name="id"
+          name="Source"
           type="hidden"
-          value="9f367a1f47"
+          value="Popup:test"
         />
         <input
           aria-label="Email Address"
           autoCapitalize="off"
           autoCorrect="off"
-          name="MERGE0"
+          name="email"
           onKeyDown={[Function]}
           placeholder="example@domain.com"
           size="25"
@@ -66,9 +66,8 @@ exports[`PostTemplate renders correctly 1`] = `
         />
         <br />
         <input
-          name="submit"
           type="submit"
-          value="SUBSCRIBE"
+          value="SUBMIT"
         />
       </form>
     </div>

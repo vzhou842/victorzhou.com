@@ -50,34 +50,33 @@ exports[`Post renders correctly 1`] = `
          to know whenever I post new content. I don't spam!
       </p>
       <form
-        action="https://victorzhou.us20.list-manage.com/subscribe/post?SIGNUP=Post%3Atest"
+        action="/subscribe"
         method="post"
         target="_blank"
       >
         <input
-          name="u"
+          name="lists"
           type="hidden"
-          value="7cd5089a9bbc5253e6890ae15"
+          value="ml,web,misc"
         />
         <input
-          name="id"
+          name="Source"
           type="hidden"
-          value="9f367a1f47"
+          value="Post:test"
         />
         <input
           aria-label="Email Address"
           autoCapitalize="off"
           autoCorrect="off"
-          name="MERGE0"
+          name="email"
           placeholder="example@domain.com"
           size="25"
           type="email"
         />
         <br />
         <input
-          name="submit"
           type="submit"
-          value="SUBSCRIBE"
+          value="SUBMIT"
         />
       </form>
     </div>
