@@ -7,6 +7,7 @@ usesKatex: true
 draft: false
 slug: "/blog/intro-to-cnns-part-2/"
 img: "https://victorzhou.com/media/cnn-post/maxpool-backprop.png"
+lists: "ml,misc"
 category: "Machine Learning"
 tags:
   - "Machine Learning"

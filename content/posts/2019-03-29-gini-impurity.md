@@ -6,6 +6,7 @@ usesKatex: true
 draft: false
 slug: "/blog/gini-impurity/"
 img: "https://victorzhou.com/media/gini-impurity-post/dataset-imperfect-split.png"
+lists: "ml,misc"
 category: "Machine Learning"
 tags:
   - "Machine Learning"

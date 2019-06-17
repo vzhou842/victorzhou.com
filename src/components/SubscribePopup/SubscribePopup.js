@@ -53,6 +53,7 @@ class SubscribePopup extends React.Component {
         </p>
         <SubscribeForm
           signupSource={`Popup:${this.props.postSlug}`}
+          lists={this.props.lists}
           noDescription
           noSpacing
           onKeyDown={this.onKeyDown}

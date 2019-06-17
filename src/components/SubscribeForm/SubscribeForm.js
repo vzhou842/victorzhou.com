@@ -4,13 +4,21 @@ import styles from './SubscribeForm.module.scss';
 
 type Props = {|
   +signupSource: string,
-  +large: bool,
-  +noDescription: bool,
-  +noSpacing: bool,
+  +lists: ?string,
+  +large: boolean,
+  +noDescription: boolean,
+  +noSpacing: boolean,
   +onKeyDown: Function,
 |};
 
-const SubscribeForm = ({ signupSource, large, noDescription, noSpacing, onKeyDown }: Props) => (
+const SubscribeForm = ({
+  signupSource,
+  lists,
+  large,
+  noDescription,
+  noSpacing,
+  onKeyDown,
+}: Props) => (
   <div
     className={`${styles['container']} ${large ? styles['large'] : ''} ${
       noSpacing ? styles['no-spacing'] : ''
@@ -21,12 +29,8 @@ const SubscribeForm = ({ signupSource, large, noDescription, noSpacing, onKeyDow
         <b>Subscribe</b> to know whenever I post new content. I don't spam!
       </p>
     )}
-    <form
-      action='/subscribe'
-      method="post"
-      target="_blank"
-    >
-      <input type="hidden" name="lists" value="ml,web,misc" />
+    <form action="/subscribe" method="post" target="_blank">
+      <input type="hidden" name="lists" value={lists || 'ml,web,misc'} />
       <input type="hidden" name="Source" value={signupSource} />
       <input
         type="email"

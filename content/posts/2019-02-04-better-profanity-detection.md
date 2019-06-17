@@ -5,6 +5,7 @@ template: "post"
 draft: false
 slug: "/blog/better-profanity-detection-with-scikit-learn/"
 img: "https://victorzhou.com/media/xkcd-290.png"
+lists: "ml,misc"
 category: "Machine Learning"
 tags:
   - "Machine Learning"

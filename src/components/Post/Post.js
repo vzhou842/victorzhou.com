@@ -18,6 +18,7 @@ const Post = ({ post, prevPost, nextPost }) => {
     date,
     dateModified,
     description,
+    lists,
     slug,
     discussLinkTwitter,
     discussLinkHN,
@@ -40,7 +41,7 @@ const Post = ({ post, prevPost, nextPost }) => {
       </div>
 
       <div className={styles['post__subscribeForm']}>
-        <SubscribeForm signupSource={`Post:${slug}`} large />
+        <SubscribeForm signupSource={`Post:${slug}`} lists={lists} large />
       </div>
 
       <div className={styles['post__viewSource']}>

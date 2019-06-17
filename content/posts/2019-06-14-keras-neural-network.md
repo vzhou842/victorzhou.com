@@ -5,6 +5,7 @@ template: "post"
 draft: false
 slug: "/blog/keras-neural-network-tutorial/"
 img: "https://victorzhou.com/media/keras-posts/keras-logo.png"
+lists: "ml,misc"
 category: "Python"
 tags:
   - "Python"

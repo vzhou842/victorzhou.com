@@ -6,6 +6,7 @@ usesKatex: true
 draft: false
 slug: "/blog/intro-to-random-forests/"
 img: "https://victorzhou.com/media/random-forest-post/random-forest.png"
+lists: "ml,misc"
 category: "Machine Learning"
 tags:
   - "Machine Learning"

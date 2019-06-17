@@ -6,6 +6,7 @@ usesKatex: true
 draft: false
 slug: "/blog/intro-to-cnns-part-1/"
 img: "https://victorzhou.com/media/cnn-post/cnn-dims-3.png"
+lists: "ml,misc"
 category: "Machine Learning"
 tags:
   - "Machine Learning"
