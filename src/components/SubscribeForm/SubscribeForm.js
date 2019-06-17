@@ -33,6 +33,14 @@ const SubscribeForm = ({
       <input type="hidden" name="lists" value={lists || 'ml,web,misc'} />
       <input type="hidden" name="Source" value={signupSource} />
       <input
+        type="text"
+        name="hp"
+        style={{ display: 'none' }}
+        tabindex="-1"
+        autoCapitalize="off"
+        autoCorrect="off"
+      />
+      <input
         type="email"
         autoCapitalize="off"
         autoCorrect="off"
