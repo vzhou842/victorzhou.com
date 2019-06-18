@@ -43,17 +43,19 @@ class SubscribePopup extends React.Component {
 
   render() {
     const { visible } = this.state;
+    const { isML, isWeb, postSlug } = this.props;
 
     return (
       <div className={`${styles['container']} ${visible ? '' : styles['hidden']}`}>
         <h4 className={styles['title']}>At least this isn't a full screen popup</h4>
         <p className={styles['description']}>
-          That would be more annoying. Anyways, if you like what you're reading, consider
-          subscribing to my newsletter! I'll notify you when I publish new posts - no spam.
+          That would be more annoying. Anyways, consider subscribing to my newsletter to <b>get new
+          posts by email!</b> I write about ML, Web Dev, and more.
         </p>
         <SubscribeForm
-          signupSource={`Popup:${this.props.postSlug}`}
-          lists={this.props.lists}
+          signupSource={`Popup:${postSlug}`}
+          isML={isML}
+          isWeb={isWeb}
           noDescription
           noSpacing
           onKeyDown={this.onKeyDown}

@@ -6,6 +6,7 @@ template: "post"
 draft: false
 slug: "/blog/build-an-io-game-part-1/"
 img: "https://victorzhou.com/media/io-game-post/screenshot.png"
+isWeb: true
 category: "Game Development"
 tags:
   - "Game Development"

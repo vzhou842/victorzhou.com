@@ -6,7 +6,7 @@ usesKatex: true
 draft: false
 slug: "/blog/information-gain/"
 img: "https://victorzhou.com/media/gini-impurity-post/dataset-imperfect-split.png"
-lists: "ml,misc"
+isML: true
 category: "Machine Learning"
 tags:
   - "Machine Learning"

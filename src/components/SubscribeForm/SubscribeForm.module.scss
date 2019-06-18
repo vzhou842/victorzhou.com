@@ -17,18 +17,23 @@
 
   form {
     text-align: center;
+
+    label {
+      font-size: $typographic-base-font-size * 0.9;
+    }
   }
 
   input[type='email'] {
-    border-bottom: 1px solid $color-gray;
-    padding: 5px 10px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 8px 20px;
     font-size: $typographic-base-font-size * 0.9;
-    background-color: transparent;
-    @include margin-top(0.1);
-    @include transition(border-bottom-color);
+    @include margin-top(0.25);
+    @include transition(box-shadow);
 
     &:hover, &:focus {
-      border-bottom: 1px solid $color-primary;
+      box-shadow: 0 0 10px $color-gray-light-shadow;
     }
   }
 
@@ -50,6 +55,19 @@
       cursor: pointer;
     }
   }
+
+  input[type='checkbox'] {
+    margin-right: 3px;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: row;
+
+    & > div {
+      flex: 1;
+    }
+  }
 }
 
 @include breakpoint-sm {
@@ -69,10 +87,18 @@
       @include line-height(1.1);
     }
 
+    form label {
+      font-size: $typographic-base-font-size * 1.1;
+    }
+
+    input[type='checkbox'] {
+      margin-right: 5px;
+    }
+
     input[type='email'] {
-      padding: 8px 40px;
+      padding: 10px 40px;
       font-size: $typographic-base-font-size * 1.2;
-      @include margin-top(0.25);
+      @include margin-top(0.4);
     }
 
     input[type='submit'] {
