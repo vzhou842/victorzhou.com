@@ -43,6 +43,11 @@ const tagDescriptions = {
           <a href="/blog/intro-to-random-forests/">Random Forests for Complete Beginners</a>
         </li>
       </ul>
+      <p>
+        Similar tags include <a href="/tag/neural-networks">Neural Networks</a>,{' '}
+        <a href="/tag/computer-vision">Computer Vision</a>, and{' '}
+        <a href="/tag/random-forests">Random Forests</a>.
+      </p>
       <p>Happy Reading!</p>
     </div>
   ),
