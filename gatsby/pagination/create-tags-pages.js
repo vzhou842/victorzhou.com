@@ -27,7 +27,7 @@ module.exports = async (graphql, actions) => {
 
     for (let i = 0; i < numPages; i += 1) {
       createPage({
-        path: i === 0 ? tagSlug : `${tagSlug}/page/${i + 1}`,
+        path: i === 0 ? tagSlug : `${tagSlug}page/${i + 1}`,
         component: path.resolve('./src/templates/tag-template.js'),
         context: {
           tag: tag.fieldValue,
@@ -37,7 +37,8 @@ module.exports = async (graphql, actions) => {
           prevPagePath: i <= 1 ? tagSlug : `${tagSlug}/page/${i}`,
           nextPagePath: `${tagSlug}/page/${i + 2}`,
           hasPrevPage: i !== 0,
-          hasNextPage: i !== numPages - 1
+          hasNextPage: i !== numPages - 1,
+          numPages,
         }
       });
     }
