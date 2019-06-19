@@ -6,21 +6,21 @@ type Props = {|
   +signupSource: string,
   +isML: bool,
   +isWeb: bool,
-  +large: boolean,
-  +noDescription: boolean,
-  +noSpacing: boolean,
+  +large: bool,
+  +noDescription: bool,
+  +noSpacing: bool,
   +onKeyDown: Function,
 |};
 
 type State = {|
   +checked: {|
-    +ml: boolean,
-    +web: boolean,
+    +ml: bool,
+    +web: bool,
   |},
 |};
 
 export default class SubscribeForm extends React.PureComponent<Props, State> {
-  state = { checked: { ml: false, web: false }};
+  state = { checked: { ml: false, web: false } };
 
   onCheckboxChange(id: string) {
     this.setState({ checked: { [id]: !this.state.checked[id] } });
@@ -41,8 +41,14 @@ export default class SubscribeForm extends React.PureComponent<Props, State> {
             I write about ML, Web Dev, and more. <b>Subscribe to get new posts by email!</b>
           </p>
         )}
-        <form action="/subscribe" method="post" target="_blank">
+        <form
+          action="http://sendy.victorzhou.com/subscribe"
+          method="post"
+          acceptCharset="utf-8"
+          target="_blank"
+        >
           <input type="hidden" name="Source" value={signupSource} />
+          <input type="hidden" name="list" value="CWC7638hEb6mfk1RqUbJ763snA" />
           <input
             type="text"
             name="hp"
@@ -62,34 +68,30 @@ export default class SubscribeForm extends React.PureComponent<Props, State> {
             onKeyDown={onKeyDown}
           />
           <br />
-          {
-            isML && (
-              <label>
-                <input
-                  type="checkbox"
-                  name="Restrictions"
-                  value="ML"
-                  checked={checked.ml}
-                  onChange={this.onCheckboxChange.bind(this, 'ml')}
-                />
-                Send me <i>only</i> ML posts
-              </label>
-            )
-          }
-          {
-            isWeb && (
-              <label>
-                <input
-                  type="checkbox"
-                  name="Restrictions"
-                  value="Web"
-                  checked={checked.web}
-                  onChange={this.onCheckboxChange.bind(this, 'web')}
-                />
-                Send me <i>only</i> Web Dev posts
-              </label>
-            )
-          }
+          {isML && (
+            <label>
+              <input
+                type="checkbox"
+                name="Restrictions"
+                value="ML"
+                checked={checked.ml}
+                onChange={this.onCheckboxChange.bind(this, 'ml')}
+              />
+              Send me <i>only</i> ML posts
+            </label>
+          )}
+          {isWeb && (
+            <label>
+              <input
+                type="checkbox"
+                name="Restrictions"
+                value="Web"
+                checked={checked.web}
+                onChange={this.onCheckboxChange.bind(this, 'web')}
+              />
+              Send me <i>only</i> Web Dev posts
+            </label>
+          )}
           {(isML || isWeb) && <br />}
           <input type="submit" value="SUBMIT" />
         </form>
