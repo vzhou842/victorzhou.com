@@ -1,6 +1,6 @@
 import React from 'react';
-import moment from 'moment';
 import styles from './ReadMore.module.scss';
+import { renderDate } from '../../../utils/date';
 
 const ReadMoreLink = ({
   post: {
@@ -12,7 +12,7 @@ const ReadMoreLink = ({
       <b>{title}</b>
     </a>
     <p>
-      <b>{moment(dateModified || date).format('MMMM D, YYYY')}</b>
+      <b>{renderDate(dateModified || date)}</b>
     </p>
     <p>{description}</p>
   </div>

@@ -1,8 +1,8 @@
 import React from 'react';
-import moment from 'moment';
 import styles from './Content.module.scss';
+import { renderDate } from '../../../utils/date';
 
-const dateToTime = date => <time>{moment(date).format('MMMM DD, YYYY')}</time>;
+const dateToTime = date => <time>{renderDate(date)}</time>;
 
 const Content = ({ body, title, subtitle, date, dateModified }) => (
   <article className={styles['content']}>

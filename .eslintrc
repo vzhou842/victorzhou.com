@@ -35,6 +35,7 @@
           "devDependencies": true
         }
       ],
+      "import/prefer-default-export": 0,
       "object-curly-newline": ["error", {
         "consistent": true
       }],

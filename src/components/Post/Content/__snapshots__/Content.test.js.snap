@@ -16,7 +16,7 @@ exports[`Content renders correctly 1`] = `
     className="content__date"
   >
     <time>
-      February 04, 2019
+      February 4, 2019
     </time>
   </p>
   <div
