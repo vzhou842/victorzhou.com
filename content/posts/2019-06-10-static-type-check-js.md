@@ -11,6 +11,7 @@ tags:
   - "Javascript"
   - "Web Development"
   - "Flow"
+  - "Best Practices"
 description: The pros and cons of using a static type checker for Javascript.
 prev: "/blog/using-flow-with-nodejs/"
 next: "/blog/why-you-should-use-webpack/"
