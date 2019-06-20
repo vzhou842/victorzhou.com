@@ -45,7 +45,7 @@ exports[`PostTemplate renders correctly 1`] = `
     >
       <form
         acceptCharset="utf-8"
-        action="http://sendy.victorzhou.com/subscribe"
+        action="https://sendy.victorzhou.com/subscribe"
         method="post"
         target="_blank"
       >
