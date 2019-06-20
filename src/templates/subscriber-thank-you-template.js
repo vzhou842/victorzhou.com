@@ -20,7 +20,7 @@ const SubscriberThankYouTemplate = ({ data }) => {
       <Sidebar hideSubscribeForm />
       <Page title="Thanks for Subscribing!">
         <h3>Your subscription to my mailing list has been confirmed.</h3>
-        <p>I'll let you know about new posts or big announcements I make.</p>
+        <p>You'll get new posts in your email inbox.</p>
         <h3>If you've enjoyed my blog, let your friends know!</h3>
         <Share title={title} url={url} shareText="SHARE" />
       </Page>
