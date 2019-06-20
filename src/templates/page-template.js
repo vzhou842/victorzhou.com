@@ -18,7 +18,9 @@ const PageTemplate = ({ data }: Props) => {
 
   const {
     title: pageTitle,
-    description: pageDescription
+    description: pageDescription,
+    hideSubscribe,
+    hideAd,
   } = data.markdownRemark.frontmatter;
 
   const { html: pageBody } = data.markdownRemark;
@@ -28,7 +30,7 @@ const PageTemplate = ({ data }: Props) => {
   return (
     <div>
       <Layout title={`${pageTitle} - ${siteTitle}`} description={metaDescription}>
-        <Sidebar />
+        <Sidebar hideSubscribeForm={hideSubscribe} hideAd={hideAd} />
         <Page title={pageTitle}>
           <div dangerouslySetInnerHTML={{ __html: pageBody }} />
         </Page>
@@ -53,6 +55,8 @@ export const query = graphql`
         title
         date
         description
+        hideSubscribe
+        hideAd
       }
     }
   }
