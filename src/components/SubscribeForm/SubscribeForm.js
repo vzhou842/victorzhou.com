@@ -22,7 +22,7 @@ type State = {|
 export default class SubscribeForm extends React.PureComponent<Props, State> {
   state = { checked: { ml: false, web: false } };
 
-  onCheckboxChange(id: string) {
+  onCheckboxChange(id: 'ml' | 'web') {
     this.setState({ checked: { [id]: !this.state.checked[id] } });
   }
 

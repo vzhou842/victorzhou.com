@@ -10,25 +10,38 @@ exports[`MovableSidebarContent renders correctly 1`] = `
     <p
       className="description"
     >
+      I write about ML, Web Dev, and more. 
       <b>
-        Subscribe
+        Subscribe to get new posts by email!
       </b>
-       to know whenever I post new content. I don't spam!
     </p>
     <form
-      action="/subscribe"
+      acceptCharset="utf-8"
+      action="http://sendy.victorzhou.com/subscribe"
       method="post"
       target="_blank"
     >
       <input
-        name="lists"
-        type="hidden"
-        value="ml,web,misc"
-      />
-      <input
         name="Source"
         type="hidden"
         value="Sidebar:desktop"
+      />
+      <input
+        name="list"
+        type="hidden"
+        value="CWC7638hEb6mfk1RqUbJ763snA"
+      />
+      <input
+        autoCapitalize="off"
+        autoCorrect="off"
+        name="hp"
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+        tabIndex="-1"
+        type="text"
       />
       <input
         aria-label="Email Address"

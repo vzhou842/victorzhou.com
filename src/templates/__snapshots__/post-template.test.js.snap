@@ -34,25 +34,42 @@ exports[`PostTemplate renders correctly 1`] = `
     <p
       className="description"
     >
-      That would be more annoying. Anyways, if you like what you're reading, consider subscribing to my newsletter! I'll notify you when I publish new posts - no spam.
+      That would be more annoying. Anyways, consider subscribing to my newsletter to 
+      <b>
+        get new posts by email!
+      </b>
+       I write about ML, Web Dev, and more.
     </p>
     <div
       className="container  no-spacing"
     >
       <form
-        action="/subscribe"
+        acceptCharset="utf-8"
+        action="http://sendy.victorzhou.com/subscribe"
         method="post"
         target="_blank"
       >
         <input
-          name="lists"
-          type="hidden"
-          value="ml,web,misc"
-        />
-        <input
           name="Source"
           type="hidden"
           value="Popup:test"
+        />
+        <input
+          name="list"
+          type="hidden"
+          value="CWC7638hEb6mfk1RqUbJ763snA"
+        />
+        <input
+          autoCapitalize="off"
+          autoCorrect="off"
+          name="hp"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+          tabIndex="-1"
+          type="text"
         />
         <input
           aria-label="Email Address"
