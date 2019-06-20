@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { graphql } from 'gatsby';
+import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
@@ -11,16 +12,14 @@ type Props = {|
 |};
 
 const PageTemplate = ({ data }: Props) => {
-  const {
-    title: siteTitle,
-    subtitle: siteSubtitle
-  } = data.site.siteMetadata;
+  const { title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
 
   const {
     title: pageTitle,
     description: pageDescription,
     hideSubscribe,
     hideAd,
+    noIndex,
   } = data.markdownRemark.frontmatter;
 
   const { html: pageBody } = data.markdownRemark;
@@ -30,6 +29,11 @@ const PageTemplate = ({ data }: Props) => {
   return (
     <div>
       <Layout title={`${pageTitle} - ${siteTitle}`} description={metaDescription}>
+        {noIndex && (
+          <Helmet>
+            <meta name="robots" content="noindex" />
+          </Helmet>
+        )}
         <Sidebar hideSubscribeForm={hideSubscribe} hideAd={hideAd} />
         <Page title={pageTitle}>
           <div dangerouslySetInnerHTML={{ __html: pageBody }} />
@@ -57,6 +61,7 @@ export const query = graphql`
         description
         hideSubscribe
         hideAd
+        noIndex
       }
     }
   }
