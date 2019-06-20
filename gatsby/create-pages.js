@@ -20,6 +20,12 @@ const createPages = async ({ graphql, actions }) => {
     component: path.resolve('./src/templates/subscriber-thank-you-template.js'),
   });
 
+  // Subscribe
+  createPage({
+    path: '/subscribe/',
+    component: path.resolve('./src/templates/subscribe-template.js'),
+  });
+
   // Tags list
   createPage({
     path: '/tags/',

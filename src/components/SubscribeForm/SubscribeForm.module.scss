@@ -20,6 +20,13 @@
 
     label {
       font-size: $typographic-base-font-size * 0.9;
+
+      /* Make the label unselectable */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
     }
   }
 

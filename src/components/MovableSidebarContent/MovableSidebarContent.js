@@ -11,6 +11,7 @@ type Props = {
   +mobile: ?boolean,
   +desktop: ?boolean,
   +hideSubscribeForm: ?boolean,
+  +hideAd: ?boolean,
 };
 
 type PureProps = Props & {
@@ -21,6 +22,7 @@ export const PureMovableSidebarContent = ({
   mobile,
   desktop,
   hideSubscribeForm,
+  hideAd,
   data,
 }: PureProps) => {
   const { author, copyright } = data.site.siteMetadata;
@@ -29,7 +31,7 @@ export const PureMovableSidebarContent = ({
       {!hideSubscribeForm && (
         <SubscribeForm signupSource={`Sidebar:${mobile ? 'mobile' : 'desktop'}`} />
       )}
-      {desktop && <CarbonAd />}
+      {(desktop && !hideAd) && <CarbonAd />}
       <Contacts contacts={author.contacts} />
       <Copyright copyright={copyright} />
     </DisplayIf>

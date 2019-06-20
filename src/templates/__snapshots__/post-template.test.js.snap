@@ -79,6 +79,11 @@ exports[`PostTemplate renders correctly 1`] = `
           onKeyDown={[Function]}
           placeholder="example@domain.com"
           size="25"
+          style={
+            Object {
+              "marginTop": 0,
+            }
+          }
           type="email"
         />
         <br />

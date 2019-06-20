@@ -17,7 +17,7 @@ const SubscriberThankYouTemplate = ({ data }) => {
       <Helmet>
         <meta name="robots" content="noindex" />
       </Helmet>
-      <Sidebar hideSubscribeForm />
+      <Sidebar hideSubscribeForm hideAd />
       <Page title="Thanks for Subscribing!">
         <h3>Your subscription to my mailing list has been confirmed.</h3>
         <p>You'll get new posts in your email inbox.</p>

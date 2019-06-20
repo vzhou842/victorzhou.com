@@ -8,13 +8,14 @@ import styles from './Sidebar.module.scss';
 
 type Props = {
   +hideSubscribeForm: ?boolean,
+  +hideAd: ?boolean,
 };
 
 type PureProps = Props & {
   +data: Object,
 };
 
-export const PureSidebar = ({ data, hideSubscribeForm }: PureProps) => {
+export const PureSidebar = ({ data, hideSubscribeForm, hideAd }: PureProps) => {
   const {
     author,
   } = data.site.siteMetadata;
@@ -24,7 +25,7 @@ export const PureSidebar = ({ data, hideSubscribeForm }: PureProps) => {
       <div className={styles['sidebar__inner']}>
         <Author author={author} />
         <Menu />
-        <MovableSidebarContent desktop hideSubscribeForm={hideSubscribeForm} />
+        <MovableSidebarContent desktop hideSubscribeForm={hideSubscribeForm} hideAd={hideAd} />
       </div>
     </div>
   );

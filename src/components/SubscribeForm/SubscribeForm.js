@@ -4,31 +4,43 @@ import styles from './SubscribeForm.module.scss';
 
 type Props = {|
   +signupSource: string,
-  +isML: bool,
-  +isWeb: bool,
-  +large: bool,
-  +noDescription: bool,
-  +noSpacing: bool,
+  +isML: boolean,
+  +isWeb: boolean,
+  +showAllOptions: boolean,
+  +large: boolean,
+  +noDescription: boolean,
+  +noSpacing: boolean,
   +onKeyDown: Function,
 |};
 
 type State = {|
   +checked: {|
-    +ml: bool,
-    +web: bool,
+    +ml: boolean,
+    +web: boolean,
   |},
 |};
 
 export default class SubscribeForm extends React.PureComponent<Props, State> {
   state = { checked: { ml: false, web: false } };
 
-  onCheckboxChange(id: 'ml' | 'web') {
-    this.setState({ checked: { [id]: !this.state.checked[id] } });
+  onCheckboxClick(id: 'ml' | 'web') {
+    this.setState({ checked: { ...{ ml: false, web: false }, [id]: !this.state.checked[id] } });
   }
 
   render() {
-    const { signupSource, isML, isWeb, large, noDescription, noSpacing, onKeyDown } = this.props;
+    const {
+      signupSource,
+      isML,
+      isWeb,
+      showAllOptions,
+      large,
+      noDescription,
+      noSpacing,
+      onKeyDown,
+    } = this.props;
     const { checked } = this.state;
+
+    const inputType = showAllOptions ? 'radio' : 'checkbox';
 
     return (
       <div
@@ -66,33 +78,37 @@ export default class SubscribeForm extends React.PureComponent<Props, State> {
             placeholder="example@domain.com"
             aria-label="Email Address"
             onKeyDown={onKeyDown}
+            style={noDescription ? { marginTop: 0 } : undefined}
           />
           <br />
-          {isML && (
+          {(isML || showAllOptions) && (
             <label>
               <input
-                type="checkbox"
+                type={inputType}
                 name="Restrictions"
-                value="ML"
+                value={checked.ml ? 'ML' : ''}
                 checked={checked.ml}
-                onChange={this.onCheckboxChange.bind(this, 'ml')}
+                onChange={this.onCheckboxClick.bind(this, 'ml')}
+                onClick={this.onCheckboxClick.bind(this, 'ml')}
               />
               Send me <i>only</i> ML posts
             </label>
           )}
-          {isWeb && (
+          {showAllOptions && <br />}
+          {(isWeb || showAllOptions) && (
             <label>
               <input
-                type="checkbox"
+                type={inputType}
                 name="Restrictions"
-                value="Web"
+                value={checked.web ? 'Web' : ''}
                 checked={checked.web}
-                onChange={this.onCheckboxChange.bind(this, 'web')}
+                onChange={this.onCheckboxClick.bind(this, 'web')}
+                onClick={this.onCheckboxClick.bind(this, 'web')}
               />
               Send me <i>only</i> Web Dev posts
             </label>
           )}
-          {(isML || isWeb) && <br />}
+          {(isML || isWeb || showAllOptions) && <br />}
           <input type="submit" value="SUBMIT" />
         </form>
       </div>
