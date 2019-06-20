@@ -30,6 +30,7 @@
     padding: 8px 20px;
     font-size: $typographic-base-font-size * 0.9;
     @include margin-top(0.25);
+    @include margin-bottom(0.1);
     @include transition(box-shadow);
 
     &:hover, &:focus {
@@ -99,6 +100,7 @@
       padding: 10px 40px;
       font-size: $typographic-base-font-size * 1.2;
       @include margin-top(0.4);
+      @include margin-bottom(0.2);
     }
 
     input[type='submit'] {
