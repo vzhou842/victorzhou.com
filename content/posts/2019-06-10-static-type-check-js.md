@@ -5,6 +5,7 @@ template: "post"
 draft: false
 slug: "/blog/why-static-type-check-javascript/"
 img: "https://victorzhou.com/media/flow-post/flow-homepage.png"
+isWeb: true
 category: "Javascript"
 tags:
   - "Javascript"

@@ -7,6 +7,7 @@ usesKatex: true
 draft: false
 slug: "/blog/intro-to-neural-networks/"
 img: "https://victorzhou.com/media/neural-network-post/network3.png"
+isML: true
 category: "Machine Learning"
 tags:
   - "Machine Learning"

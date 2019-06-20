@@ -34,6 +34,8 @@ const PostTemplate = ({ data, pageContext }: Props) => {
     date,
     dateModified,
     img: imgUrl,
+    isML,
+    isWeb,
     title: postTitle,
     description: postDescription,
     twitterEmbed,
@@ -95,7 +97,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
         </Helmet>
         <Post post={slugNode} prevPost={prevNode} nextPost={nextNode} />
       </Layout>
-      <SubscribePopup postSlug={slug} />
+      <SubscribePopup postSlug={slug} isML={isML} isWeb={isWeb} />
       <div
         style={{
           position: 'absolute',
@@ -142,6 +144,8 @@ export const fragment = graphql`
             dateModified
             description
             img
+            isML
+            isWeb
             slug
             tags
             title

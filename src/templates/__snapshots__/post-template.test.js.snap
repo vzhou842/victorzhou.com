@@ -34,31 +34,48 @@ exports[`PostTemplate renders correctly 1`] = `
     <p
       className="description"
     >
-      That would be more annoying. Anyways, if you like what you're reading, consider subscribing to my newsletter! I'll notify you when I publish new posts - no spam.
+      That would be more annoying. Anyways, consider subscribing to my newsletter to 
+      <b>
+        get new posts by email!
+      </b>
+       I write about ML, Web Dev, and more.
     </p>
     <div
       className="container  no-spacing"
     >
       <form
-        action="https://victorzhou.us20.list-manage.com/subscribe/post?SIGNUP=Popup%3Atest"
+        acceptCharset="utf-8"
+        action="https://sendy.victorzhou.com/subscribe"
         method="post"
         target="_blank"
       >
         <input
-          name="u"
+          name="Source"
           type="hidden"
-          value="7cd5089a9bbc5253e6890ae15"
+          value="Popup:test"
         />
         <input
-          name="id"
+          name="list"
           type="hidden"
-          value="9f367a1f47"
+          value="CWC7638hEb6mfk1RqUbJ763snA"
+        />
+        <input
+          autoCapitalize="off"
+          autoCorrect="off"
+          name="hp"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+          tabIndex="-1"
+          type="text"
         />
         <input
           aria-label="Email Address"
           autoCapitalize="off"
           autoCorrect="off"
-          name="MERGE0"
+          name="email"
           onKeyDown={[Function]}
           placeholder="example@domain.com"
           size="25"
@@ -66,9 +83,8 @@ exports[`PostTemplate renders correctly 1`] = `
         />
         <br />
         <input
-          name="submit"
           type="submit"
-          value="SUBSCRIBE"
+          value="SUBMIT"
         />
       </form>
     </div>

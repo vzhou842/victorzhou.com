@@ -7,40 +7,52 @@ exports[`SubscribeForm renders default correctly 1`] = `
   <p
     className="description"
   >
+    I write about ML, Web Dev, and more. 
     <b>
-      Subscribe
+      Subscribe to get new posts by email!
     </b>
-     to know whenever I post new content. I don't spam!
   </p>
   <form
-    action="https://victorzhou.us20.list-manage.com/subscribe/post?SIGNUP=test"
+    acceptCharset="utf-8"
+    action="https://sendy.victorzhou.com/subscribe"
     method="post"
     target="_blank"
   >
     <input
-      name="u"
+      name="Source"
       type="hidden"
-      value="7cd5089a9bbc5253e6890ae15"
+      value="test"
     />
     <input
-      name="id"
+      name="list"
       type="hidden"
-      value="9f367a1f47"
+      value="CWC7638hEb6mfk1RqUbJ763snA"
+    />
+    <input
+      autoCapitalize="off"
+      autoCorrect="off"
+      name="hp"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+      tabIndex="-1"
+      type="text"
     />
     <input
       aria-label="Email Address"
       autoCapitalize="off"
       autoCorrect="off"
-      name="MERGE0"
+      name="email"
       placeholder="example@domain.com"
       size="25"
       type="email"
     />
     <br />
     <input
-      name="submit"
       type="submit"
-      value="SUBSCRIBE"
+      value="SUBMIT"
     />
   </form>
 </div>
@@ -53,40 +65,52 @@ exports[`SubscribeForm renders large correctly 1`] = `
   <p
     className="description"
   >
+    I write about ML, Web Dev, and more. 
     <b>
-      Subscribe
+      Subscribe to get new posts by email!
     </b>
-     to know whenever I post new content. I don't spam!
   </p>
   <form
-    action="https://victorzhou.us20.list-manage.com/subscribe/post?SIGNUP=test"
+    acceptCharset="utf-8"
+    action="https://sendy.victorzhou.com/subscribe"
     method="post"
     target="_blank"
   >
     <input
-      name="u"
+      name="Source"
       type="hidden"
-      value="7cd5089a9bbc5253e6890ae15"
+      value="test"
     />
     <input
-      name="id"
+      name="list"
       type="hidden"
-      value="9f367a1f47"
+      value="CWC7638hEb6mfk1RqUbJ763snA"
+    />
+    <input
+      autoCapitalize="off"
+      autoCorrect="off"
+      name="hp"
+      style={
+        Object {
+          "display": "none",
+        }
+      }
+      tabIndex="-1"
+      type="text"
     />
     <input
       aria-label="Email Address"
       autoCapitalize="off"
       autoCorrect="off"
-      name="MERGE0"
+      name="email"
       placeholder="example@domain.com"
       size="25"
       type="email"
     />
     <br />
     <input
-      name="submit"
       type="submit"
-      value="SUBSCRIBE"
+      value="SUBMIT"
     />
   </form>
 </div>
