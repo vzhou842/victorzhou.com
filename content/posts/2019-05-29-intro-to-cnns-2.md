@@ -885,4 +885,4 @@ We're done! In this 2-part series, we did a full walkthrough of Convolutional Ne
 - Understand how **Data Augmentation** can be used to improve image training sets.
 - Read about the [ImageNet](https://en.wikipedia.org/wiki/ImageNet) project and its famous Computer Vision contest, the ImageNet Large Scale Visual Recognition Challenge ([ILSVRC](http://image-net.org/challenges/LSVRC/)).
 
-I'll be writing more about some of these topics in the future, so [subscribe to my newsletter](http://eepurl.com/gf8JCX) if you're interested in reading more about them!
+I'll be writing more about some of these topics in the future, so [subscribe to my newsletter](/subscribe/) if you're interested in reading more about them!

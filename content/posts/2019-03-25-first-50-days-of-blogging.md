@@ -29,7 +29,7 @@ On February 4, I published [my first blog post](/blog/better-profanity-detection
 
 - Published 6 blog posts.
 - Gotten 70k+ pageviews.
-- Received 600+ subscribers to [my newsletter](http://eepurl.com/gf8JCX).
+- Received 600+ subscribers to [my newsletter](/subscribe/).
 
 Today is March 25, which is my blog's 50th day! 🎉
 
@@ -56,7 +56,7 @@ I'm going to keep blogging! During Year One, I'm aiming to
 
 - Publish 50 blog posts.
 - Get a million pageviews.
-- Grow [my newsletter](http://eepurl.com/gf8JCX) to 10,000 subscribers.
+- Grow [my newsletter](/subscribe/) to 10,000 subscribers.
 
 Are these goals pretty ambitious? Definitely. I've got a long way to go and a lot of work to do. But I might as well aim high, right?
 
