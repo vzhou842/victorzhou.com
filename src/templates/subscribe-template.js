@@ -9,6 +9,9 @@ import SubscribeForm from '../components/SubscribeForm';
 const SubscribeTemplate = ({ data }: Object) => {
   const { title } = data.site.siteMetadata;
 
+  const params = new URLSearchParams(window.location.search);
+  const source = `SubscribePage:${params.get('src') || ''}`;
+
   return (
     <Layout title={`Subscribe to My Newsletter - ${title}`}>
       <Sidebar hideSubscribeForm hideAd />
@@ -28,7 +31,7 @@ const SubscribeTemplate = ({ data }: Object) => {
             If you see that, it worked - your preferences were updated!
           </li>
         </ul>
-        <SubscribeForm signupSource="SubscribePage" large showAllOptions noDescription />
+        <SubscribeForm signupSource={source} large showAllOptions noDescription />
         <p>
           Don't hesitate to <a href="/contact">Contact Me</a> if you have any issues!
         </p>
