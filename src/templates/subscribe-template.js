@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
@@ -17,9 +17,10 @@ const SubscribeTemplate = ({ data }: Object) => {
       <Sidebar hideSubscribeForm hideAd />
       <Page title="Subscribe to My Newsletter">
         <p>
-          Hey, I'm Victor. I write about <a href="/tag/web-development/">web development</a>,{' '}
-          <a href="/tag/machine-learning/">machine learning</a>, and <a href="/tags/">more</a> on
-          this blog. You can subscribe to my newsletter to <b>get new blog posts by email</b>.
+          Hey, I'm Victor. I write about <Link to="/tag/web-development/">web development</Link>,{' '}
+          <Link to="/tag/machine-learning/">machine learning</Link>, and{' '}
+          <Link to="/tags/">more</Link> on this blog. You can subscribe to my newsletter to{' '}
+          <b>get new blog posts by email</b>.
         </p>
         <ul>
           <li>
@@ -33,7 +34,7 @@ const SubscribeTemplate = ({ data }: Object) => {
         </ul>
         <SubscribeForm signupSource={source} large showAllOptions noDescription />
         <p>
-          Don't hesitate to <a href="/contact">Contact Me</a> if you have any issues!
+          Don't hesitate to <Link to="/contact">Contact Me</Link> if you have any issues!
         </p>
       </Page>
     </Layout>
