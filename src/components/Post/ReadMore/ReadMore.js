@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styles from './ReadMore.module.scss';
 import { renderDate } from '../../../utils/date';
 
@@ -8,9 +9,9 @@ const ReadMoreLink = ({
   },
 }) => (
   <div>
-    <a href={slug}>
+    <Link to={slug}>
       <b>{title}</b>
-    </a>
+    </Link>
     <p>
       <b>{renderDate(dateModified || date)}</b>
     </p>

@@ -13,9 +13,9 @@ exports[`ReadMore renders correctly 1`] = `
     className="readmore-links"
   >
     <div>
-      <a>
+      <Link>
         <b />
-      </a>
+      </Link>
       <p>
         <b>
           March 14, 2019
@@ -24,9 +24,9 @@ exports[`ReadMore renders correctly 1`] = `
       <p />
     </div>
     <div>
-      <a>
+      <Link>
         <b />
-      </a>
+      </Link>
       <p>
         <b>
           March 14, 2019
