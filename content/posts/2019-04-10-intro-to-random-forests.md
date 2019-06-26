@@ -271,6 +271,6 @@ A few things you could do from here:
 - Read about [Gradient Boosted Decision Trees](https://en.wikipedia.org/wiki/Gradient_boosting#Gradient_tree_boosting) and play with [XGBoost](https://xgboost.readthedocs.io/en/latest/), a powerful gradient boosting library.
 - Read about [ExtraTrees](https://en.wikipedia.org/wiki/Random_forest#ExtraTrees), an extension of Random Forests, or play with scikit-learn's [ExtraTreesClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html) class.
 
-That concludes this tutorial. I like [writing about Machine Learning](/tag/machine-learning) (but also other topics), so **[subscribe](/subscribe/) if you want to get notified about new posts.**
+That concludes this tutorial. I like [writing about Machine Learning](/tag/machine-learning) (but also other topics), so **[subscribe](/subscribe/?src=intro-to-random-forests) if you want to get notified about new posts.**
 
 Thanks for reading!

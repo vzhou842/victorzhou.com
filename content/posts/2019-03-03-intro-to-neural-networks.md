@@ -663,6 +663,6 @@ There's still much more to do:
 - Read my [introduction to Convolutional Neural Networks](/blog/intro-to-cnns-part-1/) (CNNs). CNNs revolutionized the field of Computer Vision and can be extremely powerful.
 - Learn about [Recurrent Neural Networks](https://en.wikipedia.org/wiki/Recurrent_neural_network), often used for Natural Language Processing (NLP).
 
-I may write about these topics or similar ones in the future, so [subscribe](/subscribe/) if you want to get notified about new posts.
+I may write about these topics or similar ones in the future, so [subscribe](/subscribe/?src=intro-to-nn) if you want to get notified about new posts.
 
 Thanks for reading!

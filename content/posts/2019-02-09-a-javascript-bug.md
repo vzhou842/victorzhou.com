@@ -115,7 +115,7 @@ Yup.
 
 ## Why would you ever write code with so many Immediately Invoked Function Expressions ([IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE))?
 
-It's a long story, but I'll make a post soon explaining how I wrote bad enough code to have this bug. [Subscribe](/subscribe/) (no spam, for real) if you want to get notified when it's published!
+It's a long story, but I'll make a post soon explaining how I wrote bad enough code to have this bug. [Subscribe](/subscribe/?src=a-javascript-bug) (no spam, for real) if you want to get notified when it's published!
 
 **UPDATE:** I followed through and made [that post](/blog/why-you-should-use-webpack/).
 
