@@ -9,7 +9,10 @@ import SubscribeForm from '../components/SubscribeForm';
 const SubscribeTemplate = ({ data }: Object) => {
   const { title } = data.site.siteMetadata;
 
-  const params = new URLSearchParams(window.location.search);
+  const params =
+    typeof window !== 'undefined' ?
+      new URLSearchParams(window.location.search) :
+      new URLSearchParams();
   const source = `SubscribePage:${params.get('src') || ''}`;
 
   return (
