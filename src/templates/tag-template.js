@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
@@ -32,21 +32,21 @@ const tagDescriptions = {
       </p>
       <ul>
         <li>
-          <a href="/blog/intro-to-neural-networks/">
+          <Link to="/blog/intro-to-neural-networks/">
             Machine Learning for Beginners: An Introduction to Neural Networks
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="/blog/intro-to-cnns-part-1/">An Introduction to Convolutional Neural Networks</a>
+          <Link to="/blog/intro-to-cnns-part-1/">An Introduction to Convolutional Neural Networks</Link>
         </li>
         <li>
-          <a href="/blog/intro-to-random-forests/">Random Forests for Complete Beginners</a>
+          <Link to="/blog/intro-to-random-forests/">Random Forests for Complete Beginners</Link>
         </li>
       </ul>
       <p>
-        Similar tags include <a href="/tag/neural-networks">Neural Networks</a>,{' '}
-        <a href="/tag/computer-vision">Computer Vision</a>, and{' '}
-        <a href="/tag/random-forests">Random Forests</a>.
+        Similar tags include <Link to="/tag/neural-networks">Neural Networks</Link>,{' '}
+        <Link to="/tag/computer-vision">Computer Vision</Link>, and{' '}
+        <Link to="/tag/random-forests">Random Forests</Link>.
       </p>
       <p>Happy Reading!</p>
     </div>
@@ -91,7 +91,7 @@ const TagTemplate = ({ data, pageContext }: Props) => {
       <Sidebar />
       <Page
         title={tag}
-        subtitle={<a href="/tags/">← Back to All Tags</a>}
+        subtitle={<Link to="/tags/">← Back to All Tags</Link>}
         description={tagDescriptions[tag]}
       >
         <Feed edges={edges} />
