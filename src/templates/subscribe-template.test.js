@@ -11,6 +11,7 @@ describe('SubscriberTemplate', () => {
         },
       },
     },
+    pageContext: {},
   };
 
   it('renders correctly', () => {
