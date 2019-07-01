@@ -9,4 +9,4 @@ noIndex: true
 
 **Your subscription to my newsletter has been updated.** Thanks for reading my blog!
 
-You can [update your subscription](/subscribe/?src=sub-updated) again if you'd like.
+You can [update your subscription](/update-subscription/) again if you'd like.
