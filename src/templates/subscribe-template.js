@@ -24,10 +24,7 @@ const SubscribeTemplate = ({ data, pageContext }: Object) => {
       <Page title={title}>
         {updateSubscription ? (
           <p>
-            <b>Update your subscription preferences to my newsletter below.</b>
-            <br />
-            After pressing SUBMIT, you'll be sent to a page that says "You're already subscribed."
-            If you see that, it worked - your preferences were updated!
+            Update your subscription preferences to my newsletter below.
           </p>
         ) : (
           <p>
