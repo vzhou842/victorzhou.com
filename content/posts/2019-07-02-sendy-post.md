@@ -1,17 +1,17 @@
 ---
 title: "Mailchimp to Sendy: How I Cut Email Costs by 100x"
-date: "2019-07-01T12:00:00.000Z"
+date: "2019-07-02T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/mailchimp-to-sendy/"
-img:
+img: "https://victorzhou.com/media/sendy-post/sendy.png"
 category: "Blogging"
 tags:
   - "Blogging"
   - "Best Practices"
 description: Mailchimp was getting too expensive, so I moved this blog's newsletter to Sendy.
 prev: "/blog/replacing-disqus/"
-next: "/blog/properly-size-images/"
+next: "/blog/first-50-days-of-blogging/"
 ---
 
 When I [started this blog](/blog/first-50-days-of-blogging/), I used Mailchimp to create an email newsletter so readers could sign up to get new posts in their inbox. This was an easy choice: Mailchimp has a good free tier, is super easy to setup, and is a pleasure to use.
