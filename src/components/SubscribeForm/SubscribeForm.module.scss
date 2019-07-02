@@ -64,7 +64,7 @@
     }
   }
 
-  input[type='checkbox'] {
+  input[type='checkbox'], input[type='radio'] {
     margin-right: 3px;
   }
 
@@ -99,7 +99,7 @@
       font-size: $typographic-base-font-size * 1.1;
     }
 
-    input[type='checkbox'] {
+    input[type='checkbox'], input[type='radio'] {
       margin-right: 5px;
     }
 
