@@ -71,14 +71,14 @@ One downside of using Sendy is that you have to setup / host it yourself. Howeve
 
 This whole process only takes ~1-2 hours. While my installation method requires a bit of sysadmin knowledge, it's also easy to install Sendy on something like Wordpress without any technical background.
 
-> Note: I didn't include the $5 / month server in the cost table above because you could easily run Sendy for cheaper or even for free (on your existing web hosting). I personally am also using my Sendy server for other things, so that cost is partially subsidized.
+> Note: I didn't include the $5 / month server in the cost table above because you could easily run Sendy for cheaper or for free (on your existing web hosting).
 
 ### Sendy's Features
 
-I won't elaborate too much here because [Sendy's website](https://sendy.co/?ref=Tl4Ot) does a great job describing their features, but here a few that were especially important to me:
+I won't elaborate too much because [Sendy's website](https://sendy.co/?ref=Tl4Ot) does a great job describing their features, but here a few that were especially important to me:
 
-- **Custom Fields**: I store a bit of extra information about my subscribers like where they subscribed from and what kind of posts they want to receive.
-- **List Segmentation**: Using a custom field, I can choose to send certain emails to only specific segments of my email list. For example, if people want to receive _only_ Machine Learning content from me, List Segmentation lets me exclude them from non-ML emails when needed.
+- **Custom Fields**: I store a bit of extra information about my subscribers, e.g. what kind of posts they want to receive.
+- **List Segmentation**: I can choose to send certain emails to only specific segments of my email list. For example, if someone wanted to receive _only_ Machine Learning content from me, this lets me exclude them from non-ML emails when needed.
 - **Bounce + Unsubscribe Handling**: Any bounces, complaints, or unsubscribes are automatically handled by Sendy!
 
 In my experience, **Sendy has most of Mailchimp's core features** - you'll be well-equipped to manage your newsletter.
@@ -98,3 +98,5 @@ Making my own email templates took ~3 hours, so in total I spent around **5 hour
 If you're willing to put in a few hours of work to setup Sendy, it can save you a lot of money in the long run. Still skeptical? Read more on the [official Sendy site](https://sendy.co/?ref=Tl4Ot).
 
 Questions? Comments? Leave them below, or [tweet at me](https://twitter.com/victorczhou).
+
+> Disclaimer: some links in this post are affiliate links. These help support the blog by allowing me to receive a bonus if you sign up.
