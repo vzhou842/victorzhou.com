@@ -15,16 +15,19 @@ type Props = {|
 
 type State = {|
   +checked: {|
+    +none: boolean,
     +ml: boolean,
     +web: boolean,
   |},
 |};
 
 export default class SubscribeForm extends React.PureComponent<Props, State> {
-  state = { checked: { ml: false, web: false } };
+  state = { checked: { none: true, ml: false, web: false } };
 
-  onCheckboxClick(id: 'ml' | 'web') {
-    this.setState({ checked: { ...{ ml: false, web: false }, [id]: !this.state.checked[id] } });
+  onCheckboxClick(id: 'ml' | 'web' | 'none') {
+    this.setState({
+      checked: { ...{ none: false, ml: false, web: false }, [id]: !this.state.checked[id] },
+    });
   }
 
   render() {
@@ -81,6 +84,19 @@ export default class SubscribeForm extends React.PureComponent<Props, State> {
             style={noDescription ? { marginTop: 0 } : undefined}
           />
           <br />
+          {showAllOptions && (
+            <label>
+              <input
+                type={inputType}
+                name="Restrictions"
+                value=""
+                checked={checked.none}
+                onChange={this.onCheckboxClick.bind(this, 'none')}
+              />
+              Send me <i>all</i> posts
+            </label>
+          )}
+          {showAllOptions && <br />}
           {(isML || showAllOptions) && (
             <label>
               <input
@@ -89,7 +105,6 @@ export default class SubscribeForm extends React.PureComponent<Props, State> {
                 value={checked.ml ? 'ML' : ''}
                 checked={checked.ml}
                 onChange={this.onCheckboxClick.bind(this, 'ml')}
-                onClick={this.onCheckboxClick.bind(this, 'ml')}
               />
               Send me <i>only</i> ML posts
             </label>
@@ -103,7 +118,6 @@ export default class SubscribeForm extends React.PureComponent<Props, State> {
                 value={checked.web ? 'Web' : ''}
                 checked={checked.web}
                 onChange={this.onCheckboxClick.bind(this, 'web')}
-                onClick={this.onCheckboxClick.bind(this, 'web')}
               />
               Send me <i>only</i> Web Dev posts
             </label>
