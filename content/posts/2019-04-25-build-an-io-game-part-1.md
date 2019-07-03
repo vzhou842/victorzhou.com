@@ -17,7 +17,6 @@ description: A deep dive into the client-side Javascript of an .io game.
 prev: "/blog/build-an-io-game-part-2/"
 next: "/blog/how-i-became-a-programmer/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1121503205425332224
-discussLinkHN:
 discussLinkReddit: https://www.reddit.com/r/programming/comments/birl3h/how_to_build_a_multiplayer_io_web_game/
 ---
 

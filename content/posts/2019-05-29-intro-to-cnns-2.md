@@ -20,7 +20,6 @@ prev: "/blog/better-profanity-detection-with-scikit-learn/"
 next: "/blog/intro-to-random-forests/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1133752584383205377
 discussLinkHN: https://news.ycombinator.com/item?id=20064900
-discussLinkReddit:
 ---
 
 In this post, we're going to do a deep-dive on something most introductions to Convolutional Neural Networks (CNNs) lack: **how to train a CNN**, including deriving gradients, implementing backprop _from scratch_ (using only [numpy](https://www.numpy.org/)), and ultimately building a full training pipeline!
