@@ -12,6 +12,7 @@ tags:
 description: Mailchimp was getting too expensive, so I moved this blog's newsletter to Sendy.
 prev: "/blog/replacing-disqus/"
 next: "/blog/first-50-days-of-blogging/"
+discussLinkTwitter: https://twitter.com/victorczhou/status/1146091888077750272
 ---
 
 When I [started this blog](/blog/first-50-days-of-blogging/), I used Mailchimp to create an email newsletter so readers could sign up to get new posts in their inbox. This was an easy choice: Mailchimp has a good free tier, is super easy to setup, and is a pleasure to use.
