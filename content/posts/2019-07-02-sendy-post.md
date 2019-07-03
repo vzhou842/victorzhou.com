@@ -13,6 +13,7 @@ description: Mailchimp was getting too expensive, so I moved this blog's newslet
 prev: "/blog/replacing-disqus/"
 next: "/blog/first-50-days-of-blogging/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1146091888077750272
+discussLinkHN: https://news.ycombinator.com/item?id=20345012
 ---
 
 > Disclaimer: some links in this post are affiliate links. These help support the blog by allowing me to receive a bonus if you sign up.
