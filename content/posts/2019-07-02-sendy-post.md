@@ -15,6 +15,8 @@ next: "/blog/first-50-days-of-blogging/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1146091888077750272
 ---
 
+> Disclaimer: some links in this post are affiliate links. These help support the blog by allowing me to receive a bonus if you sign up.
+
 When I [started this blog](/blog/first-50-days-of-blogging/), I used Mailchimp to create an email newsletter so readers could sign up to get new posts in their inbox. This was an easy choice: Mailchimp has a good free tier, is super easy to setup, and is a pleasure to use.
 
 My [email newsletter](/subscribe/?src=sendy-post) has grown since those early days, though, and I'm going to pass the 2,000 subscriber mark soon 🎉, which is where Mailchimp's free tier ends. Thus, I did a bit of research to see how much it would cost me to keep my newsletter on Mailchimp:
@@ -99,5 +101,3 @@ Making my own email templates took ~3 hours, so in total I spent around **5 hour
 If you're willing to put in a few hours of work to setup Sendy, it can save you a lot of money in the long run. Still skeptical? Read more on the [official Sendy site](https://sendy.co/?ref=Tl4Ot).
 
 Questions? Comments? Leave them below, or [tweet at me](https://twitter.com/victorczhou).
-
-> Disclaimer: some links in this post are affiliate links. These help support the blog by allowing me to receive a bonus if you sign up.
