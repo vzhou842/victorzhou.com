@@ -1,6 +1,7 @@
 ---
 title: "Mailchimp to Sendy: How I Cut Email Costs by 100x"
 date: "2019-07-02T12:00:00.000Z"
+dateModified: "2019-07-05T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/mailchimp-to-sendy/"
@@ -52,14 +53,16 @@ Pricing is simple: you pay a one time fee of $59 to buy a copy of Sendy, and the
 
 That's a big difference from Mailchimp - assuming 4 emails per month, here's how the monthly costs for each add up:
 
-| # of Subscribers | Mailchimp (cheapest plan) Cost | Sendy Cost |
-| --- | --- | --- |
-| 2,000 | $0 | $0.80 |
-| 5,000 | $50 | $2 |
-| 10,000 | $75 | $4 |
-| 25,000 | $189 | $10 |
-| 50,000 | $259 | $20 |
+| # of Subscribers | Mailchimp Standard Plan | Mailchimp Essentials Plan | Sendy |
+| --- | --- | --- | --- |
+| 2,000 | $50 | $0 | $0.80 |
+| 5,000 | $75 | $50 | $2 |
+| 10,000 | $99 | $75 | $4 |
+| 25,000 | $219 | $189 | $10 |
+| 50,000 | $299 | $259 | $20 |
 <figcaption>This table speaks for itself.</figcaption>
+
+The difference becomes more drastic if you send fewer emails or upgrade to Mailchimp's Premium plan - **Sendy can easily be 100x cheaper** than Mailchimp.
 
 ### Sendy Setup
 
