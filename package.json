@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "1.0.0",
   "name": "victorzhou.com",
   "description": "",
   "main": "n/a",
@@ -17,7 +17,7 @@
     "test:coverage": "jest --coverage --config ./tests/jest-config.js",
     "test:watch": "jest --watch --config ./tests/jest-config.js"
   },
-  "repository": "",
+  "repository": "https://github.com/vzhou842/victorzhou.com",
   "author": "Victor Zhou <vzhou842@gmail.com>",
   "license": "MIT",
   "keywords": [],
