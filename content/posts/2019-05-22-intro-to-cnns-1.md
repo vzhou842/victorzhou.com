@@ -329,40 +329,11 @@ Our MNIST CNN is starting to come together!
 
 ## 5. Softmax
 
-To complete our CNN, we need to give it the ability to actually make predictions. We'll do that by using the standard final layer for a multiclass classification problem: the [Softmax](https://en.wikipedia.org/wiki/Softmax_function) layer, a standard fully-connected (dense) layer that uses the softmax activation function.
+To complete our CNN, we need to give it the ability to actually make predictions. We'll do that by using the standard final layer for a multiclass classification problem: the **Softmax** layer, a fully-connected (dense) layer that uses the [Softmax function](/blog/softmax/) as its activation.
 
 > Reminder: fully-connected layers have every node connected to every output from the previous layer. We used fully-connected layers in my [intro to Neural Networks](/blog/intro-to-neural-networks/) if you need a refresher.
 
-**Softmax turns arbitrary real values into _probabilities_**. The math behind it is pretty simple: given some numbers,
-
-1. Raise [e](https://en.wikipedia.org/wiki/E_(mathematical_constant)) (the mathematical constant) to the power of each of those numbers.
-2. Sum up all the exponentials (powers of $e$). This result is the denominator.
-3. Use each number's exponential as its numerator.
-4. $\text{Probability} = \frac{\text{Numerator}}{\text{Denominator}}$.
-
-Written more fancily, Softmax performs the following transform on $n$ numbers $x_1 \ldots x_n$:
-
-$$
-s(x_i) = \frac{e^{x_i}}{\sum_{j=1}^n e^{x_j}}
-$$
-
-The outputs of the Softmax transform are always in the range $[0, 1]$ and add up to 1. Hence, they're **probabilities**.
-
-Here's a simple example using the numbers -1, 0, 3, and 5:
-
-$$
-\begin{aligned}
-\text{Denominator} &= e^{-1} + e^0 + e^3 + e^5 \\
-&= \boxed{169.87} \\
-\end{aligned}
-$$
-
-| $x$ | $e^x$ | Probability ($\frac{e^x}{169.87}$) |
-| --- | --- | --- |
-| -1 | 0.368 | 0.002 |
-| 0 | 1 | 0.006 |
-| 3 | 20.09 | 0.118 |
-| 5 | 148.41 | 0.874 |
+If you haven't heard of Softmax before, read my [quick introduction to Softmax](/blog/softmax/) before continuing.
 
 ### 5.1 Usage
 
