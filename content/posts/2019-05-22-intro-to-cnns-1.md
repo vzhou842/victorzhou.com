@@ -1,6 +1,7 @@
 ---
 title: "CNNs, Part 1: An Introduction to Convolutional Neural Networks"
 date: "2019-05-22T12:00:00.000Z"
+dateModified: "2019-07-22T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
