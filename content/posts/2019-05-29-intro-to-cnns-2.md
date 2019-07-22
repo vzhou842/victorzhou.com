@@ -188,7 +188,7 @@ $$
 
 where $S = \sum_i e^{t_i}$.
 
-> You should recognize the equation above from the [Softmax](/blog/intro-to-cnns-part-1/#5-softmax) section in Part 1 of this series.
+> Need a refresher on Softmax? Read my [simple explanation of Softmax](/blog/softmax/).
 
 Now, consider some class $k$ such that $k \neq c$. We can rewrite $out_s(c)$ as:
 
