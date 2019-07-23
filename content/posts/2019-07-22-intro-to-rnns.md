@@ -43,7 +43,7 @@ Later in this post, we'll build a "many to one" RNN from scratch to perform basi
 
 Let's consider a "many to many" RNN with inputs $x_0, x_1, \ldots x_n$ that wants to produce outputs $y_0, y_1, \ldots y_n$. These $x_i$ and $y_i$ are **vectors** and can have arbitrary dimensions.
 
-RNNs work by iteratively updating a hidden state $h$. At any given step $t$,
+RNNs work by iteratively updating a hidden state $h$, which is a vector that can also have arbitrary dimension. At any given step $t$,
 
 1. The next hidden state $h_t$ is calculated using the previous hidden state $h_{t-1}$ and the next input $x_t$.
 2. The next output $y_t$ is calculated using $h_t$.
@@ -102,7 +102,7 @@ Here are a few samples from the small [dataset](https://github.com/vzhou842/rnn-
 | this is very good | <span class="checkmark">✓</span> |
 | this is not bad | <span class="checkmark">✓</span> |
 | i am bad not good | ❌ |
-| i am not at all well | ❌ |
+| i am not at all happy | ❌ |
 | this was good earlier | <span class="checkmark">✓</span> |
 | i am not at all bad or sad right now | <span class="checkmark">✓</span> |
 
@@ -129,8 +129,8 @@ train_data = {
 }
 
 test_data = {
-  'well': True,
-  'not well': False,
+  'this is happy': True,
+  'i am good': True,
   # ... more data
 }
 ```
@@ -144,7 +144,7 @@ from data import *
 # Create the vocabulary.
 vocab = list(set([w for text in train_data.keys() for w in text.split(' ')]))
 vocab_size = len(vocab)
-print('%d unique words found' % vocab_size) # 19 unique words found
+print('%d unique words found' % vocab_size) # 18 unique words found
 ```
 
 `vocab` now holds a list of all words that appear in at least one training text. Next, we'll **assign an integer index** to represent each word in our vocab.
@@ -162,10 +162,12 @@ We can now represent any given word with its corresponding integer index! This i
 
 Finally, recall that each input $x_i$ to our RNN is a _vector_. We'll use **[one-hot](https://en.wikipedia.org/wiki/One-hot) vectors**, which contain all zeros except for a single one. The "one" in each one-hot vector will be **at the word's corresponding integer index.**
 
-Since we have 19 unique words in our vocabulary, each $x_i$ will be a 19-dimensional one-hot vector.
+Since we have 18 unique words in our vocabulary, each $x_i$ will be a 18-dimensional one-hot vector.
 
 ```python
 # Header: main.py
+import numpy as np
+
 def createInputs(text):
   '''
   Returns an array of one-hot vectors representing the words
@@ -185,4 +187,85 @@ We'll use `python›createInputs()` later to create vector inputs to pass in to 
 
 ## 6. The Forward Phase
 
+It's time to start implementing our RNN! We'll start by initializing the 3 weights and 2 biases our RNN needs:
 
+```python
+# Header: rnn.py
+import numpy as np
+from numpy.random import randn
+
+class RNN:
+  # A Vanilla Recurrent Neural Network.
+
+  def __init__(self, input_size, output_size, hidden_size=64):
+    # Weights
+    self.Whh = randn(hidden_size, hidden_size) / 1000
+    self.Wxh = randn(hidden_size, input_size) / 1000
+    self.Why = randn(output_size, hidden_size) / 1000
+
+    # Biases
+    self.bh = np.zeros((hidden_size, 1))
+    self.by = np.zeros((output_size, 1))
+```
+<figcaption>Note: We're dividing by 1000 to reduce the initial variance of our weights. This is not the best way to initialize weights, but it's simple and works for this post.</figcaption>
+
+We use [np.random.randn()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html) to initialize our weights from the standard normal distribution.
+
+Next, let's implement our RNN's forward pass. Remember these two equations we saw earlier?
+
+$$
+h_t = \tanh (W_{xh} x_t + W_{hh} h_{t-1} + b_h)
+$$
+$$
+y_t = W_{hy} h_t + b_y
+$$
+
+Here are those same equations put into code:
+
+```python
+# Header: rnn.py
+class RNN:
+  # ...
+
+  def forward(self, inputs):
+    '''
+    Perform a forward pass of the RNN using the given inputs.
+    Returns the final output and hidden state.
+    - inputs is an array of one hot vectors with shape (input_size, 1).
+    '''
+    h = np.zeros((self.Whh.shape[0], 1))
+
+    # Perform each step of the RNN
+    for i, x in enumerate(inputs):
+      h = np.tanh(self.Wxh @ x + self.Whh @ h + self.bh)
+
+    # Compute the output
+    y = self.Why @ h + self.by
+
+    return y, h
+```
+
+Pretty simple, right? Let's try it out:
+
+```python
+# Header: main.py
+# ...
+
+def softmax(xs):
+  # Applies the Softmax Function to the input array.
+  return np.exp(xs) / sum(np.exp(xs))
+
+# Initialize our RNN!
+rnn = RNN(vocab_size, 2)
+
+inputs = createInputs('i am very good')
+out, h = rnn.forward(inputs)
+probs = softmax(out)
+print(out) # [[0.50000095], [0.49999905]]
+```
+
+> Need a refresher on Softmax? Read my [quick explanation of Softmax](/blog/softmax/).
+
+Our RNN works, but it's not very useful yet - let's change that...
+
+## 7. The Backward Phase
