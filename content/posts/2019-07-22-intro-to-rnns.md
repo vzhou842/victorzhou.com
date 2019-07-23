@@ -245,7 +245,9 @@ class RNN:
     return y, h
 ```
 
-Pretty simple, right? Let's try it out:
+Pretty simple, right? Note that we initialized initialized $h$ to the zero vector for the first step, since there's no previous $h$ we can use at that point.
+
+Let's try it out:
 
 ```python
 # Header: main.py
@@ -269,3 +271,294 @@ print(out) # [[0.50000095], [0.49999905]]
 Our RNN works, but it's not very useful yet - let's change that...
 
 ## 7. The Backward Phase
+
+In order to train our RNN, we first need a loss function. We'll use **cross-entropy loss**, which is often paired with Softmax. Here's how we calculate it:
+
+$$
+L = -\ln (p_c)
+$$
+
+where $p_c$ is our RNN's predicted probability for the _correct_ class (positive or negative). For example, if a positive text is predicted to be 90% positive by our RNN, the loss is:
+
+$$
+L = -\ln(0.90) = 0.105
+$$
+
+> Want a longer explanation? Read the [Cross-Entropy Loss](/blog/intro-to-cnns-part-1/#52-cross-entropy-loss) section of my introduction to Convolutional Neural Networks (CNNs).
+
+Now that we have a loss, we'll train our RNN using gradient descent to minimize loss. That means it's time to derive some gradients!
+
+⚠️ **The following section assumes a basic knowledge of multivariable calculus**. You can skip it if you want, but I recommend giving it a skim even if you don't understand much. We'll incrementally write code as we derive results, and even a surface-level understanding can be helpful.
+
+> If you want some extra background for this section, I recommend first reading the [Training a Neural Network](/blog/intro-to-neural-networks/#3-training-a-neural-network-part-1) section of my introduction to Neural Networks.
+
+Ready? Here we go.
+
+### 7.1 Definitions
+
+First, some definitions:
+
+- Let $L$ be the cross-entropy loss.
+- Let $y$ represent the raw outputs from our RNN.
+- Let $p$ represent the final probabilities: $p = \text{softmax}(y)$.
+
+### 7.2 Setup
+
+Next, we need to edit our forward phase to cache some data for use in the backward phase. While we're at it, we'll also setup the skeleton for our backwards phase. Here's what that looks like:
+
+```python
+# Header: rnn.py
+class RNN:
+  # ...
+
+  def forward(self, inputs):
+    '''
+    Perform a forward pass of the RNN using the given inputs.
+    Returns the final output and hidden state.
+    - inputs is an array of one hot vectors with shape (input_size, 1).
+    '''
+    h = np.zeros((self.Whh.shape[0], 1))
+
+    # highlight-start
+    self.last_inputs = inputs
+    self.last_hs = { 0: h }
+    # highlight-end
+
+    # Perform each step of the RNN
+    for i, x in enumerate(inputs):
+      h = np.tanh(self.Wxh @ x + self.Whh @ h + self.bh)
+      self.last_hs[i + 1] = h # highlight-line
+
+    # Compute the output
+    y = self.Why @ h + self.by
+
+    return y, h
+
+# highlight-start
+  def backprop(self, d_y, learn_rate=2e-2):
+    '''
+    Perform a backward pass of the RNN.
+    - d_y (dL/dy) has shape (output_size, 1).
+    - learn_rate is a float.
+    '''
+    pass
+# highlight-end
+```
+
+> Curious about why we're doing this caching? Read my explanation in the [Training Overview](/blog/intro-to-cnns-part-2/#2-training-overview) of my introduction to CNNs, in which we do the same thing.
+
+### 7.3 Gradients
+
+It's math time! We'll start by calculating $\frac{\partial L}{\partial y}$. We know:
+
+$$
+L = -\ln(p_c) = -\ln(\text{softmax}(y_c))
+$$
+
+I'll leave the actual derivation of $\frac{\partial L}{\partial y}$ using the chain rule as an exercise for you 😉, but the result comes out really nice:
+
+$$
+\frac{\partial L}{\partial y_i} =
+\begin{cases}
+    p_i & \text{if $i \neq c$} \\
+    p_i - 1 & \text{if $i = c$} \\
+\end{cases}
+$$
+
+For example, if we have $p = [0.2, 0.2, 0.6]$ and the correct class is $c = 0$, then we'd get $\frac{\partial L}{\partial y} = [-0.8, 0.2, 0.6]$. This is also quite easy to turn into code:
+
+```python
+# Header: main.py
+# Loop over each training example
+for x, y in train_data.items():
+  inputs = createInputs(x)
+  target = int(y)
+
+  # Forward
+  out, _ = rnn.forward(inputs)
+  probs = softmax(out)
+
+  # Build dL/dy
+  # highlight-start
+  d_L_d_y = probs
+  d_L_d_y[target] -= 1
+  # highlight-end
+
+  # Backward
+  rnn.backprop(d_L_d_y) # highlight-line
+```
+
+Nice. Next up, let's take a crack at gradients for $W_{hy}$ and $b_y$, which are only used to turn the final hidden state into the RNN's output. We have:
+
+$$
+\frac{\partial L}{\partial W_{hy}} = \frac{\partial L}{\partial y} * \frac{\partial y}{\partial W_{hy}}
+$$
+
+$$
+y = W_{hy} h_n + b_y
+$$
+
+where $h_n$ is the final hidden state. Thus,
+
+$$
+\frac{\partial y}{\partial W_{hy}} = h_n
+$$
+$$
+\frac{\partial L}{\partial W_{hy}} = \boxed{\frac{\partial L}{\partial y} h_n}
+$$
+
+Similarly,
+
+$$
+\frac{\partial y}{\partial b_y} = 1
+$$
+$$
+\frac{\partial L}{\partial b_y} = \boxed{\frac{\partial L}{\partial y}}
+$$
+
+We can now start implementing `python›backprop()`!
+
+```python
+# Header: rnn.py
+class RNN:
+  # ...
+
+  def backprop(self, d_y, learn_rate=2e-2):
+    '''
+    Perform a backward pass of the RNN.
+    - d_y (dL/dy) has shape (output_size, 1).
+    - learn_rate is a float.
+    '''
+    n = len(self.last_inputs)
+
+    # Calculate dL/dWhy and dL/dby.
+    # highlight-start
+    d_Why = d_y @ self.last_hs[n].T
+    d_by = d_y
+    # highlight-end
+```
+
+> Reminder: We created `python›self.last_hs` in `python›forward()` earlier.
+
+Finally, we need the gradients for $W_{hh}$, $W_{xh}$, and $b_h$, which are used _every_ step during the RNN. We have:
+
+$$
+\frac{\partial L}{\partial W_{xh}} = \frac{\partial L}{\partial y} \sum_t \frac{\partial y}{\partial h_t} * \frac{\partial h_t}{\partial W_{xh}}
+$$
+
+because changing $W_{xh}$ affects _every_ $h_t$, which all affect $y$ and ultimately $L$. In order to fully calculate the gradient of $W_{xh}$, we'll need to backpropagate through _all_ timesteps, which is known as **Backpropagation Through Time** (BPTT):
+
+![Backpropagation Through Time](/media/rnn-post/bptt.svg)
+
+$W_{xh}$ is used for all $x_t$ <span class="red-arrow">→</span> $h_t$ forward links, so we have to backpropagate back to each of those links.
+
+Once we arrive at a given step $t$, we need to calculate $\frac{\partial h_t}{\partial W_{xh}}$:
+
+$$
+h_t = \tanh (W_{xh} x_t + W_{hh} h_{t-1} + b_h)
+$$
+
+The derivative of $\tanh$ is well-known:
+
+$$
+\frac{d \tanh(x)}{dx} = 1 - \tanh^2(x)
+$$
+
+We use Chain Rule like usual:
+
+$$
+\frac{\partial h_t}{\partial W_{xh}} = \boxed{(1 - h_t^2) x_t}
+$$
+
+Similarly,
+
+$$
+\frac{\partial h_t}{\partial W_{hh}} = \boxed{(1 - h_t^2) h_{t-1}}
+$$
+
+$$
+\frac{\partial h_t}{\partial b_h} = \boxed{(1 - h_t^2)}
+$$
+
+The last thing we need is $\frac{\partial y}{\partial h_t}$. We can calculate this recursively:
+
+$$
+\begin{aligned}
+\frac{\partial y}{\partial h_t} &= \frac{\partial y}{\partial h_{t+1}} * \frac{\partial h_{t+1}}{\partial h_t} \\
+&= \frac{\partial y}{\partial h_{t+1}} (1 - h_t^2) W_{hh} \\
+\end{aligned}
+$$
+
+We'll implement BPTT starting from the last hidden state and working backwards, so we'll already have $\frac{\partial y}{\partial h_{t+1}}$ by the time we want to calculate $\frac{\partial y}{\partial h_t}$! The exception is the last hidden state, $h_n$:
+
+$$
+\frac{\partial y}{\partial h_n} = W_{hy}
+$$
+
+We now have everything we need to finally implement BPTT and finish `python›backprop()`:
+
+```python
+# Header: rnn.py
+class RNN:
+  # ...
+
+  def backprop(self, d_y, learn_rate=2e-2):
+    '''
+    Perform a backward pass of the RNN.
+    - d_y (dL/dy) has shape (output_size, 1).
+    - learn_rate is a float.
+    '''
+    n = len(self.last_inputs)
+
+    # Calculate dL/dWhy and dL/dby.
+    d_Why = d_y @ self.last_hs[n].T
+    d_by = d_y
+
+    # Initialize dL/dWhh, dL/dWxh, and dL/dbh to zero.
+    d_Whh = np.zeros(self.Whh.shape)
+    d_Wxh = np.zeros(self.Wxh.shape)
+    d_bh = np.zeros(self.bh.shape)
+
+    # Calculate dL/dh for the last h.
+    d_h = self.Why.T @ d_y
+
+    # Backpropagate through time.
+    for t in reversed(range(n)):
+      # An intermediate value: dL/dh * (1 - h^2)
+      temp = ((1 - self.last_hs[t + 1] ** 2) * d_h)
+
+      # dL/db = dL/dh * (1 - h^2)
+      d_bh += temp # highlight-line
+
+      # dL/dWhh = dL/dh * (1 - h^2) * h_{t-1}
+      d_Whh += temp @ self.last_hs[t].T # highlight-line
+
+      # dL/dWxh = dL/dh * (1 - h^2) * x
+      d_Wxh += temp @ self.last_inputs[t].T # highlight-line
+
+      # Next dL/dh = dL/dh * (1 - h^2) * Whh
+      d_h = self.Whh @ temp
+
+    # Clip to prevent exploding gradients.
+    for d in [d_Wxh, d_Whh, d_Why, d_bh, d_by]:
+      np.clip(d, -1, 1, out=d)
+
+    # Update weights and biases using gradient descent.
+    self.Whh -= learn_rate * d_Whh
+    self.Wxh -= learn_rate * d_Wxh
+    self.Why -= learn_rate * d_Why
+    self.bh -= learn_rate * d_bh
+    self.by -= learn_rate * d_by
+```
+
+A few things to note:
+
+- We've merged $\frac{\partial L}{\partial y} * \frac{\partial y}{\partial h}$ into $\frac{\partial L}{\partial h}$ for brevity.
+- We're constantly updating a `d_h` variable that holds the most recent $\frac{\partial L}{\partial h_{t+1}}$, which we need to calculate $\frac{\partial L}{\partial h_t}$.
+- After finishing BPTT, we clip gradient values that are below -1 or above 1. This helps mitigate the **exploding gradient** problem, which is when gradients become very large due to having lots of multiplied terms. Exploding or vanishing gradients are quite common in vanilla RNNs - more complex RNNs designed to deal with these issues are generally better.
+- Once all gradients are calculated, we update weights and biases using **gradient descent**.
+
+We've done it! Our RNN is complete.
+
+## 8. The Culmination
+
