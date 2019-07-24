@@ -139,7 +139,7 @@ We'll have to do some pre-processing to get the data into a usable format. To st
 
 ```python
 # Header: main.py
-from data import *
+from data import train_data, test_data
 
 # Create the vocabulary.
 vocab = list(set([w for text in train_data.keys() for w in text.split(' ')]))
@@ -562,3 +562,114 @@ We've done it! Our RNN is complete.
 
 ## 8. The Culmination
 
+It's finally the moment we been waiting for - let's test our RNN!
+
+First, we'll write a helper function to process data with our RNN:
+
+```python
+# Header: main.py
+import random
+
+def processData(data, backprop=True):
+  '''
+  Returns the RNN's loss and accuracy for the given data.
+  - data is a dictionary mapping text to True or False.
+  - backprop determines if the backward phase should be run.
+  '''
+  items = list(data.items())
+  random.shuffle(items)
+
+  loss = 0
+  num_correct = 0
+
+  for x, y in items:
+    inputs = createInputs(x)
+    target = int(y)
+
+    # Forward
+    out, _ = rnn.forward(inputs)
+    probs = softmax(out)
+
+    # Calculate loss / accuracy
+    loss -= np.log(probs[target])
+    num_correct += int(np.argmax(probs) == target)
+
+    if backprop:
+      # Build dL/dy
+      d_L_d_y = probs
+      d_L_d_y[target] -= 1
+
+      # Backward
+      rnn.backprop(d_L_d_y)
+
+  return loss / len(data), num_correct / len(data)
+```
+
+Now, we can write the training loop:
+
+```python
+# Header: main.py
+# Training loop
+for epoch in range(1000):
+  train_loss, train_acc = processData(train_data)
+
+  if epoch % 100 == 99:
+    print('--- Epoch %d' % (epoch + 1))
+    print('Train:\tLoss %.3f | Accuracy: %.3f' % (train_loss, train_acc))
+
+    test_loss, test_acc = processData(test_data, backprop=False)
+    print('Test:\tLoss %.3f | Accuracy: %.3f' % (test_loss, test_acc))
+```
+
+Running `main.py` should output something like this:
+
+```
+--- Epoch 100
+Train:  Loss 0.688 | Accuracy: 0.517
+Test:   Loss 0.700 | Accuracy: 0.500
+--- Epoch 200
+Train:  Loss 0.680 | Accuracy: 0.552
+Test:   Loss 0.717 | Accuracy: 0.450
+--- Epoch 300
+Train:  Loss 0.593 | Accuracy: 0.655
+Test:   Loss 0.657 | Accuracy: 0.650
+--- Epoch 400
+Train:  Loss 0.401 | Accuracy: 0.810
+Test:   Loss 0.689 | Accuracy: 0.650
+--- Epoch 500
+Train:  Loss 0.312 | Accuracy: 0.862
+Test:   Loss 0.693 | Accuracy: 0.550
+--- Epoch 600
+Train:  Loss 0.148 | Accuracy: 0.914
+Test:   Loss 0.404 | Accuracy: 0.800
+--- Epoch 700
+Train:  Loss 0.008 | Accuracy: 1.000
+Test:   Loss 0.016 | Accuracy: 1.000
+--- Epoch 800
+Train:  Loss 0.004 | Accuracy: 1.000
+Test:   Loss 0.007 | Accuracy: 1.000
+--- Epoch 900
+Train:  Loss 0.002 | Accuracy: 1.000
+Test:   Loss 0.004 | Accuracy: 1.000
+--- Epoch 1000
+Train:  Loss 0.002 | Accuracy: 1.000
+Test:   Loss 0.003 | Accuracy: 1.000
+```
+
+100% accuracy - not bad from a RNN we built ourselves.
+
+**Want to try or tinker with this code yourself? [Run this RNN in your browser](https://repl.it/@vzhou842/A-RNN-from-scratch).** It's also available on [Github](https://github.com/vzhou842/rnn-from-scratch).
+
+## 9. The End
+
+That's it! In this post, we completed a walkthrough of Recurrent Neural Networks, including what they are, how they work, why they're useful, how to train them, and how to implement one. There's still much more you can do, though:
+
+- Learn about [Long short-term memory](https://en.wikipedia.org/wiki/Long_short-term_memory) (LSTM) networks, a more powerful and popular RNN architecture, or about [Gated Recurrent Units](https://en.wikipedia.org/wiki/Gated_recurrent_unit) (GRUs), a well-known variation of the LSTM.
+- Experiment with bigger / better RNNs using proper ML libraries like [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), or [PyTorch](https://pytorch.org/).
+- Read about [Bidirectional RNNs](https://en.wikipedia.org/wiki/Bidirectional_recurrent_neural_networks), which process sequences both forwards and backwards so more information is available to the output layer.
+- Try out [Word Embeddings](https://en.wikipedia.org/wiki/Word_embedding) like [GloVe](https://nlp.stanford.edu/projects/glove/) or [Word2Vec](https://en.wikipedia.org/wiki/Word2vec), which can be used to turn words into more useful vector representations.
+- Check out the [Natural Language Toolkit](https://www.nltk.org/) (NLTK), a popular Python library for working with human language data.
+
+I write a lot about [Machine Learning](/tag/machine-learning/), so [subscribe to my newsletter](/subscribe/?src=intro-to-rnns) if you're interested in getting future ML content from me.
+
+Thanks for reading!
