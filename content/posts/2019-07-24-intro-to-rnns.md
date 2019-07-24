@@ -1,11 +1,11 @@
 ---
 title: "An Introduction to Recurrent Neural Networks for Beginners"
-date: "2019-07-22T12:00:00.000Z"
+date: "2019-07-24T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
 slug: "/blog/intro-to-rnns/"
-img:
+img: "https://victorzhou.com/media/rnn-post/bptt.png"
 isML: true
 category: "Machine Learning"
 tags:
@@ -290,7 +290,7 @@ Now that we have a loss, we'll train our RNN using gradient descent to minimize 
 
 ⚠️ **The following section assumes a basic knowledge of multivariable calculus**. You can skip it if you want, but I recommend giving it a skim even if you don't understand much. We'll incrementally write code as we derive results, and even a surface-level understanding can be helpful.
 
-> If you want some extra background for this section, I recommend first reading the [Training a Neural Network](/blog/intro-to-neural-networks/#3-training-a-neural-network-part-1) section of my introduction to Neural Networks.
+> If you want some extra background for this section, I recommend first reading the [Training a Neural Network](/blog/intro-to-neural-networks/#3-training-a-neural-network-part-1) section of my introduction to Neural Networks. Also, all of the code for this post is on [Github](https://github.com/vzhou842/rnn-from-scratch), so you can follow along there if you'd like.
 
 Ready? Here we go.
 
