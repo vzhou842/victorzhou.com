@@ -19,7 +19,7 @@ prev: "/blog/intro-to-cnns-part-1/"
 next: "/blog/intro-to-random-forests/"
 ---
 
-Recurrent Neural Networks (RNNs) are a kind of neural network that specialize in processing **sequences**. They're often used in [Natural Language Processing](/tag/natural-language-processing) (NLP) tasks because of their effectiveness in handling text. In this post, we'll build on a basic background knowledge of neural networks and **explore what RNNs are, understand how they work, and build a real one from scratch** (using only [numpy](https://www.numpy.org/)) in Python.
+Recurrent Neural Networks (RNNs) are a kind of neural network that specialize in processing **sequences**. They're often used in [Natural Language Processing](/tag/natural-language-processing) (NLP) tasks because of their effectiveness in handling text. In this post, we'll **explore what RNNs are, understand how they work, and build a real one from scratch** (using only [numpy](https://www.numpy.org/)) in Python.
 
 **This post assumes a basic knowledge of neural networks**. My [introduction to Neural Networks](/blog/intro-to-neural-networks/) covers everything you'll need to know, so I'd recommend reading that first.
 
@@ -27,7 +27,7 @@ Let's get into it!
 
 ## 1. The Why
 
-One issue with vanilla neural nets (and also [CNNs](/blog/intro-to-cnns-part-1/)) is that they only work with pre-determined sizes: they take **fixed-size inputs** and produce **fixed-size outputs**. RNNs are useful because they let us have **variable-length sequences** both as inputs and outputs. Here are a few examples of what RNNs can look like:
+One issue with vanilla neural nets (and also [CNNs](/blog/intro-to-cnns-part-1/)) is that they only work with pre-determined sizes: they take **fixed-size inputs** and produce **fixed-size outputs**. RNNs are useful because they let us have **variable-length sequences** as both inputs and outputs. Here are a few examples of what RNNs can look like:
 
 ![](./media-link/rnn-post/rnns.jpeg)
 <figcaption>Inputs are red, the RNN itself is green, and outputs are blue. Source: <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="nofollow">Andrej Karpathy</a></figcaption>
@@ -37,7 +37,7 @@ One issue with vanilla neural nets (and also [CNNs](/blog/intro-to-cnns-part-1/)
 - **Machine Translation** (e.g. Google Translate) is done with "many to many" RNNs. The original text sequence is fed into an RNN, which then produces translated text as output.
 - **Sentiment Analysis** (e.g. _Is this a positive or negative review?_) is often done with "many to one" RNNs. The text to be analyzed is fed into an RNN, which then produces a single output classification (e.g. _This is a positive review_).
 
-Later in this post, we'll build a "many to one" RNN from scratch to perform basic Sentiment Analysis. Onwards!
+Later in this post, we'll build a "many to one" RNN from scratch to perform basic Sentiment Analysis.
 
 ## 2. The How
 
@@ -85,7 +85,7 @@ y_t = W_{hy} h_t + b_y
 $$
 <figcaption>Don't skim over these equations. Stop and stare at this for a minute. Also, remember that the weights are <i>matrices</i> and the other variables are <i>vectors</i>.</figcaption>
 
-All the weights are applied using matrix multiplication, and the biases are added to the resulting products. We then use [tanh](https://en.wikipedia.org/wiki/Hyperbolic_function) as an activation function for the first equation (other activations like [sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function) can also be used).
+All the weights are applied using matrix multiplication, and the biases are added to the resulting products. We then use [tanh](https://en.wikipedia.org/wiki/Hyperbolic_function) as an activation function for the first equation (but other activations like [sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function) can also be used).
 
 > No idea what an activation function is? Read my [introduction to Neural Networks](/blog/intro-to-neural-networks/) like I mentioned. Seriously.
 
@@ -134,6 +134,7 @@ test_data = {
   # ... more data
 }
 ```
+<figcaption>True = Positive, False = Negative</figcaption>
 
 We'll have to do some pre-processing to get the data into a usable format. To start, we'll construct a **vocabulary** of all words that exist in our data:
 
@@ -268,7 +269,7 @@ print(out) # [[0.50000095], [0.49999905]]
 
 > Need a refresher on Softmax? Read my [quick explanation of Softmax](/blog/softmax/).
 
-Our RNN works, but it's not very useful yet - let's change that...
+Our RNN works, but it's not very useful yet. Let's change that...
 
 ## 7. The Backward Phase
 
@@ -288,7 +289,7 @@ $$
 
 Now that we have a loss, we'll train our RNN using gradient descent to minimize loss. That means it's time to derive some gradients!
 
-⚠️ **The following section assumes a basic knowledge of multivariable calculus**. You can skip it if you want, but I recommend giving it a skim even if you don't understand much. We'll incrementally write code as we derive results, and even a surface-level understanding can be helpful.
+⚠️ **The following section assumes a basic knowledge of multivariable calculus**. You can skip it if you want, but I recommend giving it a skim even if you don't understand much. **We'll incrementally write code as we derive results**, and even a surface-level understanding can be helpful.
 
 > If you want some extra background for this section, I recommend first reading the [Training a Neural Network](/blog/intro-to-neural-networks/#3-training-a-neural-network-part-1) section of my introduction to Neural Networks. Also, all of the code for this post is on [Github](https://github.com/vzhou842/rnn-from-scratch), so you can follow along there if you'd like.
 
@@ -298,9 +299,12 @@ Ready? Here we go.
 
 First, some definitions:
 
-- Let $L$ be the cross-entropy loss.
 - Let $y$ represent the raw outputs from our RNN.
 - Let $p$ represent the final probabilities: $p = \text{softmax}(y)$.
+- Let $c$ refer to the true label of a certain text sample, a.k.a. the "correct" class. 
+- Let $L$ be the cross-entropy loss: $L = -\ln(p_c)$.
+- Let $W_{xh}$, $W_{hh}$, and $W_{hy}$ be the 3 weight matrices in our RNN.
+- Let $b_h$ and $b_y$ be the 2 bias vectors in our RNN.
 
 ### 7.2 Setup
 
@@ -355,7 +359,7 @@ $$
 L = -\ln(p_c) = -\ln(\text{softmax}(y_c))
 $$
 
-I'll leave the actual derivation of $\frac{\partial L}{\partial y}$ using the chain rule as an exercise for you 😉, but the result comes out really nice:
+I'll leave the actual derivation of $\frac{\partial L}{\partial y}$ using the Chain Rule as an exercise for you 😉, but the result comes out really nice:
 
 $$
 \frac{\partial L}{\partial y_i} =
@@ -553,9 +557,9 @@ class RNN:
 
 A few things to note:
 
-- We've merged $\frac{\partial L}{\partial y} * \frac{\partial y}{\partial h}$ into $\frac{\partial L}{\partial h}$ for brevity.
+- We've merged $\frac{\partial L}{\partial y} * \frac{\partial y}{\partial h}$ into $\frac{\partial L}{\partial h}$ for convenience.
 - We're constantly updating a `d_h` variable that holds the most recent $\frac{\partial L}{\partial h_{t+1}}$, which we need to calculate $\frac{\partial L}{\partial h_t}$.
-- After finishing BPTT, we clip gradient values that are below -1 or above 1. This helps mitigate the **exploding gradient** problem, which is when gradients become very large due to having lots of multiplied terms. Exploding or vanishing gradients are quite common in vanilla RNNs - more complex RNNs designed to deal with these issues are generally better.
+- After finishing BPTT, we [np.clip()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.clip.html) gradient values that are below -1 or above 1. This helps mitigate the **exploding gradient** problem, which is when gradients become very large due to having lots of multiplied terms. [Exploding or vanishing gradients](https://en.wikipedia.org/wiki/Vanishing_gradient_problem) are quite problematic for vanilla RNNs - more complex RNNs like [LSTMs](https://en.wikipedia.org/wiki/Long_short-term_memory) are generally better-equipped to handle them.
 - Once all gradients are calculated, we update weights and biases using **gradient descent**.
 
 We've done it! Our RNN is complete.
@@ -656,7 +660,7 @@ Train:  Loss 0.002 | Accuracy: 1.000
 Test:   Loss 0.003 | Accuracy: 1.000
 ```
 
-100% accuracy - not bad from a RNN we built ourselves.
+Not bad from a RNN we built ourselves. 💯
 
 **Want to try or tinker with this code yourself? [Run this RNN in your browser](https://repl.it/@vzhou842/A-RNN-from-scratch).** It's also available on [Github](https://github.com/vzhou842/rnn-from-scratch).
 
