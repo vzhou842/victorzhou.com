@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="400" viewBox="0 0 400.00001 400.00001" width="400" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <defs id="defs4">
+  <marker id="marker5465" refY="0" refX="0" overflow="visible" orient="auto">
+   <path id="path5467" stroke-linejoin="round" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" transform="scale(.6)" stroke="#466e32" stroke-width=".625" fill="#466e32"/>
+  </marker>
+  <marker id="marker5055" refY="0" refX="0" overflow="visible" orient="auto">
+   <path id="path5057" stroke-linejoin="round" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" transform="scale(.6)" stroke="#466e32" stroke-width=".625" fill="#466e32"/>
+  </marker>
+  <marker id="marker4849" refY="0" refX="0" overflow="visible" orient="auto">
+   <path id="path4851" stroke-linejoin="round" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" transform="scale(.6)" stroke="#2850c8" stroke-width=".625" fill="#2850c8"/>
+  </marker>
+  <marker id="Arrow2Mstart" refY="0" refX="0" overflow="visible" orient="auto">
+   <path id="path4221" stroke-linejoin="round" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" transform="scale(.6)" stroke="#c8281e" stroke-width=".625" fill="#c8281e"/>
+  </marker>
+ </defs>
+ <rect id="rect4155" stroke-linejoin="round" height="93.6" width="43.2" stroke="#000" y="291.8" x="34.4" stroke-width="1.8" fill="#edcdce"/>
+ <text id="text4157" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="27px" line-height="125%" y="343.16071" x="56.198082" font-family="sans-serif" fill="#000000"><tspan id="tspan4159" y="343.16071" x="56.198082" style="text-anchor:middle;text-align:center" font-size="25px">x<tspan id="tspan4989" style="baseline-shift:sub" font-size="18.056px">0</tspan></tspan></text>
+ <g stroke-width="1.8">
+  <path id="path4191" d="m56 253.1v36" marker-start="url(#Arrow2Mstart)" stroke="#c8281e" fill="none"/>
+  <rect id="rect4839" stroke-linejoin="round" height="93.6" width="43.2" stroke="#000" y="153.2" x="34.4" fill="#dde8d3"/>
+  <path id="path4847" d="m56 114.5v36" marker-start="url(#marker4849)" stroke="#2850c8" fill="none"/>
+  <rect id="rect4909" stroke-linejoin="round" height="93.6" width="43.2" stroke="#000" y="14.6" x="34.4" fill="#ccdaf3"/>
+ </g>
+ <text id="text5007" font-size="40px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="197.89081" x="8.1404686" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan5009" y="197.89081" x="8.1404686"/></text>
+ <path id="path5053" d="m110.33 200.02h-26" marker-start="url(#marker5055)" stroke="#466e32" stroke-width="1.8" fill="none"/>
+ <rect id="rect5323" stroke-linejoin="round" height="93.6" width="43.2" stroke="#000" y="291.8" x="119.9" stroke-width="1.8" fill="#edcdce"/>
+ <text id="text5325" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="27px" line-height="125%" y="343.16071" x="141.69809" font-family="sans-serif" fill="#000000"><tspan id="tspan5327" y="343.16071" x="141.69809" style="text-anchor:middle;text-align:center" font-size="25px">x<tspan id="tspan5381" style="baseline-shift:sub" font-size="65%">1</tspan></tspan></text>
+ <g stroke-width="1.8">
+  <path id="path5331" d="m141.5 253.1v36" marker-start="url(#Arrow2Mstart)" stroke="#c8281e" fill="none"/>
+  <rect id="rect5333" stroke-linejoin="round" height="93.6" width="43.2" stroke="#000" y="153.2" x="119.9" fill="#dde8d3"/>
+  <path id="path5335" d="m141.5 114.5v36" marker-start="url(#marker4849)" stroke="#2850c8" fill="none"/>
+  <rect id="rect5337" stroke-linejoin="round" height="93.6" width="43.2" stroke="#000" y="14.6" x="119.9" fill="#ccdaf3"/>
+ </g>
+ <text id="text5345" font-size="40px" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="197.89081" x="93.640472" font-family="sans-serif" xml:space="preserve" fill="#000000"><tspan id="tspan5347" y="197.89081" x="93.640472"/></text>
+ <path id="path5349" d="m195.83 200.02h-26" marker-start="url(#marker5055)" stroke="#466e32" stroke-width="1.8" fill="none"/>
+ <g font-family="sans-serif" fill="#000000">
+  <text id="text5385" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" line-height="125%" y="202.48265" x="254.02393"><tspan id="tspan5387" y="202.48265" x="242.92773" style="text-anchor:middle;text-align:center" font-size="30px">...</tspan></text>
+  <text id="text5415" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" line-height="125%" y="197.89079" x="260.14047"><tspan id="tspan5417" y="197.89079" x="260.14047"/></text>
+  <text id="text5445" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" line-height="125%" y="197.89079" x="176.14047"><tspan id="tspan5447" y="197.89079" x="176.14047"/></text>
+ </g>
+ <rect id="rect5393" stroke-linejoin="round" height="93.6" width="43.2" stroke="#000" y="291.8" x="322.4" stroke-width="1.8" fill="#edcdce"/>
+ <text id="text5395" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="27px" line-height="125%" y="343.16071" x="344.19809" font-family="sans-serif" fill="#000000"><tspan id="tspan5397" y="343.16071" x="344.19809" style="text-anchor:middle;text-align:center" font-size="25px">x<tspan id="tspan5663" style="baseline-shift:sub" font-size="65%">n</tspan></tspan></text>
+ <g stroke-width="1.8">
+  <path id="path5401" d="m344 253.1v36" marker-start="url(#Arrow2Mstart)" stroke="#c8281e" fill="none"/>
+  <rect id="rect5403" stroke-linejoin="round" height="93.6" width="43.2" stroke="#000" y="153.2" x="322.4" fill="#dde8d3"/>
+  <path id="path5405" d="m344 114.5v36" marker-start="url(#marker4849)" stroke="#2850c8" fill="none"/>
+  <rect id="rect5407" stroke-linejoin="round" height="93.6" width="43.2" stroke="#000" y="14.6" x="322.4" fill="#ccdaf3"/>
+  <path id="path5449" d="m314.33 200.02h-26" marker-start="url(#marker5465)" stroke="#466e32" fill="none"/>
+ </g>
+ <g font-size="27px" font-family="sans-serif" fill="#000000">
+  <text id="text4398" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="65.60807" x="56.231613" xml:space="preserve"><tspan id="tspan4400" y="65.60807" x="56.231613" font-size="25px" style="text-anchor:middle;text-align:center">y<tspan id="tspan4402" font-size="18.056px" style="baseline-shift:sub">0</tspan></tspan></text>
+  <text id="text4404" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="65.635811" x="141.88147" xml:space="preserve"><tspan id="tspan4406" y="65.635811" x="141.88147" font-size="25px" style="text-anchor:middle;text-align:center">y<tspan id="tspan4408" font-size="65%" style="baseline-shift:sub">1</tspan></tspan></text>
+  <text id="text4410" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="65.635864" x="344.32593" xml:space="preserve"><tspan id="tspan4412" y="65.635864" x="344.32593" font-size="25px" style="text-anchor:middle;text-align:center">y<tspan id="tspan4414" font-size="65%" style="baseline-shift:sub">n</tspan></tspan></text>
+  <text id="text4416" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="205.16071" x="55.468674" xml:space="preserve"><tspan id="tspan4418" y="205.16071" x="55.468674" font-size="25px" style="text-anchor:middle;text-align:center">h<tspan id="tspan4420" font-size="18.056px" style="baseline-shift:sub">0</tspan></tspan></text>
+  <text id="text4422" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="205.16071" x="141.69809" xml:space="preserve"><tspan id="tspan4424" y="205.16071" x="141.69809" font-size="25px" style="text-anchor:middle;text-align:center">h<tspan id="tspan4426" font-size="65%" style="baseline-shift:sub">1</tspan></tspan></text>
+  <text id="text4428" style="word-spacing:0px;letter-spacing:0px" line-height="125%" y="205.16071" x="344.19809" xml:space="preserve"><tspan id="tspan4430" y="205.16071" x="344.19809" font-size="25px" style="text-anchor:middle;text-align:center">h<tspan id="tspan4432" font-size="65%" style="baseline-shift:sub">n</tspan></tspan></text>
+ </g>
+</svg>
