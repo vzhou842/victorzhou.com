@@ -1,7 +1,7 @@
 ---
 title: "Machine Learning for Beginners: An Introduction to Neural Networks"
 date: "2019-03-03T12:00:00.000Z"
-dateModified: "2019-06-14T12:00:00.000Z"
+dateModified: "2019-07-24T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
@@ -16,7 +16,7 @@ tags:
   - "For Beginners"
 description: "A simple explanation of how they work and how to implement one from scratch in Python."
 prev: "/blog/intro-to-cnns-part-1/"
-next: "/blog/intro-to-random-forests/"
+next: "/blog/intro-to-rnns/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1102644406727966722
 discussLinkHN: https://news.ycombinator.com/item?id=19320217
 discussLinkReddit: https://www.reddit.com/r/Python/comments/axnvut/implementing_a_neural_network_from_scratch_in/
@@ -661,7 +661,7 @@ There's still much more to do:
 - Discover [other activation functions](https://keras.io/activations/) besides sigmoid.
 - Discover [other optimizers](https://keras.io/optimizers/) besides SGD.
 - Read my [introduction to Convolutional Neural Networks](/blog/intro-to-cnns-part-1/) (CNNs). CNNs revolutionized the field of Computer Vision and can be extremely powerful.
-- Learn about [Recurrent Neural Networks](https://en.wikipedia.org/wiki/Recurrent_neural_network), often used for Natural Language Processing (NLP).
+- Read my [introduction to Recurrent Neural Networks](/blog/intro-to-rnns/) (RNNs), which are often used for Natural Language Processing (NLP).
 
 I may write about these topics or similar ones in the future, so [subscribe](/subscribe/?src=intro-to-nn) if you want to get notified about new posts.
 
