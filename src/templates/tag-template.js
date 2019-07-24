@@ -16,6 +16,7 @@ const metaDescriptions = {
   'Machine Learning': 'Machine Learning is, put simply, getting computers to generalize from examples. And that\'s what I try to do: put things simply. My posts on Machine Learning (ML) consist primarily of beginner-focused introductions to common ML models or concepts, and I strive to make my guides as clear and beginner-friendly as possible.',
   Flow: 'Flow is a static type checker for Javascript developed by Facebook. It\'s similar in many ways to TypeScript.',
   'Neural Networks': 'Neural Networks are a class of Machine Learning models that were inspired by the human brain. They\'ve exploded in popularity recently due to their effectiveness at attacking problems in a variety of subfields, like Computer Vision and Natural Language Processing.',
+  'Computer Vision': 'Computer Vision is a field that focuses on teaching computers to "see," or to do tasks that the human visual system can do. Famous applications of Computer Vision include facial recognition, self-driving vehicles, and optical character recognition (OCR).',
 };
 
 const tagDescriptions = {
@@ -105,6 +106,30 @@ const tagDescriptions = {
         </li>
       </ol>
       <p>Happy Reading!</p>
+    </div>
+  ),
+  'Computer Vision': (
+    <div>
+      <p>
+        Computer Vision is a field that focuses on teaching computers to "see," or to
+        do tasks that the human visual system can do. Famous applications of Computer Vision
+        include{' '}
+        <a href="https://en.wikipedia.org/wiki/Facial_recognition_system" target="_blank">
+          facial recognition
+        </a>,{' '}
+        <a href="https://en.wikipedia.org/wiki/Autonomous_car" target="_blank">
+          self-driving vehicles
+        </a>, and{' '}
+        <a href="https://en.wikipedia.org/wiki/Optical_character_recognition" target="_blank">
+          optical character recognition
+        </a> (OCR).
+      </p>
+      <p>
+        If you're interested in getting started in Computer Vision, I recommend reading my{' '}
+        <b><a href="/blog/intro-to-cnns-part-1">
+          Introduction to Convolutional Neural Networks
+        </a></b> (CNNs) first.
+      </p>
     </div>
   ),
 };
