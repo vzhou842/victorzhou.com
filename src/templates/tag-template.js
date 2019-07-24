@@ -32,12 +32,15 @@ const tagDescriptions = {
       </p>
       <ul>
         <li>
-          <Link to="/blog/intro-to-neural-networks/">
-            Machine Learning for Beginners: An Introduction to Neural Networks
+          <Link to="/blog/intro-to-neural-networks/">An Introduction to Neural Networks</Link>
+        </li>
+        <li>
+          <Link to="/blog/intro-to-cnns-part-1/">
+            An Introduction to Convolutional Neural Networks
           </Link>
         </li>
         <li>
-          <Link to="/blog/intro-to-cnns-part-1/">An Introduction to Convolutional Neural Networks</Link>
+          <Link to="/blog/intro-to-rnns/">An Introduction to Recurrent Neural Networks</Link>
         </li>
         <li>
           <Link to="/blog/intro-to-random-forests/">Random Forests for Complete Beginners</Link>
