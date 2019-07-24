@@ -14,7 +14,8 @@ type Props = {|
 
 const metaDescriptions = {
   'Machine Learning': 'Machine Learning is, put simply, getting computers to generalize from examples. And that\'s what I try to do: put things simply. My posts on Machine Learning (ML) consist primarily of beginner-focused introductions to common ML models or concepts, and I strive to make my guides as clear and beginner-friendly as possible.',
-  Flow: 'Flow is a static type checker for Javascript developed by Facebook. It\'s similar in many ways to TypeScript.'
+  Flow: 'Flow is a static type checker for Javascript developed by Facebook. It\'s similar in many ways to TypeScript.',
+  'Neural Networks': 'Neural Networks are a class of Machine Learning models that were inspired by the human brain. They\'ve exploded in popularity recently due to their effectiveness at attacking problems in a variety of subfields, like Computer Vision and Natural Language Processing.',
 };
 
 const tagDescriptions = {
@@ -66,6 +67,44 @@ const tagDescriptions = {
         </a>
         .
       </p>
+    </div>
+  ),
+  'Neural Networks': (
+    <div>
+      <p>
+        Neural Networks are a class of <a href="/tag/machine-learning/">Machine Learning</a> models
+        that were inspired by the human brain. They've exploded in popularity recently due to their
+        effectiveness at attacking problems in a variety of subfields, like{' '}
+        <a href="/tag/computer-vision/">Computer Vision</a> and{' '}
+        <a href="/tag/natural-language-processing">Natural Language Processing</a>.
+      </p>
+      <p style={{ marginBottom: 0 }}>
+        If you're new to Neural Networks, I recommend reading my Neural Network introductions in
+        the following order:
+      </p>
+      <ol>
+        <li>
+          <Link to="/blog/intro-to-neural-networks/">
+            Machine Learning for Beginners: An Introduction to Neural Networks
+          </Link>
+        </li>
+        <li>
+          <Link to="/blog/intro-to-cnns-part-1/">
+            CNNs, Part 1: An Introduction to Convolutional Neural Networks
+          </Link>
+        </li>
+        <li>
+          <Link to="/blog/intro-to-cnns-part-2/">
+            CNNs, Part 2: Training a Convolutional Neural Network
+          </Link>
+        </li>
+        <li>
+          <Link to="/blog/intro-to-rnns/">
+            An Introduction to Recurrent Neural Networks for Beginners
+          </Link>
+        </li>
+      </ol>
+      <p>Happy Reading!</p>
     </div>
   ),
 };
