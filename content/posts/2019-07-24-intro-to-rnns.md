@@ -17,6 +17,7 @@ tags:
 description: A simple walkthrough of what RNNs are, how they work, and how to build one from scratch in Python.
 prev: "/blog/intro-to-cnns-part-1/"
 next: "/blog/intro-to-random-forests/"
+discussLinkTwitter: https://twitter.com/victorczhou/status/1154055678518054912?s=20
 ---
 
 Recurrent Neural Networks (RNNs) are a kind of neural network that specialize in processing **sequences**. They're often used in [Natural Language Processing](/tag/natural-language-processing) (NLP) tasks because of their effectiveness in handling text. In this post, we'll **explore what RNNs are, understand how they work, and build a real one from scratch** (using only [numpy](https://www.numpy.org/)) in Python.
