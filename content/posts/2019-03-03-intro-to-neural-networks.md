@@ -658,7 +658,7 @@ There's still much more to do:
 - Experiment with bigger / better neural networks using proper machine learning libraries like [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), and [PyTorch](https://pytorch.org/).
 - [Build your first neural network with Keras](/blog/keras-neural-network-tutorial/).
 - Tinker with [a neural network in your browser](https://playground.tensorflow.org).
-- Discover [other activation functions](https://keras.io/activations/) besides sigmoid.
+- Discover [other activation functions](https://keras.io/activations/) besides sigmoid, like [Softmax](/blog/softmax/).
 - Discover [other optimizers](https://keras.io/optimizers/) besides SGD.
 - Read my [introduction to Convolutional Neural Networks](/blog/intro-to-cnns-part-1/) (CNNs). CNNs revolutionized the field of Computer Vision and can be extremely powerful.
 - Read my [introduction to Recurrent Neural Networks](/blog/intro-to-rnns/) (RNNs), which are often used for Natural Language Processing (NLP).
