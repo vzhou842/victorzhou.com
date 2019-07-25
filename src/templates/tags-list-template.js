@@ -13,6 +13,8 @@ const TagsListTemplate = ({ data }) => {
   } = data.site.siteMetadata;
   const { group } = data.allMarkdownRemark;
 
+  group.sort((a, b) => b.totalCount - a.totalCount);
+
   return (
     <div>
       <Layout title={`Tags - ${title}`} description={subtitle}>
