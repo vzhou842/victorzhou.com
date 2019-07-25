@@ -17,6 +17,7 @@ const metaDescriptions = {
   Flow: 'Flow is a static type checker for Javascript developed by Facebook. It\'s similar in many ways to TypeScript.',
   'Neural Networks': 'Neural Networks are a class of Machine Learning models that were inspired by the human brain. They\'ve exploded in popularity recently due to their effectiveness at attacking problems in a variety of subfields, like Computer Vision and Natural Language Processing.',
   'Computer Vision': 'Computer Vision is a field that focuses on teaching computers to "see," or to do tasks that the human visual system can do. Famous applications of Computer Vision include facial recognition, self-driving vehicles, and optical character recognition (OCR).',
+  Keras: 'Keras is a popular Python Deep Learning library. It focuses on usability and fast experimentation, but is also powerful enough to support a wide variety of use cases.',
 };
 
 const tagDescriptions = {
@@ -129,6 +130,20 @@ const tagDescriptions = {
         <b><a href="/blog/intro-to-cnns-part-1">
           Introduction to Convolutional Neural Networks
         </a></b> (CNNs) first.
+      </p>
+    </div>
+  ),
+  Keras: (
+    <div>
+      <p>
+        <a href="https://keras.io" target="_blank">Keras</a> is a popular Python Deep Learning
+        library. It focuses on usability and fast experimentation, but is also powerful enough to
+        support a wide variety of use cases.
+      </p>
+      <p>
+        If you're looking to get started with Keras, my{' '}
+        <a href="/blog/keras-neural-network-tutorial/">Keras Neural Network tutorial</a> is a good
+        place to begin.
       </p>
     </div>
   ),
