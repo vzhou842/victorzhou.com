@@ -151,8 +151,8 @@ const tagDescriptions = {
   'Natural Language Processing': (
     <div>
       <p>
-        Natural Language Processing (NLP) is a field that focuses on analyzing, understanding, or even
-        generating human languages (like English). Well-known applications of NLP include{' '}
+        Natural Language Processing (NLP) is a field that focuses on analyzing, understanding, or
+        even generating human languages (like English). Well-known applications of NLP include{' '}
         <a href="https://en.wikipedia.org/wiki/Chatbot" target="_blank">chatbots</a>, translators
         like <a href="https://translate.google.com/" target="_blank">Google Translate</a>, and
         personal assistants like <a href="https://www.apple.com/siri/" target="_blank">Siri</a>.
