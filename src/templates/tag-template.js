@@ -165,8 +165,8 @@ const TagTemplate = ({ data, pageContext }: Props) => {
   const { edges } = data.allMarkdownRemark;
   const pageTitle =
     currentPage > 0 ?
-      `${tag} Posts - Page ${currentPage + 1} - ${siteTitle}` :
-      `${tag} Posts - ${siteTitle}`;
+      `${tag} Articles - Page ${currentPage + 1} - ${siteTitle}` :
+      `${tag} Articles - ${siteTitle}`;
 
   return (
     <Layout title={pageTitle} description={metaDescriptions[tag] || siteSubtitle}>
