@@ -18,6 +18,7 @@ const metaDescriptions = {
   'Neural Networks': 'Neural Networks are a class of Machine Learning models that were inspired by the human brain. They\'ve exploded in popularity recently due to their effectiveness at attacking problems in a variety of subfields, like Computer Vision and Natural Language Processing.',
   'Computer Vision': 'Computer Vision is a field that focuses on teaching computers to "see," or to do tasks that the human visual system can do. Famous applications of Computer Vision include facial recognition, self-driving vehicles, and optical character recognition (OCR).',
   Keras: 'Keras is a popular Python Deep Learning library. It focuses on usability and fast experimentation, but is also powerful enough to support a wide variety of use cases.',
+  'Natural Language Processing': 'Natural Language Processing (NLP) is a field that focuses on analyzing, understanding, or even generating human languages (like English). Well-known applications of NLP include chatbots, translators like Google Translate, and personal assistants like Siri.',
 };
 
 const tagDescriptions = {
@@ -144,6 +145,23 @@ const tagDescriptions = {
         If you're looking to get started with Keras, my{' '}
         <a href="/blog/keras-neural-network-tutorial/">Keras Neural Network tutorial</a> is a good
         place to begin.
+      </p>
+    </div>
+  ),
+  'Natural Language Processing': (
+    <div>
+      <p>
+        Natural Language Processing (NLP) is a field that focuses on analyzing, understanding, or even
+        generating human languages (like English). Well-known applications of NLP include{' '}
+        <a href="https://en.wikipedia.org/wiki/Chatbot" target="_blank">chatbots</a>, translators
+        like <a href="https://translate.google.com/" target="_blank">Google Translate</a>, and
+        personal assistants like <a href="https://www.apple.com/siri/" target="_blank">Siri</a>.
+      </p>
+      <p>
+        If you're interested in getting started with NLP, I recommend reading my{' '}
+        <b><a href="/blog/intro-to-rnns">
+          Introduction to Recurrent Neural Networks
+        </a></b> (RNNs) first.
       </p>
     </div>
   ),
