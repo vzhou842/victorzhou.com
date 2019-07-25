@@ -660,8 +660,8 @@ There's still much more to do:
 - Tinker with [a neural network in your browser](https://playground.tensorflow.org).
 - Discover [other activation functions](https://keras.io/activations/) besides sigmoid, like [Softmax](/blog/softmax/).
 - Discover [other optimizers](https://keras.io/optimizers/) besides SGD.
-- Read my [introduction to Convolutional Neural Networks](/blog/intro-to-cnns-part-1/) (CNNs). CNNs revolutionized the field of Computer Vision and can be extremely powerful.
-- Read my [introduction to Recurrent Neural Networks](/blog/intro-to-rnns/) (RNNs), which are often used for Natural Language Processing (NLP).
+- Read my [introduction to Convolutional Neural Networks](/blog/intro-to-cnns-part-1/) (CNNs). CNNs revolutionized the field of [Computer Vision](/tag/computer-vision/) and can be extremely powerful.
+- Read my [introduction to Recurrent Neural Networks](/blog/intro-to-rnns/) (RNNs), which are often used for [Natural Language Processing](/tag/natural-language-processing/) (NLP).
 
 I may write about these topics or similar ones in the future, so [subscribe](/subscribe/?src=intro-to-nn) if you want to get notified about new posts.
 
