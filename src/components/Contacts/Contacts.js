@@ -19,7 +19,7 @@ const Contacts = ({ contacts }: Props) => (
             rel="noopener noreferrer"
             target="_blank"
           >
-            <Icon icon={getIcon(name)} />
+            <Icon name={name} icon={getIcon(name)} />
           </a>
         </li>
       ))}
