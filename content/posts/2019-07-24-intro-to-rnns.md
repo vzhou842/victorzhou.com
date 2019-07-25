@@ -267,10 +267,11 @@ out, h = rnn.forward(inputs)
 probs = softmax(out)
 print(out) # [[0.50000095], [0.49999905]]
 ```
-
-> Need a refresher on Softmax? Read my [quick explanation of Softmax](/blog/softmax/).
+<figcaption>If you need a refresher on Softmax, read my <a href="/blog/softmax/">quick explanation of Softmax</a>.</figcaption>
 
 Our RNN works, but it's not very useful yet. Let's change that...
+
+> Liking this introduction so far? [Subscribe to my newsletter](/subscribe/?src=intro-to-rnns) to get notified about new Machine Learning posts like this one.
 
 ## 7. The Backward Phase
 
