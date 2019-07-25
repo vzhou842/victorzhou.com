@@ -247,7 +247,7 @@ class RNN:
     return y, h
 ```
 
-Pretty simple, right? Note that we initialized initialized $h$ to the zero vector for the first step, since there's no previous $h$ we can use at that point.
+Pretty simple, right? Note that we initialized $h$ to the zero vector for the first step, since there's no previous $h$ we can use at that point.
 
 Let's try it out:
 
