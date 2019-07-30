@@ -12,6 +12,7 @@ describe('Series', () => {
         node: {
           frontmatter: {
             title: 'test',
+            date: new Date('01-01-19'),
           },
         },
       }],
