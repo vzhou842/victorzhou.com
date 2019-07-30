@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
+import Series from '../components/Series';
 import NavHeader from '../components/NavHeader';
 import SubscribePopup from '../components/SubscribePopup';
 import CarbonAd from '../components/CarbonAd';
@@ -14,12 +15,7 @@ type Props = {|
 |};
 
 const PostTemplate = ({ data, pageContext }: Props) => {
-  const {
-    author,
-    title: siteTitle,
-    subtitle: siteSubtitle,
-    url: siteUrl,
-  } = data.site.siteMetadata;
+  const { author, title: siteTitle, subtitle: siteSubtitle, url: siteUrl } = data.site.siteMetadata;
   const { edges } = data.allMarkdownRemark;
   const { slug, prev, next } = pageContext;
 
@@ -34,6 +30,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
     date,
     dateModified,
     img: imgUrl,
+    isSeries,
     isML,
     isWeb,
     title: postTitle,
@@ -55,12 +52,9 @@ const PostTemplate = ({ data, pageContext }: Props) => {
           {twitterEmbed && (
             <script async defer src="https://platform.twitter.com/widgets.js" charset="utf-8" />
           )}
-          {asyncScript && (
-            <script async src={asyncScript} />
-          )}
+          {asyncScript && <script async src={asyncScript} />}
           <script type="application/ld+json">
-            {
-`{
+            {`{
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "image": "${imgUrl}",
@@ -91,11 +85,14 @@ const PostTemplate = ({ data, pageContext }: Props) => {
       "height": "1024"
     }
   }
-}`
-            }
+}`}
           </script>
         </Helmet>
-        <Post post={slugNode} prevPost={prevNode} nextPost={nextNode} />
+        {isSeries ? (
+          <Series htmlEnd={data.seriesEnd.html} series={slugNode} seriesPosts={data.seriesPosts} />
+        ) : (
+          <Post post={slugNode} prevPost={prevNode} nextPost={nextNode} />
+        )}
       </Layout>
       <SubscribePopup postSlug={slug} isML={isML} isWeb={isWeb} />
       <div
@@ -144,9 +141,11 @@ export const fragment = graphql`
             dateModified
             description
             img
+            isSeries
             isML
             isWeb
             slug
+            seriesSlugs
             tags
             title
             twitterEmbed
@@ -157,11 +156,28 @@ export const fragment = graphql`
         }
       }
     }
+    seriesEnd: markdownRemark(fields: { frontSlug: { eq: $slug } }) {
+      html
+    }
+    seriesPosts: allMarkdownRemark(filter: { frontmatter: { slug: { in: $seriesSlugs } } }) {
+      edges {
+        node {
+          frontmatter {
+            date
+            dateModified
+            description
+            img
+            slug
+            title
+          }
+        }
+      }
+    }
   }
 `;
 
 export const query = graphql`
-  query PostBySlug($slug: String!, $prev: String!, $next: String!) {
+  query PostBySlug($slug: String!, $prev: String, $next: String, $seriesSlugs: [String]) {
     ...PostFragment
   }
 `;

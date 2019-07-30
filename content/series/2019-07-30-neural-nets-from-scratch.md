@@ -1,7 +1,8 @@
 ---
 title: "Neural Networks From Scratch"
 date: "2019-07-30T12:00:00.000Z"
-template: "series"
+template: "post"
+isSeries: true
 isML: true
 slug: "/series/neural-networks-from-scratch/"
 seriesSlugs:
@@ -9,8 +10,14 @@ seriesSlugs:
   - "/blog/intro-to-rnns/"
   - "/blog/intro-to-cnns-part-1/"
   - "/blog/intro-to-cnns-part-2/"
+category: "Neural Networks"
+tags:
+  - "Neural Networks"
+  - "Machine Learning"
+  - "Python"
+  - "For Beginners"
 img: "https://victorzhou.com/media/rnn-post/bptt.png"
-description: "A 4-post series that provides a fundamentals-oriented approach towards understanding Neural Networks. In each post, we manually derive gradients and implement a fully-functioning neural network completely from scratch (using only numpy) in Python."
+description: "A 4-post series that provides a fundamentals-oriented approach towards understanding Neural Networks."
 ---
 
 This 4-post series, written especially with beginners in mind, provides a **fundamentals-oriented** approach towards understanding Neural Networks. We’ll start with an introduction to **classic Neural Networks** for complete beginners before delving into two popular variants: **Recurrent Neural Networks** (RNNs) and **Convolutional Neural Networks** (CNNs).

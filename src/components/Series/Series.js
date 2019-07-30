@@ -5,7 +5,35 @@ import Post from '../Post';
 
 import contentStyles from '../Content/Content.module.scss';
 
-import type { SeriesType, SeriesPostType } from '../../templates/series-template';
+type SeriesType = {|
+  +html: string,
+  +frontmatter: {|
+    +date: Date,
+    +description: string,
+    +discussLinkTwitter?: string,
+    +discussLinkHN?: string,
+    +discussLinkReddit?: string,
+    +isML: boolean,
+    +isWeb: boolean,
+    +img: string,
+    +slug: string,
+    +seriesSlugs: Array<string>,
+    +title: string,
+  |},
+|};
+
+type SeriesPostType = {
+  +node: {
+    +frontmatter: {
+      +date: Date,
+      +dateModified?: Date,
+      +description: string,
+      +img: string,
+      +slug: string,
+      +title: string,
+    },
+  },
+};
 
 type Props = {|
   +htmlEnd: string,

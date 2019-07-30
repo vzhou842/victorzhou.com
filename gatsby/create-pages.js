@@ -68,7 +68,7 @@ const createPages = async ({ graphql, actions }) => {
     const { slug } = edge.node.fields;
     const prev = _.get(edge, 'node.frontmatter.prev');
     const next = _.get(edge, 'node.frontmatter.next');
-    const seriesSlugs = _.get(edge, 'node.frontmatter.seriesSlugs');
+    const seriesSlugs = _.get(edge, 'node.frontmatter.seriesSlugs') || [];
     let template = _.get(edge, 'node.frontmatter.template');
     if (_.get(edge, 'node.frontmatter.usesKatex')) {
       template = 'math-post';
