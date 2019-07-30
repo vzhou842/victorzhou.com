@@ -1,5 +1,6 @@
 ---
 title: "Neural Networks From Scratch"
+date: "2019-07-30T12:00:00.000Z"
 template: "series"
 isML: true
 slug: "/series/neural-networks-from-scratch/"

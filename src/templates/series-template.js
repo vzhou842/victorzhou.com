@@ -6,8 +6,45 @@ import Layout from '../components/Layout';
 import NavHeader from '../components/NavHeader';
 import Series from '../components/Series';
 
+export type SeriesType = {|
+  +html: string,
+  +frontmatter: {|
+    +date: Date,
+    +description: string,
+    +discussLinkTwitter?: string,
+    +discussLinkHN?: string,
+    +discussLinkReddit?: string,
+    +isML: boolean,
+    +isWeb: boolean,
+    +img: string,
+    +slug: string,
+    +seriesSlugs: Array<string>,
+    +title: string,
+  |},
+|};
+
+export type SeriesPostType = {
+  +node: {
+    +frontmatter: {
+      +date: Date,
+      +dateModified?: Date,
+      +description: string,
+      +img: string,
+      +slug: string,
+      +title: string,
+    },
+  },
+};
+
 type Props = {|
-  +data: Object,
+  +data: {|
+    +site: Object,
+    +series: SeriesType,
+    +seriesEnd: Object,
+    +seriesPosts: {|
+      +edges: Array<SeriesPostType>,
+    |},
+  |},
 |};
 
 const SeriesTemplate = ({ data }: Props) => {
@@ -47,6 +84,7 @@ export const query = graphql`
     series: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
+        date
         description
         discussLinkTwitter
         discussLinkHN

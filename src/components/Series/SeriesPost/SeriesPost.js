@@ -5,7 +5,7 @@ import ContentDate from '../../ContentDate';
 
 type Props = {|
   +date: Date,
-  +dateModified: ?Date,
+  +dateModified?: Date,
   +description: string,
   +img: string,
   +n: number,

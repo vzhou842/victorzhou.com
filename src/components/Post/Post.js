@@ -13,29 +13,29 @@ import Discuss from '../Discuss';
 import CarbonAd from '../CarbonAd';
 
 type PostType = {
-  +fields: ?Object,
+  +fields?: Object,
   +frontmatter: {
-    +tags: ?string,
-    +title: string,
     +date: Date,
-    +dateModified: ?Date,
-    +description: ?string,
+    +dateModified?: Date,
+    +description?: string,
+    +discussLinkTwitter?: string,
+    +discussLinkHN?: string,
+    +discussLinkReddit?: string,
     +isML: bool,
     +isWeb: bool,
     +slug: string,
-    +discussLinkTwitter: ?string,
-    +discussLinkHN: ?string,
-    +discussLinkReddit: ?string,
+    +tags?: string,
+    +title: string,
   },
   +html: string,
 };
 
 type Props = {|
   +post: PostType,
-  +prevPost: ?PostType,
-  +nextPost: ?PostType,
-  +contentFooter: ?React.Node,
-  +hideDescription: bool,
+  +prevPost?: PostType,
+  +nextPost?: PostType,
+  +contentFooter?: React.Node,
+  +hideDescription?: bool,
 |};
 
 const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Props) => {
