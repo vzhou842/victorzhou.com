@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="svg4380" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="350" width="700" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 700.00001 350.00001">
+ <g id="layer1" transform="translate(0 -702.36)">
+  <g id="g5638">
+   <rect id="rect5162" height="350" width="700" y="702.36" x="0" fill="#fff"/>
+   <g fill="none">
+    <g stroke="#000" stroke-width="2">
+     <path id="path4861" d="m635 902.36-170-50"/>
+     <path id="path4863" d="m635 852.36-170-50"/>
+     <path id="path4871" d="m465 902.36 170-50"/>
+     <path id="path4873" d="m465 952.36 170-50"/>
+     <path id="path4881" d="m635 902.36-170-100"/>
+     <path id="path4883" d="m635 852.36-170-100"/>
+     <path id="path4889" d="m465 952.36 170-100"/>
+     <path id="path4891" d="m465 1002.4 170-100"/>
+     <path id="path4893" d="m465 1002.4 170-150"/>
+     <path id="path4899" d="m635 902.36-170-150"/>
+     <path id="path4921" d="m465 902.36h170"/>
+     <path id="path4923" d="m465 852.36h170"/>
+    </g>
+    <circle id="circle4931" cx="-650" transform="scale(-1,1)" stroke="#0f9640" cy="902.36" r="16.2" stroke-width="4"/>
+    <circle id="circle4935" stroke-width="4" transform="scale(-1,1)" stroke="#0f9640" cy="852.36" cx="-650" r="16.2"/>
+    <g stroke="#000" stroke-width="2">
+     <path id="path4482" d="m65 952.36 170-50"/>
+     <path id="path4484" d="m65 902.36 170-50"/>
+     <path id="path4486" d="m65 852.36 170-50"/>
+     <path id="path4488" d="m65 802.36 170-50"/>
+     <path id="path4492" d="m235 852.36-170-50"/>
+     <path id="path4494" d="m235 902.36-170-50"/>
+     <path id="path4496" d="m235 952.36-170-50"/>
+     <path id="path4498" d="m235 1002.4-170-50.04"/>
+     <path id="path4502" d="m65 952.36 170-100"/>
+     <path id="path4504" d="m65 902.36 170-100"/>
+     <path id="path4506" d="m65 852.36 170-100"/>
+     <path id="path4510" d="m235 902.36-170-100"/>
+     <path id="path4512" d="m235 952.36-170-100"/>
+     <path id="path4514" d="m235 1002.4-170-100.04"/>
+     <path id="path4516" d="m235 1002.4-170-150.04"/>
+     <path id="path4518" d="m235 952.36-170-150"/>
+     <path id="path4522" d="m65 902.36 170-150"/>
+     <path id="path4524" d="m65 952.36 170-150"/>
+     <path id="path4530" d="m65 952.36 170-200"/>
+     <path id="path4534" d="m235 1002.4-170-200.04"/>
+     <path id="path4542" d="m235 952.36h-170"/>
+     <path id="path4544" d="m235 902.36h-170"/>
+     <path id="path4546" d="m235 852.36h-170"/>
+     <path id="path4548" d="m235 802.36h-170"/>
+    </g>
+    <g stroke="#164bc5" stroke-width="4">
+     <circle id="circle4410" cx="50" cy="902.36" r="16.2"/>
+     <circle id="circle4412" cy="952.36" cx="50" r="16.2"/>
+     <circle id="circle4414" cy="852.36" cx="50" r="16.2"/>
+     <circle id="circle4416" cx="50" cy="802.36" r="16.2"/>
+    </g>
+    <g stroke="#000">
+     <g stroke-width="2">
+      <path id="path4598" d="m435 1002.4-170-50"/>
+      <path id="path4600" d="m435 952.36-170-50"/>
+      <path id="path4602" d="m435 902.36-170-50"/>
+      <path id="path4604" d="m435 852.36-170-50"/>
+      <path id="path4606" d="m435 802.36-170-50"/>
+      <path id="path4608" d="m265 802.36 170-50"/>
+      <path id="path4610" d="m265 852.36 170-50"/>
+      <path id="path4612" d="m265 902.36 170-50"/>
+      <path id="path4614" d="m265 952.36 170-50"/>
+      <path id="path4616" d="m265 1002.4 170-50"/>
+      <path id="path4618" d="m435 1002.4-170-100"/>
+      <path id="path4620" d="m435 952.36-170-100"/>
+      <path id="path4622" d="m435 902.36-170-100"/>
+      <path id="path4624" d="m435 852.36-170-100"/>
+      <path id="path4626" d="m265 852.36 170-100"/>
+      <path id="path4628" d="m265 902.36 170-100"/>
+      <path id="path4630" d="m265 952.36 170-100"/>
+      <path id="path4632" d="m265 1002.4 170-100"/>
+      <path id="path4634" d="m265 1002.4 170-150"/>
+      <path id="path4636" d="m265 952.36 170-150"/>
+      <path id="path4638" d="m265 902.36 170-150"/>
+      <path id="path4640" d="m435 902.36-170-150"/>
+      <path id="path4642" d="m435 952.36-170-150"/>
+      <path id="path4644" d="m435 1002.4-170-150"/>
+      <path id="path4646" d="m435 1002.4-170-200"/>
+      <path id="path4648" d="m435 952.36-170-200"/>
+      <path id="path4650" d="m265 952.36 170-200"/>
+      <path id="path4652" d="m265 1002.4 170-200"/>
+      <path id="path4654" d="m435 1002.4-170-250"/>
+      <path id="path4656" d="m265 1002.4 170-250"/>
+      <path id="path4658" d="m265 1002.4h170"/>
+      <path id="path4660" d="m265 952.36h170"/>
+      <path id="path4662" d="m265 902.36h170"/>
+      <path id="path4664" d="m265 852.36h170"/>
+      <path id="path4666" d="m265 802.36h170"/>
+      <path id="path4668" d="m265 752.36h170"/>
+     </g>
+     <g stroke-width="4">
+      <circle id="circle4670" cx="-450" transform="scale(-1,1)" cy="1002.4" r="16.2"/>
+      <circle id="circle4672" transform="scale(-1,1)" cy="902.36" cx="-450" r="16.2"/>
+      <circle id="circle4674" cx="-450" transform="scale(-1,1)" cy="952.36" r="16.2"/>
+      <circle id="circle4676" cx="-450" transform="scale(-1,1)" cy="852.36" r="16.2"/>
+      <circle id="circle4678" transform="scale(-1,1)" cy="802.36" cx="-450" r="16.2"/>
+      <circle id="circle4680" cx="-450" transform="scale(-1,1)" cy="752.36" r="16.2"/>
+      <circle id="circle5019" cx="250" cy="1002.4" r="16.2"/>
+      <circle id="circle5021" cy="902.36" cx="250" r="16.2"/>
+      <circle id="circle4164" cx="250" cy="952.36" r="16.2"/>
+      <circle id="circle4168" cx="250" cy="852.36" r="16.2"/>
+      <circle id="circle4170" cy="802.36" cx="250" r="16.2"/>
+      <circle id="circle4172" cx="250" cy="752.36" r="16.2"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

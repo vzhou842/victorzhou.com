@@ -17,9 +17,11 @@ tags:
   - "Machine Learning"
   - "Python"
   - "For Beginners"
-img: "https://victorzhou.com/media/rnn-post/bptt.png"
+img: "https://victorzhou.com/media/nn-series/network.png"
 description: "A 4-post series that provides a fundamentals-oriented approach towards understanding Neural Networks."
 ---
+
+![](/media/nn-series/network.svg)
 
 This 4-post series, written especially with beginners in mind, provides a **fundamentals-oriented** approach towards understanding Neural Networks. We’ll start with an introduction to **classic Neural Networks** for complete beginners before delving into two popular variants: **Recurrent Neural Networks** (RNNs) and **Convolutional Neural Networks** (CNNs).
 
