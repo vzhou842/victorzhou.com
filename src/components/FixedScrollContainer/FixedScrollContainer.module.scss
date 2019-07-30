@@ -1,0 +1,17 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.container {
+  position: fixed;
+  top: calc((100% - 217px) / 2);
+  right: calc(((100% - 710px) / 2 - 170px) / 2);
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 250ms ease;
+
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 250ms, opacity 250ms ease;
+  }
+}

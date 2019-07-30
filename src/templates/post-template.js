@@ -8,6 +8,7 @@ import Series from '../components/Series';
 import NavHeader from '../components/NavHeader';
 import SubscribePopup from '../components/SubscribePopup';
 import CarbonAd from '../components/CarbonAd';
+import FixedScrollContainer from '../components/FixedScrollContainer';
 
 type Props = {|
   +data: Object,
@@ -99,15 +100,9 @@ const PostTemplate = ({ data, pageContext }: Props) => {
         )}
       </Layout>
       {!isSeries && <SubscribePopup postSlug={slug} isML={isML} isWeb={isWeb} />}
-      <div
-        style={{
-          position: 'absolute',
-          top: 'calc((100% - 217px) / 2)',
-          right: 'calc(((100% - 700px) / 2 - 150px) / 2)',
-        }}
-      >
+      <FixedScrollContainer>
         <CarbonAd largeOnly />
-      </div>
+      </FixedScrollContainer>
     </div>
   );
 };
