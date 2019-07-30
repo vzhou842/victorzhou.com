@@ -2,38 +2,27 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Feed from './Feed';
 
+const edge = s => ({
+  node: {
+    fields: {
+      slug: s,
+      categorySlug: s,
+    },
+    frontmatter: {
+      date: new Date('01-01-19'),
+      description: s,
+      category: s,
+      title: s,
+    }
+  }
+});
+
 describe('Feed', () => {
   const props = {
     edges: [
-      {
-        node: {
-          fields: {
-            slug: '/test_0',
-            categorySlug: '/test_0'
-          },
-          frontmatter: {
-            date: new Date('01-01-19'),
-            description: 'test_0',
-            category: 'test_0',
-            title: 'test_0'
-          }
-        }
-      },
-      {
-        node: {
-          fields: {
-            slug: '/test_1',
-            categorySlug: '/test_1'
-          },
-          frontmatter: {
-            date: new Date('01-01-19'),
-            description: 'test_1',
-            category: 'test_1',
-            title: 'test_1'
-          }
-        }
-      }
-    ]
+      edge('test_0'),
+      edge('test_1'),
+    ],
   };
 
   it('renders correctly', () => {
