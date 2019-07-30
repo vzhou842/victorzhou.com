@@ -15,7 +15,7 @@ tags:
   - "Python"
   - "For Beginners"
 description: "A simple explanation of how they work and how to implement one from scratch in Python."
-prev: "/blog/intro-to-cnns-part-1/"
+prev: "/series/neural-networks-from-scratch/"
 next: "/blog/intro-to-rnns/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1102644406727966722
 discussLinkHN: https://news.ycombinator.com/item?id=19320217
