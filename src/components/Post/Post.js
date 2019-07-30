@@ -1,11 +1,11 @@
 import React from 'react';
 import Comments from './Comments';
-import Content from './Content';
 import Tags from './Tags';
 import ReadMore from './ReadMore';
 import styles from './Post.module.scss';
 
 import Author from '../Author';
+import Content from '../Content';
 import SubscribeForm from '../SubscribeForm';
 import Share from '../Share';
 import Discuss from '../Discuss';

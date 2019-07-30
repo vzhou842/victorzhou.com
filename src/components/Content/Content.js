@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Content.module.scss';
-import ContentDate from '../../ContentDate';
+import ContentDate from '../ContentDate';
 
 const Content = ({ body, title, subtitle, date, dateModified }) => (
   <article className={styles['content']}>
