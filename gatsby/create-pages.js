@@ -44,6 +44,7 @@ const createPages = async ({ graphql, actions }) => {
               usesKatex
               prev
               next
+              seriesSlugs
             }
             fields {
               slug
@@ -57,16 +58,18 @@ const createPages = async ({ graphql, actions }) => {
   const { edges } = result.data.allMarkdownRemark;
 
   _.each(edges, edge => {
+    const { slug } = edge.node.fields;
     const prev = _.get(edge, 'node.frontmatter.prev');
     const next = _.get(edge, 'node.frontmatter.next');
+    const seriesSlugs = _.get(edge, 'node.frontmatter.seriesSlugs');
     let template = _.get(edge, 'node.frontmatter.template');
     if (_.get(edge, 'node.frontmatter.usesKatex')) {
       template = 'math-post';
     }
     createPage({
-      path: edge.node.fields.slug,
+      path: slug,
       component: path.resolve(`./src/templates/${template}-template.js`),
-      context: { slug: edge.node.fields.slug, prev, next },
+      context: { slug, prev, next, seriesSlugs },
     });
   });
 

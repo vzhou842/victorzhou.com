@@ -1,0 +1,30 @@
+@import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
+
+.series-post {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: $color-gray-bg;
+  border-radius: 5px;
+
+  img {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 3px;
+  }
+
+  h3 {
+    margin: 10px 0 0 0;
+  }
+
+  p {
+    margin: 5px 0 0 0;
+  }
+}
+
+@include breakpoint-md {
+  .series-post {
+    padding: 15px;
+    margin: 10px 20px;
+  }
+}
