@@ -22,9 +22,9 @@ exports[`Feed renders correctly 1`] = `
     >
       <time
         className="feed__item-meta-time"
-        dateTime={2019-01-01T05:00:00.000Z}
+        dateTime={1970-01-01T00:00:00.000Z}
       >
-        January 1, 2019
+        December 31, 1969
       </time>
       <span
         className="feed__item-meta-divider"
@@ -70,9 +70,9 @@ exports[`Feed renders correctly 1`] = `
     >
       <time
         className="feed__item-meta-time"
-        dateTime={2019-01-01T05:00:00.000Z}
+        dateTime={1970-01-01T00:00:00.000Z}
       >
-        January 1, 2019
+        December 31, 1969
       </time>
       <span
         className="feed__item-meta-divider"

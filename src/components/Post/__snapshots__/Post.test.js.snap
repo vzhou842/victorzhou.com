@@ -24,7 +24,7 @@ exports[`Post renders correctly 1`] = `
         className="content-date"
       >
         <time>
-          January 1, 2019
+          December 31, 1969
         </time>
       </p>
     </div>
@@ -177,7 +177,7 @@ exports[`Post renders correctly 1`] = `
           </Link>
           <p>
             <b>
-              January 1, 2019
+              December 31, 1969
             </b>
           </p>
           <p>
@@ -194,7 +194,7 @@ exports[`Post renders correctly 1`] = `
           </Link>
           <p>
             <b>
-              January 1, 2019
+              December 31, 1969
             </b>
           </p>
           <p>

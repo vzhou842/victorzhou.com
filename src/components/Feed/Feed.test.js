@@ -9,7 +9,7 @@ const edge = s => ({
       categorySlug: s,
     },
     frontmatter: {
-      date: new Date('01-01-19'),
+      date: new Date(99999),
       description: s,
       category: s,
       title: s,

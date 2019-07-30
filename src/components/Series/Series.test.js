@@ -7,7 +7,7 @@ describe('Series', () => {
     htmlEnd: '<div></div>',
     series: {
       frontmatter: {
-        date: new Date('01-01-19'),
+        date: new Date(99999),
         slug: 'test',
         title: 'test',
       },
@@ -18,7 +18,7 @@ describe('Series', () => {
         node: {
           frontmatter: {
             title: 'test',
-            date: new Date('01-01-19'),
+            date: new Date(99999),
           },
         },
       }],

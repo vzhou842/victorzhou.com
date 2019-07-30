@@ -8,7 +8,7 @@ const post = {
     tagSlugs: ['/test_0', '/test_1'],
   },
   frontmatter: {
-    date: new Date('01-01-19'),
+    date: new Date(99999),
     slug: 'test',
     tags: ['test_0', 'test_1'],
     title: 'test',
