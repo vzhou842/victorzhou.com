@@ -19,7 +19,7 @@ exports[`Series renders correctly 1`] = `
         className="content-date"
       >
         <time>
-          August 31, 2016
+          January 1, 2019
         </time>
       </p>
     </div>
