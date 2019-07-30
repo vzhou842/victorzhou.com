@@ -10,8 +10,9 @@ seriesSlugs:
   - "/blog/intro-to-rnns/"
   - "/blog/intro-to-cnns-part-1/"
   - "/blog/intro-to-cnns-part-2/"
-category: "Neural Networks"
+category: "Series"
 tags:
+  - "Series"
   - "Neural Networks"
   - "Machine Learning"
   - "Python"

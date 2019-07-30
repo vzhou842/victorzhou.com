@@ -8,31 +8,32 @@ const Feed = ({ edges }) => (
     {edges.map(edge => {
       const {
         fields: { categorySlug, slug },
-        frontmatter,
+        frontmatter: { date, title, category, description, isSeries },
       } = edge.node;
-      const date = renderDate(frontmatter.date);
+
+      const dateElement = renderDate(date);
 
       return (
         <div className={styles['feed__item']} key={slug}>
           <h2 className={styles['feed__item-title']}>
             <Link className={styles['feed__item-title-link']} to={slug}>
-              {frontmatter.title}
+              {title}
             </Link>
           </h2>
           <div className={styles['feed__item-meta']}>
             <time className={styles['feed__item-meta-time']} dateTime={date}>
-              {date}
+              {dateElement}
             </time>
             <span className={styles['feed__item-meta-divider']} />
             <span className={styles['feed__item-meta-category']}>
               <Link to={categorySlug} className={styles['feed__item-meta-category-link']}>
-                {frontmatter.category}
+                {category}
               </Link>
             </span>
           </div>
-          <p className={styles['feed__item-description']}>{frontmatter.description}</p>
+          <p className={styles['feed__item-description']}>{description}</p>
           <Link className={styles['feed__item-readmore']} to={slug}>
-            Read
+            {isSeries ? 'View Series' : 'Read'}
           </Link>
         </div>
       );
