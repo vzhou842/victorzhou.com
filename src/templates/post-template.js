@@ -94,7 +94,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
           <Post post={slugNode} prevPost={prevNode} nextPost={nextNode} />
         )}
       </Layout>
-      <SubscribePopup postSlug={slug} isML={isML} isWeb={isWeb} />
+      {!isSeries && <SubscribePopup postSlug={slug} isML={isML} isWeb={isWeb} />}
       <div
         style={{
           position: 'absolute',
