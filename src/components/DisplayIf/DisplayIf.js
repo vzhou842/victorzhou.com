@@ -4,8 +4,8 @@ import styles from './DisplayIf.module.scss';
 
 type Props = {|
   +children: React.Node,
-  +mobile: boolean,
-  +desktop: boolean,
+  +mobile?: boolean,
+  +desktop?: boolean,
 |};
 
 const DisplayIf = ({ children, mobile, desktop }: Props) => (

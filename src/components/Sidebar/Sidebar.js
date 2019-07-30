@@ -7,8 +7,8 @@ import MovableSidebarContent from '../MovableSidebarContent';
 import styles from './Sidebar.module.scss';
 
 type Props = {
-  +hideSubscribeForm: ?boolean,
-  +hideAd: ?boolean,
+  +hideSubscribeForm?: boolean,
+  +hideAd?: boolean,
 };
 
 type PureProps = Props & {

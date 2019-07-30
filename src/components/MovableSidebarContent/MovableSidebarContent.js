@@ -8,10 +8,10 @@ import DisplayIf from '../DisplayIf';
 import CarbonAd from '../CarbonAd';
 
 type Props = {
-  +mobile: ?boolean,
-  +desktop: ?boolean,
-  +hideSubscribeForm: ?boolean,
-  +hideAd: ?boolean,
+  +mobile?: boolean,
+  +desktop?: boolean,
+  +hideSubscribeForm?: boolean,
+  +hideAd?: boolean,
 };
 
 type PureProps = Props & {

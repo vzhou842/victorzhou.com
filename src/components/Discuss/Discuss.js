@@ -3,9 +3,9 @@ import React from 'react';
 import styles from './Discuss.module.scss';
 
 type Props = {|
-  +twitter: string,
-  +hn: string,
-  +reddit: string,
+  +twitter?: string,
+  +hn?: string,
+  +reddit?: string,
 |};
 
 function openLink(link) {

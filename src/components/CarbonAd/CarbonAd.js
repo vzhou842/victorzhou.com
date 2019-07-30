@@ -7,8 +7,8 @@ const SMALL_THRESHOLD = 685; // $layout-breakpoint-sm
 const LARGE_THRESHOLD = 1100; // $layout-breakpoint-lg
 
 type Props = {|
-  +smallOnly: ?boolean,
-  +largeOnly: ?boolean,
+  +smallOnly?: boolean,
+  +largeOnly?: boolean,
 |};
 
 class CarbonAd extends React.PureComponent<Props> {
