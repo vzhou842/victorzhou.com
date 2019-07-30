@@ -1,4 +1,5 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import Comments from './Comments';
 import Tags from './Tags';
 import ReadMore from './ReadMore';
@@ -11,7 +12,33 @@ import Share from '../Share';
 import Discuss from '../Discuss';
 import CarbonAd from '../CarbonAd';
 
-const Post = ({ post, prevPost, nextPost }) => {
+type PostType = {
+  +fields: ?Object,
+  +frontmatter: {
+    +tags: ?string,
+    +title: string,
+    +date: Date,
+    +dateModified: ?Date,
+    +description: ?string,
+    +isML: bool,
+    +isWeb: bool,
+    +slug: string,
+    +discussLinkTwitter: ?string,
+    +discussLinkHN: ?string,
+    +discussLinkReddit: ?string,
+  },
+  +html: string,
+};
+
+type Props = {|
+  +post: PostType,
+  +prevPost: ?PostType,
+  +nextPost: ?PostType,
+  +contentFooter: ?React.Node,
+  +hideDescription: bool,
+|};
+
+const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Props) => {
   const {
     tags,
     title,
@@ -27,16 +54,16 @@ const Post = ({ post, prevPost, nextPost }) => {
   } = post.frontmatter;
 
   const { html } = post;
-  const { tagSlugs } = post.fields;
 
   return (
     <div className={styles['post']}>
       <Content
         body={html}
         title={title}
-        subtitle={description}
+        subtitle={hideDescription ? null : description}
         date={date}
         dateModified={dateModified}
+        footer={contentFooter}
       />
 
       <div className={styles['post__subscribeForm']}>
@@ -56,9 +83,9 @@ const Post = ({ post, prevPost, nextPost }) => {
       </div>
 
       <div className={styles['post__footer']}>
-        <Tags tags={tags} tagSlugs={tagSlugs} />
+        {tags && post.fields && <Tags tags={tags} tagSlugs={post.fields.tagSlugs} />}
         <CarbonAd smallOnly />
-        <ReadMore prevPost={prevPost} nextPost={nextPost} />
+        {prevPost && nextPost && <ReadMore prevPost={prevPost} nextPost={nextPost} />}
         <div className={styles['post__authorContainer']}>
           <Author showBio showTwitter />
         </div>

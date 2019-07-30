@@ -4,9 +4,15 @@ import Series from './Series';
 
 describe('Series', () => {
   const props = {
-    frontmatter: {},
-    html: '<div></div>',
     htmlEnd: '<div></div>',
+    series: {
+      frontmatter: {
+        date: new Date('2016-09-01'),
+        slug: 'test',
+        title: 'test',
+      },
+      html: '<div></div>',
+    },
     seriesPosts: {
       edges: [{
         node: {

@@ -4,31 +4,35 @@ exports[`SeriesPost renders correctly 1`] = `
 <div
   className="series-post"
 >
-  <a
-    href="test-slug"
+  <div
+    className="series-post-content"
   >
-    <img
-      src="test-img"
-    />
-  </a>
-  <div>
-    <h3>
-      <a
-        href="test-slug"
-      >
-        1. test-title
-      </a>
-    </h3>
-    <p
-      className="content-date"
+    <a
+      href="test-slug"
     >
-      <time>
-        January 1, 2019
-      </time>
-    </p>
-    <p>
-      test-description
-    </p>
+      <img
+        src="test-img"
+      />
+    </a>
+    <div>
+      <h3>
+        <a
+          href="test-slug"
+        >
+          1. test-title
+        </a>
+      </h3>
+      <p
+        className="content-date"
+      >
+        <time>
+          January 1, 2019
+        </time>
+      </p>
+      <p>
+        test-description
+      </p>
+    </div>
   </div>
 </div>
 `;

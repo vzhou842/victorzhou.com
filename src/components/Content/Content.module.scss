@@ -16,6 +16,11 @@
     font-size: $typographic-base-font-size * 2;
     @include line-height(1.5);
     @include margin-top(1);
+
+    &.no-subtitle {
+      font-size: $typographic-base-font-size * 2.4;
+      @include line-height(1.8);
+    }
   }
 
   &__subtitle {
@@ -280,6 +285,11 @@
       font-size: $typographic-base-font-size * 2.5;
       @include line-height(2);
       @include margin-top(1.5);
+
+      &.no-subtitle {
+        font-size: $typographic-base-font-size * 3;
+        @include line-height(2.25);
+      }
     }
 
     &__subtitle {

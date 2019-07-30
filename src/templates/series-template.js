@@ -3,9 +3,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
-import Page from '../components/Page';
-import MovableSidebarContent from '../components/MovableSidebarContent';
+import NavHeader from '../components/NavHeader';
 import Series from '../components/Series';
 
 type Props = {|
@@ -15,34 +13,26 @@ type Props = {|
 const SeriesTemplate = ({ data }: Props) => {
   const { title: siteTitle } = data.site.siteMetadata;
 
-  const { html, frontmatter } = data.series;
-
   const {
     description,
     img,
     title: pageTitle,
-  } = frontmatter;
-
-  const { html: htmlEnd } = data.seriesEnd;
+  } = data.series.frontmatter;
 
   return (
     <div>
+      <NavHeader />
       <Layout title={`${pageTitle} - ${siteTitle}`} description={description}>
-        <Sidebar />
         <Helmet>
           <meta property="og:type" content="article" />
           <meta property="og:image" content={img} />
         </Helmet>
-        <Page title={pageTitle}>
-          <Series
-            html={html}
-            htmlEnd={htmlEnd}
-            seriesPosts={data.seriesPosts}
-            frontmatter={frontmatter}
-          />
-        </Page>
+        <Series
+          htmlEnd={data.seriesEnd.html}
+          series={data.series}
+          seriesPosts={data.seriesPosts}
+        />
       </Layout>
-      <MovableSidebarContent mobile />
     </div>
   );
 };

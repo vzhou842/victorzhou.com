@@ -15,15 +15,17 @@ type Props = {|
 
 const SeriesPost = ({ date, dateModified, description, img, n, slug, title }: Props) => (
   <div className={styles['series-post']}>
-    <a href={slug}>
-      <img src={img} />
-    </a>
-    <div>
-      <h3>
-        <a href={slug}>{`${n}. ${title}`}</a>
-      </h3>
-      <ContentDate date={date} dateModified={dateModified} />
-      <p>{description}</p>
+    <div className={styles['series-post-content']}>
+      <a href={slug}>
+        <img src={img} />
+      </a>
+      <div>
+        <h3>
+          <a href={slug}>{`${n}. ${title}`}</a>
+        </h3>
+        <ContentDate date={date} dateModified={dateModified} />
+        <p>{description}</p>
+      </div>
     </div>
   </div>
 );

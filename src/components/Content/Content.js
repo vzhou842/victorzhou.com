@@ -1,24 +1,28 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import styles from './Content.module.scss';
 import ContentDate from '../ContentDate';
 
 type Props = {|
   +body: string,
   +title: string,
-  +subtitle: string,
+  +subtitle: ?string,
   +date: Date,
   +dateModified: ?Date,
+  +footer: ?React.Node,
 |};
 
-const Content = ({ body, title, subtitle, date, dateModified }: Props) => (
+const Content = ({ body, title, subtitle, date, dateModified, footer }: Props) => (
   <article className={styles['content']}>
-    <h1 className={styles['content__title']}>{title}</h1>
-    <h2 className={styles['content__subtitle']}>{subtitle}</h2>
+    <h1 className={`${styles['content__title']} ${subtitle ? '' : styles['no-subtitle']}`}>
+      {title}
+    </h1>
+    {subtitle && <h2 className={styles['content__subtitle']}>{subtitle}</h2>}
     <div className={styles['content__date']}>
       <ContentDate date={date} dateModified={dateModified} />
     </div>
     <div className={styles['content__body']} dangerouslySetInnerHTML={{ __html: body }} />
+    {footer}
   </article>
 );
 

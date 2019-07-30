@@ -5,13 +5,10 @@ exports[`Content renders correctly 1`] = `
   className="content"
 >
   <h1
-    className="content__title"
+    className="content__title no-subtitle"
   >
     test
   </h1>
-  <h2
-    className="content__subtitle"
-  />
   <div
     className="content__date"
   >

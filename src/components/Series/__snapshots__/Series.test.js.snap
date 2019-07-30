@@ -1,103 +1,176 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Series renders correctly 1`] = `
-<div>
-  <div
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "<div></div>",
-      }
-    }
-  />
-  <div
-    className="series-post"
+<div
+  className="post"
+>
+  <article
+    className="content"
   >
-    <a>
-      <img />
-    </a>
-    <div>
-      <h3>
-        <a>
-          1. test
-        </a>
-      </h3>
+    <h1
+      className="content__title no-subtitle"
+    >
+      test
+    </h1>
+    <div
+      className="content__date"
+    >
       <p
         className="content-date"
       >
         <time>
-          January 1, 2019
+          August 31, 2016
         </time>
       </p>
-      <p />
+    </div>
+    <div
+      className="content__body"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<div></div>",
+        }
+      }
+    />
+    <div>
+      <div
+        className="series-post"
+      >
+        <div
+          className="series-post-content"
+        >
+          <a>
+            <img />
+          </a>
+          <div>
+            <h3>
+              <a>
+                1. test
+              </a>
+            </h3>
+            <p
+              className="content-date"
+            >
+              <time>
+                January 1, 2019
+              </time>
+            </p>
+            <p />
+          </div>
+        </div>
+      </div>
+      <div
+        className="content__body"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<div></div>",
+          }
+        }
+      />
+    </div>
+  </article>
+  <div
+    className="post__subscribeForm"
+  >
+    <div
+      className="container large "
+    >
+      <p
+        className="description"
+      >
+        I write about ML, Web Dev, and more. 
+        <b>
+          Subscribe to get new posts by email!
+        </b>
+      </p>
+      <form
+        acceptCharset="utf-8"
+        action="https://sendy.victorzhou.com/subscribe"
+        method="post"
+        target="_blank"
+      >
+        <input
+          name="Source"
+          type="hidden"
+          value="Post:test"
+        />
+        <input
+          name="list"
+          type="hidden"
+          value="CWC7638hEb6mfk1RqUbJ763snA"
+        />
+        <input
+          autoCapitalize="off"
+          autoCorrect="off"
+          name="hp"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+          tabIndex="-1"
+          type="text"
+        />
+        <input
+          aria-label="Email Address"
+          autoCapitalize="off"
+          autoCorrect="off"
+          name="email"
+          placeholder="example@domain.com"
+          size="25"
+          type="email"
+        />
+        <br />
+        <input
+          type="submit"
+          value="SUBMIT"
+        />
+      </form>
     </div>
   </div>
   <div
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "<div></div>",
-      }
-    }
-  />
-  <div
-    className="container large "
+    className="post__viewSource"
   >
-    <p
-      className="description"
-    >
-      I write about ML, Web Dev, and more. 
-      <b>
-        Subscribe to get new posts by email!
-      </b>
+    <p>
+      <i>
+        This blog is
+         
+        <a
+          href="https://github.com/vzhou842/victorzhou.com"
+          target="_blank"
+        >
+          open-source on Github
+        </a>
+        .
+      </i>
     </p>
-    <form
-      acceptCharset="utf-8"
-      action="https://sendy.victorzhou.com/subscribe"
-      method="post"
-      target="_blank"
-    >
-      <input
-        name="Source"
-        type="hidden"
-        value="Series:undefined"
-      />
-      <input
-        name="list"
-        type="hidden"
-        value="CWC7638hEb6mfk1RqUbJ763snA"
-      />
-      <input
-        autoCapitalize="off"
-        autoCorrect="off"
-        name="hp"
-        style={
-          Object {
-            "display": "none",
-          }
-        }
-        tabIndex="-1"
-        type="text"
-      />
-      <input
-        aria-label="Email Address"
-        autoCapitalize="off"
-        autoCorrect="off"
-        name="email"
-        placeholder="example@domain.com"
-        size="25"
-        type="email"
-      />
-      <br />
-      <input
-        type="submit"
-        value="SUBMIT"
-      />
-    </form>
   </div>
-  <StaticQuery
-    render={[Function]}
-  />
-  <StaticQuery
-    render={[Function]}
-  />
+  <div
+    className="post__footer"
+  >
+    <div
+      className="container-small"
+    />
+    <div
+      className="post__authorContainer"
+    >
+      <StaticQuery
+        render={[Function]}
+      />
+    </div>
+    <StaticQuery
+      render={[Function]}
+    />
+  </div>
+  <div
+    className="post__comments"
+  >
+    <div
+      style={
+        Object {
+          "paddingBottom": "320px",
+        }
+      }
+    />
+  </div>
 </div>
 `;

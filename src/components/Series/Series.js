@@ -1,48 +1,69 @@
 // @flow
 import React from 'react';
 import SeriesPost from './SeriesPost';
-import Author from '../Author';
-import Discuss from '../Discuss';
-import Share from '../Share';
-import SubscribeForm from '../SubscribeForm';
+import Post from '../Post';
+
+import contentStyles from '../Content/Content.module.scss';
+
+type SeriesType = {
+  +html: string,
+  +frontmatter: {
+    +description: string,
+    +discussLinkTwitter: ?string,
+    +discussLinkHN: ?string,
+    +discussLinkReddit: ?string,
+    +isML: boolean,
+    +isWeb: boolean,
+    +img: string,
+    +slug: string,
+    +seriesSlugs: Array<string>,
+    +title: string,
+  },
+};
+
+type SeriesPostType = {
+  +node: {
+    +frontmatter: {
+      +date: Date,
+      +dateModified: ?Date,
+      +description: string,
+      +img: string,
+      +slug: string,
+      +title: string,
+    },
+  },
+};
 
 type Props = {|
-  +frontmatter: Object,
-  +html: string,
   +htmlEnd: string,
+  +series: SeriesType,
   +seriesPosts: {
-    +edges: Array<Object>,
+    +edges: Array<SeriesPostType>,
   },
 |};
 
-const Series = ({ frontmatter, html, htmlEnd, seriesPosts }: Props) => {
-  const {
-    discussLinkTwitter,
-    discussLinkHN,
-    discussLinkReddit,
-    isML,
-    isWeb,
-    seriesSlugs,
-    slug,
-    title,
-  } = frontmatter;
-
+const Series = ({ htmlEnd, series, seriesPosts }: Props) => {
   // seriesPosts aren't necessarily in order, so we sort by seriesSlugs
+  const { seriesSlugs } = series.frontmatter;
   const frontmatters = seriesPosts.edges.map(e => e.node.frontmatter);
   frontmatters.sort((a, b) => seriesSlugs.indexOf(a.slug) - seriesSlugs.indexOf(b.slug));
 
   return (
-    <div>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-      {frontmatters.map((post, i) => (
-        <SeriesPost key={post.title} {...post} n={i + 1} />
-      ))}
-      <div dangerouslySetInnerHTML={{ __html: htmlEnd }} />
-      <SubscribeForm signupSource={`Series:${slug}`} isML={isML} isWeb={isWeb} large />
-      <Author showBio showTwitter />
-      <Share url={slug} title={title} shareText="SHARE THIS SERIES" />
-      <Discuss twitter={discussLinkTwitter} hn={discussLinkHN} reddit={discussLinkReddit} />
-    </div>
+    <Post
+      post={series}
+      contentFooter={
+        <div>
+          {frontmatters.map((post, i) => (
+            <SeriesPost key={post.title} {...post} n={i + 1} />
+          ))}
+          <div
+            className={contentStyles['content__body']}
+            dangerouslySetInnerHTML={{ __html: htmlEnd }}
+          />
+        </div>
+      }
+      hideDescription
+    />
   );
 };
 
