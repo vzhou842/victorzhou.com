@@ -81,33 +81,12 @@ const tagDescriptions = {
         <a href="/tag/computer-vision/">Computer Vision</a> and{' '}
         <a href="/tag/natural-language-processing">Natural Language Processing</a>.
       </p>
-      <p style={{ marginBottom: 0 }}>
-        If you're new to Neural Networks, I recommend reading my Neural Network introductions in
-        the following order:
+      <p>
+        If you're new to Neural Networks, I recommend reading my{' '}
+        <Link to="/series/neural-networks-from-scratch">
+          <b>Neural Networks From Scratch</b>
+        </Link> Series first.
       </p>
-      <ol>
-        <li>
-          <Link to="/blog/intro-to-neural-networks/">
-            Machine Learning for Beginners: An Introduction to Neural Networks
-          </Link>
-        </li>
-        <li>
-          <Link to="/blog/intro-to-cnns-part-1/">
-            CNNs, Part 1: An Introduction to Convolutional Neural Networks
-          </Link>
-        </li>
-        <li>
-          <Link to="/blog/intro-to-cnns-part-2/">
-            CNNs, Part 2: Training a Convolutional Neural Network
-          </Link>
-        </li>
-        <li>
-          <Link to="/blog/intro-to-rnns/">
-            An Introduction to Recurrent Neural Networks for Beginners
-          </Link>
-        </li>
-      </ol>
-      <p>Happy Reading!</p>
     </div>
   ),
   'Computer Vision': (
