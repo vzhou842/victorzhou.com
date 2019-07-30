@@ -4,41 +4,37 @@ exports[`Post renders correctly 1`] = `
 <div
   className="post"
 >
-  <div
-    className="post__content"
+  <article
+    className="content"
   >
-    <article
-      className="content"
+    <h1
+      className="content__title"
     >
-      <h1
-        className="content__title"
+      test
+    </h1>
+    <h2
+      className="content__subtitle"
+    />
+    <div
+      className="content__date"
+    >
+      <p
+        className="content-date"
       >
-        test
-      </h1>
-      <h2
-        className="content__subtitle"
-      />
-      <div
-        className="content__date"
-      >
-        <p
-          className="content-date"
-        >
-          <time>
-            September 1, 2016
-          </time>
-        </p>
-      </div>
-      <div
-        className="content__body"
-        dangerouslySetInnerHTML={
-          Object {
-            "__html": "<p>test</p>",
-          }
+        <time>
+          September 1, 2016
+        </time>
+      </p>
+    </div>
+    <div
+      className="content__body"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p>test</p>",
         }
-      />
-    </article>
-  </div>
+      }
+    />
+  </article>
   <div
     className="post__subscribeForm"
   >
