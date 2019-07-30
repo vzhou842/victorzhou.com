@@ -1,0 +1,14 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.content-date {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: $typographic-small-font-size;
+  @include margin(0, 0);
+
+  .date-modified {
+    font-weight: 500;
+    color: $typographic-light-font-color;
+  }
+}

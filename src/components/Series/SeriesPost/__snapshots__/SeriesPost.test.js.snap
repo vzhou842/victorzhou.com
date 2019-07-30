@@ -19,6 +19,13 @@ exports[`SeriesPost renders correctly 1`] = `
         1. test-title
       </a>
     </h3>
+    <p
+      className="content-date"
+    >
+      <time>
+        July 29, 2019
+      </time>
+    </p>
     <p>
       test-description
     </p>

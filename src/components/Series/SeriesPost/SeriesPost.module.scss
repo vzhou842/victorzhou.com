@@ -14,11 +14,11 @@
   }
 
   h3 {
-    margin: 10px 0 0 0;
+    margin: 10px 0 5px 0;
   }
 
   p {
-    margin: 5px 0 0 0;
+    margin: 0;
   }
 }
 
@@ -26,5 +26,9 @@
   .series-post {
     padding: 15px;
     margin: 10px 20px;
+
+    p {
+      margin: 5px 0 0 0;
+    }
   }
 }

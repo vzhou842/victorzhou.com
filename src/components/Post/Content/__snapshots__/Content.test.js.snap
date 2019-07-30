@@ -12,13 +12,17 @@ exports[`Content renders correctly 1`] = `
   <h2
     className="content__subtitle"
   />
-  <p
+  <div
     className="content__date"
   >
-    <time>
-      February 4, 2019
-    </time>
-  </p>
+    <p
+      className="content-date"
+    >
+      <time>
+        February 4, 2019
+      </time>
+    </p>
+  </div>
   <div
     className="content__body"
     dangerouslySetInnerHTML={

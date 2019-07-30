@@ -21,6 +21,13 @@ exports[`Series renders correctly 1`] = `
           1. test
         </a>
       </h3>
+      <p
+        className="content-date"
+      >
+        <time>
+          July 29, 2019
+        </time>
+      </p>
       <p />
     </div>
   </div>

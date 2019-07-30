@@ -27,16 +27,8 @@
   }
 
   &__date {
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: $typographic-small-font-size;
     @include margin-top(0.3);
     @include margin-bottom(0.75);
-
-    .date-modified {
-      font-weight: 500;
-      color: $typographic-light-font-color;
-    }
   }
 
   &__body {
