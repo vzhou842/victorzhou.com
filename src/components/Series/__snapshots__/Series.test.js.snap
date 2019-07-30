@@ -19,7 +19,7 @@ exports[`Series renders correctly 1`] = `
         className="content-date"
       >
         <time>
-          December 31, 1969
+          March 14, 2019
         </time>
       </p>
     </div>
@@ -51,7 +51,7 @@ exports[`Series renders correctly 1`] = `
               className="content-date"
             >
               <time>
-                December 31, 1969
+                March 14, 2019
               </time>
             </p>
             <p />

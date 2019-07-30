@@ -18,7 +18,7 @@ exports[`ReadMore renders correctly 1`] = `
       </Link>
       <p>
         <b>
-          December 31, 1969
+          March 14, 2019
         </b>
       </p>
       <p />
@@ -29,7 +29,7 @@ exports[`ReadMore renders correctly 1`] = `
       </Link>
       <p>
         <b>
-          December 31, 1969
+          March 14, 2019
         </b>
       </p>
       <p />
