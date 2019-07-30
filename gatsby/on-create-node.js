@@ -16,6 +16,12 @@ const onCreateNode = ({ node, actions, getNode }) => {
         name: 'slug',
         value: node.frontmatter.slug
       });
+    } else if (typeof node.frontmatter.frontSlug !== 'undefined') {
+      createNodeField({
+        node,
+        name: 'frontSlug',
+        value: node.frontmatter.frontSlug,
+      });
     } else {
       const value = createFilePath({ node, getNode });
       createNodeField({

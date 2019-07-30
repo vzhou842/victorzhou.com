@@ -9,12 +9,13 @@ import SubscribeForm from '../SubscribeForm';
 type Props = {|
   +frontmatter: Object,
   +html: string,
+  +htmlEnd: string,
   +seriesPosts: {
     +edges: Array<Object>,
   },
 |};
 
-const Series = ({ frontmatter, html, seriesPosts }: Props) => {
+const Series = ({ frontmatter, html, htmlEnd, seriesPosts }: Props) => {
   const {
     discussLinkTwitter,
     discussLinkHN,
@@ -36,6 +37,7 @@ const Series = ({ frontmatter, html, seriesPosts }: Props) => {
       {frontmatters.map((post, i) => (
         <SeriesPost key={post.title} {...post} n={i + 1} />
       ))}
+      <div dangerouslySetInnerHTML={{ __html: htmlEnd }} />
       <SubscribeForm signupSource={`Series:${slug}`} isML={isML} isWeb={isWeb} large />
       <Author showBio showTwitter />
       <Share url={slug} title={title} shareText="SHARE THIS SERIES" />

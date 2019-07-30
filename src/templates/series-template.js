@@ -16,11 +16,14 @@ const SeriesTemplate = ({ data }: Props) => {
   const { title: siteTitle } = data.site.siteMetadata;
 
   const { html, frontmatter } = data.series;
+
   const {
     description,
     img,
     title: pageTitle,
   } = frontmatter;
+
+  const { html: htmlEnd } = data.seriesEnd;
 
   return (
     <div>
@@ -33,6 +36,7 @@ const SeriesTemplate = ({ data }: Props) => {
         <Page title={pageTitle}>
           <Series
             html={html}
+            htmlEnd={htmlEnd}
             seriesPosts={data.seriesPosts}
             frontmatter={frontmatter}
           />
@@ -64,6 +68,9 @@ export const query = graphql`
         seriesSlugs
         title
       }
+    }
+    seriesEnd: markdownRemark(fields: { frontSlug: { eq: $slug } }) {
+      html
     }
     seriesPosts: allMarkdownRemark(filter: { frontmatter: { slug: { in: $seriesSlugs } } }) {
       edges {

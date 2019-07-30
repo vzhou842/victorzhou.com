@@ -45,6 +45,7 @@ const createPages = async ({ graphql, actions }) => {
               prev
               next
               seriesSlugs
+              frontSlug
             }
             fields {
               slug
@@ -58,6 +59,12 @@ const createPages = async ({ graphql, actions }) => {
   const { edges } = result.data.allMarkdownRemark;
 
   _.each(edges, edge => {
+    // Skip -end files, which are appended on to their corresponding primary files.
+    const frontSlug = _.get(edge, 'node.frontmatter.frontSlug');
+    if (frontSlug) {
+      return;
+    }
+
     const { slug } = edge.node.fields;
     const prev = _.get(edge, 'node.frontmatter.prev');
     const next = _.get(edge, 'node.frontmatter.next');
