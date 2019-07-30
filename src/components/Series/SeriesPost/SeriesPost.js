@@ -4,8 +4,8 @@ import styles from './SeriesPost.module.scss';
 import ContentDate from '../../ContentDate';
 
 type Props = {|
-  +date: string,
-  +dateModified: string,
+  +date: Date,
+  +dateModified: ?Date,
   +description: string,
   +img: string,
   +n: number,

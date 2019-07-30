@@ -4,6 +4,7 @@ import SeriesPost from './SeriesPost';
 
 describe('SeriesPost', () => {
   const props = {
+    date: new Date('01-01-19'),
     description: 'test-description',
     img: 'test-img',
     n: 1,
