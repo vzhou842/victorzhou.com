@@ -37,7 +37,11 @@ const PostTemplate = ({ data, pageContext }: Props) => {
     description: postDescription,
     twitterEmbed,
   } = slugNode.frontmatter;
-  const { readingTime } = slugNode.fields;
+
+  let wordCount = slugNode.fields.readingTime.words;
+  if (data.seriesEnd) {
+    wordCount += data.seriesEnd.fields.readingTime.words;
+  }
 
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
 
@@ -61,7 +65,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   "url": "${siteUrl + slug}",
   "headline": "${postTitle}",
   "description": "${postDescription}",
-  "wordcount": "${readingTime.words}",
+  "wordcount": "${wordCount}",
   "dateCreated": "${date}",
   "datePublished": "${date}",
   "dateModified": "${dateModified || date}",
@@ -158,6 +162,11 @@ export const fragment = graphql`
     }
     seriesEnd: markdownRemark(fields: { frontSlug: { eq: $slug } }) {
       html
+      fields {
+        readingTime {
+          words
+        }
+      }
     }
     seriesPosts: allMarkdownRemark(filter: { frontmatter: { slug: { in: $seriesSlugs } } }) {
       edges {
