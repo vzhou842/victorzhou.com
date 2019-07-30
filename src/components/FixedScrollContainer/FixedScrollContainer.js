@@ -11,14 +11,16 @@ const FixedScrollContainer = ({ children }: Props) => {
 
   React.useEffect(() => {
     function handleScroll() {
-      setHidden(window.scrollY > 2000);
+      if (!hidden) {
+        setHidden(window.scrollY > 2000);
+      }
     }
 
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [hidden]);
 
   return (
     <div className={`${styles['container']} ${hidden ? styles['hidden'] : ''}`}>
