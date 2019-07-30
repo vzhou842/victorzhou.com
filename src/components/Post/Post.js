@@ -17,7 +17,7 @@ type PostType = {
   +frontmatter: {
     +date: Date,
     +dateModified?: Date,
-    +description?: string,
+    +description: string,
     +discussLinkTwitter?: string,
     +discussLinkHN?: string,
     +discussLinkReddit?: string,

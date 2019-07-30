@@ -4,13 +4,13 @@ import styles from './SubscribeForm.module.scss';
 
 type Props = {|
   +signupSource: string,
-  +isML: boolean,
-  +isWeb: boolean,
-  +showAllOptions: boolean,
-  +large: boolean,
-  +noDescription: boolean,
-  +noSpacing: boolean,
-  +onKeyDown: Function,
+  +isML?: boolean,
+  +isWeb?: boolean,
+  +showAllOptions?: boolean,
+  +large?: boolean,
+  +noDescription?: boolean,
+  +noSpacing?: boolean,
+  +onKeyDown?: Function,
 |};
 
 type State = {|

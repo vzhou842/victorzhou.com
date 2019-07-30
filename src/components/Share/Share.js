@@ -12,7 +12,7 @@ import styles from './Share.module.scss';
 type Props = {
   +title: string,
   +url: string,
-  +shareText: string,
+  +shareText?: string,
 };
 
 type PureProps = {
