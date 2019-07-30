@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Series renders correctly 1`] = `
+<div>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<div></div>",
+      }
+    }
+  />
+  <div
+    className="series-post"
+  >
+    <a>
+      <img />
+    </a>
+    <div>
+      <h3>
+        <a>
+          1. test
+        </a>
+      </h3>
+      <p />
+    </div>
+  </div>
+  <div
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "<div></div>",
+      }
+    }
+  />
+  <div
+    className="container large "
+  >
+    <p
+      className="description"
+    >
+      I write about ML, Web Dev, and more. 
+      <b>
+        Subscribe to get new posts by email!
+      </b>
+    </p>
+    <form
+      acceptCharset="utf-8"
+      action="https://sendy.victorzhou.com/subscribe"
+      method="post"
+      target="_blank"
+    >
+      <input
+        name="Source"
+        type="hidden"
+        value="Series:undefined"
+      />
+      <input
+        name="list"
+        type="hidden"
+        value="CWC7638hEb6mfk1RqUbJ763snA"
+      />
+      <input
+        autoCapitalize="off"
+        autoCorrect="off"
+        name="hp"
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+        tabIndex="-1"
+        type="text"
+      />
+      <input
+        aria-label="Email Address"
+        autoCapitalize="off"
+        autoCorrect="off"
+        name="email"
+        placeholder="example@domain.com"
+        size="25"
+        type="email"
+      />
+      <br />
+      <input
+        type="submit"
+        value="SUBMIT"
+      />
+    </form>
+  </div>
+  <StaticQuery
+    render={[Function]}
+  />
+  <StaticQuery
+    render={[Function]}
+  />
+</div>
+`;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SeriesPost renders correctly 1`] = `
+<div
+  className="series-post"
+>
+  <a
+    href="test-slug"
+  >
+    <img
+      src="test-img"
+    />
+  </a>
+  <div>
+    <h3>
+      <a
+        href="test-slug"
+      >
+        1. test-title
+      </a>
+    </h3>
+    <p>
+      test-description
+    </p>
+  </div>
+</div>
+`;
