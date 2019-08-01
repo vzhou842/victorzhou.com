@@ -5,7 +5,7 @@ template: "post"
 draft: false
 isWeb: true
 slug: "/blog/minify-svgs/"
-img:
+img: "https://victorzhou.com/media/laptop-code-2.jpg"
 category: "Web Development"
 tags:
   - "Web Development"
