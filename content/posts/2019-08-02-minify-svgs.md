@@ -206,11 +206,11 @@ Here's how all 3 versions of our circle SVG look when rendered:
 </center>
 <figcaption>The final version: 102 bytes</figcaption>
 
-Yup. They're all just plain black circles, but the third one is **20x** smaller than the first one. **Minify your SVGs**!
+Yup. They're all just plain black circles, but the third one takes up **20x** less space than the first one. **Minify your SVGs**!
 
 ## How I Minify SVGs 
 
-Sure, I could just manually run [svgo](https://github.com/svg/svgo) on any SVGs I wanted to use, but that felt wrong. What I _really_ wanted was a way to optimize SVGs at **build time** because:
+Sure, I _could_ just manually run [svgo](https://github.com/svg/svgo) on any SVGs I wanted to use, but what I _really_ wanted was a way to optimize SVGs at **build time** because:
 
 - Who wants to have to remember to _manually_ optimize every SVG?!
 - I wanted to keep using the _Inkscape SVG_ format, which retains some useful metadata (e.g. to preserve your session the next time you open the file).
