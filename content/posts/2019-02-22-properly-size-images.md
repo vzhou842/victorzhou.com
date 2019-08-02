@@ -12,7 +12,7 @@ tags:
   - "Performance"
 description: "Even weather.com is doing this wrong - are you?"
 prev: "/blog/why-you-should-use-webpack/"
-next: "/blog/a-javascript-bug-i-had-once/"
+next: "/blog/minify-svgs/"
 twitterEmbed: true
 discussLinkTwitter: https://twitter.com/css/status/1100912724295454721
 ---
