@@ -3,7 +3,7 @@ title: "My First 6 Months of Blogging"
 date: "2019-08-04T12:00:00.000Z"
 template: "post"
 draft: false
-slug: "/blog/6-months-of-blogging"
+slug: "/blog/6-months-of-blogging/"
 img:
 category: "Blogging"
 tags:
