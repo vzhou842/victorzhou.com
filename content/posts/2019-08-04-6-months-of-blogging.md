@@ -4,7 +4,7 @@ date: "2019-08-04T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/6-months-of-blogging/"
-img:
+img: "https://victorzhou.com/media/6-months-post/organic.png"
 category: "Blogging"
 tags:
   - "Blogging"
