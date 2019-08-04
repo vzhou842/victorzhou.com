@@ -10,7 +10,7 @@ tags:
   - "Blogging"
 description: Why I started blogging, how it's going, and where I hope it goes.
 prev: "/blog/how-i-became-a-programmer/"
-next: "/blog/mailchimp-to-sendy/"
+next: "/blog/6-months-of-blogging/"
 ---
 
 ## Why?
