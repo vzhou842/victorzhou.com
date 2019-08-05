@@ -266,7 +266,7 @@ rnn = RNN(vocab_size, 2)
 inputs = createInputs('i am very good')
 out, h = rnn.forward(inputs)
 probs = softmax(out)
-print(out) # [[0.50000095], [0.49999905]]
+print(probs) # [[0.50000095], [0.49999905]]
 ```
 <figcaption>If you need a refresher on Softmax, read my <a href="/blog/softmax/">quick explanation of Softmax</a>.</figcaption>
 
