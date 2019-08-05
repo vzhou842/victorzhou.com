@@ -1,7 +1,7 @@
 ---
 title: "CNNs, Part 2: Training a Convolutional Neural Network"
 date: "2019-05-29T12:00:00.000Z"
-dateModified: "2019-06-14T12:00:00.000Z"
+dateModified: "2019-08-05T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
@@ -200,13 +200,14 @@ and use Chain Rule to derive:
 
 $$
 \begin{aligned}
-\frac{\partial out_s(c)}{\partial t_k} &= -e^{t_c} S^{-2} (\frac{\partial S}{\partial t_k}) \\
+\frac{\partial out_s(c)}{\partial t_k} &= \frac{\partial out_s(c)}{\partial S} (\frac{\partial S}{\partial t_k}) \\
+&= -e^{t_c} S^{-2} (\frac{\partial S}{\partial t_k}) \\
 &= -e^{t_c} S^{-2} (e^{t_k}) \\
 &= \boxed{\frac{-e^{t_c} e^{t_k}}{S^2}} \\
 \end{aligned}
 $$
 
-Remember, that was assuming $k \neq c$. Now let's do the derivation for $c$, this time using [Quotient Rule](https://en.wikipedia.org/wiki/Quotient_rule):
+Remember, that was assuming $k \neq c$. Now let's do the derivation for $c$, this time using [Quotient Rule](https://en.wikipedia.org/wiki/Quotient_rule) (because we have an $e^{t_c}$ in the numerator of $out_s(c)$):
 
 $$
 \begin{aligned}
