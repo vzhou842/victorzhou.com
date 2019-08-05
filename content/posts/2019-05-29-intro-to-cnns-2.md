@@ -465,7 +465,7 @@ print('MNIST CNN initialized!')
 loss = 0
 num_correct = 0
 for i, (im, label) in enumerate(zip(train_images, train_labels)):
-  if i > 0 and i % 99 == 0:
+  if i % 100 == 99:
     print(
       '[Step %d] Past 100 steps: Average Loss %.3f | Accuracy: %d%%' %
       (i + 1, loss / 100, num_correct)
