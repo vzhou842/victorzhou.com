@@ -28,7 +28,7 @@ Let's get started!
 
 ## The Problem: MNIST digit classification
 
-We're going to tackle a classic machine learning problem: the [MNIST](http://yann.lecun.com/exdb/mnist/) handwritten digit classification problem. It's simple: given an image, classify it as a digit.
+We're going to tackle a classic machine learning problem: [MNIST](http://yann.lecun.com/exdb/mnist/) handwritten digit classification. It's simple: given an image, classify it as a digit.
 
 ![Sample images from the MNIST dataset](./media-link/cnn-post/mnist-examples.png "Sample images from the MNIST dataset")
 
