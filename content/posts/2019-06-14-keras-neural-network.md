@@ -1,6 +1,7 @@
 ---
 title: "Keras for Beginners: Building Your First Neural Network"
 date: "2019-06-14T12:00:00.000Z"
+dateModified: "2019-08-07T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/keras-neural-network-tutorial/"
@@ -15,7 +16,7 @@ tags:
   - "For Beginners"
 description: A beginner-friendly guide on using Keras to implement a simple Neural Network in Python.
 prev: "/blog/intro-to-cnns-part-1/"
-next: "/blog/intro-to-rnns/"
+next: "/blog/keras-cnn-tutorial/"
 ---
 
 ![](./media-link/keras-posts/keras-logo.png)
@@ -25,6 +26,8 @@ next: "/blog/intro-to-rnns/"
 This post is intended for **complete beginners to Keras** but does assume a **basic background knowledge of neural networks**. My [introduction to Neural Networks](/blog/intro-to-neural-networks/) covers everything you need to know (and more) for this post - read that first if necessary.
 
 Let's get started!
+
+> Just want the code? The [full source code](#the-full-code) is at the end.
 
 ## The Problem: MNIST digit classification
 
@@ -411,14 +414,16 @@ model.fit(
 
 You've implemented your first neural network with Keras! We achieved a test accuracy of **96.5%** on the MNIST dataset after 5 epochs, which is not bad for such a simple network. I'll include the full source code again below for your reference.
 
-If you want to learn about more advanced techniques to approach MNIST, I recommend checking out my [introduction to Convolutional Neural Networks](/blog/intro-to-cnns-part-1/). In it, we see how to achieve **much higher (>99%) accuracies** on MNIST using more complex networks.
+If you want to learn about more advanced techniques to approach MNIST, I recommend checking out my [introduction to Convolutional Neural Networks](/blog/intro-to-cnns-part-1/) (CNNs). In it, we see how to achieve **much higher (>99%) accuracies** on MNIST using more complex networks. I also recommend my guide on [implementing a CNN with Keras](/blog/keras-cnn-tutorial/), which is similar to this post.
 
 Further reading you might be interested in include:
 - The official [getting started with Keras](https://keras.io/#getting-started-30-seconds-to-keras) guide.
-- A post on [implementing a CNN with Keras](http://www.datastuff.tech/machine-learning/convolutional-neural-networks-an-introduction-tensorflow-eager/).
+- This [introduction to CNNs with Keras](http://www.datastuff.tech/machine-learning/convolutional-neural-networks-an-introduction-tensorflow-eager/).
 - A collection of [Keras examples](https://github.com/keras-team/keras/tree/master/examples).
 
-Thanks for reading this post! Here's the full source code:
+Thanks for reading this post! The full source code is below.
+
+## The Full Code
 
 ```python
 # The full neural network code!
