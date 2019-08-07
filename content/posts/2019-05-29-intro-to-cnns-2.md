@@ -1,7 +1,7 @@
 ---
 title: "CNNs, Part 2: Training a Convolutional Neural Network"
 date: "2019-05-29T12:00:00.000Z"
-dateModified: "2019-08-05T12:00:00.000Z"
+dateModified: "2019-08-08T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
