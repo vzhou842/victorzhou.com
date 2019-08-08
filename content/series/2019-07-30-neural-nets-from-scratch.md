@@ -19,6 +19,7 @@ tags:
   - "For Beginners"
 img: "https://victorzhou.com/media/nn-series/network.png"
 description: "A 4-post series that provides a fundamentals-oriented approach towards understanding Neural Networks."
+discussLinkHN: https://news.ycombinator.com/item?id=20594901
 ---
 
 ![](/media/nn-series/network.svg)
