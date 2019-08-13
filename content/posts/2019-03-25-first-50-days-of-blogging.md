@@ -61,3 +61,5 @@ I'm going to keep blogging! During Year One, I'm aiming to
 Are these goals pretty ambitious? Definitely. I've got a long way to go and a lot of work to do. But I might as well aim high, right?
 
 Anyways - a **huge thank you to my readers** from the past two months! See you all on February 4, 2020 for the Year One recap, where I'll look back at this post and see if I hit my goals. 🎯
+
+*If you're curious on my progress since this post, read my [6 months recap](/blog/6-months-of-blogging/).*
