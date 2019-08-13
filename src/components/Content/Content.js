@@ -2,6 +2,7 @@
 import * as React from 'react';
 import styles from './Content.module.scss';
 import ContentDate from '../ContentDate';
+import CarbonAd from '../CarbonAd';
 
 type Props = {|
   +body: string,
@@ -21,6 +22,7 @@ const Content = ({ body, title, subtitle, date, dateModified, footer }: Props) =
     <div className={styles['content__date']}>
       <ContentDate date={date} dateModified={dateModified} />
     </div>
+    <CarbonAd smallOnly />
     <div className={styles['content__body']} dangerouslySetInnerHTML={{ __html: body }} />
     {footer}
   </article>

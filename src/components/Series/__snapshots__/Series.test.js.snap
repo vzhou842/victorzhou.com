@@ -24,6 +24,9 @@ exports[`Series renders correctly 1`] = `
       </p>
     </div>
     <div
+      className="container-small"
+    />
+    <div
       className="content__body"
       dangerouslySetInnerHTML={
         Object {
@@ -147,9 +150,6 @@ exports[`Series renders correctly 1`] = `
   <div
     className="post__footer"
   >
-    <div
-      className="container-small"
-    />
     <div
       className="post__authorContainer"
     >

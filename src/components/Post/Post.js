@@ -10,7 +10,6 @@ import Content from '../Content';
 import SubscribeForm from '../SubscribeForm';
 import Share from '../Share';
 import Discuss from '../Discuss';
-import CarbonAd from '../CarbonAd';
 
 type PostType = {
   +fields?: Object,
@@ -84,7 +83,6 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
 
       <div className={styles['post__footer']}>
         {tags && post.fields && <Tags tags={tags} tagSlugs={post.fields.tagSlugs} />}
-        <CarbonAd smallOnly />
         {prevPost && nextPost && <ReadMore prevPost={prevPost} nextPost={nextPost} />}
         <div className={styles['post__authorContainer']}>
           <Author showBio showTwitter />
