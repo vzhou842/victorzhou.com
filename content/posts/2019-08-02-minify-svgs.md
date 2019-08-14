@@ -14,6 +14,7 @@ tags:
 description: "How I optimize SVGs for this blog and why you probably should, too."
 prev: "/blog/why-you-should-use-webpack/"
 next: "/blog/properly-size-images/"
+discussLinkHN: https://news.ycombinator.com/item?id=20680559
 ---
 
 I use a lot of [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)s in my blog posts. They're great for simple diagrams or illustrations, like this one:
