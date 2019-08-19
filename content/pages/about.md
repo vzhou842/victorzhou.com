@@ -16,4 +16,8 @@ A few of my more well-known projects include:
 
 I've spoken on a tech podcast about my experiences [building and selling games](/blog/creating-and-selling-io-games/) like generals.io and GeoArena.
 
-The best way to get in touch with me is emailing me at [vzhou842@gmail.com](mailto:vzhou842@gmail.com) or [tweeting at me](https://twitter.com/victorczhou).
+You can see more of my projects on my [Github](https://github.com/vzhou842).
+
+## Contact Me
+
+The best ways to get in touch with me are emailing me at [vzhou842@gmail.com](mailto:vzhou842@gmail.com) and [tweeting at me](https://twitter.com/victorczhou).
