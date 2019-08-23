@@ -9,7 +9,7 @@ category: "Best Practices"
 tags:
   - "Best Practices"
   - "Performance"
-description: My personal story with premature optimization, the root of all evil.
+description: How I fell into the trap of premature optimization, the root of all evil.
 prev: "/blog/properly-size-images/"
 next: "/blog/minify-svgs/"
 ---
@@ -107,10 +107,100 @@ The `js›sparseArray.forEach()` call only prints 2:
 
 This discrepancy is because the JS spec calls for the callback function ```f``` to [not be invoked for deleted or uninitialized indices](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#Description), aka **holes**. The `js›fastForEach()` implementation skips checking for holes, which leads to **speedups at the expense of correctness** for sparse arrays. This was perfect for my use case, since GeoArena didn't use any sparse arrays.
 
-At this point, it's obvious that I should've just quickly tested out fast.js, right? Install it, replace native `Array` methods with fast.js methods, then benchmark and evaluate?
-
-Of course, that's not what I did...
+At this point, I should've just quickly tested out fast.js: install it, replace native `Array` methods with fast.js methods, then benchmark and evaluate. Instead, I came up with...
 
 ## faster.js
 
-Instead, the obsessive perfectionist in me wanted to squeeze out every last drop of performance I could. For some reason, fast.js didn't satisfy me because it _required a method invocation_.
+The obsessive perfectionist in me wanted to squeeze out _every last drop_ of performance I could. fast.js just wasn't good enough for me, because it required a method invocation. <span class="emph-special">What if I could replace native Array methods <b>inline</b> with faster implementations?</span>, I thought. <span class="emph-special">That would eliminate the need for those method invocations...</span>
+
+...and that's how I came up with the _genius_ idea to build a **compiler**, which I cheekily named [faster.js](https://github.com/vzhou842/faster.js), that would rewrite idiomatic Javascript to faster, uglier code. For example, faster.js would compile this code:
+
+```js
+// Original code
+const arr = [1, 2, 3];
+const results = arr.map(e => 2 * e);
+```
+
+into this code:
+
+```js
+// Compiled with faster.js
+const arr = [1, 2, 3];
+const results = new Array(arr.length);
+const _f = (e => 2 * e);
+for (let _i = 0; _i < arr.length; _i++) {
+  results[_i] = _f(arr[_i], _i, arr);
+}
+```
+
+The idea behind faster.js was the same: micro-optimize for performance by dropping support for sparse arrays.
+
+At first glance, faster.js was a huge success. Here's select output from a full benchmark run of faster.js:
+
+```
+  array-filter large
+    ✓ native x 232,063 ops/sec ±0.36% (58 runs sampled)
+    ✓ faster.js x 1,083,695 ops/sec ±0.58% (57 runs sampled)
+faster.js is 367.0% faster (3.386μs) than native
+
+  array-map large
+    ✓ native x 223,896 ops/sec ±1.10% (58 runs sampled)
+    ✓ faster.js x 1,726,376 ops/sec ±1.13% (60 runs sampled)
+faster.js is 671.1% faster (3.887μs) than native
+
+  array-reduce large
+    ✓ native x 268,919 ops/sec ±0.41% (57 runs sampled)
+    ✓ faster.js x 1,621,540 ops/sec ±0.80% (57 runs sampled)
+faster.js is 503.0% faster (3.102μs) than native
+
+  array-reduceRight large
+    ✓ native x 68,671 ops/sec ±0.92% (53 runs sampled)
+    ✓ faster.js x 1,571,918 ops/sec ±1.16% (57 runs sampled)
+faster.js is 2189.1% faster (13.926μs) than native
+```
+<figcaption>You can <a href="https://gist.github.com/vzhou842/6f22cf3c18391a7f0c0bbcfb2abdaa1a">view the full output here</a>. Benchmarked on Node v8.16.1 using a 15-inch 2018 Macbook Pro.</figcaption>
+
+Over **2000%** faster than native?! That's a huge performance win _any_ way you look at it, right?
+
+**Nope**.
+
+Let's consider a simple example. Suppose that
+
+- The average GeoArena game requires a total of 5,000 milliseconds (ms) of computation.
+- faster.js increases the execution speed of `Array` methods by 10x on average.
+
+The question we really care about, though, is this: **what portion of those 5000ms is spent in `Array` methods**?
+
+Let's say it's half: 2500ms spent in `Array` methods, 2500ms spent elsewhere. Faster.js would then indeed be a huge performance win:
+
+<style>
+.size-next-img + * {
+  max-width: 600px;
+}
+</style>
+
+<div class="size-next-img"></div>
+
+![](./media-link/premature-opt-post/example1.png)
+
+That's a **45%** decrease in total execution time!
+
+Unfortunately, **this is nowhere near realistic**. Yes, GeoArena does use a lot of `Array` methods, but the actual distribution of execution time looks more like this:
+
+<div class="size-next-img"></div>
+
+![](./media-link/premature-opt-post/example2.png)
+
+😬😬😬.
+
+This is the exact mistake Donald Knuth warned us about:
+
+> The real problem is that programmers have spent far too much time **worrying about efficiency in the wrong places** and at the wrong times
+
+It's basic math: if something only accounts for 1% of your total execution time, **optimizing it will give you an overall performance increase of _at most_ 1%**.
+
+This is what Knuth means by "the wrong places": **focus on areas that contribute significantly to your performance metric**, be it execution time, binary size, or something else. A 10% improvement in a big area is better than a 100% improvement in a tiny area.
+
+Knuth also mentions "the wrong times": **only optimize when you need to**. Remember how I built all of faster.js before even trying out fast.js on GeoArena? **Don't be like me**. I could've saved myself weeks of work with minutes of testing and benchmarking.
+
+## Epilogue
