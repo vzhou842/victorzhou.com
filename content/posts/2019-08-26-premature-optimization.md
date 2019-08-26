@@ -1,14 +1,15 @@
 ---
-title: "Why You Should Avoid Premature Optimization"
-date: "2019-08-21T12:00:00.000Z"
+title: "Avoid Premature Optimization"
+date: "2019-08-26T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/avoid-premature-optimization/"
-img:
+img: "https://victorzhou.com/media/laptop-code-2.jpg"
 category: "Best Practices"
 tags:
   - "Best Practices"
   - "Performance"
+  - "Javascript"
 description: How I fell into the trap of premature optimization, the root of all evil.
 prev: "/blog/properly-size-images/"
 next: "/blog/minify-svgs/"
