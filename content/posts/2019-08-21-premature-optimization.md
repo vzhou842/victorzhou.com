@@ -135,7 +135,7 @@ for (let _i = 0; _i < arr.length; _i++) {
 
 The idea behind faster.js was the same: micro-optimize for performance by dropping support for sparse arrays.
 
-At first glance, faster.js was a huge success. Here's select output from a full benchmark run of faster.js:
+At first glance, faster.js seemed like a huge success. Here's select output from a full benchmark run of faster.js:
 
 ```
   array-filter large
@@ -166,12 +166,12 @@ Over **2000%** faster than native?! That's a huge performance win _any_ way you 
 
 Let's consider a simple example. Suppose that
 
-- The average GeoArena game requires a total of 5,000 milliseconds (ms) of computation.
-- faster.js increases the execution speed of `Array` methods by 10x on average.
+- The average GeoArena game requires a total of **5000** milliseconds (ms) of computation.
+- faster.js increases the execution speed of `Array` methods by **10x** (a gross overestimate; in most real-world scenarios it's not even 2x) on average.
 
 The question we really care about, though, is this: **what portion of those 5000ms is spent in `Array` methods**?
 
-Let's say it's half: 2500ms spent in `Array` methods, 2500ms spent elsewhere. Faster.js would then indeed be a huge performance win:
+Let's say it's **half**: 2500ms spent in `Array` methods, 2500ms spent elsewhere. Faster.js would then indeed be a huge performance win:
 
 <style>
 .size-next-img + * {
@@ -185,7 +185,7 @@ Let's say it's half: 2500ms spent in `Array` methods, 2500ms spent elsewhere. Fa
 
 That's a **45%** decrease in total execution time!
 
-Unfortunately, **this is nowhere near realistic**. Yes, GeoArena does use a lot of `Array` methods, but the actual distribution of execution time looks more like this:
+Unfortunately, **this is nowhere near realistic**. Yes, GeoArena uses a lot of `Array` methods, but the actual distribution of execution time would look more like this:
 
 <div class="size-next-img"></div>
 
@@ -204,3 +204,18 @@ This is what Knuth means by "the wrong places": **focus on areas that contribute
 Knuth also mentions "the wrong times": **only optimize when you need to**. Remember how I built all of faster.js before even trying out fast.js on GeoArena? **Don't be like me**. I could've saved myself weeks of work with minutes of testing and benchmarking.
 
 ## Epilogue
+
+If you're curious about playing around more with faster.js, you can check out the [faster.js demo](https://fasterjs-demo.victorzhou.com). You may not get good results depending on your device / browser, but here's what I see in Chrome 76 on my 15-inch 2018 Macbook Pro:
+
+<div class="shadow-next-img"></div>
+
+![](./media-link/premature-opt-post/fasterjs-demo.png)
+
+You're probably also curious about my real-world results from when I _finally_ tried out faster.js with GeoArena. I did some basic benchmarks back when I owned GeoArena (I don't anymore because [I sold it](/blog/creating-and-selling-io-games/), remember?), and I found that faster.js
+
+- Increased the average main loop execution speed by ~**1%** on a typical game.
+- Increased the game's bundle size by **0.3%**, which makes the page load ever so slightly slower. This bundle size increase is because faster.js rewrites _concise_ code into _faster_, _verbose_ code.
+
+Overall, faster.js had its pros and cons, but it didn't make too much of a performance impact on GeoArena. **I would've realized this much earlier if I'd just tested with fast.js first!**
+
+Let mine be a cautionary tale. You've been warned! ⚠️
