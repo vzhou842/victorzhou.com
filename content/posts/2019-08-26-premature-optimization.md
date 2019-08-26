@@ -108,13 +108,15 @@ The `js›sparseArray.forEach()` call only prints 2:
 
 This discrepancy is because the JS spec calls for the callback function ```f``` to [not be invoked for deleted or uninitialized indices](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach#Description), aka **holes**. The `js›fastForEach()` implementation skips checking for holes, which leads to **speedups at the expense of correctness** for sparse arrays. This was perfect for my use case, since GeoArena didn't use any sparse arrays.
 
-At this point, I should've just quickly tested out fast.js: install it, replace native `Array` methods with fast.js methods, then benchmark and evaluate. Instead, I came up with...
+At this point, I _should've_ just quickly tested out fast.js: install it, replace native `Array` methods with fast.js methods, then benchmark and evaluate.
+
+Instead, I came up with...
 
 ## faster.js
 
 The obsessive perfectionist in me wanted to squeeze out _every last drop_ of performance I could. fast.js just wasn't good enough for me, because it required a method invocation. <span class="emph-special">What if I could replace native Array methods <b>inline</b> with faster implementations?</span>, I thought. <span class="emph-special">That would eliminate the need for those method invocations...</span>
 
-...and that's how I came up with the _genius_ idea to build a **compiler**, which I cheekily named [faster.js](https://github.com/vzhou842/faster.js), that would rewrite idiomatic Javascript to faster, uglier code. For example, faster.js would compile this code:
+...and that's how I came up with the _genius_ idea to build a **compiler**, which I cheekily named [faster.js](https://github.com/vzhou842/faster.js), instead of use fast.js. Faster.js would compile this idiomatic code:
 
 ```js
 // Original code
@@ -122,7 +124,7 @@ const arr = [1, 2, 3];
 const results = arr.map(e => 2 * e);
 ```
 
-into this code:
+into this faster, uglier code:
 
 ```js
 // Compiled with faster.js
@@ -200,9 +202,9 @@ This is the exact mistake Donald Knuth warned us about:
 
 It's basic math: if something only accounts for 1% of your total execution time, **optimizing it will give you an overall performance increase of _at most_ 1%**.
 
-This is what Knuth means by "the wrong places": **focus on areas that contribute significantly to your performance metric**, be it execution time, binary size, or something else. A 10% improvement in a big area is better than a 100% improvement in a tiny area.
+This is what Knuth means by "the wrong places": **focus on performance bottlenecks**, i.e. areas that contribute significantly to your performance metric, be it execution time, binary size, or something else. A 10% improvement in a big area is better than a 100% improvement in a tiny area.
 
-Knuth also mentions "the wrong times": **only optimize when you need to**. Remember how I built all of faster.js before even trying out fast.js on GeoArena? **Don't be like me**. I could've saved myself weeks of work with minutes of testing and benchmarking.
+Knuth also mentions "the wrong times": **only optimize when you need to**. Sure, I did have a good reason to look for optimizations in this case... but remember how I built all of faster.js before even trying out fast.js on GeoArena? I could've saved myself weeks of work with minutes of testing. **Don't be like me**.
 
 ## Epilogue
 
