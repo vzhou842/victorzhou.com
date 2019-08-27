@@ -19,8 +19,8 @@ const SubscriberThankYouTemplate = ({ data }) => {
       </Helmet>
       <Sidebar hideSubscribeForm hideAd />
       <Page title="Thanks for Subscribing!">
-        <h3>Check your email to confirm your subscription.</h3>
-        <p>Once you do, you'll get new posts in your email inbox.</p>
+        <h3>Your subscription to my mailing list has been confirmed.</h3>
+        <p>You'll get new posts in your email inbox.</p>
         <h3>If you've enjoyed my blog, let your friends know!</h3>
         <Share title={title} url={url} shareText="SHARE" />
       </Page>
