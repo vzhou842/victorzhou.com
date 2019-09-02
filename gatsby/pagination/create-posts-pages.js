@@ -2,6 +2,7 @@
 
 const path = require('path');
 const siteConfig = require('../../config.js');
+const { postPagePath } = require('../../src/utils/page-paths');
 
 module.exports = async (graphql, actions) => {
   const { createPage } = actions;
@@ -19,14 +20,12 @@ module.exports = async (graphql, actions) => {
 
   for (let i = 0; i < numPages; i += 1) {
     createPage({
-      path: i === 0 ? '/' : `/page/${i + 1}`,
+      path: postPagePath(i + 1),
       component: path.resolve('./src/templates/index-template.js'),
       context: {
-        currentPage: i,
+        currentPage: i + 1,
         postsLimit: postsPerPage,
         postsOffset: i * postsPerPage,
-        prevPagePath: i <= 1 ? '/' : `/page/${i}`,
-        nextPagePath: `/page/${i + 2}`,
         hasPrevPage: i !== 0,
         hasNextPage: i !== numPages - 1,
         numPages,

@@ -53,6 +53,7 @@
       ],
       "no-underscore-dangle": 0,
       "no-use-before-define": 0,
+      "no-plusplus": 0,
       "operator-linebreak": ["error", "after"],
       "eol-last": 0,
       "no-shadow": 0,

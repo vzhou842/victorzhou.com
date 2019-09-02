@@ -4,6 +4,7 @@
 .pagination {
   @include margin-top(2);
   display: flex;
+  justify-content: center;
 
   &__prev {
     flex-grow: 1;
@@ -47,8 +48,42 @@
     }
   }
 
-  &__text {
-    margin: 0;
-    font-weight: 600;
+  &__prev, &__next {
+    display: none;
+  }
+
+  &__list-container {
+    @include margin(0, 0);
+
+    li {
+      display: inline;
+      @include margin(0, 0.15);
+
+      a {
+        font-weight: 600;
+        display: inline;
+        @include padding(0.2, 0.2);
+      }
+
+      a.selected {
+        color: white;
+        background-color: $color-primary;
+        @include padding(0.2, 0.4);
+        border-radius: 3px;
+      }
+
+      p {
+        display: inline;
+        @include padding(0.2, 0);
+      }
+    }
+  }
+}
+
+@include breakpoint-md {
+  .pagination {
+    &__prev, &__next {
+      display: unset;
+    }
   }
 }

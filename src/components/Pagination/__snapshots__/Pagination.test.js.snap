@@ -10,23 +10,62 @@ exports[`Pagination renders correctly 1`] = `
     <Link
       className="pagination__prev-link"
       rel="prev"
-      to="/page/1"
+      to="/test/1"
     >
       ← PREV
     </Link>
   </div>
-  <p
-    className="pagination__text"
+  <ul
+    className="pagination__list-container"
   >
-    3 of 5
-  </p>
+    <li>
+      <Link
+        className=""
+        to="/test/1"
+      >
+        1
+      </Link>
+    </li>
+    <li>
+      <Link
+        className="selected"
+        to="/test/2"
+      >
+        2
+      </Link>
+    </li>
+    <li>
+      <Link
+        className=""
+        to="/test/3"
+      >
+        3
+      </Link>
+    </li>
+    <li>
+      <Link
+        className=""
+        to="/test/4"
+      >
+        4
+      </Link>
+    </li>
+    <li>
+      <Link
+        className=""
+        to="/test/5"
+      >
+        5
+      </Link>
+    </li>
+  </ul>
   <div
     className="pagination__next"
   >
     <Link
       className="pagination__next-link"
       rel="next"
-      to="/page/3"
+      to="/test/3"
     >
       NEXT →
     </Link>

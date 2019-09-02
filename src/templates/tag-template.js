@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
+import { tagPagePath } from '../utils/page-paths';
 
 type Props = {|
   +data: Object,
@@ -151,9 +152,8 @@ const TagTemplate = ({ data, pageContext }: Props) => {
 
   const {
     tag,
+    tagSlug,
     currentPage,
-    prevPagePath,
-    nextPagePath,
     hasPrevPage,
     hasNextPage,
     numPages,
@@ -162,7 +162,7 @@ const TagTemplate = ({ data, pageContext }: Props) => {
   const { edges } = data.allMarkdownRemark;
   const pageTitle =
     currentPage > 0 ?
-      `${tag} Articles - Page ${currentPage + 1} - ${siteTitle}` :
+      `${tag} Articles - Page ${currentPage} - ${siteTitle}` :
       `${tag} Articles - ${siteTitle}`;
 
   return (
@@ -176,8 +176,7 @@ const TagTemplate = ({ data, pageContext }: Props) => {
         <Feed edges={edges} />
         <Pagination
           currentPage={currentPage}
-          prevPagePath={prevPagePath}
-          nextPagePath={nextPagePath}
+          pagePath={tagPagePath.bind(null, tagSlug)}
           hasPrevPage={hasPrevPage}
           hasNextPage={hasNextPage}
           numPages={numPages}

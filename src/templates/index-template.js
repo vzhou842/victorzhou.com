@@ -8,6 +8,7 @@ import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 import MovableSidebarContent from '../components/MovableSidebarContent';
+import { postPagePath } from '../utils/page-paths';
 
 type Props = {|
   +data: Object,
@@ -21,13 +22,11 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
     currentPage,
     hasNextPage,
     hasPrevPage,
-    prevPagePath,
-    nextPagePath,
     numPages,
   } = pageContext;
 
   const { edges } = data.allMarkdownRemark;
-  const pageTitle = currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
+  const pageTitle = currentPage > 1 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
 
   return (
     <div>
@@ -55,8 +54,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
           <Feed edges={edges} />
           <Pagination
             currentPage={currentPage}
-            prevPagePath={prevPagePath}
-            nextPagePath={nextPagePath}
+            pagePath={postPagePath}
             hasPrevPage={hasPrevPage}
             hasNextPage={hasNextPage}
             numPages={numPages}
