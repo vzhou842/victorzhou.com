@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'gatsby';
-import { PAGINATION } from '../../constants';
 import styles from './Pagination.module.scss';
 
 const cx = classNames.bind(styles);
@@ -54,7 +53,7 @@ const Pagination = ({ classes, currentPage, pagePath, hasNextPage, hasPrevPage, 
     <div className={`${styles['pagination']} ${classes || ''}`}>
       <div className={styles['pagination__prev']}>
         <Link rel="prev" to={pagePath(currentPage - 1)} className={prevClassName}>
-          {PAGINATION.PREV_PAGE}
+          ← PREV
         </Link>
       </div>
       <ul className={styles['pagination__list-container']}>
@@ -72,7 +71,7 @@ const Pagination = ({ classes, currentPage, pagePath, hasNextPage, hasPrevPage, 
       </ul>
       <div className={styles['pagination__next']}>
         <Link rel="next" to={pagePath(currentPage + 1)} className={nextClassName}>
-          {PAGINATION.NEXT_PAGE}
+          NEXT →
         </Link>
       </div>
     </div>
