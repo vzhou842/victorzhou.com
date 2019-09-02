@@ -19,7 +19,7 @@ const TagsListTemplate = ({ data }) => {
     <div>
       <Layout title={`Tags - ${title}`} description={subtitle}>
         <Sidebar />
-        <Page title="Tags">
+        <Page title="Tags" subtitle={<Link to="/">← Back to Home</Link>}>
           <ul>
             {group.map((tag) => (
               <li key={tag.fieldValue}>
