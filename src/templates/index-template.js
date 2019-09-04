@@ -50,7 +50,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
           </script>
         </Helmet>
         <Sidebar />
-        <Page>
+        <Page title={currentPage > 1 ? `Page ${currentPage}` : ''}>
           <Feed edges={edges} />
           <Pagination
             currentPage={currentPage}
