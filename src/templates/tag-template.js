@@ -161,7 +161,7 @@ const TagTemplate = ({ data, pageContext }: Props) => {
 
   const { edges } = data.allMarkdownRemark;
   const pageTitle =
-    currentPage > 0 ?
+    currentPage > 1 ?
       `${tag} Articles - Page ${currentPage} - ${siteTitle}` :
       `${tag} Articles - ${siteTitle}`;
 
