@@ -169,7 +169,7 @@ const TagTemplate = ({ data, pageContext }: Props) => {
     <Layout title={pageTitle} description={metaDescriptions[tag] || siteSubtitle}>
       <Sidebar />
       <Page
-        title={tag}
+        title={`${tag}${currentPage > 1 ? ` - Page ${currentPage}` : ''}`}
         subtitle={<Link to="/tags/">← Back to All Tags</Link>}
         description={tagDescriptions[tag]}
       >
