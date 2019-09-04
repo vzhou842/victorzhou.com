@@ -7,20 +7,20 @@ exports[`SeriesPost renders correctly 1`] = `
   <div
     className="series-post-content"
   >
-    <a
-      href="test-slug"
+    <Link
+      to="test-slug"
     >
       <img
         src="test-img"
       />
-    </a>
+    </Link>
     <div>
       <h3>
-        <a
-          href="test-slug"
+        <Link
+          to="test-slug"
         >
           1. test-title
-        </a>
+        </Link>
       </h3>
       <p
         className="content-date"

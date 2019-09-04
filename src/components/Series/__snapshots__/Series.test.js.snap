@@ -41,14 +41,14 @@ exports[`Series renders correctly 1`] = `
         <div
           className="series-post-content"
         >
-          <a>
+          <Link>
             <img />
-          </a>
+          </Link>
           <div>
             <h3>
-              <a>
+              <Link>
                 1. test
-              </a>
+              </Link>
             </h3>
             <p
               className="content-date"
