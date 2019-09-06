@@ -2,54 +2,72 @@
 @import '../../assets/scss/mixins';
 
 .container {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 1;
+  visibility: visible;
   z-index: 10;
+  position: fixed;
+  background-color: $color-gray-bg;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 0 15px $color-gray-shadow;
+  @include padding(0.3, 0.5);
+  @include transition(opacity);
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .title {
+    margin: 5px 5px 2px 0;
+  }
+
+  .description {
+    margin: 0;
+    @include margin-bottom(0.1);
+    font-size: $typographic-base-font-size * 0.85;
+    @include line-height(0.85);
+  }
+
+  .close {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    background-color: transparent;
+    color: black;
+    padding: 5px;
+    margin: 0;
+    @include transition(text-shadow);
+
+    &:hover {
+      text-shadow: 0 0 3px $color-gray;
+    }
+  }
 }
 
 @include breakpoint-sm {
   .container {
     width: 375px;
-    position: fixed;
+    left: unset;
     right: 10px;
     bottom: 10px;
-    background-color: $color-gray-bg;
-    box-shadow: 0 0 15px $color-gray-shadow;
-    opacity: 1;
-    visibility: visible;
     border-radius: 5px;
     @include padding-equal(0.5);
-    @include transition(opacity);
-
-    &.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
 
     .title {
       margin: 5px;
-      text-align: center;
     }
 
     .description {
-      margin: 0;
+      @include margin-bottom(0.2);
       font-size: $typographic-base-font-size * 0.9;
       @include line-height(0.9);
     }
 
     .close {
-      position: absolute;
       top: 5px;
       right: 5px;
-      background-color: transparent;
-      color: black;
-      padding: 5px;
-      margin: 0;
-      @include transition(text-shadow);
-
-      &:hover {
-        text-shadow: 0 0 3px $color-gray;
-      }
     }
   }
 }

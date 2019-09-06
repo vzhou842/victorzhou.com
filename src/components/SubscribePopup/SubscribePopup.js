@@ -21,9 +21,8 @@ class SubscribePopup extends React.Component {
         window.removeEventListener('scroll', this.scrollListener);
       }
     };
-    if (window.innerWidth >= 720) {
-      window.addEventListener('scroll', this.scrollListener);
-    }
+
+    window.addEventListener('scroll', this.scrollListener);
   }
 
   componentWillUnmount() {
@@ -53,7 +52,7 @@ class SubscribePopup extends React.Component {
           posts by email!</b> I write about ML, Web Dev, and more.
         </p>
         <SubscribeForm
-          signupSource={`Popup:${postSlug}`}
+          signupSource={`Popup${window.innerWidth < 685 ? '-mobile' : ''}:${postSlug}`}
           isML={isML}
           isWeb={isWeb}
           noDescription

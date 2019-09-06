@@ -36,7 +36,8 @@
     border: 1px solid white;
     border-radius: 5px;
     padding: 8px 10px;
-    font-size: $typographic-base-font-size * 0.9;
+    /* need min 16px below to avoid page zooming in when input is focused on iOS */
+    font-size: $typographic-base-font-size * 1;
     @include margin-top(0.25);
     @include margin-bottom(0.1);
     @include transition(box-shadow);
