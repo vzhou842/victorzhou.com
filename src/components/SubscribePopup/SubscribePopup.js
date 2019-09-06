@@ -52,7 +52,7 @@ class SubscribePopup extends React.Component {
           posts by email!</b> I write about ML, Web Dev, and more.
         </p>
         <SubscribeForm
-          signupSource={`Popup${window.innerWidth < 685 ? '-mobile' : ''}:${postSlug}`}
+          signupSource={`Popup:${postSlug}`}
           isML={isML}
           isWeb={isWeb}
           noDescription
