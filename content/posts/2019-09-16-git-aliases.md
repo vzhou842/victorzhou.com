@@ -25,13 +25,43 @@ The one that always got me was:
 $ git commit --amend --no-edit
 ```
 
-This amends your staged changes into your most recent commit without changing its commit message (so Git won't open a text editor!). My most common use case for it was making a quick fix to changes I'd _just_ committed - maybe I was just careless, but I'd often finish a commit only to find a typo or leftover debug line not 30 seconds later 😠.
+This amends your staged changes into your most recent commit without changing its commit message (so Git won't open a text editor!). My most common use case for it was fixing changes I'd _just_ committed. Maybe I was just careless, but I'd often finish a commit only to find a typo or debug line not 30 seconds later 😠.
 
 Typing all 28 characters of `git commit --amend --no-edit` gets old pretty fast. I'm pretty into [optimizing things](/tag/performance/) (even when I [probably shouldn't be](/blog/avoid-premature-optimization/) 🤷), so one day I procrastinated by thinking about ways to optimize my Git commands...
 
 ## My Git Aliases
 
-If you google something like "_shorten git commands_", you'll quickly find out about <a rel="nofollow" href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases" target="_blank">Git Aliases</a>. Turns out, shortening commands is built into Git! All you have to do is tell Git what you want to alias:
+If you google something like "_shorten git commands_," you'll quickly find out about <a rel="nofollow" href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases" target="_blank">Git Aliases</a>. Turns out, shortening commands is built into Git! All you have to do is tell Git what you want to alias. For example, you can shorten `status` to `s` by copy and pasting this line into your terminal:
+
+```
+git config --global alias.s status
+```
+
+What that command actually does is update your `.gitconfig` file, which stores global Git configs:
+
+```toml
+// Header: ~/.gitconfig
+[alias]
+  s = status
+```
+
+Now, whenever you type in the alias `s`, Git will automatically replace it with `status`!
+
+Here's a collection of my favorite Git Aliases:
+
+```toml
+// Header: ~/.gitconfig
+[alias]
+  s = status
+  d = diff
+  co = checkout
+  br = branch
+  last = log -1 HEAD
+  cane = commit --amend --no-edit
+  lo = log --oneline -n 10
+  pr = pull --rebase
+```
+<figcaption>My .gitconfig</figcaption>
 
 ```
 // Header: git aliases
@@ -44,26 +74,9 @@ git config --global alias.cane "commit --amend --no-edit"
 git config --global alias.pr "pull --rebase"
 git config --global alias.lo "log --oneline -n 10"
 ```
-<figcaption>I keep these on a note synced to iCloud that I use almost everytime I access a new machine.</figcaption>
+<figcaption>You can copy and paste these to use my aliases!</figcaption>
 
-Copy and paste that into your terminal and you'll be good to go! What these commands actually do is update your `.gitconfig` file:
-
-```toml
-// Header: ~/.gitconfig
-[alias]
-    s = status
-    d = diff
-    co = checkout
-    br = branch
-    last = log -1 HEAD
-    cane = commit --amend --no-edit
-    pr = pull --rebase
-    lo = log --oneline -n 10
-```
-
-If you type in one of the aliases on the left-hand side of the `=`, Git will automatically replace it with whatever is on the right-hand side of the `=`.
-
-There's one more alias I like to use:
+Finally, there's one more shorthand I like to use:
 
 ```bash
 // Header: ~/.bash_profile
@@ -176,7 +189,7 @@ $ git commit -m 'message'
 $ git reset --hard
 ```
 
-I'm going to add those to my Git Aliases note!
+I'm going to add those to my Git Aliases!
 
 ```
 // Header: git aliases
@@ -184,3 +197,5 @@ git config --global alias.a "add ."
 git config --global alias.cm "commit -m"
 git config --global alias.rh "reset --hard"
 ```
+
+<br />
