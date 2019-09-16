@@ -6,7 +6,7 @@ usesKatex: true
 draft: false
 twitterEmbed: true
 slug: "/blog/git-aliases/"
-img:
+img: "https://victorzhou.com/media/git-alias-post/git.jpg"
 category: "Programming"
 tags:
   - "Programming"
