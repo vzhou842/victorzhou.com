@@ -2,6 +2,7 @@
 title: "Git Aliases I Use (Because I'm Lazy)"
 date: "2019-09-12T12:00:00.000Z"
 template: "post"
+usesKatex: true
 draft: false
 twitterEmbed: true
 slug: "/blog/useful-git-aliases/"
@@ -98,7 +99,7 @@ Date:   Mon Aug 26 01:16:49 2019 -0700
     Bump version to 1.1.1
 ```
 
-## Is this actually useful though...?
+## Is this actually useful though...
 
 Maybe? Depends on the person. It'll save you a little time if you're like me and do weird stuff like habitually spam "git status":
 
@@ -119,7 +120,7 @@ Let's get a ballpark estimate of the amount of time these aliases save me. I typ
 | `git log -1 HEAD` | `g last` | 9 |
 | `git commit --amend --no-edit` | `g cane` | 20 |
 
-Finally, I used the [history](https://en.wikipedia.org/wiki/History_(command)) command to see my 500 most recent commands. Here's the breakdown:
+Now, we can use the [history](https://en.wikipedia.org/wiki/History_(command)) command to see my 500 most recent commands. Here's the breakdown:
 
 | Command | Times used |
 | --- | --- |
@@ -144,4 +145,33 @@ Each of the 94 other Git commands saved 2 characters (since `git` was shortened 
 | `g cane` | 2 | 20 | 40 |
 | Other Git commands | 94 | 2 | 188 |
 
-1085 + 235 + 152 + 156 + 99 + 40 + 188 = **1955** characters saved! That's an average of ~5.5 characters per Git command. 
+$$
+1085 + 235 + 152 + 156 + 99 + 40 + 188 = \boxed{1955}
+$$
+
+characters saved, an average of **5.5** characters per Git command. Assuming I type ~100 Git commands in an average 8-hour workday, that's **550** characters saved, which converts to about **one minute saved per day** (using my earlier average typing speed of 9 chars/sec).
+
+## Ok, so this isn't actually that practically useful. 😢
+
+But, let me reiterate what I said earlier: it makes you **feel** efficient, and maybe there's some kind of placebo effect that actually makes you more productive.
+
+What do you think? Do you use aliases, and why or why not? Feel free to discuss below!
+
+## Epilogue
+
+As I was writing this post, I realized there were 3 more Git commands I often use that I'd been neglecting:
+
+```
+$ git add .
+$ git commit -m 'message'
+$ git reset --hard
+```
+
+I'm going to add those to my Git Aliases note!
+
+```
+// Header: git aliases
+git config --global alias.a "add ."
+git config --global alias.cm "commit -m"
+git config --global alias.rh "reset --hard"
+```
