@@ -1,6 +1,7 @@
 ---
 title: "Git Aliases I Use (Because I'm Lazy)"
 date: "2019-09-16T12:00:00.000Z"
+dateModified: "2019-09-17T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
@@ -178,6 +179,8 @@ characters saved, an average of $\frac{1955}{354} = \boxed{5.5}$ characters per 
 But, let me reiterate what I said earlier: it makes you **feel** efficient, and maybe there's some kind of placebo effect that actually makes you more productive.
 
 What do you think? Do you use aliases, and why or why not? What other aliases do you like? Feel free to discuss below!
+
+**UPDATE**: There's some good discusion in [this lobste.rs post](https://lobste.rs/s/klwbnj/git_aliases_i_use_because_i_m_lazy) and in [the comments section below](#commento). I recommend giving those a read!
 
 ## Epilogue
 
