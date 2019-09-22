@@ -16,7 +16,7 @@ const TagsListTemplate = ({ data }) => {
   group.sort((a, b) => b.totalCount - a.totalCount);
 
   return (
-    <div>
+    <>
       <Layout title={`Tags - ${title}`} description={subtitle}>
         <Sidebar />
         <Page title="Tags" subtitle={<Link to="/">← Back to Home</Link>}>
@@ -32,7 +32,7 @@ const TagsListTemplate = ({ data }) => {
         </Page>
       </Layout>
       <MovableSidebarContent mobile />
-    </div>
+    </>
   );
 };
 

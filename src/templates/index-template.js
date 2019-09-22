@@ -29,7 +29,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
   const pageTitle = currentPage > 1 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
 
   return (
-    <div>
+    <>
       <Layout title={pageTitle} description={siteSubtitle}>
         <Helmet>
           <script type="application/ld+json">
@@ -62,7 +62,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
         </Page>
       </Layout>
       <MovableSidebarContent mobile />
-    </div>
+    </>
   );
 };
 

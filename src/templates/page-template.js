@@ -27,7 +27,7 @@ const PageTemplate = ({ data }: Props) => {
   const metaDescription = pageDescription !== null ? pageDescription : siteSubtitle;
 
   return (
-    <div>
+    <>
       <Layout title={`${pageTitle} - ${siteTitle}`} description={metaDescription}>
         {noIndex && (
           <Helmet>
@@ -40,7 +40,7 @@ const PageTemplate = ({ data }: Props) => {
         </Page>
       </Layout>
       <MovableSidebarContent mobile />
-    </div>
+    </>
   );
 };
 

@@ -47,7 +47,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
 
   return (
-    <div>
+    <>
       <NavHeader />
       <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
         <Helmet>
@@ -103,7 +103,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
       <FixedScrollContainer>
         <CarbonAd largeOnly />
       </FixedScrollContainer>
-    </div>
+    </>
   );
 };
 
