@@ -1,9 +1,15 @@
+// @flow
 import React from 'react';
 import { Link } from 'gatsby';
 import styles from './Feed.module.scss';
 import { renderDate } from '../../utils/date';
 
-const Feed = ({ edges }) => (
+type Props = {|
+  +edges: Array<Object>,
+  +shortened?: bool,
+|};
+
+const Feed = ({ edges, shortened }: Props) => (
   <div className={styles['feed']}>
     {edges.map(edge => {
       const {
@@ -31,10 +37,16 @@ const Feed = ({ edges }) => (
               </Link>
             </span>
           </div>
-          <p className={styles['feed__item-description']}>{description}</p>
-          <Link className={styles['feed__item-readmore']} to={slug}>
-            {isSeries ? 'View Series' : 'Read'}
-          </Link>
+          {
+            !shortened && (
+              <>
+                <p className={styles['feed__item-description']}>{description}</p>
+                <Link className={styles['feed__item-readmore']} to={slug}>
+                  {isSeries ? 'View Series' : 'Read'}
+                </Link>
+              </>
+            )
+          }
         </div>
       );
     })}
