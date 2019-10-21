@@ -26,6 +26,7 @@
     "classnames": "^2.2.6",
     "codecov": "^3.3.0",
     "express": "^4.16.4",
+    "express-http-proxy": "^1.6.0",
     "gatsby": "^2.13.21",
     "gatsby-link": "^2.2.2",
     "gatsby-plugin-catch-links": "^2.0.13",

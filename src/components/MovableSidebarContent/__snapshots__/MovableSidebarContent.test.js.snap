@@ -17,7 +17,7 @@ exports[`MovableSidebarContent renders correctly 1`] = `
     </p>
     <form
       acceptCharset="utf-8"
-      action="https://sendy.victorzhou.com/subscribe"
+      action="/subscribe"
       method="post"
       target="_blank"
     >

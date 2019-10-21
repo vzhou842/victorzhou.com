@@ -1,6 +1,7 @@
 // This is a super simple web server, so there's no need to use Flow here.
 const express = require('express');
 const path = require('path');
+const proxy = require('express-http-proxy');
 
 const PUBLIC_PATH = path.join(__dirname, '../public-live');
 
@@ -35,6 +36,16 @@ app.use('/category/:id', (req, res) => {
 app.use('/categories/', (req, res) => {
   res.redirect(301, '/tags/');
 });
+
+// Handle subscribes
+app.post('/subscribe', proxy('https://sendy.victorzhou.com/subscribe', {
+  // proxyReqOptDecorator: proxyReqOpts => {
+  //   return proxyReqOpts;
+  // },
+  // proxyReqBodyDecorator: bodyContent => {
+  //   return bodyContent;
+  // },
+}));
 
 // Catch 404
 app.use((req, res) => {
