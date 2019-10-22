@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
@@ -9,6 +9,7 @@ import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 import MovableSidebarContent from '../components/MovableSidebarContent';
 import { postPagePath } from '../utils/page-paths';
+import { executeAction } from '../utils/Recaptcha';
 
 type Props = {|
   +data: Object,
@@ -27,6 +28,10 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
 
   const { edges } = data.allMarkdownRemark;
   const pageTitle = currentPage > 1 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
+
+  useEffect(() => {
+    executeAction('homepage').catch(console.error);
+  }, []);
 
   return (
     <>

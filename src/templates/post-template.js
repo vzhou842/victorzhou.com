@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
@@ -9,6 +9,7 @@ import NavHeader from '../components/NavHeader';
 import SubscribePopup from '../components/SubscribePopup';
 import CarbonAd from '../components/CarbonAd';
 import FixedScrollContainer from '../components/FixedScrollContainer';
+import { executeAction } from '../utils/Recaptcha';
 
 type Props = {|
   +data: Object,
@@ -45,6 +46,10 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   }
 
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
+
+  useEffect(() => {
+    executeAction('post').catch(console.error);
+  }, []);
 
   return (
     <>
