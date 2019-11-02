@@ -2,6 +2,7 @@
 import * as React from 'react';
 import styles from './SubscribeForm.module.scss';
 import RecaptchaContext from '../RecaptchaContext';
+import { logEvent, logError } from '../../utils/log';
 
 import type { RecaptchaContextType } from '../RecaptchaContext';
 
@@ -46,11 +47,15 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
         const style = document.createElement('style');
         style.innerHTML = '.grecaptcha-badge { visibility: hidden; }';
         head.appendChild(style);
+      } else {
+        logError('SubscribeForm <head> doesn\'t exist');
       }
       if (body) {
         const script = document.createElement('script');
         script.src = 'https://www.google.com/recaptcha/api.js';
         body.appendChild(script);
+      } else {
+        logError('SubscribeForm <body> doesn\'t exist');
       }
     }
   }
@@ -60,6 +65,7 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
       this._pendingSubmit && prevProps.context.recaptchaToken !== this.props.context.recaptchaToken
     ) {
       this.submit();
+      logEvent('SubscribeForm', 'submitted-with-token');
     }
   }
 
@@ -75,12 +81,14 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
       return;
     }
 
+    logEvent('SubscribeForm', 'submit');
     const { context } = this.props;
     if (context.recaptchaToken != null) {
       this.submit();
     } else {
       this.setState({ loading: true });
       window.onSubscribeFormSubmit = (token: string) => {
+        logEvent('SubscribeForm', 'token-generated');
         this._pendingSubmit = true;
         context.setRecaptchaToken(token);
       };
@@ -94,6 +102,8 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
     if (form) {
       form.submit();
       this.setState({ loading: false });
+    } else {
+      logError('SubscribeForm <form> doesn\'t exist');
     }
   }
 
