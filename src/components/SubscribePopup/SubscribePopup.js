@@ -1,6 +1,7 @@
 import React from 'react';
 import SubscribeForm from '../SubscribeForm';
 import styles from './SubscribePopup.module.scss';
+import { logEvent } from '../../utils/log';
 
 const hideDateKey = 'SubscribePopup-hide-date';
 const HIDE_DURATION = 1000 * 60 * 60 * 24; // 24 hours
@@ -19,6 +20,7 @@ class SubscribePopup extends React.Component {
       if (window.scrollY + window.innerHeight / 2 >= threshold) {
         this.setState({ visible: true });
         window.removeEventListener('scroll', this.scrollListener);
+        logEvent('SubscribePopup', 'appear');
       }
     };
 
@@ -30,6 +32,7 @@ class SubscribePopup extends React.Component {
   }
 
   close = () => {
+    logEvent('SubscribePopup', 'close');
     this.setState({ visible: false });
     localStorage[hideDateKey] = Date.now();
   };
