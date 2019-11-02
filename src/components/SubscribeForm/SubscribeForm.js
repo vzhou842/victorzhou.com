@@ -57,7 +57,7 @@ export default class SubscribeForm extends React.PureComponent<Props, State> {
           </p>
         )}
         <form
-          action="/subscribe"
+          action="https://sendy.victorzhou.com/subscribe"
           method="post"
           acceptCharset="utf-8"
           target="_blank"
