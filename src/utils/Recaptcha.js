@@ -1,5 +1,4 @@
 // @flow strict
-import '../assets/Recaptcha.css';
 
 const SITE_KEY = '6Lerzb4UAAAAAC8uj1xAFg0L4p23m6ruvPQXPblP';
 
