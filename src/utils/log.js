@@ -1,16 +1,16 @@
 // @flow
 
 export function logEvent(category: string, action: string) {
-  if (window.ga) {
-    window.ga('send', 'event', category, action);
+  if (window.gtag) {
+    window.gtag('event', action, { event_category: category });
   }
 }
 
 export function logError(description: string) {
-  if (window.ga) {
-    window.ga('send', 'exception', {
-      exDescription: description,
-      exFatal: false,
+  if (window.gtag) {
+    window.gtag('event', 'exception', {
+      description,
+      fatal: false,
     });
   }
 }
