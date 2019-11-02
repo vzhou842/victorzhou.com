@@ -1,8 +1,11 @@
 // @flow
-import React from 'react';
+import * as React from 'react';
 import styles from './SubscribeForm.module.scss';
+import RecaptchaContext from '../RecaptchaContext';
 
-type Props = {|
+import type { RecaptchaContextType } from '../RecaptchaContext';
+
+type Props = {
   +signupSource: string,
   +isML?: boolean,
   +isWeb?: boolean,
@@ -11,7 +14,11 @@ type Props = {|
   +noDescription?: boolean,
   +noSpacing?: boolean,
   +onKeyDown?: Function,
-|};
+};
+
+type InnerProps = {
+  +context: RecaptchaContextType,
+} & Props;
 
 type State = {|
   +checked: {|
@@ -19,10 +26,42 @@ type State = {|
     +ml: boolean,
     +web: boolean,
   |},
+  +loading: boolean,
 |};
 
-export default class SubscribeForm extends React.PureComponent<Props, State> {
-  state = { checked: { none: true, ml: false, web: false } };
+class SubscribeForm extends React.PureComponent<InnerProps, State> {
+  state = { checked: { none: true, ml: false, web: false }, loading: false };
+
+  _formRef = new React.createRef<HTMLFormElement>();
+
+  _pendingSubmit: boolean = false;
+
+  componentDidMount() {
+    const { hasLoadedRecaptcha, setHasLoadedRecaptcha } = this.props.context;
+    if (!hasLoadedRecaptcha) {
+      setHasLoadedRecaptcha(true);
+      const { body, head } = document;
+
+      if (head) {
+        const style = document.createElement('style');
+        style.innerHTML = '.grecaptcha-badge { visibility: hidden; }';
+        head.appendChild(style);
+      }
+      if (body) {
+        const script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/api.js';
+        body.appendChild(script);
+      }
+    }
+  }
+
+  componentDidUpdate(prevProps: InnerProps) {
+    if (
+      this._pendingSubmit && prevProps.context.recaptchaToken !== this.props.context.recaptchaToken
+    ) {
+      this.submit();
+    }
+  }
 
   onCheckboxClick(id: 'ml' | 'web' | 'none') {
     this.setState({
@@ -30,8 +69,37 @@ export default class SubscribeForm extends React.PureComponent<Props, State> {
     });
   }
 
+  onSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (this.state.loading) {
+      return;
+    }
+
+    const { context } = this.props;
+    if (context.recaptchaToken != null) {
+      this.submit();
+    } else {
+      this.setState({ loading: true });
+      window.onSubscribeFormSubmit = (token: string) => {
+        this._pendingSubmit = true;
+        context.setRecaptchaToken(token);
+      };
+      window.grecaptcha.execute();
+    }
+  };
+
+  submit = () => {
+    this._pendingSubmit = false;
+    const form = this._formRef.current;
+    if (form) {
+      form.submit();
+      this.setState({ loading: false });
+    }
+  }
+
   render() {
     const {
+      context: { recaptchaToken },
       signupSource,
       isML,
       isWeb,
@@ -41,7 +109,7 @@ export default class SubscribeForm extends React.PureComponent<Props, State> {
       noSpacing,
       onKeyDown,
     } = this.props;
-    const { checked } = this.state;
+    const { checked, loading } = this.state;
 
     const inputType = showAllOptions ? 'radio' : 'checkbox';
 
@@ -61,9 +129,13 @@ export default class SubscribeForm extends React.PureComponent<Props, State> {
           method="post"
           acceptCharset="utf-8"
           target="_blank"
+          onSubmit={this.onSubmit}
+          ref={this._formRef}
         >
           <input type="hidden" name="Source" value={signupSource} />
           <input type="hidden" name="list" value="CWC7638hEb6mfk1RqUbJ763snA" />
+          <input type="hidden" name="subform" value="yes" />
+          {recaptchaToken && <input type="hidden" name="g-recaptcha-response" value={recaptchaToken} />}
           <input
             type="text"
             name="hp"
@@ -123,9 +195,27 @@ export default class SubscribeForm extends React.PureComponent<Props, State> {
             </label>
           )}
           {(isML || isWeb || showAllOptions) && <br />}
-          <input type="submit" value="SUBMIT" />
+          <input className={loading ? styles['loading'] : ''} type="submit" value="SUBMIT" />
         </form>
+        <div className="g-recaptcha"
+          data-sitekey="6Le4B78UAAAAAFAdZM2PCW_N0fewzkoQSkv9odSY"
+          data-callback="onSubscribeFormSubmit"
+          data-size="invisible">
+        </div>
+        <p className={styles['recaptcha-message']}>
+          This site is protected by reCAPTCHA and the Google{' '}
+          <a href="https://policies.google.com/privacy">Privacy Policy</a> and{' '}
+          <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+        </p>
       </div>
     );
   }
 }
+
+const SubscribeFormWrapper = (props: Props) => (
+  <RecaptchaContext.Consumer>
+    {context => <SubscribeForm {...props} context={context} />}
+  </RecaptchaContext.Consumer>
+);
+
+export default SubscribeFormWrapper;

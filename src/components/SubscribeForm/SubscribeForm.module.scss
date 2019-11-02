@@ -13,6 +13,14 @@
   p {
     font-size: $typographic-base-font-size * 0.9;
     @include line-height(0.8);
+
+    &.recaptcha-message {
+      @include margin-top(0.25);
+      color: $color-gray;
+      font-size: $typographic-base-font-size * 0.5625;
+      text-align: center;
+      @include line-height(0.45);
+    }
   }
 
   form {
@@ -64,6 +72,11 @@
       background-color: $color-secondary;
       cursor: pointer;
     }
+
+    &.loading {
+      background-color: $color-gray;
+      cursor: progress;
+    }
   }
 
   input[type='checkbox'], input[type='radio'] {
@@ -95,6 +108,12 @@
     p {
       font-size: $typographic-base-font-size * 1.2;
       @include line-height(1.1);
+
+      &.recaptcha-message {
+        @include margin-top(0.3);
+        font-size: $typographic-base-font-size * 0.6;
+        @include line-height(0.5);
+      }
     }
 
     form label {
@@ -115,7 +134,7 @@
     input[type='submit'] {
       font-size: $typographic-base-font-size * 0.9;
       padding: 15px 40px;
-      @include margin-top(0.5);
+      @include margin-top(0.4);
     }
   }
 }

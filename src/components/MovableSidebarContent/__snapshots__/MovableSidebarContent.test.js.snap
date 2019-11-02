@@ -19,6 +19,7 @@ exports[`MovableSidebarContent renders correctly 1`] = `
       acceptCharset="utf-8"
       action="https://sendy.victorzhou.com/subscribe"
       method="post"
+      onSubmit={[Function]}
       target="_blank"
     >
       <input
@@ -30,6 +31,11 @@ exports[`MovableSidebarContent renders correctly 1`] = `
         name="list"
         type="hidden"
         value="CWC7638hEb6mfk1RqUbJ763snA"
+      />
+      <input
+        name="subform"
+        type="hidden"
+        value="yes"
       />
       <input
         autoCapitalize="off"
@@ -54,10 +60,36 @@ exports[`MovableSidebarContent renders correctly 1`] = `
       />
       <br />
       <input
+        className=""
         type="submit"
         value="SUBMIT"
       />
     </form>
+    <div
+      className="g-recaptcha"
+      data-callback="onSubscribeFormSubmit"
+      data-sitekey="6Le4B78UAAAAAFAdZM2PCW_N0fewzkoQSkv9odSY"
+      data-size="invisible"
+    />
+    <p
+      className="recaptcha-message"
+    >
+      This site is protected by reCAPTCHA and the Google
+       
+      <a
+        href="https://policies.google.com/privacy"
+      >
+        Privacy Policy
+      </a>
+       and
+       
+      <a
+        href="https://policies.google.com/terms"
+      >
+        Terms of Service
+      </a>
+       apply.
+    </p>
   </div>
   <div
     className="contacts"

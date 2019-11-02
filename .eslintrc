@@ -18,6 +18,7 @@
         "graphql": true
     },
     "rules": {
+      "flowtype/define-flow-type": 1,
       "comma-dangle": 0,
       "import/imports-first": 0,
       "global-require": 0,
