@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import kebabCase from 'lodash/kebabCase';
+import TemplateWrapper from '../components/TemplateWrapper';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
@@ -16,7 +17,7 @@ const TagsListTemplate = ({ data }) => {
   group.sort((a, b) => b.totalCount - a.totalCount);
 
   return (
-    <>
+    <TemplateWrapper>
       <Layout title={`Tags - ${title}`} description={subtitle}>
         <Sidebar />
         <Page title="Tags" subtitle={<Link to="/">← Back to Home</Link>}>
@@ -32,7 +33,7 @@ const TagsListTemplate = ({ data }) => {
         </Page>
       </Layout>
       <MovableSidebarContent mobile />
-    </>
+    </TemplateWrapper>
   );
 };
 

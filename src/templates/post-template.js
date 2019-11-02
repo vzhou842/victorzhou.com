@@ -2,6 +2,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
+import TemplateWrapper from '../components/TemplateWrapper';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
 import Series from '../components/Series';
@@ -47,7 +48,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
 
   return (
-    <>
+    <TemplateWrapper>
       <NavHeader />
       <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
         <Helmet>
@@ -103,7 +104,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
       <FixedScrollContainer>
         <CarbonAd largeOnly />
       </FixedScrollContainer>
-    </>
+    </TemplateWrapper>
   );
 };
 

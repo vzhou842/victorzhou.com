@@ -3,6 +3,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
+import TemplateWrapper from '../components/TemplateWrapper';
 import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
 import Page from '../components/Page';
@@ -29,7 +30,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
   const pageTitle = currentPage > 1 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
 
   return (
-    <>
+    <TemplateWrapper>
       <Layout title={pageTitle} description={siteSubtitle}>
         <Helmet>
           <script type="application/ld+json">
@@ -62,7 +63,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
         </Page>
       </Layout>
       <MovableSidebarContent mobile />
-    </>
+    </TemplateWrapper>
   );
 };
 

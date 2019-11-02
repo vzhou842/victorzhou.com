@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { graphql } from 'gatsby';
+import TemplateWrapper from '../components/TemplateWrapper';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
@@ -15,12 +16,14 @@ const ArchiveTemplate = ({ data }: Props) => {
   const { edges } = data.allMarkdownRemark;
 
   return (
-    <Layout title={`Blog Archive - ${siteTitle}`} description={`An archive of all my blog posts. ${siteSubtitle}`}>
-      <Sidebar />
-      <Page>
-        <Feed edges={edges} shortened={true} />
-      </Page>
-    </Layout>
+    <TemplateWrapper>
+      <Layout title={`Blog Archive - ${siteTitle}`} description={`An archive of all my blog posts. ${siteSubtitle}`}>
+        <Sidebar />
+        <Page>
+          <Feed edges={edges} shortened={true} />
+        </Page>
+      </Layout>
+    </TemplateWrapper>
   );
 };
 

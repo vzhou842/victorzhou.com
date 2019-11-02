@@ -2,6 +2,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
+import TemplateWrapper from '../components/TemplateWrapper';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
@@ -27,7 +28,7 @@ const PageTemplate = ({ data }: Props) => {
   const metaDescription = pageDescription !== null ? pageDescription : siteSubtitle;
 
   return (
-    <>
+    <TemplateWrapper>
       <Layout title={`${pageTitle} - ${siteTitle}`} description={metaDescription}>
         {noIndex && (
           <Helmet>
@@ -40,7 +41,7 @@ const PageTemplate = ({ data }: Props) => {
         </Page>
       </Layout>
       <MovableSidebarContent mobile />
-    </>
+    </TemplateWrapper>
   );
 };
 

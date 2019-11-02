@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { graphql, Link } from 'gatsby';
+import TemplateWrapper from '../components/TemplateWrapper';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
@@ -166,23 +167,25 @@ const TagTemplate = ({ data, pageContext }: Props) => {
       `${tag} Articles - ${siteTitle}`;
 
   return (
-    <Layout title={pageTitle} description={metaDescriptions[tag] || siteSubtitle}>
-      <Sidebar />
-      <Page
-        title={`${tag}${currentPage > 1 ? ` - Page ${currentPage}` : ''}`}
-        subtitle={<Link to="/tags/">← Back to All Tags</Link>}
-        description={tagDescriptions[tag]}
-      >
-        <Feed edges={edges} />
-        <Pagination
-          currentPage={currentPage}
-          pagePath={tagPagePath.bind(null, tagSlug)}
-          hasPrevPage={hasPrevPage}
-          hasNextPage={hasNextPage}
-          numPages={numPages}
-        />
-      </Page>
-    </Layout>
+    <TemplateWrapper>
+      <Layout title={pageTitle} description={metaDescriptions[tag] || siteSubtitle}>
+        <Sidebar />
+        <Page
+          title={`${tag}${currentPage > 1 ? ` - Page ${currentPage}` : ''}`}
+          subtitle={<Link to="/tags/">← Back to All Tags</Link>}
+          description={tagDescriptions[tag]}
+        >
+          <Feed edges={edges} />
+          <Pagination
+            currentPage={currentPage}
+            pagePath={tagPagePath.bind(null, tagSlug)}
+            hasPrevPage={hasPrevPage}
+            hasNextPage={hasNextPage}
+            numPages={numPages}
+          />
+        </Page>
+      </Layout>
+    </TemplateWrapper>
   );
 };
 
