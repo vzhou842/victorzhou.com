@@ -11,7 +11,8 @@
         "react",
         "jest",
         "jsx-a11y",
-        "import"
+        "import",
+        "flowtype"
     ],
     "globals": {
         "graphql": true
