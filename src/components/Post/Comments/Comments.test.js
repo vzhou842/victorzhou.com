@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Comments } from './Comments';
+import Comments from './Comments';
 
 describe('Comments', () => {
   it('renders correctly', () => {
