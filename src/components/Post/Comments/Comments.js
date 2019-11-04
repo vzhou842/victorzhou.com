@@ -1,8 +1,15 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import ReactCommento from './ReactCommento';
 
-export class Comments extends React.PureComponent {
+type State = {|
+  +show: boolean,
+|};
+
+export default class Comments extends React.PureComponent<{||}, State> {
   state = { show: false };
+
+  timeout: ?TimeoutID;
 
   componentDidMount() {
     window.addEventListener('scroll', this.onScroll);
@@ -24,10 +31,6 @@ export class Comments extends React.PureComponent {
       return <div style={{ paddingBottom: '320px' }} />;
     }
 
-    return (
-      <ReactCommento />
-    );
+    return <ReactCommento />;
   }
 }
-
-export default Comments;
