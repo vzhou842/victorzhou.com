@@ -30,6 +30,8 @@ type State = {|
   +loading: boolean,
 |};
 
+let hasLoadedRecaptcha = false;
+
 class SubscribeForm extends React.PureComponent<InnerProps, State> {
   state = { checked: { none: true, ml: false, web: false }, loading: false };
 
@@ -38,9 +40,8 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
   _pendingSubmit: boolean = false;
 
   componentDidMount() {
-    const { hasLoadedRecaptcha, setHasLoadedRecaptcha } = this.props.context;
     if (!hasLoadedRecaptcha) {
-      setHasLoadedRecaptcha(true);
+      hasLoadedRecaptcha = true;
       const { body, head } = document;
 
       if (head) {
