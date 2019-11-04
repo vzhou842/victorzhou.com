@@ -36,7 +36,8 @@ const PostTemplate = ({ data, pageContext }: Props) => {
     isML,
     isWeb,
     title: postTitle,
-    description: postDescription,
+    description,
+    descriptionLong,
     twitterEmbed,
   } = slugNode.frontmatter;
 
@@ -45,12 +46,10 @@ const PostTemplate = ({ data, pageContext }: Props) => {
     wordCount += data.seriesEnd.fields.readingTime.words;
   }
 
-  const metaDescription = postDescription !== null ? postDescription : siteSubtitle;
-
   return (
     <TemplateWrapper>
       <NavHeader />
-      <Layout title={`${postTitle} - ${siteTitle}`} description={metaDescription}>
+      <Layout title={`${postTitle} - ${siteTitle}`} description={descriptionLong || description || siteSubtitle}>
         <Helmet>
           {canonical && <link rel="canonical" href={canonical} />}
           <meta property="og:type" content="article" />
@@ -66,7 +65,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   "image": "${imgUrl}",
   "url": "${siteUrl + slug}",
   "headline": "${postTitle}",
-  "description": "${postDescription}",
+  "description": "${descriptionLong || description}",
   "wordcount": "${wordCount}",
   "dateCreated": "${date}",
   "datePublished": "${date}",
@@ -140,6 +139,7 @@ export const fragment = graphql`
             date
             dateModified
             description
+            descriptionLong
             img
             isSeries
             isML
