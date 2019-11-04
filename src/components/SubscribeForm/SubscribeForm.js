@@ -31,6 +31,7 @@ type State = {|
 |};
 
 let hasLoadedRecaptcha = false;
+let hasPlacedStyle = false;
 
 class SubscribeForm extends React.PureComponent<InnerProps, State> {
   state = { checked: { none: true, ml: false, web: false }, loading: false };
@@ -39,11 +40,12 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
 
   _pendingSubmit: boolean = false;
 
-  componentDidMount() {
-    if (!hasLoadedRecaptcha) {
-      hasLoadedRecaptcha = true;
-      const { body, head } = document;
+  _script: ?HTMLScriptElement = null;
 
+  componentDidMount() {
+    const { body, head } = document;
+    if (!hasPlacedStyle) {
+      hasPlacedStyle = true;
       if (head) {
         const style = document.createElement('style');
         style.innerHTML = '.grecaptcha-badge { visibility: hidden; }';
@@ -51,10 +53,14 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
       } else {
         logError('SubscribeForm <head> doesn\'t exist');
       }
+    }
+    if (!hasLoadedRecaptcha) {
+      hasLoadedRecaptcha = true;
       if (body) {
         const script = document.createElement('script');
         script.src = 'https://www.google.com/recaptcha/api.js';
         body.appendChild(script);
+        this._script = script;
       } else {
         logError('SubscribeForm <body> doesn\'t exist');
       }
@@ -67,6 +73,16 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
     ) {
       this.submit();
       logEvent('SubscribeForm', 'submitted-with-token');
+    }
+  }
+
+  componentWillUnmount() {
+    // This component will only unmount on a local page navigation, in which case
+    // we need to reload reCAPTCHA.
+    hasLoadedRecaptcha = false;
+    if (this._script) {
+      this._script.remove();
+      this._script = null;
     }
   }
 
