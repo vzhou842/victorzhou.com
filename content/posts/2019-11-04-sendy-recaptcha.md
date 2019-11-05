@@ -1,5 +1,5 @@
 ---
-title: "Sendy is Insecure (or, How Not to Implement reCAPTCHA)"
+title: "Sendy is Insecure: How Not to Implement reCAPTCHA"
 date: "2019-11-04T12:00:00.000Z"
 template: "post"
 draft: false
@@ -97,6 +97,83 @@ Why would the official Sendy form include a hardcoded `subform` field that's not
 
 Yup, you (might have) guessed it. The `subform` field **enables server-side reCAPTCHA verification**. If that field isn't set to `yes`, **server-side reCAPTCHA is completely disabled**.
 
+I sent what I'd found to Ben immediately:
+
 ![](./media-link/sendy-recaptcha/email3.png)
+
+As you can probably guess, his response was not was I was hoping for:
+
 ![](./media-link/sendy-recaptcha/email4.png)
+
+Oh no. 🤦🏻‍♂️
+
 ![](./media-link/sendy-recaptcha/email5.png)
+
+Anyways, I'll spare you the rest of this email chain because it doesn't really go anywhere. That's why I'm writing this post - if you're reading this, **please patch this issue, Ben!**
+
+## Come on, Victor, is this really such a big deal?
+
+Yes. Recall this quote from my most recent email to Ben:
+
+> What good is reCAPTCHA if **anybody with a computer can write a script in 5 minutes to spam your email list** with thousands of fake signups?
+
+Okay, it's a little exaggerated (you'd obviously need some programming / web dev experience), but I stand by that point. Let me prove it to you.
+
+Here's a Node.js script that spams a Sendy email list:
+
+```js
+// Header: spam-sendy.js
+const request = require('request');
+for (let i = 0; i < 100; i++) {
+  request.post('https://sendy.victorzhou.com/subscribe').form({
+    email: `sendy-vulnerability-${i}@victorzhou.com`,
+    list: 'TEST_LIST_ID_HERE',
+  });
+}
+```
+<figcaption><b>WARNING: DO NOT</b> use this code to attack a real email list without permission. That's super illegal and can get you in serious trouble.</figcaption>
+
+That's **7 lines of code** to send as many spam signups as you want. To test this, I set up a test list on my actual Sendy account, enabled reCAPTCHA for it using my real reCAPTCHA keys, and ran the script.
+
+![](./media-link/sendy-recaptcha/spam-result.png)
+
+**It works**. If you're currently using Sendy's reCAPTCHA implementation to "protect" your email list, now you know: it's doing nothing.
+
+## So how _do_ I protect my email list?!
+
+Well, ideally Sendy would release a patch that fixes this issue. Then you'd just have to update your installation and you'd be good to go!
+
+In case Sendy doesn't release a fix soon, here's how you can modify your Sendy installation yourself to fix this:
+
+1. Open `subscribe.php` in the root directory of your Sendy installation.
+2. Find where the reCAPTCHA verification happens. For me (Sendy v4.0.3.1), it started at this line of code:
+
+```php
+if($recaptcha_secretkey!='')
+```
+<figcaption>You can probably just search the file for this line of code.</figcaption>
+
+3. Move that entire `if` statement block _outside_ of the `$subform` check. Here's what the result looked like for me:
+
+```php
+// Header: subscribe.php
+// This is where the reCAPTCHA logic should end up
+if ($recaptcha_secretkey != '') {
+  // the rest of the reCAPTCHA code here
+}
+
+if ($subform) {
+  // Some IP Address logic here
+  // ...
+
+  // This is where the reCAPTCHA logic used to be
+  // ...
+
+  // Some more stuff afterwards
+  // ...
+}
+```
+
+## In Conclusion,
+
+Please don't implement reCAPTCHA like this.
