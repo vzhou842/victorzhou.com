@@ -11,20 +11,20 @@ tags:
   - "Security"
   - "Programming"
   - "Best Practices"
-description: WIP Description
+description: How I discovered Sendy's reCAPTCHA implementation does nothing and what you can do about it.
 prev: "/blog/avoid-premature-optimization/"
 next: "/blog/minify-svgs/"
 ---
 
-A few months ago, I wrote a post about [why I switched from Mailchimp to Sendy](/blog/mailchimp-to-sendy/). The gist is that Mailchimp got too expensive too fast, and [Sendy](https://sendy.co/?ref=Tl4Ot) was a fully-featured self-hosted option that would save me a lot of money.
+A few months ago, I switched from Mailchimp to [Sendy](https://sendy.co/?ref=Tl4Ot), a self-hosted email newsletter alternative. I wrote a whole post about [why I switched from Mailchimp to Sendy](/blog/mailchimp-to-sendy/), but the gist is that Mailchimp got too expensive too fast.
 
-In the time since I made the switch to Sendy, I've been generally fairly satisfied with the software. My email newsletter was steadily growing without any problems... until this:
+Since then, I've been generally fairly satisfied with Sendy... until one day, this happened:
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Anyone ever seen spam like this before? A while back I started getting spam signups to my email newsletter of the same emails using the gmail period trick (<a href="https://t.co/l85oxrnm0f">https://t.co/l85oxrnm0f</a>)... is the goal here just to get my emails reported as spam? <a href="https://t.co/JXzIxUt0wR">pic.twitter.com/JXzIxUt0wR</a></p>&mdash; Victor Zhou (@victorczhou) <a href="https://twitter.com/victorczhou/status/1162645289213186050?ref_src=twsrc%5Etfw">August 17, 2019</a></blockquote>
 
-Sendy treats each of these signups as a different user / email address, but because of the [Gmail period trick](https://gmail.googleblog.com/2008/03/2-hidden-ways-to-get-more-from-your.html) they're all actually the same email. That means **these email addresses were getting all of my emails multiple times**, which is an easy way to get reported for spam.
+Sendy treats these emails as **distinct**, but because of the [Gmail period trick](https://gmail.googleblog.com/2008/03/2-hidden-ways-to-get-more-from-your.html) **they're actually largely duplicates**. That means these email addresses were getting all of my emails multiple times, which is an easy way for me to get reported for spam.
 
-This incident finally spurred me to invest in protecting my email newsletter (which I probably should've done in the first place). I noticed Sendy seemed to have [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display) support built-in, so I started there. I couldn't get the server-side validation to work, though, so I reached out to [Ben, the creator of Sendy](https://sendy.co/forum/profile/8/Ben), for help:
+This incident finally spurred me to invest in protecting my email newsletter (_which I really should've done in the first place_). Luckily for me, Sendy comes with [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display) support built-in! I thought it'd be easy to setup, but for some reason I couldn't get it to work with [my custom subscribe form](/subscribe/?src=sendy-recaptcha-post), so I reached out to Sendy for help:
 
 ![](./media-link/sendy-recaptcha/email1.png)
 
@@ -38,7 +38,7 @@ Wait. Hold up a second there.
 
 What?! 🤔 That can't be right. There's literally a section called [Server Side Validation](https://developers.google.com/recaptcha/docs/verify) in the reCAPTCHA documentation.
 
-I did some further investigation into the [standard subscribe form](https://sendy.victorzhou.com/subscription?f=K892tNsoSJBXB56YBbPUmxU74VxOqJ5DMbMZ6wxMWPQ4X6amCgnApdNbY763h0onBKMcQ751ge1VN7MtbBR11Hu7zA) in an attempt to understand what Ben meant. Here's an abbreviated version of the HTML behind that form:
+I did some further investigation into Sendy's [standard subscribe form](https://sendy.victorzhou.com/subscription?f=K892tNsoSJBXB56YBbPUmxU74VxOqJ5DMbMZ6wxMWPQ4X6amCgnApdNbY763h0onBKMcQ751ge1VN7MtbBR11Hu7zA) in an attempt to understand what Ben meant. Here's an abbreviated version of the HTML behind that form:
 
 ```html
 <form action="https://sendy.victorzhou.com/subscribe" method="POST">
@@ -70,7 +70,7 @@ Now, we know the standard subscribe form:
 
 ???
 
-Anyways, moving on. Why would Ben tell me that reCAPTCHA would "_take effect for for the standard subscribe forms that Sendy provides, not the subscribe API_"?
+Anyways...moving on... Why would Ben tell me that reCAPTCHA would "_take effect for for the standard subscribe forms that Sendy provides, not the subscribe API_"?
 
 Did you notice this line I've highlighted below in the HTML form?
 
@@ -101,7 +101,7 @@ I sent what I'd found to Ben immediately:
 
 ![](./media-link/sendy-recaptcha/email3.png)
 
-As you can probably guess, his response was not was I was hoping for:
+As you can probably guess, his response was not what I was hoping for:
 
 ![](./media-link/sendy-recaptcha/email4.png)
 
@@ -109,7 +109,7 @@ Oh no. 🤦🏻‍♂️
 
 ![](./media-link/sendy-recaptcha/email5.png)
 
-Anyways, I'll spare you the rest of this email chain because it doesn't really go anywhere. That's why I'm writing this post - if you're reading this, **please patch this issue, Ben!**
+Anyways, I'll spare you the rest of this email chain because it doesn't really go anywhere. That's why I'm writing this post - **please patch this issue, Ben!**
 
 ## Come on, Victor, is this really such a big deal?
 
@@ -131,7 +131,7 @@ for (let i = 0; i < 100; i++) {
   });
 }
 ```
-<figcaption><b>WARNING: DO NOT</b> use this code to attack a real email list without permission. That's super illegal and can get you in serious trouble.</figcaption>
+<figcaption><b>WARNING: DO NOT</b> use this code to attack a real email list without permission. That's <a href="https://en.wikipedia.org/wiki/Cybercrime" target="_blank">super illegal</a> and can get you in serious trouble.</figcaption>
 
 That's **7 lines of code** to send as many spam signups as you want. To test this, I set up a test list on my actual Sendy account, enabled reCAPTCHA for it using my real reCAPTCHA keys, and ran the script.
 
@@ -141,7 +141,7 @@ That's **7 lines of code** to send as many spam signups as you want. To test thi
 
 ## So how _do_ I protect my email list?!
 
-Well, ideally Sendy would release a patch that fixes this issue. Then you'd just have to update your installation and you'd be good to go!
+Well, ideally Sendy would release a patch that fixes this issue. Then you'd just have to update your installation and you'd be good to go! **If you're an affected Sendy user who wants a patch for this vulnerability, you can email [hello@sendy.co](mailto:hello@sendy.co) to say you want this too**. Feel free to link this post as a reference - the more support we can get, the better.
 
 In case Sendy doesn't release a fix soon, here's how you can modify your Sendy installation yourself to fix this:
 
@@ -173,6 +173,8 @@ if ($subform) {
   // ...
 }
 ```
+
+You can also [contact me](/about/#contact-me) if you have issues protecting your Sendy subscribe form and I'll do my best to help.
 
 ## In Conclusion,
 
