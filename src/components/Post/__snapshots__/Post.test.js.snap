@@ -158,7 +158,7 @@ exports[`Post renders correctly 1`] = `
         className="tags__list"
       >
         <li
-          className="tags__list-item"
+          className="tags__list-title"
         >
           <h4
             className="tags__title"

@@ -5,7 +5,7 @@ import styles from './Tags.module.scss';
 const Tags = ({ tags, tagSlugs }) => (
   <div className={styles['tags']}>
     <ul className={styles['tags__list']}>
-      <li className={styles['tags__list-item']}>
+      <li className={styles['tags__list-title']}>
         <h4 className={styles['tags__title']}>Tags:</h4>
       </li>
       {tagSlugs.map((slug, i) => (
