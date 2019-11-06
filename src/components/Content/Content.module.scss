@@ -142,7 +142,7 @@
       background-color: $color-primary-light;
       display: block;
       margin-right: -1em;
-      margin-left: -1em;
+      margin-left: -$layout-mobile-padding;
       padding-right: 1em;
       padding-left: 0.75em;
       border-left: 0.2em solid $color-primary;
