@@ -1,6 +1,6 @@
 ---
 title: "Sendy is Insecure: How Not to Implement reCAPTCHA"
-date: "2019-11-04T12:00:00.000Z"
+date: "2019-11-08T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/sendy-recaptcha-security/"
@@ -19,7 +19,7 @@ A few months ago, I switched from Mailchimp to [Sendy](https://sendy.co/?ref=Tl4
 
 Since then, I've been generally satisfied with Sendy. Until one day, this happened:
 
-![](./media-link/sendy-recaptcha/spam.jpeg)
+![Spam signups to my Sendy email list](./media-link/sendy-recaptcha/spam.jpeg)
 
 Sendy treats these email addresses as **distinct**, but they're actually largely **duplicates** because of the [Gmail period trick](https://gmail.googleblog.com/2008/03/2-hidden-ways-to-get-more-from-your.html). That means these email addresses were getting all of my emails multiple times, which is an easy way for me to get reported for spam.
 
@@ -31,9 +31,11 @@ Here's what he responded with the next day:
 
 ![](./media-link/sendy-recaptcha/email2.png)
 
+This line stuck out to me:
+
 > There's no way to implement Google's reCAPTCHA in an API.
 
-That can't be right - the reCAPTCHA documentation has a dedicated section on [Server Side Validation](https://developers.google.com/recaptcha/docs/verify).
+That can't be right - the reCAPTCHA documentation has a dedicated section on [Server Side Validation](https://developers.google.com/recaptcha/docs/verify)!
 
 I did some further investigation into Sendy's [standard subscribe form](https://sendy.victorzhou.com/subscription?f=K892tNsoSJBXB56YBbPUmxU74VxOqJ5DMbMZ6wxMWPQ4X6amCgnApdNbY763h0onBKMcQ751ge1VN7MtbBR11Hu7zA) in an attempt to understand what Ben meant. Here's an abbreviated version of the HTML behind that form:
 
