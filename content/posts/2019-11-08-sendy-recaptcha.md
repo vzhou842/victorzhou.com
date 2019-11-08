@@ -4,7 +4,7 @@ date: "2019-11-08T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/sendy-recaptcha-security/"
-img:
+img: "https://victorzhou.com/media/sendy-recaptcha/recaptcha.png"
 category: "Security"
 tags:
   - "Security"
