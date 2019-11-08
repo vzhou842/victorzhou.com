@@ -123,13 +123,19 @@
       margin-right: -$layout-mobile-padding;
       width: unset;
       max-width: unset;
+      overflow: auto;
     }
 
     :global(.gatsby-highlight pre[class*='language-']) {
       @include margin-top(0);
+      @include margin-bottom(0);
       @include line-height(0.8);
       @include padding-equal(0.5);
       padding-left: $layout-mobile-padding;
+      float: left;
+      min-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
     :global(.gatsby-highlight code[class*='language-']) {
@@ -239,6 +245,7 @@
       // stylelint-disable
       // stylelint doesn't recognize :global() from css-modules
       :global(.gatsby-highlight) {
+        border-radius: 5px;
         margin: 0 auto;
         width: 100%;
         max-width: $layout-post-width;
