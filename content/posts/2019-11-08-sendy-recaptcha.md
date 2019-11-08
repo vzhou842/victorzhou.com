@@ -22,7 +22,7 @@ Since then, I've been generally satisfied with Sendy. Until one day, this happen
 
 ![Spam signups to my Sendy email list](./media-link/sendy-recaptcha/spam.jpeg)
 
-Sendy treats these email addresses as **distinct**, but they're actually largely **duplicates** because of the [Gmail period trick](https://gmail.googleblog.com/2008/03/2-hidden-ways-to-get-more-from-your.html). That means these email addresses were getting all of my emails multiple times, which is an easy way for me to get reported for spam.
+Sendy sees these email addresses as **distinct**, but they're actually largely **duplicates** because of the [Gmail period trick](https://gmail.googleblog.com/2008/03/2-hidden-ways-to-get-more-from-your.html). That means these email addresses were getting all of my emails (including the double opt-in ones) multiple times, which is an easy way for me to get reported for spam.
 
 This incident finally spurred me to invest in protecting my email newsletter (_which I really should've done in the first place_). Luckily for me, Sendy comes with [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display) support built-in! I thought it'd be easy to setup, but for some reason I couldn't get it to work with [my custom subscribe form](/subscribe/?src=sendy-recaptcha-post), so I reached out to Sendy for help:
 
