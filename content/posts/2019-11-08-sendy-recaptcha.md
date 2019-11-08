@@ -15,6 +15,8 @@ description: Sendy's reCAPTCHA implementation doesn't do anything.
 prev: "/blog/avoid-premature-optimization/"
 next: "/blog/minify-svgs/"
 discussLinkHN: https://news.ycombinator.com/item?id=21483597
+discussLinkReddit: https://www.reddit.com/r/programming/comments/dtiurq/sendy_is_insecure_how_not_to_implement_recaptcha/
+discussLinkTwitter: https://twitter.com/victorczhou/status/1192880134354657280
 ---
 
 A few months ago, I switched from Mailchimp to [Sendy](https://sendy.co/?ref=Tl4Ot), a self-hosted email newsletter alternative. I wrote a whole post about [why I switched from Mailchimp to Sendy](/blog/mailchimp-to-sendy/), but the gist is that Mailchimp got too expensive too fast.
