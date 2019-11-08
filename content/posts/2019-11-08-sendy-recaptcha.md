@@ -1,6 +1,7 @@
 ---
 title: "Sendy is Insecure: How Not to Implement reCAPTCHA"
 date: "2019-11-08T12:00:00.000Z"
+dateModified: "2019-11-08T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/sendy-recaptcha-security/"
