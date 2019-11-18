@@ -6,6 +6,7 @@ template: "post"
 draft: false
 slug: "/blog/sendy-recaptcha-security/"
 img: "https://victorzhou.com/media/sendy-recaptcha/recaptcha.png"
+isWeb: true
 category: "Security"
 tags:
   - "Security"
