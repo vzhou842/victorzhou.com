@@ -5,6 +5,7 @@ import styles from './Layout.module.scss';
 
 export const PureLayout = ({ children, title, description, data }) => {
   const { author, url: siteUrl } = data.site.siteMetadata;
+  const twitter = `@${author.contacts.twitter}`;
 
   return (
     <div className={styles.layout}>
@@ -15,6 +16,9 @@ export const PureLayout = ({ children, title, description, data }) => {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={siteUrl + author.photoLarge} />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content={twitter} />
+        <meta name="twitter:creator" content={twitter} />
       </Helmet>
       {children}
     </div>
@@ -30,6 +34,9 @@ export const Layout = props => (
             url
             author {
               photoLarge
+              contacts {
+                twitter
+              }
             }
           }
         }
