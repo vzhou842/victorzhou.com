@@ -19,7 +19,7 @@ discussLinkReddit: https://www.reddit.com/r/programming/comments/dtiurq/sendy_is
 discussLinkTwitter: https://twitter.com/victorczhou/status/1192880134354657280
 ---
 
-> EDIT: We did it - Sendy has [released a patch](https://sendy.co/get-updated/) (v4.0.3.3) for this issue! I recommend upgrading if you're affected. Thanks to Sendy for the quick response to this blog post, and thanks to every reader who helped make this happen.
+> EDIT: We did it - Sendy has [released a patch](https://sendy.co/get-updated) (v4.0.3.3) for this issue! I recommend upgrading if you're affected. Thanks to Sendy for the quick response to this blog post, and thanks to every reader who helped make this happen.
 
 A few months ago, I switched from Mailchimp to [Sendy](https://sendy.co/?ref=Tl4Ot), a self-hosted email newsletter alternative. I wrote a whole post about [why I switched from Mailchimp to Sendy](/blog/mailchimp-to-sendy/), but the gist is that Mailchimp got too expensive too fast.
 
