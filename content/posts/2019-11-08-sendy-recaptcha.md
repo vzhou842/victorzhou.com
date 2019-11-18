@@ -11,6 +11,7 @@ tags:
   - "Security"
   - "Programming"
   - "Best Practices"
+  - "Web Development"
 description: Sendy's reCAPTCHA implementation doesn't do anything.
 prev: "/blog/avoid-premature-optimization/"
 next: "/blog/minify-svgs/"
