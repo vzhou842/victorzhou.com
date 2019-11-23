@@ -3,21 +3,46 @@
 exports[`PostTemplate renders correctly 1`] = `
 Array [
   <div
-    className="header"
+    className="headroom-wrapper"
+    style={
+      Object {
+        "height": null,
+      }
+    }
   >
     <div
-      className="header__left"
+      className="headroom headroom--unfixed"
+      style={
+        Object {
+          "MsTransform": "translate3D(0, 0, 0)",
+          "WebkitTransform": "translate3D(0, 0, 0)",
+          "left": 0,
+          "position": "relative",
+          "right": 0,
+          "top": 0,
+          "transform": "translate3D(0, 0, 0)",
+          "zIndex": 1,
+        }
+      }
     >
-      <StaticQuery
-        render={[Function]}
-      />
-    </div>
-    <div
-      className="header__right"
-    >
-      <StaticQuery
-        render={[Function]}
-      />
+      <div
+        className="header"
+      >
+        <div
+          className="header__left"
+        >
+          <StaticQuery
+            render={[Function]}
+          />
+        </div>
+        <div
+          className="header__right"
+        >
+          <StaticQuery
+            render={[Function]}
+          />
+        </div>
+      </div>
     </div>
   </div>,
   <StaticQuery
