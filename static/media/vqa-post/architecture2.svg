@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg id="svg2" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="350" width="700" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 700.00001 350.00001" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <defs id="defs4">
+  <marker id="marker5688" refY="0" refX="0" orient="auto" overflow="visible">
+   <path id="path5690" stroke-linejoin="round" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" transform="scale(-.6)" stroke="#000" stroke-width=".625"/>
+  </marker>
+  <marker id="marker5430" refY="0" refX="0" overflow="visible" orient="auto">
+   <path id="path5432" stroke-linejoin="round" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" transform="scale(-.6)" stroke="#000" stroke-width=".625"/>
+  </marker>
+  <marker id="marker5286" refY="0" refX="0" overflow="visible" orient="auto">
+   <path id="path5288" stroke-linejoin="round" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" transform="scale(-.6)" stroke="#000" stroke-width=".625"/>
+  </marker>
+  <marker id="Arrow2Mend" refY="0" refX="0" orient="auto" overflow="visible">
+   <path id="path4971" stroke-linejoin="round" d="m8.7186 4.0337-10.926-4.0177 10.926-4.0177c-1.7455 2.3721-1.7354 5.6175-6e-7 8.0354z" fill-rule="evenodd" transform="scale(-.6)" stroke="#000" stroke-width=".625"/>
+  </marker>
+ </defs>
+ <g id="layer1" transform="translate(0 -702.36)">
+  <rect id="rect6228" height="350" width="700" y="702.36" x="0" fill="#fff"/>
+  <image id="image4266" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAABQUlEQVR4nO3YMWvCQBjG8bt4RBPS dhY/iNCP1cXJycnFz+CQwSGQUbCDoORjBLNohy5eqEXL2XYIZBKX3stD4flvBsnl915uiX7/PKj/ XIB+gL9GADoC0BGAjgB0BKAjAB0B6AhAJws4nbRzoitIAmobTMYP69ee3BJKKSN362ITZov4bW+G z1+PT99Cq0jtQG2DRRrboy624WrZlXuRpADFJiy2oVLKHvVsmlSl1FaLANrxNz93pcmzSGgT/AOc U6tltxl/eyWdR0Kn2T+gKs1smrTjbzrsO+k8rq3/5Tzf0TmVZ9Hu1hsvdJo9A6rS5Fnv5lMKnWaf gDvjb5I4zT7ncTnr/uD6Mvq485/+4Ho5a5P8+FpU8+s0OALQEYCOAHQEoCMAHQHoCEBHADoC0BGA jgB0BKAjAB0B6AhARwC6X7XMbNCimysuAAAAAElFTkSuQmCC " height="64" width="64" y="807.36" x="60.982" preserveAspectRatio="none"/>
+  <g font-family="sans-serif" fill="#000000">
+   <text id="text4832" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="15px" font-style="italic" y="953.12531" x="76.401733" line-height="125%"><tspan id="tspan4834" style="text-anchor:middle;text-align:center" y="953.12531" x="76.401733">What color is</tspan><tspan id="tspan4836" style="text-anchor:middle;text-align:center" y="971.87531" x="76.401733">the triangle?</tspan></text>
+   <text id="text4846" opacity=".25" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="40px" y="807.66058" x="631.9259" line-height="125%"><tspan id="tspan4848" font-size="20px" y="807.66058" x="631.9259">Yes</tspan></text>
+   <text id="text4850" opacity=".25" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="40px" y="857.66058" x="633.51282" line-height="125%"><tspan id="tspan4852" font-size="20px" y="857.66058" x="633.51282">No</tspan></text>
+   <text id="text4854" opacity=".25" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="40px" y="901.6438" x="638.00989" line-height="125%"><tspan id="tspan4856" font-size="20px" y="901.6438" x="638.00989">...</tspan></text>
+   <text id="text4858" opacity=".25" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="40px" y="958.16058" x="624.9679" line-height="125%"><tspan id="tspan4860" font-size="20px" y="958.16058" x="624.9679">Blue</tspan></text>
+   <text id="text4862" opacity=".25" style="word-spacing:0px;letter-spacing:0px" line-height="125%" font-size="40px" y="1001.6438" x="638.00989" xml:space="preserve"><tspan id="tspan4864" font-size="20px" y="1001.6438" x="638.00989">...</tspan></text>
+  </g>
+  <g stroke="#000" fill="none">
+   <g stroke-width="2">
+    <rect id="rect4163" stroke-linejoin="round" height="50" width="150" y="814.36" x="191.98"/>
+    <rect id="rect4165" stroke-linejoin="round" height="50" width="150" y="930.36" x="191.98"/>
+    <g>
+     <path id="path4938" marker-end="url(#Arrow2Mend)" d="m138.98 839.36h35.241"/>
+     <path id="path5284" marker-end="url(#marker5286)" d="m138.98 955.39h35.241"/>
+     <path id="path5428" marker-end="url(#marker5430)" d="m352.11 952.03 35.241-30"/>
+     <path id="path5686" marker-end="url(#marker5688)" d="m352.11 842.69 35.241 30"/>
+    </g>
+   </g>
+   <g>
+    <g stroke-width="1px">
+     <path id="path6150" opacity=".25" d="m549.98 897.36 65-97"/>
+     <path id="path6152" opacity=".25" d="m549.98 897.36 65-47"/>
+     <path id="path6154" opacity=".25" d="m549.98 897.36 65 3"/>
+    </g>
+    <path id="path6156" opacity=".25" d="m549.98 897.36 65 53"/>
+    <path id="path6158" opacity=".25" d="m549.98 897.36 65 103" stroke-width="1px"/>
+   </g>
+  </g>
+  <text id="text6230" style="word-spacing:0px;letter-spacing:0px" xml:space="preserve" font-size="40px" y="750.12189" x="350.30029" font-family="sans-serif" line-height="125%" fill="#000000"><tspan id="tspan6232" style="text-anchor:middle;text-align:center" font-size="30px" y="750.12189" x="350.30029">Step 2: Question</tspan></text>
+  <rect id="rect4167" stroke-linejoin="round" height="75" width="150" stroke="#bfbfbf" y="859.86" x="399.94" stroke-width="2" fill="none"/>
+ </g>
+</svg>
