@@ -49,7 +49,26 @@ exports[`Post renders correctly 1`] = `
       <p
         className="description"
       >
-        I write about ML, Web Dev, and more. 
+        I write about 
+        <Link
+          to="/tag/machine-learning/"
+        >
+          ML
+        </Link>
+        , 
+        <Link
+          to="/tag/web-development/"
+        >
+          Web Dev
+        </Link>
+        , and 
+        <Link
+          to="/tags/"
+        >
+          more
+        </Link>
+        .
+         
         <b>
           Subscribe to get new posts by email!
         </b>

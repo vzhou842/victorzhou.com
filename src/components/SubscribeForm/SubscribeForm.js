@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+import { Link } from 'gatsby';
 import styles from './SubscribeForm.module.scss';
 import RecaptchaContext from '../RecaptchaContext';
 import { logEvent, logError } from '../../utils/log';
@@ -148,7 +149,8 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
       >
         {!noDescription && (
           <p className={styles['description']}>
-            I write about ML, Web Dev, and more. <b>Subscribe to get new posts by email!</b>
+            I write about <Link to="/tag/machine-learning/">ML</Link>, <Link to="/tag/web-development/">Web Dev</Link>, and <Link to="/tags/">more</Link>.{' '}
+            <b>Subscribe to get new posts by email!</b>
           </p>
         )}
         <form
