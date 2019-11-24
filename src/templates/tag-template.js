@@ -25,7 +25,7 @@ const metaDescriptions = {
 
 const tagDescriptions = {
   'Machine Learning': (
-    <div>
+    <>
       <p>
         Machine Learning is, put simply, getting computers to generalize from examples. And that's
         what I try to do: <b>put [seemingly complicated] things simply</b>. My posts on Machine
@@ -58,7 +58,7 @@ const tagDescriptions = {
         <Link to="/tag/random-forests">Random Forests</Link>.
       </p>
       <p>Happy Reading!</p>
-    </div>
+    </>
   ),
   Flow: (
     <div>
@@ -75,7 +75,7 @@ const tagDescriptions = {
     </div>
   ),
   'Neural Networks': (
-    <div>
+    <>
       <p>
         Neural Networks are a class of <a href="/tag/machine-learning/">Machine Learning</a> models
         that were inspired by the human brain. They've exploded in popularity recently due to their
@@ -89,10 +89,10 @@ const tagDescriptions = {
           <b>Neural Networks From Scratch</b>
         </Link> Series first.
       </p>
-    </div>
+    </>
   ),
   'Computer Vision': (
-    <div>
+    <>
       <p>
         Computer Vision is a field that focuses on teaching computers to "see," or to
         do tasks that the human visual system can do. Famous applications of Computer Vision
@@ -113,10 +113,10 @@ const tagDescriptions = {
           Introduction to Convolutional Neural Networks
         </a></b> (CNNs) first.
       </p>
-    </div>
+    </>
   ),
   Keras: (
-    <div>
+    <>
       <p>
         <a href="https://keras.io" target="_blank">Keras</a> is a popular Python Deep Learning
         library. It focuses on usability and fast experimentation, but is also powerful enough to
@@ -127,10 +127,10 @@ const tagDescriptions = {
         <a href="/blog/keras-neural-network-tutorial/">Keras Neural Network tutorial</a> is a good
         place to begin.
       </p>
-    </div>
+    </>
   ),
   'Natural Language Processing': (
-    <div>
+    <>
       <p>
         Natural Language Processing (NLP) is a field that focuses on analyzing, understanding, or
         even generating human languages (like English). Well-known applications of NLP include{' '}
@@ -144,7 +144,7 @@ const tagDescriptions = {
           Introduction to Recurrent Neural Networks
         </a></b> (RNNs) first.
       </p>
-    </div>
+    </>
   ),
 };
 
