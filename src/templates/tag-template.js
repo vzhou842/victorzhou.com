@@ -21,6 +21,7 @@ const metaDescriptions = {
   'Computer Vision': 'Computer Vision is a field that focuses on teaching computers to "see," or to do tasks that the human visual system can do. Famous applications of Computer Vision include facial recognition, self-driving vehicles, and optical character recognition (OCR).',
   Keras: 'Keras is a popular Python Deep Learning library. It focuses on usability and fast experimentation, but is also powerful enough to support a wide variety of use cases.',
   'Natural Language Processing': 'Natural Language Processing (NLP) is a field that focuses on analyzing, understanding, or even generating human languages (like English). Well-known applications of NLP include chatbots, translators like Google Translate, and personal assistants like Siri.',
+  'Web Development': 'I love building websites. I\'ve done web development at several tech companies and am now a full stack web engineer at Facebook. My Web Development blog posts cover a wide range of topics, from performance to security to building web games.',
 };
 
 const tagDescriptions = {
@@ -144,6 +145,33 @@ const tagDescriptions = {
           Introduction to Recurrent Neural Networks
         </a></b> (RNNs) first.
       </p>
+    </>
+  ),
+  'Web Development': (
+    <>
+      <p>
+        I love building websites.
+        <Link to="/about/">Two of my favorite (and most successful) side projects</Link> were
+        websites that I built, scaled, and sold from scratch. I've done web development at
+        several tech companies and am now a full stack web engineer at Facebook.
+      </p>
+      <p>
+        My Web Development blog posts cover a wide range of topics,
+        from <Link to="/tag/performance/">performance</Link> to{' '}
+        <Link to="/tag/security/">security</Link> to building web games.
+        My most popular ones include:
+      </p>
+      <ul>
+        <li>
+          <Link to="/blog/build-an-io-game-part-1/">How to Build a Multiplayer (.io) Web Game</Link>
+        </li>
+        <li>
+          <Link to="/blog/replacing-disqus/">Why I Replaced Disqus and You Should Too</Link>
+        </li>
+        <li>
+          <Link to="/blog/minify-svgs/">Minify Your SVGs</Link>
+        </li>
+      </ul>
     </>
   ),
 };
