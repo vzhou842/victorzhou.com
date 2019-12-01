@@ -132,7 +132,7 @@ Two major steps are happening here: (1) vectorization and (2) training.
 
 ### Vectorization: Bag of Words
 
-I used `scikit-learn`'s [CountVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html) class, which basically turns any text string into a vector by counting how many times each given word appears. This is known as a [Bag of Words](https://en.wikipedia.org/wiki/Bag-of-words_model) (BOW) representation. For example, if the only words in the English language were `the`, `cat`, `sat`, and `hat`, a possible vectorization of the sentence `the cat sat in the hat` might be:
+I used `scikit-learn`'s [CountVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html) class, which basically turns any text string into a vector by counting how many times each given word appears. This is known as a [Bag of Words](/blog/bag-of-words/) (BOW) representation. For example, if the only words in the English language were `the`, `cat`, `sat`, and `hat`, a possible vectorization of the sentence `the cat sat in the hat` might be:
 
 ![“the cat sat in the hat” -> [2, 1, 1, 1, 1]](https://cdn-images-1.medium.com/max/1600/1*sbnts1u_QFB_V-X5DSC3pg.png)
 
