@@ -1,7 +1,7 @@
 ---
 title: "Keras for Beginners: Building Your First Neural Network"
 date: "2019-06-14T12:00:00.000Z"
-dateModified: "2019-08-08T12:00:00.000Z"
+dateModified: "2019-12-10T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/keras-neural-network-tutorial/"
@@ -334,7 +334,7 @@ What we've covered so far was but a brief introduction - there's much more we ca
 A good hyperparameters to start with is the learning rate for the [Adam](https://keras.io/optimizers/#adam) optimizer. What happens when you increase or decrease it?
 
 ```python
-from keras.optimizers import SGD # highlight-line
+from keras.optimizers import Adam # highlight-line
 
 model.compile(
   optimizer=Adam(lr=0.005), # highlight-line
