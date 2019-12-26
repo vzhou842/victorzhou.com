@@ -1,36 +1,18 @@
 // @flow
 import * as React from 'react';
-import ReactCommento from './ReactCommento';
+import Helmet from 'react-helmet';
 
-type State = {|
-  +show: boolean,
-|};
-
-export default class Comments extends React.PureComponent<{||}, State> {
-  state = { show: false };
-
-  timeout: ?TimeoutID;
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.onScroll);
-    this.timeout = setTimeout(this.onScroll, 5000);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
-    clearTimeout(this.timeout);
-  }
-
-  onScroll = () => {
-    this.setState({ show: true });
-    window.removeEventListener('scroll', this.onScroll);
-  };
-
-  render() {
-    if (!this.state.show) {
-      return <div style={{ paddingBottom: '320px' }} />;
-    }
-
-    return <ReactCommento />;
-  }
+export default function Comments() {
+  return (
+    <>
+      <Helmet>
+        <script
+          defer
+          src="//cdn.commento.io/js/commento.js"
+          data-css-override="/commento.min.css"
+        />
+      </Helmet>
+      <div id="commento" />
+    </>
+  );
 }

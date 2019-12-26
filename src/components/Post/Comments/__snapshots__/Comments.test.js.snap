@@ -2,10 +2,6 @@
 
 exports[`Comments renders correctly 1`] = `
 <div
-  style={
-    Object {
-      "paddingBottom": "320px",
-    }
-  }
+  id="commento"
 />
 `;
