@@ -140,6 +140,8 @@ export const fragment = graphql`
             dateModified
             description
             descriptionLong
+            guestAuthor
+            guestAuthorLink
             img
             isSeries
             isML

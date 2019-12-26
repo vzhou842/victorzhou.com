@@ -29,6 +29,9 @@ exports[`Post renders correctly 1`] = `
       </p>
     </div>
     <div
+      className="content__spacer"
+    />
+    <div
       className="container-small"
     />
     <div

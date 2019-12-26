@@ -20,6 +20,8 @@ type PostType = {
     +discussLinkTwitter?: string,
     +discussLinkHN?: string,
     +discussLinkReddit?: string,
+    +guestAuthor?: ?string,
+    +guestAuthorLink?: ?string,
     +isML: bool,
     +isWeb: bool,
     +slug: string,
@@ -50,6 +52,8 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
     discussLinkTwitter,
     discussLinkHN,
     discussLinkReddit,
+    guestAuthor,
+    guestAuthorLink,
   } = post.frontmatter;
 
   const { html } = post;
@@ -63,6 +67,8 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
         date={date}
         dateModified={dateModified}
         footer={contentFooter}
+        guestAuthor={guestAuthor}
+        guestAuthorLink={guestAuthorLink}
       />
 
       <div className={styles['post__subscribeForm']}>
