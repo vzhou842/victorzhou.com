@@ -51,6 +51,8 @@ export const query = graphql`
             categorySlug
           }
           frontmatter {
+            guestAuthor
+            guestAuthorLink
             title
             date
             category
