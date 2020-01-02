@@ -64,11 +64,11 @@ const tagDescriptions = {
   Flow: (
     <div>
       <p>
-        <a href="https://flow.org/" target="_blank">
+        <a href="https://flow.org/" target="_blank" rel="noopener noreferrer">
           Flow
         </a>{' '}
         is a static type checker for Javascript developed by Facebook. It's similar in many ways to{' '}
-        <a href="https://www.typescriptlang.org/" target="_blank">
+        <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">
           TypeScript
         </a>
         .
@@ -98,13 +98,13 @@ const tagDescriptions = {
         Computer Vision is a field that focuses on teaching computers to "see," or to
         do tasks that the human visual system can do. Famous applications of Computer Vision
         include{' '}
-        <a href="https://en.wikipedia.org/wiki/Facial_recognition_system" target="_blank">
+        <a href="https://en.wikipedia.org/wiki/Facial_recognition_system" target="_blank" rel="noopener noreferrer">
           facial recognition
         </a>,{' '}
-        <a href="https://en.wikipedia.org/wiki/Autonomous_car" target="_blank">
+        <a href="https://en.wikipedia.org/wiki/Autonomous_car" target="_blank" rel="noopener noreferrer">
           self-driving vehicles
         </a>, and{' '}
-        <a href="https://en.wikipedia.org/wiki/Optical_character_recognition" target="_blank">
+        <a href="https://en.wikipedia.org/wiki/Optical_character_recognition" target="_blank" rel="noopener noreferrer">
           optical character recognition
         </a> (OCR).
       </p>
@@ -119,7 +119,7 @@ const tagDescriptions = {
   Keras: (
     <>
       <p>
-        <a href="https://keras.io" target="_blank">Keras</a> is a popular Python Deep Learning
+        <a href="https://keras.io" target="_blank" rel="noopener noreferrer">Keras</a> is a popular Python Deep Learning
         library. It focuses on usability and fast experimentation, but is also powerful enough to
         support a wide variety of use cases.
       </p>
@@ -135,9 +135,9 @@ const tagDescriptions = {
       <p>
         Natural Language Processing (NLP) is a field that focuses on analyzing, understanding, or
         even generating human languages (like English). Well-known applications of NLP include{' '}
-        <a href="https://en.wikipedia.org/wiki/Chatbot" target="_blank">chatbots</a>, translators
-        like <a href="https://translate.google.com/" target="_blank">Google Translate</a>, and
-        personal assistants like <a href="https://www.apple.com/siri/" target="_blank">Siri</a>.
+        <a href="https://en.wikipedia.org/wiki/Chatbot" target="_blank" rel="noopener noreferrer">chatbots</a>, translators
+        like <a href="https://translate.google.com/" target="_blank" rel="noopener noreferrer">Google Translate</a>, and
+        personal assistants like <a href="https://www.apple.com/siri/" target="_blank" rel="noopener noreferrer">Siri</a>.
       </p>
       <p>
         If you're interested in getting started with NLP, I recommend reading my{' '}

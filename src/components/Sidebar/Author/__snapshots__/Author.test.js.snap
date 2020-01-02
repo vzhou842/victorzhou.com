@@ -28,6 +28,7 @@ exports[`Author renders correctly 1`] = `
        
       <a
         href="https://twitter.com/victorczhou"
+        rel="noopener noreferrer"
         style={
           Object {
             "fontWeight": 500,

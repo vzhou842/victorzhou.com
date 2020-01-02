@@ -190,6 +190,7 @@ exports[`Series renders correctly 1`] = `
          
         <a
           href="https://github.com/vzhou842/victorzhou.com"
+          rel="noopener noreferrer"
           target="_blank"
         >
           open-source on Github
