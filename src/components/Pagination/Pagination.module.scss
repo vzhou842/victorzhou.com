@@ -62,19 +62,19 @@
       a {
         font-weight: 600;
         display: inline;
-        @include padding(0.2, 0.2);
+        @include padding(0.25, 0.25);
       }
 
       a.selected {
         color: white;
         background-color: $color-primary;
-        @include padding(0.2, 0.4);
+        @include padding(0.25, 0.4);
         border-radius: 3px;
       }
 
       p {
         display: inline;
-        @include padding(0.2, 0);
+        @include padding(0.25, 0);
       }
     }
   }
