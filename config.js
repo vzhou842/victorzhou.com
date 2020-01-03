@@ -21,8 +21,8 @@ module.exports = {
       path: '/tags/',
     },
     {
-      label: 'Guest Posts',
-      path: '/guest-posts/',
+      label: 'More Posts',
+      path: '/posts/',
     }
   ],
   author: {

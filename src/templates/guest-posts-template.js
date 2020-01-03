@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import TemplateWrapper from '../components/TemplateWrapper';
 import Sidebar from '../components/Sidebar';
@@ -23,7 +23,13 @@ const GuestPostsTemplate = ({ data }: Props) => {
     <TemplateWrapper>
       <Layout title={pageTitle} description={siteSubtitle}>
         <Sidebar />
-        <Page>
+        <Page title="More Posts">
+          <p>
+            While posts in my <Link to="/">Blog</Link> section are all written by me, posts in this
+            section were written by guest authors. Even if I didn't directly contribute to the
+            writing of the post, <b>I personally review and edit every guest post I publish</b>,
+            meaning I believe these are all quality articles!
+          </p>
           <Feed edges={edges} />
         </Page>
       </Layout>
@@ -41,9 +47,11 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-        filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true }, guestAuthor: { ne: null } } },
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ){
+      filter: {
+        frontmatter: { template: { eq: "post" }, draft: { ne: true }, guestAuthor: { ne: null } }
+      }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
       edges {
         node {
           fields {

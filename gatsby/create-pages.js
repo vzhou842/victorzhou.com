@@ -39,9 +39,9 @@ const createPages = async ({ graphql, actions }) => {
     component: path.resolve('./src/templates/archive-template.js'),
   });
 
-  // Guest Posts
+  // More Posts
   createPage({
-    path: '/guest-posts/',
+    path: '/posts/',
     component: path.resolve('./src/templates/guest-posts-template.js'),
   });
 
