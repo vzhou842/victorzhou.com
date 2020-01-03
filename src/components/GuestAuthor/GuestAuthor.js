@@ -9,7 +9,6 @@ type Props = {|
 |};
 
 export default function GuestAuthor({ author, coAuthor, link }: Props) {
-  console.log(author, coAuthor);
   if (!author && !coAuthor) {
     return null;
   }
