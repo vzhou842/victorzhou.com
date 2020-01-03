@@ -1,8 +1,11 @@
 'use strict';
 
 const _ = require('lodash');
+const moment = require('moment');
 const { createFilePath } = require('gatsby-source-filesystem');
 const { fmImagesToRelative } = require('gatsby-remark-relative-images');
+
+const formatDate = date => moment(date).format('MMMM D, YYYY');
 
 const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
@@ -14,7 +17,7 @@ const onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: 'slug',
-        value: node.frontmatter.slug
+        value: node.frontmatter.slug,
       });
     } else if (typeof node.frontmatter.frontSlug !== 'undefined') {
       createNodeField({
@@ -27,18 +30,25 @@ const onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({
         node,
         name: 'slug',
-        value
+        value,
       });
     }
 
     if (node.frontmatter.tags) {
-      const tagSlugs = node.frontmatter.tags.map((tag) => `/tag/${_.kebabCase(tag)}/`);
+      const tagSlugs = node.frontmatter.tags.map(tag => `/tag/${_.kebabCase(tag)}/`);
       createNodeField({ node, name: 'tagSlugs', value: tagSlugs });
     }
 
     if (node.frontmatter.category) {
       const categorySlug = `/tag/${_.kebabCase(node.frontmatter.category)}/`;
       createNodeField({ node, name: 'categorySlug', value: categorySlug });
+    }
+
+    if (node.frontmatter.date) {
+      createNodeField({ node, name: 'dateFormatted', value: formatDate(node.frontmatter.date) });
+    }
+    if (node.frontmatter.dateModified) {
+      createNodeField({ node, name: 'dateModifiedFormatted', value: formatDate(node.frontmatter.dateModified) });
     }
   }
 };

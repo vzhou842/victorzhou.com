@@ -2,7 +2,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styles from './Feed.module.scss';
-import { renderDate } from '../../utils/date';
 import GuestAuthor from '../GuestAuthor';
 
 type Props = {|
@@ -14,7 +13,7 @@ const Feed = ({ edges, shortened }: Props) => (
   <div className={styles['feed']}>
     {edges.map(edge => {
       const {
-        fields: { categorySlug, slug },
+        fields: { categorySlug, slug, dateFormatted },
         frontmatter: {
           date,
           title,
@@ -27,8 +26,6 @@ const Feed = ({ edges, shortened }: Props) => (
         },
       } = edge.node;
 
-      const dateElement = renderDate(date);
-
       return (
         <div className={styles['feed__item']} key={slug}>
           <h2 className={styles['feed__item-title']}>
@@ -38,7 +35,7 @@ const Feed = ({ edges, shortened }: Props) => (
           </h2>
           <div className={styles['feed__item-meta']}>
             <time className={styles['feed__item-meta-time']} dateTime={date}>
-              {dateElement}
+              {dateFormatted}
             </time>
             <span className={styles['feed__item-meta-divider']} />
             <span className={styles['feed__item-meta-category']}>

@@ -12,10 +12,8 @@ import Share from '../Share';
 import Discuss from '../Discuss';
 
 type PostType = {
-  +fields?: Object,
+  +fields: Object,
   +frontmatter: {
-    +date: Date,
-    +dateModified?: Date,
     +description: string,
     +discussLinkTwitter?: string,
     +discussLinkHN?: string,
@@ -44,8 +42,6 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
   const {
     tags,
     title,
-    date,
-    dateModified,
     description,
     isML,
     isWeb,
@@ -57,6 +53,7 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
     guestCoAuthor,
     guestAuthorLink,
   } = post.frontmatter;
+  const { dateFormatted, dateModifiedFormatted } = post.fields;
 
   const { html } = post;
 
@@ -66,8 +63,8 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
         body={html}
         title={title}
         subtitle={hideDescription ? null : description}
-        date={date}
-        dateModified={dateModified}
+        dateFormatted={dateFormatted}
+        dateModifiedFormatted={dateModifiedFormatted}
         footer={contentFooter}
         guestAuthor={guestAuthor}
         guestCoAuthor={guestCoAuthor}
@@ -91,7 +88,7 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
       </div>
 
       <div className={styles['post__footer']}>
-        {tags && post.fields && <Tags tags={tags} tagSlugs={post.fields.tagSlugs} />}
+        {tags && <Tags tags={tags} tagSlugs={post.fields.tagSlugs} />}
         {prevPost && nextPost && <ReadMore prevPost={prevPost} nextPost={nextPost} />}
         <div className={styles['post__authorContainer']}>
           <Author showBio showTwitter />

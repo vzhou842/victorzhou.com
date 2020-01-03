@@ -11,8 +11,8 @@ type Props = {|
   +body: string,
   +title: string,
   +subtitle: ?string,
-  +date: Date,
-  +dateModified: ?Date,
+  +dateFormatted: string,
+  +dateModifiedFormatted: ?string,
   +footer: ?React.Node,
   +guestAuthor: ?string,
   +guestCoAuthor?: ?boolean,
@@ -23,8 +23,8 @@ const Content = ({
   body,
   title,
   subtitle,
-  date,
-  dateModified,
+  dateFormatted,
+  dateModifiedFormatted,
   footer,
   guestAuthor,
   guestCoAuthor,
@@ -36,7 +36,7 @@ const Content = ({
     </h1>
     {subtitle && <h2 className={styles['content__subtitle']}>{subtitle}</h2>}
     <div className={styles['content__date']}>
-      <ContentDate date={date} dateModified={dateModified} />
+      <ContentDate dateFormatted={dateFormatted} dateModifiedFormatted={dateModifiedFormatted} />
     </div>
     {(!!guestAuthor || !!guestCoAuthor) && (
       <div className={styles['content__guest-author']}>

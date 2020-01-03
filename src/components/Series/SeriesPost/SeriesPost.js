@@ -5,8 +5,8 @@ import styles from './SeriesPost.module.scss';
 import ContentDate from '../../ContentDate';
 
 type Props = {|
-  +date: Date,
-  +dateModified?: Date,
+  +dateFormatted: string,
+  +dateModifiedFormatted?: string,
   +description: string,
   +img: string,
   +n: number,
@@ -14,7 +14,15 @@ type Props = {|
   +title: string,
 |};
 
-const SeriesPost = ({ date, dateModified, description, img, n, slug, title }: Props) => (
+const SeriesPost = ({
+  dateFormatted,
+  dateModifiedFormatted,
+  description,
+  img,
+  n,
+  slug,
+  title,
+}: Props) => (
   <div className={styles['series-post']}>
     <div className={styles['series-post-content']}>
       <Link to={slug}>
@@ -24,7 +32,7 @@ const SeriesPost = ({ date, dateModified, description, img, n, slug, title }: Pr
         <h3>
           <Link to={slug}>{`${n}. ${title}`}</Link>
         </h3>
-        <ContentDate date={date} dateModified={dateModified} />
+        <ContentDate dateFormatted={dateFormatted} dateModifiedFormatted={dateModifiedFormatted} />
         <p>{description}</p>
       </div>
     </div>
