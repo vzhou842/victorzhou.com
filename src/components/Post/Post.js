@@ -21,6 +21,7 @@ type PostType = {
     +discussLinkHN?: string,
     +discussLinkReddit?: string,
     +guestAuthor?: ?string,
+    +guestCoAuthor?: ?boolean,
     +guestAuthorLink?: ?string,
     +isML: bool,
     +isWeb: bool,
@@ -53,6 +54,7 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
     discussLinkHN,
     discussLinkReddit,
     guestAuthor,
+    guestCoAuthor,
     guestAuthorLink,
   } = post.frontmatter;
 
@@ -68,6 +70,7 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
         dateModified={dateModified}
         footer={contentFooter}
         guestAuthor={guestAuthor}
+        guestCoAuthor={guestCoAuthor}
         guestAuthorLink={guestAuthorLink}
       />
 

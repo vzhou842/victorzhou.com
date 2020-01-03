@@ -13,6 +13,7 @@ type Props = {|
   +dateModified: ?Date,
   +footer: ?React.Node,
   +guestAuthor: ?string,
+  +guestCoAuthor?: ?boolean,
   +guestAuthorLink: ?string,
 |};
 
@@ -24,6 +25,7 @@ const Content = ({
   dateModified,
   footer,
   guestAuthor,
+  guestCoAuthor,
   guestAuthorLink,
 }: Props) => (
   <article className={styles['content']}>
@@ -34,9 +36,13 @@ const Content = ({
     <div className={styles['content__date']}>
       <ContentDate date={date} dateModified={dateModified} />
     </div>
-    {!!guestAuthor && (
+    {(!!guestAuthor || !!guestCoAuthor) && (
       <div className={styles['content__guest-author']}>
-        <GuestAuthor author={guestAuthor} link={guestAuthorLink} />
+        <GuestAuthor
+          author={guestAuthor}
+          coAuthor={guestCoAuthor}
+          link={guestAuthorLink}
+        />
       </div>
     )}
     <div className={styles['content__spacer']} />

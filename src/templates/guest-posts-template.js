@@ -60,6 +60,7 @@ export const query = graphql`
           }
           frontmatter {
             guestAuthor
+            guestCoAuthor
             guestAuthorLink
             title
             date

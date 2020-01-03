@@ -15,7 +15,16 @@ const Feed = ({ edges, shortened }: Props) => (
     {edges.map(edge => {
       const {
         fields: { categorySlug, slug },
-        frontmatter: { date, title, category, description, isSeries, guestAuthor, guestAuthorLink },
+        frontmatter: {
+          date,
+          title,
+          category,
+          description,
+          isSeries,
+          guestAuthor,
+          guestCoAuthor,
+          guestAuthorLink,
+        },
       } = edge.node;
 
       const dateElement = renderDate(date);
@@ -38,9 +47,11 @@ const Feed = ({ edges, shortened }: Props) => (
               </Link>
             </span>
           </div>
-          {!!guestAuthor && (
-            <GuestAuthor author={guestAuthor} link={guestAuthorLink} />
-          )}
+          <GuestAuthor
+            author={guestAuthor}
+            coAuthor={guestCoAuthor}
+            link={guestAuthorLink}
+          />
           {!shortened && (
             <>
               <p className={styles['feed__item-description']}>{description}</p>

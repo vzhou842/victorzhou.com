@@ -3,17 +3,24 @@ import React from 'react';
 import styles from './GuestAuthor.module.scss';
 
 type Props = {|
-  +author: string,
+  +author: ?string,
+  +coAuthor: ?string,
   +link?: ?string,
 |};
 
-export default function GuestAuthor({ author, link }: Props) {
+export default function GuestAuthor({ author, coAuthor, link }: Props) {
+  console.log(author, coAuthor);
+  if (!author && !coAuthor) {
+    return null;
+  }
   return (
     <p className={styles['root']}>
-      Guest Post by{' '}
+      {
+        !coAuthor ? 'Guest Post by ' : 'Co-Authored by '
+      }
       {link ? (
         <a target="_blank" href={link}>
-          {author}
+          {coAuthor || author}
         </a>
       ) : (
         author

@@ -141,6 +141,7 @@ export const fragment = graphql`
             description
             descriptionLong
             guestAuthor
+            guestCoAuthor
             guestAuthorLink
             img
             isSeries
