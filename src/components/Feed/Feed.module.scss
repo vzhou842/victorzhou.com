@@ -33,7 +33,7 @@
     }
 
     &-meta {
-      @include margin-bottom(.5);
+      @include margin-bottom(0);
 
       &-time {
         font-size: $typographic-small-font-size;
@@ -57,11 +57,8 @@
           &:focus {
             color: $color-primary;
           }
-
         }
-
       }
-
     }
 
     &-readmore {
