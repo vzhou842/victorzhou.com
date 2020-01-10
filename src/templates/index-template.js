@@ -19,12 +19,7 @@ type Props = {|
 const IndexTemplate = ({ data, pageContext }: Props) => {
   const { author, title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
 
-  const {
-    currentPage,
-    hasNextPage,
-    hasPrevPage,
-    numPages,
-  } = pageContext;
+  const { currentPage, hasNextPage, hasPrevPage, numPages } = pageContext;
 
   const { edges } = data.allMarkdownRemark;
   const pageTitle = currentPage > 1 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
@@ -34,8 +29,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
       <Layout title={pageTitle} description={siteSubtitle}>
         <Helmet>
           <script type="application/ld+json">
-            {
-`{
+            {`{
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "${author.name}",
@@ -46,8 +40,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
     "https://www.instagram.com/victorczhou/",
     "https://www.linkedin.com/in/vzhou842/"
   ]
-}`
-            }
+}`}
           </script>
         </Helmet>
         <Sidebar />
@@ -79,11 +72,17 @@ export const query = graphql`
       }
     }
     allMarkdownRemark(
-        limit: $postsLimit,
-        skip: $postsOffset,
-        filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } },
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ){
+      limit: $postsLimit
+      skip: $postsOffset
+      filter: {
+        frontmatter: {
+          template: { eq: "post" }
+          draft: { ne: true }
+          guestAuthor: { in: [null, ""] }
+        }
+      }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
       edges {
         node {
           fields {
@@ -95,6 +94,8 @@ export const query = graphql`
             date
             category
             description
+            guestCoAuthor
+            guestAuthorLink
             isSeries
           }
         }

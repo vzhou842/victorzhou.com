@@ -20,6 +20,10 @@ module.exports = {
       label: 'Tags',
       path: '/tags/',
     },
+    {
+      label: 'More Posts',
+      path: '/posts/',
+    }
   ],
   author: {
     name: 'Victor Zhou',

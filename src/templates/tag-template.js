@@ -244,6 +244,9 @@ export const query = graphql`
             date
             category
             description
+            guestAuthor
+            guestCoAuthor
+            guestAuthorLink
             isSeries
           }
         }

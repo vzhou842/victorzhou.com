@@ -3,10 +3,11 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styles from './Feed.module.scss';
 import { renderDate } from '../../utils/date';
+import GuestAuthor from '../GuestAuthor';
 
 type Props = {|
   +edges: Array<Object>,
-  +shortened?: bool,
+  +shortened?: boolean,
 |};
 
 const Feed = ({ edges, shortened }: Props) => (
@@ -14,7 +15,16 @@ const Feed = ({ edges, shortened }: Props) => (
     {edges.map(edge => {
       const {
         fields: { categorySlug, slug },
-        frontmatter: { date, title, category, description, isSeries },
+        frontmatter: {
+          date,
+          title,
+          category,
+          description,
+          isSeries,
+          guestAuthor,
+          guestCoAuthor,
+          guestAuthorLink,
+        },
       } = edge.node;
 
       const dateElement = renderDate(date);
@@ -37,16 +47,19 @@ const Feed = ({ edges, shortened }: Props) => (
               </Link>
             </span>
           </div>
-          {
-            !shortened && (
-              <>
-                <p className={styles['feed__item-description']}>{description}</p>
-                <Link className={styles['feed__item-readmore']} to={slug}>
-                  {isSeries ? 'View Series' : 'Read'}
-                </Link>
-              </>
-            )
-          }
+          <GuestAuthor
+            author={guestAuthor}
+            coAuthor={guestCoAuthor}
+            link={guestAuthorLink}
+          />
+          {!shortened && (
+            <>
+              <p className={styles['feed__item-description']}>{description}</p>
+              <Link className={styles['feed__item-readmore']} to={slug}>
+                {isSeries ? 'View Series' : 'Read'}
+              </Link>
+            </>
+          )}
         </div>
       );
     })}

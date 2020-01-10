@@ -3,6 +3,7 @@ import * as React from 'react';
 import styles from './Content.module.scss';
 import ContentDate from '../ContentDate';
 import CarbonAd from '../CarbonAd';
+import GuestAuthor from '../GuestAuthor';
 
 type Props = {|
   +body: string,
@@ -11,9 +12,22 @@ type Props = {|
   +date: Date,
   +dateModified: ?Date,
   +footer: ?React.Node,
+  +guestAuthor: ?string,
+  +guestCoAuthor?: ?boolean,
+  +guestAuthorLink: ?string,
 |};
 
-const Content = ({ body, title, subtitle, date, dateModified, footer }: Props) => (
+const Content = ({
+  body,
+  title,
+  subtitle,
+  date,
+  dateModified,
+  footer,
+  guestAuthor,
+  guestCoAuthor,
+  guestAuthorLink,
+}: Props) => (
   <article className={styles['content']}>
     <h1 className={`${styles['content__title']} ${subtitle ? '' : styles['no-subtitle']}`}>
       {title}
@@ -22,6 +36,16 @@ const Content = ({ body, title, subtitle, date, dateModified, footer }: Props) =
     <div className={styles['content__date']}>
       <ContentDate date={date} dateModified={dateModified} />
     </div>
+    {(!!guestAuthor || !!guestCoAuthor) && (
+      <div className={styles['content__guest-author']}>
+        <GuestAuthor
+          author={guestAuthor}
+          coAuthor={guestCoAuthor}
+          link={guestAuthorLink}
+        />
+      </div>
+    )}
+    <div className={styles['content__spacer']} />
     <CarbonAd smallOnly />
     <div className={styles['content__body']} dangerouslySetInnerHTML={{ __html: body }} />
     {footer}

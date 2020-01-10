@@ -6,7 +6,7 @@
   padding: 0 $layout-mobile-padding;
   margin: 0 auto;
 
-  &__title, &__subtitle, &__date {
+  &__title, &__subtitle, &__date, &__guest-author {
     max-width: $layout-post-width;
     margin: 0 auto;
   }
@@ -34,6 +34,9 @@
 
   &__date {
     @include margin-top(0.3);
+  }
+
+  &__spacer {
     @include margin-bottom(0.75);
   }
 
@@ -305,7 +308,7 @@
       @include line-height(1.5);
     }
 
-    &__date {
+    &__spacer {
       @include margin-bottom(1);
     }
 
