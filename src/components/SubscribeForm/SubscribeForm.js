@@ -60,6 +60,7 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
       if (body) {
         const script = document.createElement('script');
         script.src = 'https://www.google.com/recaptcha/api.js';
+        script.async = true;
         body.appendChild(script);
         this._script = script;
       } else {
