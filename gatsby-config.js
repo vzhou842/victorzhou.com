@@ -182,7 +182,19 @@ module.exports = {
         background_color: '#FFF',
         theme_color: '#164BC5',
         display: 'standalone',
-        icon: 'static/favicon2.png'
+        icons: [
+          {
+            src: `/favicon2_192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/favicon2_512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ],
+        legacy: false, // disable apple-touch-icon links in head, required for older iOS versions
       },
     },
     {
