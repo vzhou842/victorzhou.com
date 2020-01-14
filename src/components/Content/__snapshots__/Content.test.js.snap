@@ -24,9 +24,6 @@ exports[`Content renders correctly 1`] = `
     className="content__spacer"
   />
   <div
-    className="container-small"
-  />
-  <div
     className="content__body"
     dangerouslySetInnerHTML={
       Object {

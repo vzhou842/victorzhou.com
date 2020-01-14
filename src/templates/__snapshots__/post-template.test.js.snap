@@ -159,10 +159,6 @@ Array [
   </div>,
   <div
     className="container "
-  >
-    <div
-      className="container-large"
-    />
-  </div>,
+  />,
 ]
 `;

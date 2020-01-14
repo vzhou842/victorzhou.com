@@ -1,11 +1,13 @@
 // @flow
 import React from 'react';
+import loadable from '@loadable/component';
 import { graphql, StaticQuery } from 'gatsby';
 import SubscribeForm from '../SubscribeForm';
 import Contacts from '../Contacts';
 import Copyright from '../Copyright';
 import DisplayIf from '../DisplayIf';
-import CarbonAd from '../CarbonAd';
+
+const CarbonAd = loadable(() => import('../CarbonAd'));
 
 type Props = {
   +mobile?: boolean,

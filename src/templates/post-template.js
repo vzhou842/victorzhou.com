@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import loadable from '@loadable/component';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import TemplateWrapper from '../components/TemplateWrapper';
@@ -8,8 +9,9 @@ import Post from '../components/Post';
 import Series from '../components/Series';
 import NavHeader from '../components/NavHeader';
 import SubscribePopup from '../components/SubscribePopup';
-import CarbonAd from '../components/CarbonAd';
 import FixedScrollContainer from '../components/FixedScrollContainer';
+
+const CarbonAd = loadable(() => import('../components/CarbonAd'));
 
 type Props = {|
   +data: Object,

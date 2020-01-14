@@ -1,9 +1,11 @@
 // @flow
 import * as React from 'react';
+import loadable from '@loadable/component';
 import styles from './Content.module.scss';
 import ContentDate from '../ContentDate';
-import CarbonAd from '../CarbonAd';
 import GuestAuthor from '../GuestAuthor';
+
+const CarbonAd = loadable(() => import('../CarbonAd'));
 
 type Props = {|
   +body: string,
