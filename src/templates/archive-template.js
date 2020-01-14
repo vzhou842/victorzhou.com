@@ -37,7 +37,11 @@ export const query = graphql`
     }
     allMarkdownRemark(
       filter: {
-        frontmatter: { template: { eq: "post" }, draft: { ne: true } }
+        frontmatter: {
+          template: { eq: "post" },
+          draft: { ne: true },
+          guestAuthor: { in: [null, ""] }
+        }
       }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
