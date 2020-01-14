@@ -18,7 +18,7 @@ export default function GuestAuthor({ author, coAuthor, link }: Props) {
         !coAuthor ? 'Guest Post by ' : 'Co-Authored by '
       }
       {link ? (
-        <a target="_blank" href={link}>
+        <a target="_blank" href={link} rel="noopener noreferrer">
           {coAuthor || author}
         </a>
       ) : (
