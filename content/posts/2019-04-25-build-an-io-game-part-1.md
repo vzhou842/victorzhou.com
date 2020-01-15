@@ -43,7 +43,7 @@ To help us learn, we're going to be referencing the [example .io game](https://e
 }
 </style>
 <div id="example-io-game">
-    <iframe src="https://example-io-game.victorzhou.com" width="100%" height="700px"></iframe>
+    <iframe title="An example .io game" src="https://example-io-game.victorzhou.com" width="100%" height="700px"></iframe>
 </div>
 <figcaption>On mobile, it works best fullscreen at <a href="https://example-io-game.victorzhou.com" target="_blank">https://example-io-game.victorzhou.com</a></figcaption>
 
