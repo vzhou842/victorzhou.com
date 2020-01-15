@@ -45,7 +45,7 @@ To help us learn, we're going to be referencing the [example .io game](https://e
 <div id="example-io-game">
     <iframe title="An example .io game" src="https://example-io-game.victorzhou.com" width="100%" height="700px"></iframe>
 </div>
-<figcaption>On mobile, it works best fullscreen at <a href="https://example-io-game.victorzhou.com" target="_blank">https://example-io-game.victorzhou.com</a></figcaption>
+<figcaption>On mobile, it works best fullscreen at <a href="https://example-io-game.victorzhou.com" target="_blank" rel="noopener noreferrer">https://example-io-game.victorzhou.com</a></figcaption>
 
 It's a pretty simple game: you control a ship in an arena with other players. Your ship automatically fires bullets, and you're trying to hit other players with your bullets while avoiding theirs.
 
@@ -217,7 +217,7 @@ Let's get to the actual game code. To start, we need an `index.html` page, which
 </body>
 </html>
 ```
-<figcaption>This code sample is slightly abridged for clarity, as many code samples in this post will be. You can always see the full code on <a href="https://github.com/vzhou842/example-.io-game" target="_blank">Github</a>.</figcaption>
+<figcaption>This code sample is slightly abridged for clarity, as many code samples in this post will be. You can always see the full code on <a href="https://github.com/vzhou842/example-.io-game" target="_blank" rel="noopener noreferrer">Github</a>.</figcaption>
 
 We have:
 

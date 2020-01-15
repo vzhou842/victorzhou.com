@@ -38,7 +38,7 @@ In this post, we'll take a look at the Node.js backend powering our [example .io
 <div id="example-io-game" height="700px">
     <iframe title="An example .io game" src="https://example-io-game.victorzhou.com" width="100%" height="700px" /></iframe>
 </div>
-<figcaption>On mobile, it works best fullscreen at <a href="https://example-io-game.victorzhou.com" target="_blank">https://example-io-game.victorzhou.com</a></figcaption>
+<figcaption>On mobile, it works best fullscreen at <a href="https://example-io-game.victorzhou.com" target="_blank" rel="noopener noreferrer">https://example-io-game.victorzhou.com</a></figcaption>
 
 As a reminder, here's what we went over in [Part 1](/blog/build-an-io-game-part-1/) of the series:
 
