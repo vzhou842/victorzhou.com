@@ -194,7 +194,6 @@ module.exports = {
             type: `image/png`,
           },
         ],
-        legacy: false, // disable apple-touch-icon links in head, required for older iOS versions
       },
     },
     {
