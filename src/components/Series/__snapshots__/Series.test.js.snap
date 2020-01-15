@@ -96,7 +96,7 @@ exports[`Series renders correctly 1`] = `
         <Link
           to="/tags/"
         >
-          more
+          more topics
         </Link>
         .
          

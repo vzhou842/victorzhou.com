@@ -26,7 +26,7 @@ exports[`MovableSidebarContent renders correctly 1`] = `
       <Link
         to="/tags/"
       >
-        more
+        more topics
       </Link>
       .
        

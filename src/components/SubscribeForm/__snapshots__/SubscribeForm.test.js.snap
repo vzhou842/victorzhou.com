@@ -23,7 +23,7 @@ exports[`SubscribeForm renders default correctly 1`] = `
     <Link
       to="/tags/"
     >
-      more
+      more topics
     </Link>
     .
      
@@ -132,7 +132,7 @@ exports[`SubscribeForm renders large correctly 1`] = `
     <Link
       to="/tags/"
     >
-      more
+      more topics
     </Link>
     .
      
