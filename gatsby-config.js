@@ -101,7 +101,12 @@ module.exports = {
           'gatsby-remark-code-headers',
           {
             resolve: 'gatsby-remark-images',
-            options: { maxWidth: 700, showCaptions: true, linkImagesToOriginal: false },
+            options: {
+              maxWidth: 700,
+              showCaptions: true,
+              linkImagesToOriginal: false,
+              withWebp: true,
+            },
           },
           {
             resolve: 'gatsby-remark-responsive-iframe',
