@@ -7,6 +7,7 @@ const edge = s => ({
     fields: {
       slug: s,
       categorySlug: s,
+      dateFormatted: 'March 14, 2019',
     },
     frontmatter: {
       date: new Date('2019-03-14T12:00:00.000Z'),

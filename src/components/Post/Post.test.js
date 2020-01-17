@@ -6,6 +6,7 @@ const post = {
   html: '<p>test</p>',
   fields: {
     tagSlugs: ['/test_0', '/test_1'],
+    dateFormatted: 'March 14, 2019',
   },
   frontmatter: {
     date: new Date('2019-03-14T12:00:00.000Z'),

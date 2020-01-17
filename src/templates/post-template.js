@@ -133,13 +133,14 @@ export const fragment = graphql`
             readingTime {
               words
             }
+            dateFormatted
+            dateModifiedFormatted
           }
           frontmatter {
             asyncScript
             canonical
             category
             date
-            dateModified
             description
             descriptionLong
             guestAuthor
@@ -172,9 +173,12 @@ export const fragment = graphql`
     seriesPosts: allMarkdownRemark(filter: { frontmatter: { slug: { in: $seriesSlugs } } }) {
       edges {
         node {
+          fields {
+            dateFormatted
+            dateModifiedFormatted
+          }
           frontmatter {
             date
-            dateModified
             description
             img
             slug

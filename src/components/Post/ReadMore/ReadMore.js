@@ -2,12 +2,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styles from './ReadMore.module.scss';
-import { renderDate } from '../../../utils/date';
 
 type PostType = {
+  +fields: {
+    +dateFormatted: string,
+    +dateModifiedFormatted?: string,
+  },
   +frontmatter: {
-    +date: Date,
-    +dateModified: ?Date,
     +description: string,
     +slug: string,
     +title: string,
@@ -25,7 +26,8 @@ type Props = {|
 
 const ReadMoreLink = ({
   post: {
-    frontmatter: { date, dateModified, description, slug, title },
+    fields: { dateFormatted, dateModifiedFormatted },
+    frontmatter: { description, slug, title },
   },
 }: LinkProps) => (
   <div>
@@ -33,7 +35,7 @@ const ReadMoreLink = ({
       <b>{title}</b>
     </Link>
     <p>
-      <b>{renderDate(dateModified || date)}</b>
+      <b>{dateModifiedFormatted || dateFormatted}</b>
     </p>
     <p>{description}</p>
   </div>

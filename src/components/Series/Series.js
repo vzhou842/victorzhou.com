@@ -7,8 +7,11 @@ import contentStyles from '../Content/Content.module.scss';
 
 type SeriesType = {|
   +html: string,
+  +fields: {
+    +dateFormatted: string,
+    +dateModifiedFormatted?: string,
+  },
   +frontmatter: {|
-    +date: Date,
     +description: string,
     +discussLinkTwitter?: string,
     +discussLinkHN?: string,
@@ -24,9 +27,11 @@ type SeriesType = {|
 
 type SeriesPostType = {
   +node: {
+    +fields: {
+      +dateFormatted: string,
+      +dateModifiedFormatted?: string,
+    },
     +frontmatter: {
-      +date: Date,
-      +dateModified?: Date,
       +description: string,
       +img: string,
       +slug: string,
@@ -46,16 +51,23 @@ type Props = {|
 const Series = ({ htmlEnd, series, seriesPosts }: Props) => {
   // seriesPosts aren't necessarily in order, so we sort by seriesSlugs
   const { seriesSlugs } = series.frontmatter;
-  const frontmatters = seriesPosts.edges.map(e => e.node.frontmatter);
-  frontmatters.sort((a, b) => seriesSlugs.indexOf(a.slug) - seriesSlugs.indexOf(b.slug));
+  const nodes = seriesPosts.edges.map(e => e.node);
+  nodes.sort(
+    (a, b) => seriesSlugs.indexOf(a.frontmatter.slug) - seriesSlugs.indexOf(b.frontmatter.slug)
+  );
 
   return (
     <Post
       post={series}
       contentFooter={
         <div>
-          {frontmatters.map((post, i) => (
-            <SeriesPost key={post.title} {...post} n={i + 1} />
+          {nodes.map((node, i) => (
+            <SeriesPost
+              key={node.frontmatter.title}
+              {...node.frontmatter}
+              {...node.fields}
+              n={i + 1}
+            />
           ))}
           <div
             className={contentStyles['content__body']}

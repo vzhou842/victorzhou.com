@@ -6,6 +6,9 @@ describe('Series', () => {
   const props = {
     htmlEnd: '<div></div>',
     series: {
+      fields: {
+        dateFormatted: 'March 14, 2019',
+      },
       frontmatter: {
         date: new Date('2019-03-14T12:00:00.000Z'),
         slug: 'test',
@@ -16,6 +19,9 @@ describe('Series', () => {
     seriesPosts: {
       edges: [{
         node: {
+          fields: {
+            dateFormatted: 'March 14, 2019',
+          },
           frontmatter: {
             title: 'test',
             date: new Date('2019-03-14T12:00:00.000Z'),

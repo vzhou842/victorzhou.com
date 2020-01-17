@@ -4,7 +4,7 @@ import SeriesPost from './SeriesPost';
 
 describe('SeriesPost', () => {
   const props = {
-    date: new Date('2019-03-14T12:00:00.000Z'),
+    dateFormatted: 'March 14, 2019',
     description: 'test-description',
     img: 'test-img',
     n: 1,

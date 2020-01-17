@@ -1,21 +1,18 @@
 // @flow
 import React from 'react';
 import styles from './ContentDate.module.scss';
-import { renderDate } from '../../utils/date';
-
-const dateToTime = date => <time>{renderDate(date)}</time>;
 
 type Props = {|
-  +date: Date,
-  +dateModified: ?Date,
+  +dateFormatted: string,
+  +dateModifiedFormatted: ?string,
 |};
 
-const ContentDate = ({ date, dateModified }: Props) => (
+const ContentDate = ({ dateFormatted, dateModifiedFormatted }: Props) => (
   <p className={styles['content-date']}>
-    {dateToTime(date)}
-    {dateModified && (
+    <time>{dateFormatted}</time>
+    {dateModifiedFormatted && (
       <span className={styles['date-modified']}>
-        &ensp;|&ensp;UPDATED {dateToTime(dateModified)}
+        &ensp;|&ensp;UPDATED <time>{dateModifiedFormatted}</time>
       </span>
     )}
   </p>
