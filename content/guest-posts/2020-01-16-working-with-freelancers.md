@@ -3,6 +3,7 @@ title: "The Best Tools for Finding, Hiring, and Collaborating with Freelancers"
 date: "2020-01-16T12:00:00.000Z"
 template: "post"
 guestAuthor: "Courtney Rosenfeld"
+guestAuthorLink: http://www.gigspark.biz/
 slug: "/posts/working-with-freelancers/"
 img: "https://victorzhou.com/media/freelancer-guest-post/freelancers.png"
 category: "Best Practices"
