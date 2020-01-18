@@ -285,7 +285,7 @@ y_pred = np.array([0, 0, 0, 0])
 
 print(mse_loss(y_true, y_pred)) # 0.5
 ```
-<figcaption>If you don't understand why this code works, read the NumPy <a href="https://docs.scipy.org/doc/numpy/user/quickstart.html#basic-operations" target="_blank">quickstart</a> on array operations.</figcaption>
+<figcaption>If you don't understand why this code works, read the NumPy <a href="https://docs.scipy.org/doc/numpy/user/quickstart.html#basic-operations" target="_blank" rel="noopener noreferrer">quickstart</a> on array operations.</figcaption>
 
 Nice. Onwards!
 
@@ -330,7 +330,7 @@ To start, let's rewrite the partial derivative in terms of $\frac{\partial y_{pr
 $$
 \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y_{pred}} * \frac{\partial y_{pred}}{\partial w_1}
 $$
-<figcaption>This works because of the <a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank">Chain Rule</a>.</figcaption>
+<figcaption>This works because of the <a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank" rel="noopener noreferrer">Chain Rule</a>.</figcaption>
 
 We can calculate $\frac{\partial L}{\partial y_{pred}}$ because we computed $L = (1 - y_{pred})^2$ above:
 
