@@ -217,7 +217,11 @@ exports[`Series renders correctly 1`] = `
     className="post__comments"
   >
     <div
-      id="commento"
+      style={
+        Object {
+          "paddingBottom": "320px",
+        }
+      }
     />
   </div>
 </div>
