@@ -1,11 +1,8 @@
 // @flow
 import * as React from 'react';
-import loadable from '@loadable/component';
 import styles from './Content.module.scss';
 import ContentDate from '../ContentDate';
 import GuestAuthor from '../GuestAuthor';
-
-const CarbonAd = loadable(() => import('../CarbonAd'));
 
 type Props = {|
   +body: string,
@@ -48,7 +45,6 @@ const Content = ({
       </div>
     )}
     <div className={styles['content__spacer']} />
-    <CarbonAd smallOnly />
     <div className={styles['content__body']} dangerouslySetInnerHTML={{ __html: body }} />
     {footer}
   </article>
