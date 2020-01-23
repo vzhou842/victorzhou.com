@@ -7,23 +7,8 @@ type Props = {|
 |};
 
 const FixedScrollContainer = ({ children }: Props) => {
-  const [hidden, setHidden] = React.useState(false);
-
-  React.useEffect(() => {
-    function handleScroll() {
-      if (!hidden) {
-        setHidden(window.scrollY > 2000);
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [hidden]);
-
   return (
-    <div className={`${styles['container']} ${hidden ? styles['hidden'] : ''}`}>
+    <div className={styles['container']}>
       {children}
     </div>
   );

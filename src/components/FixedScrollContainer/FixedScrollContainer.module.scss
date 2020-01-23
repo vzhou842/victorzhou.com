@@ -8,10 +8,4 @@
   visibility: visible;
   opacity: 1;
   transition: opacity 250ms ease;
-
-  &.hidden {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s 250ms, opacity 250ms ease;
-  }
 }
