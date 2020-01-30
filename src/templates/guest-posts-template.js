@@ -40,8 +40,7 @@ const GuestPostsTemplate = ({ data }: Props) => {
                 </li>
               </ul>
               <p>
-                I still <b>personally review and edit every guest post I publish</b>, meaning I
-                believe these are all quality articles! If you're interested in guesting posting or
+                I still <b>personally review and edit every guest post I publish</b>! If you're interested in guesting posting or
                 co-authoring a post with me, feel free to{' '}
                 <Link to="/about/#contact-me">get in touch</Link>.
               </p>
