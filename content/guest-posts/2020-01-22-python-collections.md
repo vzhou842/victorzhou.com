@@ -29,7 +29,7 @@ Let’s look into some of the important container objects from the collections m
 
 ## 1. NamedTuple
 
-Python tuples contain a list of immutable values. The `namedtuple()` function is used to create a NamedTuple, where the values are attached to a key.
+Python tuples contain a list of immutable values. The [namedtuple()](https://docs.python.org/3.8/library/collections.html#collections.namedtuple) function is used to create a NamedTuple, where the values are attached to a key.
 
 Let’s see how to create a named tuple.
 
@@ -75,43 +75,37 @@ Another case would be when you want to have an object similar to a dictionary bu
 
 ## 2. OrderedDict
 
-The OrderedDict extends the functionality of dict. It maintains the order of insertion, so that the elements are retrieved in the same order.
+The [OrderedDict](https://docs.python.org/3.8/library/collections.html#collections.OrderedDict) extends the functionality of dict. It maintains the order of insertion, so that the elements are retrieved in the same order.
 
 If we insert an item with an existing key, the value is updated but the insertion position remains unchanged.
 
 ```python
 from collections import OrderedDict
 
-emps = OrderedDict({1: 'John', 2: 'David'})
+employees = OrderedDict({1: 'John', 2: 'David'})
 
 # OrderedDict([(1, 'John'), (2, 'David')])
-print(emps)
+print(employees)
 
-for id, name in emps.items():
-  print(f'Emp[{id}, {name}]')
+# 1 John
+# 2 David
+for id, name in employees.items():
+  print(id, name)
 
 # adding a new item
-emps[3] = 'Lisa'
-# updating an exising key
-emps[1] = 'Mary'
+employees[3] = 'Lisa'
+
+# updating an existing key
+employees[1] = 'Mary'
 
 # OrderedDict([(1, 'Mary'), (2, 'David'), (3, 'Lisa')])
-print(emps)
+print(employees)
 
-for id, name in emps.items():
-  print(f'Emp[{id}, {name}]')
-```
-
-Output:
-
-```
-OrderedDict([(1, 'John'), (2, 'David')])
-Emp[1, John]
-Emp[2, David]
-OrderedDict([(1, 'Mary'), (2, 'David'), (3, 'Lisa')])
-Emp[1, Mary]
-Emp[2, David]
-Emp[3, Lisa]
+# 1 Mary
+# 2 David
+# 3 Lisa
+for id, name in employees.items():
+  print(id, name)
 ```
 
 ### When should I use OrderedDict?
@@ -120,7 +114,7 @@ Sometimes, we want to process dictionary items in a certain order. OrderedDict i
 
 ## 3. Counter
 
-The Counter object allows us to count the keys in a sequence. It’s a subclass of dict where the key is the sequence elements and value are their count.
+The [Counter](https://docs.python.org/3.8/library/collections.html#collections.Counter) object allows us to count the keys in a sequence. It’s a subclass of dict where the key is the sequence elements and value are their count.
 
 ```python
 from collections import Counter
@@ -139,7 +133,7 @@ When you quickly want to get some idea about the elements in the sequence. For e
 
 ## 4. Deque
 
-A double-ended queue implementation that supports adding and removing elements from both ends.
+[deque](https://docs.python.org/3.8/library/collections.html#collections.deque) is a double-ended queue implementation that supports adding and removing elements from both ends.
 
 We can pass an iterable object to the `deque()` method to populate the deque.
 
@@ -185,7 +179,7 @@ Whenever you need a double-ended queue data structure created from a sequence, y
 
 ## 5. ChainMap
 
-A ChainMap object allows us to create a group from multiple dict-like objects. It’s useful when we have to work with multiple dicts. The ChainMap contains the maps in a list and they are backed by the original maps. So, if the value in the underlying map change, then the ChainMap value will also change.
+A [ChainMap](https://docs.python.org/3.8/library/collections.html#collections.ChainMap) object allows us to create a group from multiple dict-like objects. It’s useful when we have to work with multiple dicts. The ChainMap contains the maps in a list and they are backed by the original maps. So, if the value in the underlying map change, then the ChainMap value will also change.
 
 When searching for an element, ChainMap searches for the key in all the maps and returns the first found value.
 
