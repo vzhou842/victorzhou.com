@@ -6,12 +6,10 @@ type Props = {|
   +children: React.Node,
 |};
 
-const FixedScrollContainer = ({ children }: Props) => {
-  return (
-    <div className={styles['container']}>
-      {children}
-    </div>
-  );
-};
+const FixedScrollContainer = ({ children }: Props) => (
+  <div className={styles['container']}>
+    {children}
+  </div>
+);
 
 export default FixedScrollContainer;
