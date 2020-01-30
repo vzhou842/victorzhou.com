@@ -158,7 +158,7 @@ Array [
     </button>
   </div>,
   <div
-    className="container "
+    className="container"
   />,
 ]
 `;
