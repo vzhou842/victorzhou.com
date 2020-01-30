@@ -1,6 +1,6 @@
 ---
 title: "An Introduction to Python's Collections module"
-date: "2020-01-22T12:00:00.000Z"
+date: "2020-01-29T12:00:00.000Z"
 template: "post"
 guestAuthor: "Pankaj Kumar"
 guestAuthorLink: https://twitter.com/JournalDev
@@ -11,7 +11,7 @@ tags:
   - "Python"
   - "For Beginners"
 description: An overview of 5 important container objects from the collections module.
-prev: "/blog/intro-to-neural-networks/"
+prev: "/blog/better-profanity-detection-with-scikit-learn/"
 next: "/blog/keras-neural-network-tutorial/"
 ---
 
