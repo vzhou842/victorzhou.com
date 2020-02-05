@@ -75,4 +75,4 @@ One of my original [reasons for starting this blog](/blog/first-50-days-of-blogg
 
 ## Conclusion
 
-It's been a great journey so far, and I'm excited for what the future holds. As always, **thank you to my readers** from the past 6 months! See you at the Year One recap.
+It's been a great journey so far, and I'm excited for what the future holds. As always, **thank you to my readers** from the past 6 months! See you at the [Year One recap](/blog/year-one/).
