@@ -4,7 +4,7 @@ module.exports = {
   url: 'https://victorzhou.com',
   title: 'victorzhou.com',
   subtitle: 'SWE @ Facebook. CS \'19 @ Princeton. I blog about web development, machine learning, and more topics.',
-  copyright: '© Victor Zhou 2019',
+  copyright: '© Victor Zhou 2020',
   postsPerPage: 8,
   googleAnalyticsId: 'UA-58664433-1',
   menu: [
