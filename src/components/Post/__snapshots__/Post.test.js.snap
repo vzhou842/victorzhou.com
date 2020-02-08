@@ -78,7 +78,7 @@ exports[`Post renders correctly 1`] = `
         action="https://sendy.victorzhou.com/subscribe"
         method="post"
         onSubmit={[Function]}
-        target="_blank"
+        target="_self"
       >
         <input
           name="Source"

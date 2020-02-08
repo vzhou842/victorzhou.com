@@ -158,7 +158,7 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
           action="https://sendy.victorzhou.com/subscribe"
           method="post"
           acceptCharset="utf-8"
-          target="_blank"
+          target="_self"
           onSubmit={this.onSubmit}
           ref={this._formRef}
         >
