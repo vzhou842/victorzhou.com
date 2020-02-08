@@ -38,7 +38,7 @@ const SubscribeTemplate = ({ data, pageContext }: Object) => {
           )}
           <SubscribeForm signupSource={source} large showAllOptions noDescription />
           <p>
-            Don't hesitate to <Link to="/about/">Contact Me</Link> if you have any issues!
+            Don't hesitate to <Link to="/contact/">Contact Me</Link> if you have any issues!
           </p>
         </Page>
       </Layout>

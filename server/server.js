@@ -12,8 +12,6 @@ app.use(express.static(PUBLIC_PATH));
 // Route legacy paths
 app.use(
   [
-    '/contact',
-    '/contact.html',
     '/projects',
     '/projects/web',
     '/projects/iOS',

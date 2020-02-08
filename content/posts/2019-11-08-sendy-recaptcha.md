@@ -181,7 +181,7 @@ if ($subform) {
 }
 ```
 
-You can also [contact me](/about/#contact-me) if you have issues protecting your Sendy subscribe form and I'll do my best to help.
+You can also [contact me](/contact/) if you have issues protecting your Sendy subscribe form and I'll do my best to help.
 
 ## In Conclusion,
 

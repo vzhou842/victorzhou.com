@@ -18,6 +18,4 @@ I've spoken on a tech podcast about my experiences [building and selling games](
 
 You can see more of my projects on my [Github](https://github.com/vzhou842).
 
-## Contact Me
-
-The best ways to get in touch with me are emailing me at [vzhou842@gmail.com](mailto:vzhou842@gmail.com) and [tweeting at me](https://twitter.com/victorczhou).
+Want to get in touch? [Contact Me](/contact/).

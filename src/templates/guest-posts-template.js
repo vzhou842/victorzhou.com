@@ -42,7 +42,7 @@ const GuestPostsTemplate = ({ data }: Props) => {
               <p>
                 I still <b>personally review and edit every guest post I publish</b>! If you're
                 interested in guesting posting or co-authoring a post with me, feel free to{' '}
-                <Link to="/about/#contact-me">get in touch</Link>.
+                <Link to="/contact/">get in touch</Link>.
               </p>
             </>
           }
