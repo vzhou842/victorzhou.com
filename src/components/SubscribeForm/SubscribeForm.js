@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 import styles from './SubscribeForm.module.scss';
 import RecaptchaContext from '../RecaptchaContext';
 import { logEvent, logError } from '../../utils/log';
+import { loadRecaptchaIfNeeded, detectRecaptchaSetup, cleanupRecaptcha } from '../../utils/recaptcha';
 
 import type { RecaptchaContextType } from '../RecaptchaContext';
 
@@ -31,42 +32,15 @@ type State = {|
   +loading: boolean,
 |};
 
-let hasLoadedRecaptcha = false;
-let hasPlacedStyle = false;
-
 class SubscribeForm extends React.PureComponent<InnerProps, State> {
   state = { checked: { none: true, ml: false, web: false }, loading: false };
 
   _formRef = new React.createRef<HTMLFormElement>();
-
+  _timeoutReturn: TimeoutID;
   _pendingSubmit: boolean = false;
 
-  _script: ?HTMLScriptElement = null;
-
   componentDidMount() {
-    const { body, head } = document;
-    if (!hasPlacedStyle) {
-      hasPlacedStyle = true;
-      if (head) {
-        const style = document.createElement('style');
-        style.innerHTML = '.grecaptcha-badge { visibility: hidden; }';
-        head.appendChild(style);
-      } else {
-        logError('SubscribeForm <head> doesn\'t exist');
-      }
-    }
-    if (!hasLoadedRecaptcha) {
-      hasLoadedRecaptcha = true;
-      if (body) {
-        const script = document.createElement('script');
-        script.src = 'https://www.google.com/recaptcha/api.js';
-        script.async = true;
-        body.appendChild(script);
-        this._script = script;
-      } else {
-        logError('SubscribeForm <body> doesn\'t exist');
-      }
-    }
+    this._timeoutReturn = setTimeout(loadRecaptchaIfNeeded, 5000);
   }
 
   componentDidUpdate(prevProps: InnerProps) {
@@ -79,22 +53,21 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
   }
 
   componentWillUnmount() {
+    clearTimeout(this._timeoutReturn);
+
     // This component will only unmount on a local page navigation, in which case
     // we need to reload reCAPTCHA.
-    hasLoadedRecaptcha = false;
-    if (this._script) {
-      this._script.remove();
-      this._script = null;
-    }
+    cleanupRecaptcha();
   }
 
   onCheckboxClick(id: 'ml' | 'web' | 'none') {
+    loadRecaptchaIfNeeded();
     this.setState({
       checked: { ...{ none: false, ml: false, web: false }, [id]: !this.state.checked[id] },
     });
   }
 
-  onSubmit = (e: SyntheticEvent<HTMLFormElement>) => {
+  onSubmit = async (e: SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (this.state.loading) {
       return;
@@ -111,6 +84,7 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
         this._pendingSubmit = true;
         context.setRecaptchaToken(token);
       };
+      await detectRecaptchaSetup();
       window.grecaptcha.execute();
     }
   };
@@ -159,6 +133,7 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
           method="post"
           acceptCharset="utf-8"
           target="_self"
+          onFocus={loadRecaptchaIfNeeded}
           onSubmit={this.onSubmit}
           ref={this._formRef}
         >

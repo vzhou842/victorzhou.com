@@ -1,7 +1,15 @@
 'use strict';
 
 const babelOptions = {
-  presets: ['@babel/react', '@babel/env'],
+  presets: ['@babel/react', [
+    '@babel/preset-env',
+    // https://github.com/facebook/jest/issues/3126
+    {
+      targets: {
+        node: 'current',
+      },
+    },
+  ]],
   plugins: [
     '@babel/plugin-proposal-optional-chaining',
     '@babel/plugin-proposal-class-properties',

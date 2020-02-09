@@ -77,6 +77,7 @@ exports[`Post renders correctly 1`] = `
         acceptCharset="utf-8"
         action="https://sendy.victorzhou.com/subscribe"
         method="post"
+        onFocus={[Function]}
         onSubmit={[Function]}
         target="_self"
       >
