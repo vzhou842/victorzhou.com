@@ -12,6 +12,12 @@
     }
 }
 
+@mixin breakpoint-max-sm {
+    @media screen and (max-width: $layout-breakpoint-sm) {
+        @content;
+    }
+}
+
 @mixin breakpoint-md {
     @media screen and (min-width: $layout-breakpoint-md) {
         @content;
