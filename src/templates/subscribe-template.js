@@ -1,11 +1,12 @@
 // @flow
 import React from 'react';
-import { graphql, Link } from 'gatsby';
-import TemplateWrapper from '../components/TemplateWrapper';
+import { Link, graphql } from 'gatsby';
+
 import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
+import Sidebar from '../components/Sidebar';
 import SubscribeForm from '../components/SubscribeForm';
+import TemplateWrapper from '../components/TemplateWrapper';
 
 const SubscribeTemplate = ({ data, pageContext }: Object) => {
   const { title: siteTitle } = data.site.siteMetadata;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, StaticQuery, Link, withPrefix } from 'gatsby';
+import { Link, StaticQuery, graphql, withPrefix } from 'gatsby';
 import styles from './Author.module.scss';
 
 export const PureAuthor = ({ author, showBio, showTwitter }) => {

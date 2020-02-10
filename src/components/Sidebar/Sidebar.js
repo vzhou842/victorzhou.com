@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { graphql, StaticQuery } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import Author from './Author';
 import Menu from '../Menu';
 import MovableSidebarContent from '../MovableSidebarContent';

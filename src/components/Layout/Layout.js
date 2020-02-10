@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, StaticQuery } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import styles from './Layout.module.scss';
 

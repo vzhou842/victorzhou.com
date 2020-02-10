@@ -1,11 +1,11 @@
 // @flow
 import React from 'react';
 import loadable from '@loadable/component';
-import { graphql, StaticQuery } from 'gatsby';
-import SubscribeForm from '../SubscribeForm';
+import { StaticQuery, graphql } from 'gatsby';
 import Contacts from '../Contacts';
 import Copyright from '../Copyright';
 import DisplayIf from '../DisplayIf';
+import SubscribeForm from '../SubscribeForm';
 
 const CarbonAd = loadable(() => import('../CarbonAd'));
 

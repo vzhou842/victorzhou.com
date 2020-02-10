@@ -7,9 +7,9 @@ import styles from './Post.module.scss';
 
 import Author from '../Author';
 import Content from '../Content';
-import SubscribeForm from '../SubscribeForm';
-import Share from '../Share';
 import Discuss from '../Discuss';
+import Share from '../Share';
+import SubscribeForm from '../SubscribeForm';
 
 type PostType = {
   +fields: Object,

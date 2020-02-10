@@ -1,5 +1,5 @@
 import React from 'react';
-import { withPrefix, Link } from 'gatsby';
+import { Link, withPrefix } from 'gatsby';
 import styles from './Author.module.scss';
 
 const Author = ({ author }) => (

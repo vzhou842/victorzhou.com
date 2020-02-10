@@ -1,4 +1,4 @@
-import { logEvent, logError } from './log';
+import { logError, logEvent } from './log';
 
 let hasLoadedRecaptcha = false;
 let hasPlacedStyle = false;

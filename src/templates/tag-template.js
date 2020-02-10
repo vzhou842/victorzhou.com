@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import TemplateWrapper from '../components/TemplateWrapper';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';

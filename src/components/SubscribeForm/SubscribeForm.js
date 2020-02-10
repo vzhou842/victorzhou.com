@@ -3,8 +3,8 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import styles from './SubscribeForm.module.scss';
 import RecaptchaContext from '../RecaptchaContext';
-import { logEvent, logError } from '../../utils/log';
-import { loadRecaptchaIfNeeded, detectRecaptchaSetup, cleanupRecaptcha } from '../../utils/recaptcha';
+import { logError, logEvent } from '../../utils/log';
+import { cleanupRecaptcha, detectRecaptchaSetup, loadRecaptchaIfNeeded } from '../../utils/recaptcha';
 
 import type { RecaptchaContextType } from '../RecaptchaContext';
 
