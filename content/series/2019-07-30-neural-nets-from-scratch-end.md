@@ -7,6 +7,7 @@ frontSlug: "/series/neural-networks-from-scratch/"
 Still eager to learn? Some more things you can do include:
 
 - [Build your first neural network with Keras](/blog/keras-neural-network-tutorial/).
+- [Apply neural networks to Visual Question Answering (VQA)](/blog/easy-vqa/).
 - Experiment with bigger / better neural networks using proper machine learning libraries like [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), and [PyTorch](https://pytorch.org/).
 - Try your hand at using Neural Networks to approach a [Kaggle](https://www.kaggle.com/competitions) data science competition.
 - Review notes from Stanford's famous [CS231n](http://cs231n.github.io/) course on CNNs.
