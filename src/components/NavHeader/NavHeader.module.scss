@@ -9,6 +9,14 @@
   display: flex;
   flex-direction: row;
 
+  // Needed to stay above the popup
+  position: relative;
+  z-index: 1;
+
+  &.no-shadow {
+    box-shadow: none;
+  }
+
   &__left {
     display: flex;
     flex-direction: row;
@@ -34,25 +42,36 @@
   }
 
   &__right {
-    display: none;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10%;
+  }
+
+  &__burger {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 8px;
+    background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &.open {
+      opacity: 0.5;
+    }
   }
 }
 
-@include breakpoint-sm {
-  .header {
-    &__left {
-      justify-content: flex-start;
-      padding-left: 10%;
-    }
-
-    &__right {
-      display: flex;
-      flex-grow: 1;
-      flex-direction: row;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 10%;
-    }
-  }
-
+.popup {
+  box-shadow: 0 4px 15px $color-gray-bg;
+  background: white;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
 }
