@@ -46,6 +46,7 @@ $layout-post-single-width: 945px;
 $layout-post-width: $layout-post-single-width - 245px;
 
 $layout-width: 1070px;
+// Should match MOBILE_WIDTH_THRESHOLD in PlatformContext
 $layout-breakpoint-sm: 685px;
 $layout-breakpoint-md: 960px;
 $layout-breakpoint-lg: 1100px;

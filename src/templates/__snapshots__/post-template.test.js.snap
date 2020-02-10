@@ -36,7 +36,7 @@ Array [
           />
         </div>
         <div
-          className="header__right"
+          className="desktop-only header__right"
         >
           <StaticQuery
             render={[Function]}

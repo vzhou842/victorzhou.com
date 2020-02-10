@@ -4,7 +4,7 @@ import Headroom from 'react-headroom';
 import styles from './NavHeader.module.scss';
 
 import Author from '../Author';
-import PlatformContext from '../PlatformContext';
+import DisplayIf from '../DisplayIf';
 import Menu from '../Menu';
 
 const cx = classNames.bind(styles);
@@ -13,31 +13,28 @@ function NavHeader() {
   const [menuShown, setMenuShown] = useState(false);
 
   return (
-    <PlatformContext render={isMobile => (
-      <Headroom onUnpin={() => { setMenuShown(false); }}>
-        <div className={cx({ header: true, 'no-shadow': menuShown })}>
-          <div className={styles['header__left']}>
-            <Author />
-          </div>
-          {isMobile ? (
-            <button
-              onClick={() => { setMenuShown(!menuShown); }}
-              className={cx({ header__burger: true, open: menuShown })}>
-              <img src="/menu.svg" width={28} height={28} />
-            </button>
-          ) : (
-            <div className={styles['header__right']}>
-              <Menu horizontal bold />
-            </div>
-          )}
+    <Headroom onUnpin={() => { setMenuShown(false); }}>
+      <div className={cx({ header: true, 'no-shadow': menuShown })}>
+        <div className={styles['header__left']}>
+          <Author />
         </div>
-        {isMobile && menuShown && (
-          <div className={styles['popup']}>
-            <Menu bold noMargin />
-          </div>
-        )}
-      </Headroom>
-    )} />
+        <DisplayIf desktop className={styles['header__right']}>
+          <Menu horizontal bold />
+        </DisplayIf>
+        <DisplayIf mobile>
+          <button
+            onClick={() => { setMenuShown(!menuShown); }}
+            className={cx({ header__burger: true, open: menuShown })}>
+            <img src="/menu.svg" width={28} height={28} />
+          </button>
+        </DisplayIf>
+      </div>
+      {menuShown && (
+        <DisplayIf mobile className={styles['popup']}>
+          <Menu bold noMargin />
+        </DisplayIf>
+      )}
+    </Headroom>
   );
 }
 
