@@ -1,6 +1,7 @@
 // @flow
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+
+import PlatformContext from '../PlatformContext';
 
 type Props = {|
   +children: React.Node,
@@ -8,28 +9,12 @@ type Props = {|
   +desktop?: boolean,
 |};
 
-// Should match $layout-breakpoint-sm
-const MOBILE_WIDTH_THRESHOLD = 685;
-
-const calcIsMobile = () => typeof window !== 'undefined' && window.innerWidth <= MOBILE_WIDTH_THRESHOLD;
-
-const DisplayIf = ({ children, mobile, desktop }: Props) => {
-  const [isMobile, setIsMobile] = useState(calcIsMobile());
-
-  useEffect(() => {
-    const listener = () => {
-      setIsMobile(calcIsMobile());
-    };
-    window.addEventListener('resize', listener);
-    return () => {
-      window.removeEventListener('resize', listener);
-    };
-  }, []);
-
-  if ((mobile && isMobile) || (desktop && !isMobile)) {
-    return children;
-  }
-  return null;
-};
+const DisplayIf = ({ children, mobile, desktop }: Props) => (
+  <PlatformContext render={isMobile => (
+    ((mobile && isMobile) || (desktop && !isMobile)) ?
+      children :
+      null
+  )} />
+);
 
 export default DisplayIf;
