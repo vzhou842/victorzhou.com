@@ -1,17 +1,27 @@
 import React from 'react';
+import classNames from 'classnames/bind';
 import { Link, graphql, StaticQuery } from 'gatsby';
 import styles from './Menu.module.scss';
 
-export const PureMenu = ({ data, horizontal, bold }) => {
+const cx = classNames.bind(styles);
+
+export const PureMenu = ({ data, horizontal, bold, noMargin }) => {
   const { menu } = data.site.siteMetadata;
   return (
-    <nav className={horizontal ? `${styles['menu']} ${styles['horizontal']}` : styles['menu']}>
+    <nav className={cx({
+      menu: true,
+      horizontal,
+      'no-margin': noMargin,
+    })}>
       <ul className={styles['menu__list']}>
         {menu.map((item) => (
           <li className={styles['menu__list-item']} key={item.path}>
             <Link
               to={item.path}
-              className={styles['menu__list-item-link'] + (bold ? ` ${styles['bold']}` : '')}
+              className={cx({
+                'menu__list-item-link': true,
+                bold,
+              })}
               activeClassName={styles['menu__list-item-link--active']}
             >
               {item.label}
