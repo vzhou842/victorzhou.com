@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+
 import TagsListTemplate from './tags-list-template';
 
 describe('TagsListTemplate', () => {

@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby';
+
 import PostTemplate from './post-template';
 
 require('katex/dist/katex.min.css');

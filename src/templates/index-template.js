@@ -1,14 +1,15 @@
 // @flow
-import React from 'react';
 import { graphql } from 'gatsby';
+import React from 'react';
 import Helmet from 'react-helmet';
-import Layout from '../components/Layout';
-import TemplateWrapper from '../components/TemplateWrapper';
-import Sidebar from '../components/Sidebar';
+
 import Feed from '../components/Feed';
+import Layout from '../components/Layout';
+import MovableSidebarContent from '../components/MovableSidebarContent';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
-import MovableSidebarContent from '../components/MovableSidebarContent';
+import Sidebar from '../components/Sidebar';
+import TemplateWrapper from '../components/TemplateWrapper';
 import { postPagePath } from '../utils/page-paths';
 
 type Props = {|

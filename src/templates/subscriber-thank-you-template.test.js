@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+
 import SubscriberThankYouTemplate from './subscriber-thank-you-template';
 
 describe('SubscriberThankYouTemplate', () => {

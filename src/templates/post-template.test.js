@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+
 import PostTemplate from './post-template';
 
 const edge = (slug, prev, next) => ({

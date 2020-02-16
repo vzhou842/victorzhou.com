@@ -1,11 +1,12 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import kebabCase from 'lodash/kebabCase';
-import TemplateWrapper from '../components/TemplateWrapper';
+import React from 'react';
+
 import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
-import Page from '../components/Page';
 import MovableSidebarContent from '../components/MovableSidebarContent';
+import Page from '../components/Page';
+import Sidebar from '../components/Sidebar';
+import TemplateWrapper from '../components/TemplateWrapper';
 
 const TagsListTemplate = ({ data }) => {
   const { title, subtitle } = data.site.siteMetadata;

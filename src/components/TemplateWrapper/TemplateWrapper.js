@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react';
+
 import RecaptchaContext from '../RecaptchaContext';
 
 type Props = {|

@@ -1,6 +1,8 @@
 // @flow
-import * as React from 'react';
 import './CarbonAd.css';
+
+import * as React from 'react';
+
 import styles from './CBA.module.scss';
 
 const SMALL_THRESHOLD = 685; // $layout-breakpoint-sm

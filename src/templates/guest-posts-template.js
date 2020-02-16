@@ -1,12 +1,13 @@
 // @flow
+import { graphql, Link } from 'gatsby';
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import TemplateWrapper from '../components/TemplateWrapper';
-import Sidebar from '../components/Sidebar';
+
 import Feed from '../components/Feed';
-import Page from '../components/Page';
+import Layout from '../components/Layout';
 import MovableSidebarContent from '../components/MovableSidebarContent';
+import Page from '../components/Page';
+import Sidebar from '../components/Sidebar';
+import TemplateWrapper from '../components/TemplateWrapper';
 
 type Props = {|
   +data: Object,

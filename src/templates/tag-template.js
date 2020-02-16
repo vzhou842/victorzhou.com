@@ -1,12 +1,13 @@
 // @flow
+import { graphql, Link } from 'gatsby';
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import TemplateWrapper from '../components/TemplateWrapper';
-import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
+
 import Feed from '../components/Feed';
+import Layout from '../components/Layout';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
+import Sidebar from '../components/Sidebar';
+import TemplateWrapper from '../components/TemplateWrapper';
 import { tagPagePath } from '../utils/page-paths';
 
 type Props = {|

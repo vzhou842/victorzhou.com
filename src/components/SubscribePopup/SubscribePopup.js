@@ -1,7 +1,8 @@
 import React from 'react';
+
+import { logEvent } from '../../utils/log';
 import SubscribeForm from '../SubscribeForm';
 import styles from './SubscribePopup.module.scss';
-import { logEvent } from '../../utils/log';
 
 const hideDateKey = 'SubscribePopup-hide-date';
 const HIDE_DURATION = 1000 * 60 * 60 * 24; // 24 hours

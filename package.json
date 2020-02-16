@@ -89,6 +89,7 @@
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jest": "^23.7.0",
     "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-simple-import-sort": "^5.0.1",
     "eslint-watch": "^6.0.1",
     "flow-bin": "^0.107.0",
     "gh-pages": "^2.1.1",

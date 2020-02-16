@@ -1,9 +1,9 @@
 // @flow
-import * as React from 'react';
 import classnames from 'classnames/bind';
-import styles from './DisplayIf.module.scss';
+import * as React from 'react';
 
 import PlatformContext from '../PlatformContext';
+import styles from './DisplayIf.module.scss';
 
 const cx = classnames.bind(styles);
 

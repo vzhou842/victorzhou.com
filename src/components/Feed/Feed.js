@@ -1,8 +1,9 @@
 // @flow
-import React from 'react';
 import { Link } from 'gatsby';
-import styles from './Feed.module.scss';
+import React from 'react';
+
 import GuestAuthor from '../GuestAuthor';
+import styles from './Feed.module.scss';
 
 type Props = {|
   +edges: Array<Object>,

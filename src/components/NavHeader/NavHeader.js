@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
 import classNames from 'classnames/bind';
+import React, { useState } from 'react';
 import Headroom from 'react-headroom';
-import styles from './NavHeader.module.scss';
 
 import Author from '../Author';
 import DisplayIf from '../DisplayIf';
 import Menu from '../Menu';
+import styles from './NavHeader.module.scss';
 
 const cx = classNames.bind(styles);
 

@@ -1,9 +1,10 @@
 // @flow
+import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import Author from './Author';
+
 import Menu from '../Menu';
 import MovableSidebarContent from '../MovableSidebarContent';
+import Author from './Author';
 import styles from './Sidebar.module.scss';
 
 type Props = {

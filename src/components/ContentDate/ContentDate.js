@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+
 import styles from './ContentDate.module.scss';
 
 type Props = {|

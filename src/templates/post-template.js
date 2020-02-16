@@ -1,15 +1,16 @@
 // @flow
-import React from 'react';
 import loadable from '@loadable/component';
 import { graphql } from 'gatsby';
+import React from 'react';
 import Helmet from 'react-helmet';
-import TemplateWrapper from '../components/TemplateWrapper';
+
+import FixedScrollContainer from '../components/FixedScrollContainer';
 import Layout from '../components/Layout';
+import NavHeader from '../components/NavHeader';
 import Post from '../components/Post';
 import Series from '../components/Series';
-import NavHeader from '../components/NavHeader';
 import SubscribePopup from '../components/SubscribePopup';
-import FixedScrollContainer from '../components/FixedScrollContainer';
+import TemplateWrapper from '../components/TemplateWrapper';
 
 const CarbonAd = loadable(() => import('../components/CarbonAd'));
 

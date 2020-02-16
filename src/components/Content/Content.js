@@ -1,8 +1,9 @@
 // @flow
 import * as React from 'react';
-import styles from './Content.module.scss';
+
 import ContentDate from '../ContentDate';
 import GuestAuthor from '../GuestAuthor';
+import styles from './Content.module.scss';
 
 type Props = {|
   +body: string,

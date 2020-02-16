@@ -1,5 +1,6 @@
-import React from 'react';
 import { Link, withPrefix } from 'gatsby';
+import React from 'react';
+
 import styles from './Author.module.scss';
 
 const Author = ({ author }) => (

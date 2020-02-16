@@ -1,6 +1,7 @@
-import React from 'react';
 import classNames from 'classnames/bind';
-import { Link, StaticQuery, graphql } from 'gatsby';
+import { graphql, Link, StaticQuery } from 'gatsby';
+import React from 'react';
+
 import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);

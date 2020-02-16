@@ -1,7 +1,8 @@
 // @flow
-import React from 'react';
 import loadable from '@loadable/component';
-import { StaticQuery, graphql } from 'gatsby';
+import { graphql, StaticQuery } from 'gatsby';
+import React from 'react';
+
 import Contacts from '../Contacts';
 import Copyright from '../Copyright';
 import DisplayIf from '../DisplayIf';

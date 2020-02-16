@@ -1,11 +1,12 @@
-import React from 'react';
 import { graphql } from 'gatsby';
+import React from 'react';
 import Helmet from 'react-helmet';
-import TemplateWrapper from '../components/TemplateWrapper';
+
 import Layout from '../components/Layout';
-import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
 import Share from '../components/Share';
+import Sidebar from '../components/Sidebar';
+import TemplateWrapper from '../components/TemplateWrapper';
 
 const SubscriberThankYouTemplate = ({ data }) => {
   const { title, url } = data.site.siteMetadata;

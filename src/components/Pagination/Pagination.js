@@ -1,6 +1,7 @@
-import React from 'react';
 import classNames from 'classnames/bind';
 import { Link } from 'gatsby';
+import React from 'react';
+
 import styles from './Pagination.module.scss';
 
 const cx = classNames.bind(styles);

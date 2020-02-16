@@ -1,8 +1,9 @@
 // @flow
-import React from 'react';
 import { Link } from 'gatsby';
-import styles from './SeriesPost.module.scss';
+import React from 'react';
+
 import ContentDate from '../../ContentDate';
+import styles from './SeriesPost.module.scss';
 
 type Props = {|
   +dateFormatted: string,

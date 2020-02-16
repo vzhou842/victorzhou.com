@@ -1,12 +1,13 @@
 // @flow
+import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
 import {
   FacebookShareButton,
   LinkedinShareButton,
   RedditShareButton,
   TwitterShareButton,
 } from 'react-share';
+
 import styles from './Share.module.scss';
 
 type Props = {

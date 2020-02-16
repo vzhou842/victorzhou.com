@@ -1,6 +1,7 @@
+import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
+
 import styles from './Layout.module.scss';
 
 export const PureLayout = ({ children, title, description, data }) => {

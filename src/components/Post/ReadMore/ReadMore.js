@@ -1,6 +1,7 @@
 // @flow
-import React from 'react';
 import { Link } from 'gatsby';
+import React from 'react';
+
 import styles from './ReadMore.module.scss';
 
 type PostType = {

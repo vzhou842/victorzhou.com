@@ -1,16 +1,16 @@
 // @flow
-import * as React from 'react';
 import { Link } from 'gatsby';
-import styles from './SubscribeForm.module.scss';
-import RecaptchaContext from '../RecaptchaContext';
+import * as React from 'react';
+
 import { logError, logEvent } from '../../utils/log';
 import {
   cleanupRecaptcha,
   detectRecaptchaSetup,
   loadRecaptchaIfNeeded,
 } from '../../utils/recaptcha';
-
 import type { RecaptchaContextType } from '../RecaptchaContext';
+import RecaptchaContext from '../RecaptchaContext';
+import styles from './SubscribeForm.module.scss';
 
 type Props = {
   +signupSource: string,

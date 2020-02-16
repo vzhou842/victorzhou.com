@@ -1,9 +1,9 @@
 // @flow
 import React from 'react';
-import SeriesPost from './SeriesPost';
-import Post from '../Post';
 
 import contentStyles from '../Content/Content.module.scss';
+import Post from '../Post';
+import SeriesPost from './SeriesPost';
 
 type SeriesType = {|
   +html: string,
