@@ -13,7 +13,7 @@
     "format-check": "prettier --list-different --ignore-path .gitignore '**/**.js'",
     "lint:js": "eslint --cache --ext .js,.jsx --ignore-pattern '/public/' --ignore-pattern '/public-live/' .",
     "lint:scss": "stylelint \"src/**/*.scss\"",
-    "lint": "concurrently \"npm run lint:js\" \"npm run lint:scss\" \"npm run flow\"",
+    "lint": "concurrently \"npm run lint:js\" \"npm run lint:scss\" \"npm run flow\" \"npm run format-check\"",
     "start-server": "node server/server.js",
     "test": "jest --config ./tests/jest-config.js",
     "test:coverage": "jest --coverage --config ./tests/jest-config.js",
