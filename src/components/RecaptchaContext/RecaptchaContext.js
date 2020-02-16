@@ -3,7 +3,7 @@ import React from 'react';
 
 export type RecaptchaContextType = {|
   recaptchaToken: ?string,
-  setRecaptchaToken: ?string => void,
+  setRecaptchaToken: (?string) => void,
 |};
 
 const RecaptchaContext = React.createContext<RecaptchaContextType>({

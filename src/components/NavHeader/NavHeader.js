@@ -13,7 +13,11 @@ function NavHeader() {
   const [menuShown, setMenuShown] = useState(false);
 
   return (
-    <Headroom onUnpin={() => { setMenuShown(false); }}>
+    <Headroom
+      onUnpin={() => {
+        setMenuShown(false);
+      }}
+    >
       <div className={cx({ header: true, 'no-shadow': menuShown })}>
         <div className={styles['header__left']}>
           <Author />
@@ -23,8 +27,11 @@ function NavHeader() {
         </DisplayIf>
         <DisplayIf mobile>
           <button
-            onClick={() => { setMenuShown(!menuShown); }}
-            className={cx({ header__burger: true, open: menuShown })}>
+            onClick={() => {
+              setMenuShown(!menuShown);
+            }}
+            className={cx({ header__burger: true, open: menuShown })}
+          >
             <img src="/menu.svg" width={28} height={28} />
           </button>
         </DisplayIf>

@@ -7,8 +7,8 @@ describe('Author', () => {
     author: {
       name: 'test',
       photo: '/photo2.png',
-      bio: 'test'
-    }
+      bio: 'test',
+    },
   };
 
   it('renders correctly', () => {

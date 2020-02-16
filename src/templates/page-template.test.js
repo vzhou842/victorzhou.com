@@ -9,16 +9,16 @@ describe('PageTemplate', () => {
         html: '<p>test</p>',
         frontmatter: {
           title: 'test',
-          description: 'test'
-        }
+          description: 'test',
+        },
       },
       site: {
         siteMetadata: {
           title: 'test',
-          subtitle: 'test'
-        }
-      }
-    }
+          subtitle: 'test',
+        },
+      },
+    },
   };
 
   it('renders correctly', () => {

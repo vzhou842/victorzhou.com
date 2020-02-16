@@ -9,21 +9,21 @@ describe('TagsListTemplate', () => {
         group: [
           {
             fieldValue: 'test_0',
-            totalCount: 1
+            totalCount: 1,
           },
           {
             fieldValue: 'test_1',
-            totalCount: 2
-          }
-        ]
+            totalCount: 2,
+          },
+        ],
       },
       site: {
         siteMetadata: {
           title: 'test',
-          subtitle: 'test'
-        }
-      }
-    }
+          subtitle: 'test',
+        },
+      },
+    },
   };
 
   it('renders correctly', () => {

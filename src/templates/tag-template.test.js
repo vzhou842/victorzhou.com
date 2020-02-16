@@ -9,58 +9,58 @@ describe('TagTemplate', () => {
         group: [
           {
             fieldValue: 'test_0',
-            totalCount: 1
+            totalCount: 1,
           },
           {
             fieldValue: 'test_1',
-            totalCount: 2
-          }
+            totalCount: 2,
+          },
         ],
         edges: [
           {
             node: {
               fields: {
                 slug: '/test_0',
-                categorySlug: '/test'
+                categorySlug: '/test',
               },
               frontmatter: {
                 date: '2016-09-01',
                 description: 'test_0',
                 category: 'test',
-                title: 'test_0'
-              }
-            }
+                title: 'test_0',
+              },
+            },
           },
           {
             node: {
               fields: {
                 slug: '/test_1',
-                categorySlug: '/test'
+                categorySlug: '/test',
               },
               frontmatter: {
                 date: '2016-09-01',
                 description: 'test_1',
                 category: 'test',
-                title: 'test_1'
-              }
-            }
-          }
-        ]
+                title: 'test_1',
+              },
+            },
+          },
+        ],
       },
       site: {
         siteMetadata: {
           title: 'test',
-          subtitle: 'test'
-        }
-      }
+          subtitle: 'test',
+        },
+      },
     },
     pageContext: {
       tag: 'test',
       currentPage: 1,
       pagePath: p => `/test/${p}`,
       hasNextPage: true,
-      hasPrevPage: true
-    }
+      hasPrevPage: true,
+    },
   };
 
   it('renders correctly', () => {

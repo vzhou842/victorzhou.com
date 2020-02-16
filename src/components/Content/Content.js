@@ -37,11 +37,7 @@ const Content = ({
     </div>
     {(!!guestAuthor || !!guestCoAuthor) && (
       <div className={styles['content__guest-author']}>
-        <GuestAuthor
-          author={guestAuthor}
-          coAuthor={guestCoAuthor}
-          link={guestAuthorLink}
-        />
+        <GuestAuthor author={guestAuthor} coAuthor={guestCoAuthor} link={guestAuthorLink} />
       </div>
     )}
     <div className={styles['content__spacer']} />

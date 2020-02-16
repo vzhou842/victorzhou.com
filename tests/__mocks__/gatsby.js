@@ -6,5 +6,5 @@ module.exports = {
   ...gatsby,
   graphql: jest.fn(),
   Link: 'Link',
-  StaticQuery: 'StaticQuery'
+  StaticQuery: 'StaticQuery',
 };

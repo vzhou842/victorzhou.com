@@ -86,20 +86,21 @@ exports[`Series renders correctly 1`] = `
         >
           ML
         </Link>
-        , 
+        ,
+         
         <Link
           to="/tag/web-development/"
         >
           Web Dev
         </Link>
-        , and 
+        , and
+         
         <Link
           to="/tags/"
         >
           more topics
         </Link>
-        .
-         
+        . 
         <b>
           Subscribe to get new posts by email!
         </b>

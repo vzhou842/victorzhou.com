@@ -4,7 +4,11 @@ import { Link } from 'gatsby';
 import styles from './SubscribeForm.module.scss';
 import RecaptchaContext from '../RecaptchaContext';
 import { logError, logEvent } from '../../utils/log';
-import { cleanupRecaptcha, detectRecaptchaSetup, loadRecaptchaIfNeeded } from '../../utils/recaptcha';
+import {
+  cleanupRecaptcha,
+  detectRecaptchaSetup,
+  loadRecaptchaIfNeeded,
+} from '../../utils/recaptcha';
 
 import type { RecaptchaContextType } from '../RecaptchaContext';
 
@@ -45,7 +49,8 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
 
   componentDidUpdate(prevProps: InnerProps) {
     if (
-      this._pendingSubmit && prevProps.context.recaptchaToken !== this.props.context.recaptchaToken
+      this._pendingSubmit &&
+      prevProps.context.recaptchaToken !== this.props.context.recaptchaToken
     ) {
       this.submit();
       logEvent('SubscribeForm', 'submitted-with-token');
@@ -96,9 +101,9 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
       form.submit();
       this.setState({ loading: false });
     } else {
-      logError('SubscribeForm <form> doesn\'t exist');
+      logError("SubscribeForm <form> doesn't exist");
     }
-  }
+  };
 
   render() {
     const {
@@ -124,8 +129,9 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
       >
         {!noDescription && (
           <p className={styles['description']}>
-            I write about <Link to="/tag/machine-learning/">ML</Link>, <Link to="/tag/web-development/">Web Dev</Link>, and <Link to="/tags/">more topics</Link>.{' '}
-            <b>Subscribe to get new posts by email!</b>
+            I write about <Link to="/tag/machine-learning/">ML</Link>,{' '}
+            <Link to="/tag/web-development/">Web Dev</Link>, and{' '}
+            <Link to="/tags/">more topics</Link>. <b>Subscribe to get new posts by email!</b>
           </p>
         )}
         <form
@@ -140,7 +146,9 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
           <input type="hidden" name="Source" value={signupSource} />
           <input type="hidden" name="list" value="CWC7638hEb6mfk1RqUbJ763snA" />
           <input type="hidden" name="subform" value="yes" />
-          {recaptchaToken && <input type="hidden" name="g-recaptcha-response" value={recaptchaToken} />}
+          {recaptchaToken && (
+            <input type="hidden" name="g-recaptcha-response" value={recaptchaToken} />
+          )}
           <input
             type="text"
             name="hp"
@@ -202,11 +210,12 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
           {(isML || isWeb || showAllOptions) && <br />}
           <input className={loading ? styles['loading'] : ''} type="submit" value="SUBMIT" />
         </form>
-        <div className="g-recaptcha"
+        <div
+          className="g-recaptcha"
           data-sitekey="6Le4B78UAAAAAFAdZM2PCW_N0fewzkoQSkv9odSY"
           data-callback="onSubscribeFormSubmit"
-          data-size="invisible">
-        </div>
+          data-size="invisible"
+        ></div>
         <p className={styles['recaptcha-message']}>
           This site is protected by reCAPTCHA and the Google{' '}
           <a href="https://policies.google.com/privacy">Privacy Policy</a> and{' '}

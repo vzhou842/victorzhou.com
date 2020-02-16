@@ -12,7 +12,7 @@ export function loadRecaptchaIfNeeded() {
       style.innerHTML = '.grecaptcha-badge { visibility: hidden; }';
       document.head.appendChild(style);
     } else {
-      logError('[recaptcha] <head> doesn\'t exist');
+      logError("[recaptcha] <head> doesn't exist");
     }
   }
 
@@ -24,7 +24,7 @@ export function loadRecaptchaIfNeeded() {
       script.async = true;
       document.body.appendChild(script);
     } else {
-      logError('[recaptcha] <body> doesn\'t exist');
+      logError("[recaptcha] <body> doesn't exist");
     }
   }
 }

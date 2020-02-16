@@ -44,11 +44,7 @@ const Feed = ({ edges, shortened }: Props) => (
               </Link>
             </span>
           </div>
-          <GuestAuthor
-            author={guestAuthor}
-            coAuthor={guestCoAuthor}
-            link={guestAuthorLink}
-          />
+          <GuestAuthor author={guestAuthor} coAuthor={guestCoAuthor} link={guestAuthorLink} />
           {!shortened && (
             <>
               <p className={styles['feed__item-description']}>{description}</p>

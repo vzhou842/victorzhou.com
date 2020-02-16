@@ -8,10 +8,7 @@ import Page from '../components/Page';
 import Share from '../components/Share';
 
 const SubscriberThankYouTemplate = ({ data }) => {
-  const {
-    title,
-    url,
-  } = data.site.siteMetadata;
+  const { title, url } = data.site.siteMetadata;
 
   return (
     <TemplateWrapper>
@@ -35,8 +32,8 @@ export const query = graphql`
   query SubscriberThankYouQuery {
     site {
       siteMetadata {
-        title,
-        url,
+        title
+        url
       }
     }
   }

@@ -12,7 +12,7 @@ function openLink(link) {
   window.open(link);
 }
 
-export default ({ twitter, hn, reddit }: Props) => (
+export default ({ twitter, hn, reddit }: Props) =>
   twitter || hn || reddit ? (
     <div className={styles['discuss']}>
       <h4 className={styles['discuss-title']}>DISCUSS ON</h4>
@@ -37,5 +37,4 @@ export default ({ twitter, hn, reddit }: Props) => (
         )}
       </div>
     </div>
-  ) : null
-);
+  ) : null;

@@ -6,10 +6,6 @@ type Props = {|
   +copyright: string,
 |};
 
-const Copyright = ({ copyright }: Props) => (
-  <p className={styles['copyright']}>
-    {copyright}
-  </p>
-);
+const Copyright = ({ copyright }: Props) => <p className={styles['copyright']}>{copyright}</p>;
 
 export default Copyright;

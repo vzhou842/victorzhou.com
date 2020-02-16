@@ -10,9 +10,7 @@ const TemplateWrapper = (props: Props) => {
   const [recaptchaToken, setRecaptchaToken] = React.useState<?string>(null);
 
   return (
-    <RecaptchaContext.Provider
-      value={{ recaptchaToken, setRecaptchaToken }}
-    >
+    <RecaptchaContext.Provider value={{ recaptchaToken, setRecaptchaToken }}>
       {props.children}
     </RecaptchaContext.Provider>
   );

@@ -48,7 +48,11 @@ const onCreateNode = ({ node, actions, getNode }) => {
       createNodeField({ node, name: 'dateFormatted', value: formatDate(node.frontmatter.date) });
     }
     if (node.frontmatter.dateModified) {
-      createNodeField({ node, name: 'dateModifiedFormatted', value: formatDate(node.frontmatter.dateModified) });
+      createNodeField({
+        node,
+        name: 'dateModifiedFormatted',
+        value: formatDate(node.frontmatter.dateModified),
+      });
     }
   }
 };

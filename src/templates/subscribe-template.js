@@ -13,9 +13,9 @@ const SubscribeTemplate = ({ data, pageContext }: Object) => {
   const { updateSubscription } = pageContext;
 
   const params =
-    typeof window !== 'undefined' ?
-      new URLSearchParams(window.location.search) :
-      new URLSearchParams();
+    typeof window !== 'undefined'
+      ? new URLSearchParams(window.location.search)
+      : new URLSearchParams();
   const source = `SubscribePage:${params.get('src') || ''}`;
 
   const title = updateSubscription ? 'Update Your Subscription' : 'Subscribe to My Newsletter';
@@ -26,13 +26,11 @@ const SubscribeTemplate = ({ data, pageContext }: Object) => {
         <Sidebar hideSubscribeForm hideAd />
         <Page title={title}>
           {updateSubscription ? (
-            <p>
-              Update your subscription preferences to my newsletter below.
-            </p>
+            <p>Update your subscription preferences to my newsletter below.</p>
           ) : (
             <p>
-              Hey, I'm Victor. I write about <Link to="/tag/web-development/">web development</Link>,{' '}
-              <Link to="/tag/machine-learning/">machine learning</Link>, and{' '}
+              Hey, I'm Victor. I write about <Link to="/tag/web-development/">web development</Link>
+              , <Link to="/tag/machine-learning/">machine learning</Link>, and{' '}
               <Link to="/tags/">more</Link> on this blog. You can subscribe to my newsletter to{' '}
               <b>get new blog posts by email</b>.
             </p>

@@ -24,7 +24,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   const { slug, prev, next } = pageContext;
 
   const [slugNode, prevNode, nextNode] = [slug, prev, next].map(
-    s => edges.filter(e => e.node.frontmatter.slug === s)[0].node,
+    s => edges.filter(e => e.node.frontmatter.slug === s)[0].node
   );
 
   const {
@@ -51,7 +51,10 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   return (
     <TemplateWrapper>
       <NavHeader />
-      <Layout title={`${postTitle} - ${siteTitle}`} description={descriptionLong || description || siteSubtitle}>
+      <Layout
+        title={`${postTitle} - ${siteTitle}`}
+        description={descriptionLong || description || siteSubtitle}
+      >
         <Helmet>
           {canonical && <link rel="canonical" href={canonical} />}
           <meta property="og:type" content="article" />

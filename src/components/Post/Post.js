@@ -21,8 +21,8 @@ type PostType = {
     +guestAuthor?: ?string,
     +guestCoAuthor?: ?boolean,
     +guestAuthorLink?: ?string,
-    +isML: bool,
-    +isWeb: bool,
+    +isML: boolean,
+    +isWeb: boolean,
     +slug: string,
     +tags?: string,
     +title: string,
@@ -35,7 +35,7 @@ type Props = {|
   +prevPost?: PostType,
   +nextPost?: PostType,
   +contentFooter?: React.Node,
-  +hideDescription?: bool,
+  +hideDescription?: boolean,
 |};
 
 const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Props) => {
@@ -79,7 +79,11 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
         <p>
           <i>
             This blog is{' '}
-            <a href="https://github.com/vzhou842/victorzhou.com" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://github.com/vzhou842/victorzhou.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               open-source on Github
             </a>
             .

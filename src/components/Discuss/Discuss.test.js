@@ -10,7 +10,7 @@ describe('Discuss', () => {
           twitter="https://twitter.com"
           hn="https://news.ycombinator.com"
           reddit="https://reddit.com"
-        />,
+        />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

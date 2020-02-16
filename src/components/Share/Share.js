@@ -26,10 +26,19 @@ const PureShare = ({ title, url, shareText, twitter }: PureProps) => (
       <FacebookShareButton url={url} className="button is-outlined is-rounded facebook">
         <button className={styles['facebook']}>Facebook</button>
       </FacebookShareButton>
-      <TwitterShareButton url={url} className="button is-outlined is-rounded twitter" title={title} via={twitter}>
+      <TwitterShareButton
+        url={url}
+        className="button is-outlined is-rounded twitter"
+        title={title}
+        via={twitter}
+      >
         <button className={styles['twitter']}>Twitter</button>
       </TwitterShareButton>
-      <LinkedinShareButton url={url} className="button is-outlined is-rounded linkedin" title={title}>
+      <LinkedinShareButton
+        url={url}
+        className="button is-outlined is-rounded linkedin"
+        title={title}
+      >
         <button className={styles['linkedin']}>LinkedIn</button>
       </LinkedinShareButton>
       <RedditShareButton url={url} className="button is-outlined is-rounded reddit" title={title}>

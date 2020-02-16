@@ -7,9 +7,7 @@ type Props = {|
 |};
 
 const FixedScrollContainer = ({ children }: Props) => (
-  <div className={styles['container']}>
-    {children}
-  </div>
+  <div className={styles['container']}>{children}</div>
 );
 
 export default FixedScrollContainer;

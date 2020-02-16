@@ -45,6 +45,7 @@
       "no-debugger": 0,
       "dot-notation": 0,
       "no-console": 0,
+      "no-confusing-arrow": 0,
       "no-nested-ternary": 0,
       "new-cap": 0,
       "strict": 0,
@@ -58,13 +59,16 @@
       "no-underscore-dangle": 0,
       "no-use-before-define": 0,
       "no-plusplus": 0,
-      "operator-linebreak": ["error", "after"],
+      "operator-linebreak": ["error", "after", { "overrides": { "?": "before", ":": "before" } }],
       "eol-last": 0,
       "no-shadow": 0,
       "quotes": [
         2,
-        "single"
+        "single",
+        { "avoidEscape": true }
       ],
+      "implicit-arrow-linebreak": 0,
+      "function-paren-newline": [2, "multiline-arguments"],
       "jsx-quotes": [
         0,
         "prefer-single"

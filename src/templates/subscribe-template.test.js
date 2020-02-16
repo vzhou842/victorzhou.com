@@ -22,9 +22,9 @@ describe('SubscriberTemplate', () => {
   });
 
   it('renders correctly when updateSubscription is true', () => {
-    const tree = renderer.create(
-      <SubscriberTemplate {...{ ...props, pageContext: { updateSubscription: true } }} />
-    ).toJSON();
+    const tree = renderer
+      .create(<SubscriberTemplate {...{ ...props, pageContext: { updateSubscription: true } }} />)
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

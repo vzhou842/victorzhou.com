@@ -17,17 +17,19 @@ describe('Series', () => {
       html: '<div></div>',
     },
     seriesPosts: {
-      edges: [{
-        node: {
-          fields: {
-            dateFormatted: 'March 14, 2019',
-          },
-          frontmatter: {
-            title: 'test',
-            date: new Date('2019-03-14T12:00:00.000Z'),
+      edges: [
+        {
+          node: {
+            fields: {
+              dateFormatted: 'March 14, 2019',
+            },
+            frontmatter: {
+              title: 'test',
+              date: new Date('2019-03-14T12:00:00.000Z'),
+            },
           },
         },
-      }],
+      ],
     },
   };
 

@@ -1,6 +1,7 @@
 // @flow
 
-const __DEV__ = typeof window !== 'undefined' && window.location && window.location.hostname === 'localhost';
+const __DEV__ =
+  typeof window !== 'undefined' && window.location && window.location.hostname === 'localhost';
 
 export function logEvent(category: string, action: string) {
   if (window.gtag) {

@@ -40,11 +40,7 @@ describe('PostTemplate', () => {
         },
       },
       allMarkdownRemark: {
-        edges: [
-          edge(slug, prev, next),
-          edge(prev, slug, next),
-          edge(next, prev, slug),
-        ],
+        edges: [edge(slug, prev, next), edge(prev, slug, next), edge(next, prev, slug)],
       },
     },
   };

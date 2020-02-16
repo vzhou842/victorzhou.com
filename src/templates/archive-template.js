@@ -17,7 +17,10 @@ const ArchiveTemplate = ({ data }: Props) => {
 
   return (
     <TemplateWrapper>
-      <Layout title={`Blog Archive - ${siteTitle}`} description={`An archive of all my blog posts. ${siteSubtitle}`}>
+      <Layout
+        title={`Blog Archive - ${siteTitle}`}
+        description={`An archive of all my blog posts. ${siteSubtitle}`}
+      >
         <Sidebar />
         <Page>
           <Feed edges={edges} shortened={true} />
@@ -38,8 +41,8 @@ export const query = graphql`
     allMarkdownRemark(
       filter: {
         frontmatter: {
-          template: { eq: "post" },
-          draft: { ne: true },
+          template: { eq: "post" }
+          draft: { ne: true }
           guestAuthor: { in: [null, ""] }
         }
       }

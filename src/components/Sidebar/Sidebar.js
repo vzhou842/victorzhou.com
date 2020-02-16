@@ -16,9 +16,7 @@ type PureProps = Props & {
 };
 
 export const PureSidebar = ({ data, hideSubscribeForm, hideAd }: PureProps) => {
-  const {
-    author,
-  } = data.site.siteMetadata;
+  const { author } = data.site.siteMetadata;
 
   return (
     <div className={styles['sidebar']}>
@@ -46,7 +44,7 @@ export const Sidebar = (props: Props) => (
         }
       }
     `}
-    render={(data) => <PureSidebar {...props} data={data}/>}
+    render={data => <PureSidebar {...props} data={data} />}
   />
 );
 

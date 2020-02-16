@@ -11,16 +11,10 @@ app.use(express.static(PUBLIC_PATH));
 
 // Route legacy paths
 app.use(
-  [
-    '/projects',
-    '/projects/web',
-    '/projects/iOS',
-    '/projects/Android',
-    '/presskits',
-  ],
+  ['/projects', '/projects/web', '/projects/iOS', '/projects/Android', '/presskits'],
   (req, res) => {
     res.redirect(301, '/about/');
-  },
+  }
 );
 app.use(['/blog', '/cloak'], (req, res) => {
   res.redirect(301, '/');

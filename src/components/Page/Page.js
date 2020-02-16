@@ -5,11 +5,7 @@ const Page = ({ title, subtitle, description, children }) => (
   <div className={styles['page']}>
     <div className={styles['page__inner']}>
       {title && (
-        <h1
-          className={`${styles['page__title']} ${
-            subtitle ? styles['with-subtitle'] : ''
-          }`}
-        >
+        <h1 className={`${styles['page__title']} ${subtitle ? styles['with-subtitle'] : ''}`}>
           {title}
         </h1>
       )}

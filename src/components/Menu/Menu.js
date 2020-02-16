@@ -8,13 +8,15 @@ const cx = classNames.bind(styles);
 export const PureMenu = ({ data, horizontal, bold, noMargin }) => {
   const { menu } = data.site.siteMetadata;
   return (
-    <nav className={cx({
-      menu: true,
-      horizontal,
-      'no-margin': noMargin,
-    })}>
+    <nav
+      className={cx({
+        menu: true,
+        horizontal,
+        'no-margin': noMargin,
+      })}
+    >
       <ul className={styles['menu__list']}>
-        {menu.map((item) => (
+        {menu.map(item => (
           <li className={styles['menu__list-item']} key={item.path}>
             <Link
               to={item.path}

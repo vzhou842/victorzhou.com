@@ -12,7 +12,12 @@ const Author = ({ author }) => (
         <Link className={styles['author__title-link']} to="/">
           {author.name}
         </Link>{' '}
-        <a style={{ fontWeight: 500 }} href="https://twitter.com/victorczhou" target="_blank" rel="noopener noreferrer">
+        <a
+          style={{ fontWeight: 500 }}
+          href="https://twitter.com/victorczhou"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           @victorczhou
         </a>
       </h2>

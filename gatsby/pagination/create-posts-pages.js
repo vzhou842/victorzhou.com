@@ -12,12 +12,14 @@ module.exports = async (graphql, actions) => {
       allMarkdownRemark(
         filter: {
           frontmatter: {
-            template: { eq: "post" },
+            template: { eq: "post" }
             draft: { ne: true }
             guestAuthor: { in: [null, ""] }
           }
         }
-      ) { totalCount }
+      ) {
+        totalCount
+      }
     }
   `);
 
@@ -35,7 +37,7 @@ module.exports = async (graphql, actions) => {
         hasPrevPage: i !== 0,
         hasNextPage: i !== numPages - 1,
         numPages,
-      }
+      },
     });
   }
 };

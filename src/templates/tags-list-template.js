@@ -8,10 +8,7 @@ import Page from '../components/Page';
 import MovableSidebarContent from '../components/MovableSidebarContent';
 
 const TagsListTemplate = ({ data }) => {
-  const {
-    title,
-    subtitle
-  } = data.site.siteMetadata;
+  const { title, subtitle } = data.site.siteMetadata;
   const { group } = data.allMarkdownRemark;
 
   group.sort((a, b) => b.totalCount - a.totalCount);
@@ -22,7 +19,7 @@ const TagsListTemplate = ({ data }) => {
         <Sidebar />
         <Page title="Tags" subtitle={<Link to="/">← Back to Home</Link>}>
           <ul>
-            {group.map((tag) => (
+            {group.map(tag => (
               <li key={tag.fieldValue}>
                 <Link to={`/tag/${kebabCase(tag.fieldValue)}/`}>
                   {tag.fieldValue} ({tag.totalCount})
@@ -41,13 +38,11 @@ export const query = graphql`
   query TagsListQuery {
     site {
       siteMetadata {
-        title,
+        title
         subtitle
       }
     }
-    allMarkdownRemark(
-      filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
-    ) {
+    allMarkdownRemark(filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

@@ -15,16 +15,20 @@ type Props = {|
 |};
 
 const DisplayIf = ({ children, className, mobile, desktop }: Props) => (
-  <PlatformContext render={isMobile => (
-    ((mobile && isMobile) || (desktop && !isMobile)) ? (
-      <div className={
-        cx({ 'mobile-only': mobile, 'desktop-only': desktop }) +
-        (className ? ` ${className}` : '')
-      }>
-        {children}
-      </div>
-    ) : null
-  )} />
+  <PlatformContext
+    render={isMobile =>
+      (mobile && isMobile) || (desktop && !isMobile) ? (
+        <div
+          className={
+            cx({ 'mobile-only': mobile, 'desktop-only': desktop }) +
+            (className ? ` ${className}` : '')
+          }
+        >
+          {children}
+        </div>
+      ) : null
+    }
+  />
 );
 
 export default DisplayIf;

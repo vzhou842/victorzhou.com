@@ -9,7 +9,8 @@ type Props = {|
 // Should match $layout-breakpoint-sm
 const MOBILE_WIDTH_THRESHOLD = 685;
 
-const calcIsMobile = () => typeof window !== 'undefined' && window.innerWidth <= MOBILE_WIDTH_THRESHOLD;
+const calcIsMobile = () =>
+  typeof window !== 'undefined' && window.innerWidth <= MOBILE_WIDTH_THRESHOLD;
 
 const PlatformContext = ({ render }: Props) => {
   const [isMobile, setIsMobile] = useState(calcIsMobile());

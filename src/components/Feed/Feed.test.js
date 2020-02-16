@@ -14,16 +14,13 @@ const edge = s => ({
       description: s,
       category: s,
       title: s,
-    }
-  }
+    },
+  },
 });
 
 describe('Feed', () => {
   const props = {
-    edges: [
-      edge('test_0'),
-      edge('test_1'),
-    ],
+    edges: [edge('test_0'), edge('test_1')],
   };
 
   it('renders correctly', () => {

@@ -11,31 +11,31 @@ describe('IndexTemplate', () => {
             node: {
               fields: {
                 slug: '/test_0',
-                categorySlug: '/test_0'
+                categorySlug: '/test_0',
               },
               frontmatter: {
                 date: '2016-09-01',
                 description: 'test_0',
                 category: 'test_0',
-                title: 'test_0'
-              }
-            }
+                title: 'test_0',
+              },
+            },
           },
           {
             node: {
               fields: {
                 slug: '/test_1',
-                categorySlug: '/test_1'
+                categorySlug: '/test_1',
               },
               frontmatter: {
                 date: '2016-09-01',
                 description: 'test_1',
                 category: 'test_1',
-                title: 'test_1'
-              }
-            }
-          }
-        ]
+                title: 'test_1',
+              },
+            },
+          },
+        ],
       },
       site: {
         siteMetadata: {
@@ -56,8 +56,8 @@ describe('IndexTemplate', () => {
       currentPage: 1,
       pagePath: p => `/test/${p}`,
       hasNextPage: true,
-      hasPrevPage: true
-    }
+      hasPrevPage: true,
+    },
   };
 
   it('renders correctly', () => {
