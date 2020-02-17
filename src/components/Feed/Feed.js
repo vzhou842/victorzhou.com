@@ -1,5 +1,5 @@
 // @flow
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import React from 'react';
 
 import GuestAuthor from '../GuestAuthor';
@@ -59,5 +59,27 @@ const Feed = ({ edges, shortened }: Props) => (
     })}
   </div>
 );
+
+export const query = graphql`
+  fragment FeedFragment on MarkdownRemarkEdge {
+    node {
+      fields {
+        categorySlug
+        slug
+        dateFormatted
+      }
+      frontmatter {
+        date
+        title
+        category
+        description
+        isSeries
+        guestAuthor
+        guestCoAuthor
+        guestAuthorLink
+      }
+    }
+  }
+`;
 
 export default Feed;

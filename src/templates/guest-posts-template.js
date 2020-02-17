@@ -71,22 +71,7 @@ export const query = graphql`
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
-        node {
-          fields {
-            slug
-            categorySlug
-            dateFormatted
-          }
-          frontmatter {
-            guestAuthor
-            guestCoAuthor
-            guestAuthorLink
-            title
-            date
-            category
-            description
-          }
-        }
+        ...FeedFragment
       }
     }
   }
