@@ -1,4 +1,5 @@
 // @flow
+import { graphql } from 'gatsby';
 import React from 'react';
 
 import styles from './GuestAuthor.module.scss';
@@ -26,3 +27,11 @@ export default function GuestAuthor({ author, coAuthor, link }: Props) {
     </p>
   );
 }
+
+export const fragment = graphql`
+  fragment GuestAuthorFragment on MarkdownRemarkFrontmatter {
+    guestAuthor
+    guestCoAuthor
+    guestAuthorLink
+  }
+`;

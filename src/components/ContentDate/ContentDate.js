@@ -1,4 +1,5 @@
 // @flow
+import { graphql } from 'gatsby';
 import React from 'react';
 
 import styles from './ContentDate.module.scss';
@@ -18,5 +19,12 @@ const ContentDate = ({ dateFormatted, dateModifiedFormatted }: Props) => (
     )}
   </p>
 );
+
+export const fragment = graphql`
+  fragment ContentDateFragment on MarkdownRemarkFields {
+    dateFormatted
+    dateModifiedFormatted
+  }
+`;
 
 export default ContentDate;

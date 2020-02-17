@@ -60,7 +60,7 @@ const Feed = ({ edges, shortened }: Props) => (
   </div>
 );
 
-export const query = graphql`
+export const fragment = graphql`
   fragment FeedFragment on MarkdownRemarkEdge {
     node {
       fields {

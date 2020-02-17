@@ -114,7 +114,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
 };
 
 export const fragment = graphql`
-  fragment PostFragment on Query {
+  fragment PostTemplateFragment on Query {
     site {
       siteMetadata {
         author {
@@ -129,39 +129,27 @@ export const fragment = graphql`
     allMarkdownRemark(filter: { frontmatter: { slug: { in: [$slug, $prev, $next] } } }) {
       edges {
         node {
-          id
-          html
+          ...PostFragment
           excerpt(pruneLength: 5000)
           fields {
             tagSlugs
             readingTime {
               words
             }
-            dateFormatted
-            dateModifiedFormatted
           }
           frontmatter {
+            ...SubscribePopupFragment
             asyncScript
             canonical
             category
-            date
             description
             descriptionLong
-            guestAuthor
-            guestCoAuthor
-            guestAuthorLink
             img
             isSeries
-            isML
-            isWeb
-            slug
             seriesSlugs
             tags
             title
             twitterEmbed
-            discussLinkTwitter
-            discussLinkHN
-            discussLinkReddit
           }
         }
       }
@@ -196,7 +184,7 @@ export const fragment = graphql`
 
 export const query = graphql`
   query PostBySlug($slug: String!, $prev: String, $next: String, $seriesSlugs: [String]) {
-    ...PostFragment
+    ...PostTemplateFragment
   }
 `;
 

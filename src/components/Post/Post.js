@@ -1,4 +1,5 @@
 // @flow
+import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import Author from '../Author';
@@ -60,7 +61,7 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
   return (
     <div className={styles['post']}>
       <Content
-        body={html}
+        html={html}
         title={title}
         subtitle={hideDescription ? null : description}
         dateFormatted={dateFormatted}
@@ -107,5 +108,15 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
     </div>
   );
 };
+
+export const fragment = graphql`
+  fragment PostFragment on MarkdownRemark {
+    ...ContentFragment
+    frontmatter {
+      ...DiscussFragment
+      ...SubscribeFormFragment
+    }
+  }
+`;
 
 export default Post;

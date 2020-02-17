@@ -1,4 +1,5 @@
 // @flow
+import { graphql } from 'gatsby';
 import * as React from 'react';
 
 import ContentDate from '../ContentDate';
@@ -6,7 +7,7 @@ import GuestAuthor from '../GuestAuthor';
 import styles from './Content.module.scss';
 
 type Props = {|
-  +body: string,
+  +html: string,
   +title: string,
   +subtitle: ?string,
   +dateFormatted: string,
@@ -18,7 +19,7 @@ type Props = {|
 |};
 
 const Content = ({
-  body,
+  html,
   title,
   subtitle,
   dateFormatted,
@@ -42,9 +43,21 @@ const Content = ({
       </div>
     )}
     <div className={styles['content__spacer']} />
-    <div className={styles['content__body']} dangerouslySetInnerHTML={{ __html: body }} />
+    <div className={styles['content__body']} dangerouslySetInnerHTML={{ __html: html }} />
     {footer}
   </article>
 );
+
+export const fragment = graphql`
+  fragment ContentFragment on MarkdownRemark {
+    html
+    fields {
+      ...ContentDateFragment
+    }
+    frontmatter {
+      ...GuestAuthorFragment
+    }
+  }
+`;
 
 export default Content;

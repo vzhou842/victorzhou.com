@@ -1,5 +1,5 @@
 // @flow
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 
 import { logError, logEvent } from '../../utils/log';
@@ -231,5 +231,12 @@ const SubscribeFormWrapper = (props: Props) => (
     {context => <SubscribeForm {...props} context={context} />}
   </RecaptchaContext.Consumer>
 );
+
+export const query = graphql`
+  fragment SubscribeFormFragment on MarkdownRemarkFrontmatter {
+    isML
+    isWeb
+  }
+`;
 
 export default SubscribeFormWrapper;

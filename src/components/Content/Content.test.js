@@ -7,7 +7,7 @@ describe('Content', () => {
   it('renders correctly', () => {
     const props = {
       title: 'test',
-      body: '<p>test</p>',
+      html: '<p>test</p>',
       dateFormatted: 'February 4, 2019',
     };
 

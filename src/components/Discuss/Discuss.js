@@ -1,4 +1,5 @@
 // @flow
+import { graphql } from 'gatsby';
 import React from 'react';
 
 import styles from './Discuss.module.scss';
@@ -39,3 +40,11 @@ export default ({ twitter, hn, reddit }: Props) =>
       </div>
     </div>
   ) : null;
+
+export const fragment = graphql`
+  fragment DiscussFragment on MarkdownRemarkFrontmatter {
+    discussLinkTwitter
+    discussLinkHN
+    discussLinkReddit
+  }
+`;

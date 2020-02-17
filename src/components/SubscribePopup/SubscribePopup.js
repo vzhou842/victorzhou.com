@@ -1,3 +1,4 @@
+import { graphql } from 'gatsby';
 import React from 'react';
 
 import { logEvent } from '../../utils/log';
@@ -70,5 +71,12 @@ class SubscribePopup extends React.Component {
     );
   }
 }
+
+export const fragment = graphql`
+  fragment SubscribePopupFragment on MarkdownRemarkFrontmatter {
+    ...SubscribeFormFragment
+    slug
+  }
+`;
 
 export default SubscribePopup;

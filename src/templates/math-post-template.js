@@ -6,7 +6,7 @@ require('katex/dist/katex.min.css');
 
 export const query = graphql`
   query MathPostBySlug($slug: String!, $prev: String!, $next: String!, $seriesSlugs: [String]) {
-    ...PostFragment
+    ...PostTemplateFragment
   }
 `;
 
