@@ -236,10 +236,8 @@ module.exports = {
             },
             // Everything above is from the default config.
             {
-              // Intended to make sure the root page always hits the network.
-              // Does this actually work? idk.
-              // Why doesn't the root page always hit the network? Also idk.
-              urlPattern: new RegExp(`${siteConfig.url}/$`),
+              // Match any path ending in /
+              urlPattern: /\/$/,
               handler: 'NetworkFirst',
             },
           ],
