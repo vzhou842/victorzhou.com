@@ -59,12 +59,31 @@ Array [
     <p
       className="description"
     >
-      That would be more annoying. Anyways, consider subscribing to my newsletter to
+      That'd be more annoying. Anyways, subscribe to my newsletter to
        
       <b>
         get new posts by email!
       </b>
-       I write about ML, Web Dev, and more.
+       I write about 
+      <Link
+        to="/tag/machine-learning/"
+      >
+        ML
+      </Link>
+      ,
+       
+      <Link
+        to="/tag/web-development/"
+      >
+        Web Dev
+      </Link>
+      , and 
+      <Link
+        to="/tags/"
+      >
+        more topics
+      </Link>
+      .
     </p>
     <div
       className="container  no-spacing"
