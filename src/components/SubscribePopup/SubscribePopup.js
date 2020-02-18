@@ -18,7 +18,7 @@ class SubscribePopup extends React.Component {
     }
 
     this.scrollListener = () => {
-      const threshold = Math.min(Math.max(document.body.offsetHeight / 2, 2000), 6000);
+      const threshold = Math.min(Math.max(document.body.offsetHeight / 3, 1500), 4500);
       if (window.scrollY + window.innerHeight / 2 >= threshold) {
         this.setState({ visible: true });
         window.removeEventListener('scroll', this.scrollListener);
