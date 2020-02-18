@@ -8,6 +8,7 @@ import {
   detectRecaptchaSetup,
   loadRecaptchaIfNeeded,
 } from '../../utils/recaptcha';
+import { userHasSubscribed } from '../../utils/subscribe-status';
 import type { RecaptchaContextType } from '../RecaptchaContext';
 import RecaptchaContext from '../RecaptchaContext';
 import styles from './SubscribeForm.module.scss';
@@ -106,6 +107,9 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
   };
 
   render() {
+    if (userHasSubscribed()) {
+      return null;
+    }
     const {
       context: { recaptchaToken },
       signupSource,

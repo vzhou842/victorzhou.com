@@ -2,6 +2,7 @@ import { graphql, Link } from 'gatsby';
 import React from 'react';
 
 import { logEvent } from '../../utils/log';
+import { userHasSubscribed } from '../../utils/subscribe-status';
 import SubscribeForm from '../SubscribeForm';
 import styles from './SubscribePopup.module.scss';
 
@@ -12,8 +13,10 @@ class SubscribePopup extends React.Component {
   state = { visible: false };
 
   componentDidMount() {
-    if (localStorage[hideDateKey] && Date.now() - localStorage[hideDateKey] < HIDE_DURATION) {
-      // Still hidden
+    if (
+      userHasSubscribed() ||
+      (localStorage[hideDateKey] && Date.now() - localStorage[hideDateKey] < HIDE_DURATION)
+    ) {
       return;
     }
 
@@ -46,6 +49,9 @@ class SubscribePopup extends React.Component {
   };
 
   render() {
+    if (userHasSubscribed()) {
+      return null;
+    }
     const { visible } = this.state;
     const { isML, isWeb, postSlug } = this.props;
 
