@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import React from 'react';
 
 import { logEvent } from '../../utils/log';
@@ -53,8 +53,9 @@ class SubscribePopup extends React.Component {
       <div className={`${styles['container']} ${visible ? '' : styles['hidden']}`}>
         <h4 className={styles['title']}>At least this isn't a full screen popup</h4>
         <p className={styles['description']}>
-          That would be more annoying. Anyways, consider subscribing to my newsletter to{' '}
-          <b>get new posts by email!</b> I write about ML, Web Dev, and more.
+          That'd be more annoying. Anyways, subscribe to my newsletter to{' '}
+          <b>get new posts by email!</b> I write about <Link to="/tag/machine-learning/">ML</Link>,{' '}
+          <Link to="/tag/web-development/">Web Dev</Link>, and <Link to="/tags/">more topics</Link>.
         </p>
         <SubscribeForm
           signupSource={`Popup:${postSlug}`}
