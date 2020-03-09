@@ -85,7 +85,7 @@ Finally, there's one more shorthand I like to use:
 
 alias g=git
 ```
-<figcaption>You can use any text editor to add this to your <a href="https://www.quora.com/What-is-bash_profile-and-what-is-its-use" target="_blank" rel="noreferrer noopener">.bash_profile</a>. See: <a href="https://www.howlinux.com/alias-command-in-linux" target="_blank" rel="noreferrer noopener">Linux alias command</a>.</figcaption>
+<figcaption>You can use any text editor to add this to your <a href="https://www.quora.com/What-is-bash_profile-and-what-is-its-use" target="_blank" rel="noreferrer noopener">.bash_profile</a>. See: <a href="https://www.linuxfordevices.com/tutorials/linux/alias-command-in-linux" target="_blank" rel="noreferrer noopener">Linux alias command</a>.</figcaption>
 
 This is a [Bash Alias](https://www.tldp.org/LDP/abs/html/aliases.html) and does exactly what you think it does. If you use a different shell, you can probably do this with a similar feature (e.g. [Zsh Aliasing](http://zsh.sourceforge.net/Intro/intro_8.html)).
 
