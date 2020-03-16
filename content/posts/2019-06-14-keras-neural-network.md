@@ -203,7 +203,7 @@ model.fit(
 
 This doesn't actually work yet, though - we overlooked one thing. Keras expects the training targets to be _10-dimensional vectors_, since there are 10 nodes in our Softmax output layer, but we're instead supplying a _single integer representing the class_ for each image.
 
-Conveniently, Keras has a utility method that fixes this exact issue: [to_categorical](https://keras.io/utils/#to_categorical). It turns our array of class integers into an array of [one-hot](https://en.wikipedia.org/wiki/One-hot) vectors instead. For example, `2` would become `[0, 0, 1, 0, 0, 0, 0, 0, 0, 0]` (it's zero-indexed).
+Conveniently, Keras has a utility method that fixes this exact issue: [to_categorical](https://keras.io/utils/#to_categorical). It turns our array of class integers into an array of [one-hot](/blog/one-hot/) vectors instead. For example, `2` would become `[0, 0, 1, 0, 0, 0, 0, 0, 0, 0]` (it's zero-indexed).
 
 We can now put everything together to train our network:
 
