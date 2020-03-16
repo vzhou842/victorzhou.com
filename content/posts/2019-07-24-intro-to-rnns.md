@@ -163,7 +163,7 @@ print(idx_to_word[0]) # sad (this may change)
 
 We can now represent any given word with its corresponding integer index! This is necessary because RNNs can't understand words - we have to give them numbers.
 
-Finally, recall that each input $x_i$ to our RNN is a _vector_. We'll use **[one-hot](https://en.wikipedia.org/wiki/One-hot) vectors**, which contain all zeros except for a single one. The "one" in each one-hot vector will be **at the word's corresponding integer index.**
+Finally, recall that each input $x_i$ to our RNN is a _vector_. We'll use **[one-hot](/blog/one-hot/) vectors**, which contain all zeros except for a single one. The "one" in each one-hot vector will be **at the word's corresponding integer index.**
 
 Since we have 18 unique words in our vocabulary, each $x_i$ will be a 18-dimensional one-hot vector.
 
@@ -234,7 +234,7 @@ class RNN:
     '''
     Perform a forward pass of the RNN using the given inputs.
     Returns the final output and hidden state.
-    - inputs is an array of one hot vectors with shape (input_size, 1).
+    - inputs is an array of one-hot vectors with shape (input_size, 1).
     '''
     h = np.zeros((self.Whh.shape[0], 1))
 
@@ -304,7 +304,7 @@ First, some definitions:
 
 - Let $y$ represent the raw outputs from our RNN.
 - Let $p$ represent the final probabilities: $p = \text{softmax}(y)$.
-- Let $c$ refer to the true label of a certain text sample, a.k.a. the "correct" class. 
+- Let $c$ refer to the true label of a certain text sample, a.k.a. the "correct" class.
 - Let $L$ be the cross-entropy loss: $L = -\ln(p_c)$.
 - Let $W_{xh}$, $W_{hh}$, and $W_{hy}$ be the 3 weight matrices in our RNN.
 - Let $b_h$ and $b_y$ be the 2 bias vectors in our RNN.
@@ -322,7 +322,7 @@ class RNN:
     '''
     Perform a forward pass of the RNN using the given inputs.
     Returns the final output and hidden state.
-    - inputs is an array of one hot vectors with shape (input_size, 1).
+    - inputs is an array of one-hot vectors with shape (input_size, 1).
     '''
     h = np.zeros((self.Whh.shape[0], 1))
 
