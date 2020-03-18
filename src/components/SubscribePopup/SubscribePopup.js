@@ -1,3 +1,4 @@
+// @flow
 import { graphql, Link } from 'gatsby';
 import React from 'react';
 
@@ -9,19 +10,34 @@ import styles from './SubscribePopup.module.scss';
 const hideDateKey = 'SubscribePopup-hide-date';
 const HIDE_DURATION = 1000 * 60 * 60 * 24; // 24 hours
 
-class SubscribePopup extends React.Component {
+type Props = $ReadOnly<{|
+  isML: boolean,
+  isWeb: boolean,
+  postSlug: string,
+|}>;
+
+type State = $ReadOnly<{|
+  visible: boolean,
+|}>;
+
+class SubscribePopup extends React.Component<Props, State> {
   state = { visible: false };
+  scrollListener: () => void;
 
   componentDidMount() {
+    const hideDateValue = parseInt(localStorage[hideDateKey], 10);
     if (
       userHasSubscribed() ||
-      (localStorage[hideDateKey] && Date.now() - localStorage[hideDateKey] < HIDE_DURATION)
+      (hideDateValue != null && Date.now() - hideDateValue < HIDE_DURATION)
     ) {
       return;
     }
 
     this.scrollListener = () => {
-      const threshold = Math.min(Math.max(document.body.offsetHeight / 3, 1500), 4500);
+      const threshold = Math.min(
+        Math.max((document.body ? document.body.offsetHeight : 0) / 3, 1500),
+        4500
+      );
       if (window.scrollY + window.innerHeight / 2 >= threshold) {
         this.setState({ visible: true });
         window.removeEventListener('scroll', this.scrollListener);
@@ -39,10 +55,10 @@ class SubscribePopup extends React.Component {
   close = () => {
     logEvent('SubscribePopup', 'close');
     this.setState({ visible: false });
-    localStorage[hideDateKey] = Date.now();
+    localStorage[hideDateKey] = `${Date.now()}`;
   };
 
-  onKeyDown = e => {
+  onKeyDown = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Escape') {
       this.close();
     }

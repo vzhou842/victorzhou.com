@@ -21,7 +21,7 @@ type Props = {
   +large?: boolean,
   +noDescription?: boolean,
   +noSpacing?: boolean,
-  +onKeyDown?: Function,
+  +onKeyDown?: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
 };
 
 type InnerProps = {
