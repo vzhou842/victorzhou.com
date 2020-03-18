@@ -21,6 +21,7 @@ next: "/blog/keras-cnn-tutorial/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1131212626019721217
 discussLinkHN: https://news.ycombinator.com/item?id=19981736
 discussLinkReddit: https://www.reddit.com/r/learnmachinelearning/comments/brq4dr/an_introduction_to_convolutional_neural_networks/
+popularity: 47
 ---
 
 There's been a lot of buzz about Convolution Neural Networks (CNNs) in the past few years, especially because of how they've revolutionized the field of [Computer Vision](https://en.wikipedia.org/wiki/Computer_vision). In this post, we'll build on a basic background knowledge of neural networks and **explore what CNNs are, understand how they work, and build a real one from scratch** (using only [numpy](https://www.numpy.org/)) in Python.
@@ -135,7 +136,7 @@ Similarly, there's also a horizontal Sobel filter:
 
 ![](./media-link/cnn-post/lenna+horizontal.png "An image convolved with the horizontal Sobel filter")
 
-See what's happening? **Sobel filters are edge-detectors**. The vertical Sobel filter detects vertical edges, and the horizontal Sobel filter detects horizontal edges. The output images are now easily interpreted: a bright pixel (one that has a high value) in the output image indicates that there's a strong edge around there in the original image. 
+See what's happening? **Sobel filters are edge-detectors**. The vertical Sobel filter detects vertical edges, and the horizontal Sobel filter detects horizontal edges. The output images are now easily interpreted: a bright pixel (one that has a high value) in the output image indicates that there's a strong edge around there in the original image.
 
 Can you see why an edge-detected image might be more useful than the raw image? Think back to our MNIST handwritten digit classification problem for a second. A CNN trained on MNIST might look for the digit 1, for example, by using an edge-detection filter and checking for two prominent vertical edges near the center of the image. In general, **convolution helps us look for specific localized image features** (like edges) that we can use later in the network.
 
@@ -247,7 +248,7 @@ print(output.shape) # (26, 26, 8)
 
 Looks good so far.
 
-> Note: in our `Conv3x3` implementation, we assume the input is a **2d** numpy array for simplicity, because that's how our MNIST images are stored. This works for us because we use it as the first layer in our network, but most CNNs have many more Conv layers. If we were building a bigger network that needed to use `Conv3x3` multiple times, we'd have to make the input be a **3d** numpy array. 
+> Note: in our `Conv3x3` implementation, we assume the input is a **2d** numpy array for simplicity, because that's how our MNIST images are stored. This works for us because we use it as the first layer in our network, but most CNNs have many more Conv layers. If we were building a bigger network that needed to use `Conv3x3` multiple times, we'd have to make the input be a **3d** numpy array.
 
 ## 4. Pooling
 

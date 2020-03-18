@@ -17,6 +17,7 @@ tags:
 description: A beginner-friendly guide on using Keras to implement a simple Neural Network in Python.
 prev: "/blog/intro-to-cnns-part-1/"
 next: "/blog/keras-cnn-tutorial/"
+popularity: 31
 ---
 
 ![](./media-link/keras-posts/keras-logo.png)
