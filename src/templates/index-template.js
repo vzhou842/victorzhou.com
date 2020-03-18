@@ -20,9 +20,11 @@ type Props = {|
 const IndexTemplate = ({ data, pageContext }: Props) => {
   const { author, title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
 
-  const { currentPage, hasNextPage, hasPrevPage, numPages } = pageContext;
+  const { currentPage, hasNextPage, hasPrevPage, numPages, postSlugs } = pageContext;
 
-  const { edges } = data.allMarkdownRemark;
+  let { edges } = data.allMarkdownRemark;
+  edges = postSlugs.map(slug => edges.filter(e => e.node.frontmatter.slug === slug)[0]);
+
   const pageTitle = currentPage > 1 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
 
   return (
@@ -62,7 +64,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
 };
 
 export const query = graphql`
-  query IndexTemplate($postsLimit: Int!, $postsOffset: Int!) {
+  query IndexTemplate($postSlugs: [String]!) {
     site {
       siteMetadata {
         author {
@@ -72,19 +74,13 @@ export const query = graphql`
         subtitle
       }
     }
-    allMarkdownRemark(
-      limit: $postsLimit
-      skip: $postsOffset
-      filter: {
-        frontmatter: {
-          template: { eq: "post" }
-          draft: { ne: true }
-          guestAuthor: { in: [null, ""] }
-        }
-      }
-      sort: { order: DESC, fields: [frontmatter___date] }
-    ) {
+    allMarkdownRemark(filter: { frontmatter: { slug: { in: $postSlugs } } }) {
       edges {
+        node {
+          frontmatter {
+            slug
+          }
+        }
         ...FeedFragment
       }
     }
