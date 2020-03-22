@@ -6,8 +6,9 @@ import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 
-export const PureMenu = ({ data, horizontal, bold, noMargin }) => {
+export const PureMenu = ({ data, horizontal, bold, noMargin, location }) => {
   const { menu } = data.site.siteMetadata;
+  const pathname = location ? location.pathname : null;
   return (
     <nav
       className={cx({
@@ -24,8 +25,13 @@ export const PureMenu = ({ data, horizontal, bold, noMargin }) => {
               className={cx({
                 'menu__list-item-link': true,
                 bold,
+                'menu__list-item-link--active':
+                  (item.path === '/' &&
+                    (pathname.startsWith('/hot/') || pathname.startsWith('/page/'))) ||
+                  (item.path === '/tags/' && pathname.startsWith('/tag/')),
               })}
               activeClassName={styles['menu__list-item-link--active']}
+              partiallyActive={item.path !== '/'}
             >
               {item.label}
             </Link>

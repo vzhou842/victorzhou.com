@@ -14,6 +14,7 @@ type Props = {
 
 type PureProps = Props & {
   +data: Object,
+  +location: Object,
 };
 
 export const PureSidebar = ({ data, hideSubscribeForm, hideAd }: PureProps) => {
@@ -23,7 +24,7 @@ export const PureSidebar = ({ data, hideSubscribeForm, hideAd }: PureProps) => {
     <div className={styles['sidebar']}>
       <div className={styles['sidebar__inner']}>
         <Author author={author} />
-        <Menu />
+        <Menu location={location} />
         <MovableSidebarContent desktop hideSubscribeForm={hideSubscribeForm} hideAd={hideAd} />
       </div>
     </div>

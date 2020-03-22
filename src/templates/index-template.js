@@ -16,9 +16,10 @@ import { postPagePath, hotPostsPagePath } from '../utils/page-paths';
 type Props = {|
   +data: Object,
   +pageContext: Object,
+  +location: Object,
 |};
 
-const IndexTemplate = ({ data, pageContext }: Props) => {
+const IndexTemplate = ({ data, pageContext, location }: Props) => {
   const { author, title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
 
   const { currentPage, hasNextPage, hasPrevPage, numPages, postSlugs, sortByNew } = pageContext;
@@ -47,7 +48,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
 }`}
           </script>
         </Helmet>
-        <Sidebar />
+        <Sidebar location={location} />
         <Page
           title={currentPage > 1 ? `Page ${currentPage}` : ''}
           meta={<SortBySelector sortByNew={sortByNew} />}
