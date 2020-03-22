@@ -55,9 +55,11 @@ describe('IndexTemplate', () => {
     },
     pageContext: {
       currentPage: 1,
-      pagePath: p => `/test/${p}`,
       hasNextPage: true,
       hasPrevPage: true,
+      numPages: 1,
+      postSlugs: ['/blog/year-one-recap/'],
+      sortByNew: true,
     },
   };
 
