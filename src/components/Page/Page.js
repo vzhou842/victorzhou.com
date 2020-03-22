@@ -1,8 +1,16 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 
 import styles from './Page.module.scss';
 
-const Page = ({ title, subtitle, description, children }) => (
+type Props = $ReadOnly<{|
+  title?: string,
+  subtitle?: React.Node,
+  description?: React.Node,
+  children?: React.Node,
+|}>;
+
+const Page = ({ title, subtitle, description, children }: Props) => (
   <div className={styles['page']}>
     <div className={styles['page__inner']}>
       {title && (
