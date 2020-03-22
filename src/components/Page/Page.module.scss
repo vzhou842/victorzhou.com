@@ -19,12 +19,20 @@
     &.with-subtitle {
       @include margin-bottom(0);
     }
+
+    &.with-meta {
+      @include margin-bottom(0.5);
+    }
   }
 
   &__subtitle {
     font-weight: 500;
     font-size: $typographic-base-font-size * 1.25;
     @include margin-top(0);
+    @include margin-bottom(1);
+  }
+
+  &__meta {
     @include margin-bottom(1);
   }
 

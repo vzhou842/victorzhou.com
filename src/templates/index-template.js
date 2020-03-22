@@ -48,8 +48,10 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
           </script>
         </Helmet>
         <Sidebar />
-        <Page title={currentPage > 1 ? `Page ${currentPage}` : ''}>
-          <SortBySelector sortByNew={sortByNew} />
+        <Page
+          title={currentPage > 1 ? `Page ${currentPage}` : ''}
+          meta={<SortBySelector sortByNew={sortByNew} />}
+        >
           <Feed edges={edges} />
           <Pagination
             currentPage={currentPage}
