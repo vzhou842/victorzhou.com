@@ -9,6 +9,7 @@ import MovableSidebarContent from '../components/MovableSidebarContent';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 import Sidebar from '../components/Sidebar';
+import SortBySelector from '../components/SortBySelector';
 import TemplateWrapper from '../components/TemplateWrapper';
 import { postPagePath } from '../utils/page-paths';
 
@@ -20,7 +21,7 @@ type Props = {|
 const IndexTemplate = ({ data, pageContext }: Props) => {
   const { author, title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
 
-  const { currentPage, hasNextPage, hasPrevPage, numPages, postSlugs } = pageContext;
+  const { currentPage, hasNextPage, hasPrevPage, numPages, postSlugs, sortByNew } = pageContext;
 
   let { edges } = data.allMarkdownRemark;
   edges = postSlugs.map(slug => edges.filter(e => e.node.frontmatter.slug === slug)[0]);
@@ -48,6 +49,7 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
         </Helmet>
         <Sidebar />
         <Page title={currentPage > 1 ? `Page ${currentPage}` : ''}>
+          <SortBySelector sortByNew={sortByNew} />
           <Feed edges={edges} />
           <Pagination
             currentPage={currentPage}

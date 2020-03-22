@@ -1,0 +1,51 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.root {
+  display: flex;
+  border-radius: 5px;
+  justify-content: center;
+  @include margin-top(0);
+  @include margin-bottom(1);
+}
+
+.root ul {
+  background-color: $color-gray-bg;
+  margin: 0;
+  @include padding(0.2, 0.3, 0.2, 0.3);
+}
+
+.root li {
+  list-style: none;
+  display: inline;
+  @include margin-left(0.3);
+  @include margin-right(0.75);
+}
+
+.root li:last-child {
+  @include margin-right(0.3);
+}
+
+.link {
+  font-size: $typographic-base-font-size * 0.875;
+  color: black;
+}
+
+.link:hover {
+  color: $color-primary;
+}
+
+.link.selected {
+  font-weight: bold;
+  border-bottom: 1px solid black;
+}
+
+.link.selected:hover {
+  border-bottom: 1px solid $color-primary
+}
+
+@include breakpoint-sm {
+  .root {
+    justify-content: initial;
+  }
+}

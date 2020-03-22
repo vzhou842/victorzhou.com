@@ -2,7 +2,7 @@
 
 const path = require('path');
 const siteConfig = require('../../config.js');
-const { postPagePath, newPostsPagePath } = require('../../src/utils/page-paths');
+const { postPagePath, hotPostsPagePath } = require('../../src/utils/page-paths');
 
 module.exports = async (graphql, actions) => {
   const { createPage } = actions;
@@ -52,7 +52,9 @@ module.exports = async (graphql, actions) => {
   const postSlugs = frontmatters.sort((a, b) => byHot(b) - byHot(a)).map(f => f.slug);
   const newPostSlugs = frontmatters.sort((a, b) => byNew(b) - byNew(a)).map(f => f.slug);
 
-  function createPostPage(i, pathFunc, slugs) {
+  function createPostPage(i, sortByNew) {
+    const pathFunc = sortByNew ? postPagePath : hotPostsPagePath;
+    const slugs = sortByNew ? newPostSlugs : postSlugs;
     createPage({
       path: pathFunc(i + 1),
       component: path.resolve('./src/templates/index-template.js'),
@@ -62,12 +64,13 @@ module.exports = async (graphql, actions) => {
         hasNextPage: i !== numPages - 1,
         numPages,
         postSlugs: slugs.slice(i * postsPerPage, (i + 1) * postsPerPage),
+        sortByNew,
       },
     });
   }
 
   for (let i = 0; i < numPages; i += 1) {
-    createPostPage(i, postPagePath, postSlugs);
-    createPostPage(i, newPostsPagePath, newPostSlugs);
+    createPostPage(i, false);
+    createPostPage(i, true);
   }
 };
