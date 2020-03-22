@@ -10,14 +10,14 @@ import styles from './Sidebar.module.scss';
 type Props = {
   +hideSubscribeForm?: boolean,
   +hideAd?: boolean,
+  +location?: Object,
 };
 
 type PureProps = Props & {
   +data: Object,
-  +location: Object,
 };
 
-export const PureSidebar = ({ data, hideSubscribeForm, hideAd }: PureProps) => {
+export const PureSidebar = ({ data, hideSubscribeForm, hideAd, location }: PureProps) => {
   const { author } = data.site.siteMetadata;
 
   return (

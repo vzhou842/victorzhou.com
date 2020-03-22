@@ -11,7 +11,7 @@ import Pagination from '../components/Pagination';
 import Sidebar from '../components/Sidebar';
 import SortBySelector from '../components/SortBySelector';
 import TemplateWrapper from '../components/TemplateWrapper';
-import { postPagePath, hotPostsPagePath } from '../utils/page-paths';
+import { hotPostsPagePath, postPagePath } from '../utils/page-paths';
 
 type Props = {|
   +data: Object,
