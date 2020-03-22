@@ -27,7 +27,12 @@ const IndexTemplate = ({ data, pageContext, location }: Props) => {
   let { edges } = data.allMarkdownRemark;
   edges = postSlugs.map(slug => edges.filter(e => e.node.frontmatter.slug === slug)[0]);
 
-  const pageTitle = currentPage > 1 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
+  const pageTitle =
+    currentPage > 1
+      ? `${sortByNew ? '' : 'Hot '}Posts - Page ${currentPage} - ${siteTitle}`
+      : sortByNew
+      ? siteTitle
+      : `Hot Posts - ${siteTitle}`;
 
   return (
     <TemplateWrapper>
