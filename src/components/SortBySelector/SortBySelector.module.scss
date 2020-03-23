@@ -3,7 +3,6 @@
 
 .root {
   display: flex;
-  border-radius: 5px;
   justify-content: center;
   @include margin-top(0);
   @include margin-bottom(1);
@@ -11,6 +10,7 @@
 
 .root ul {
   background-color: $color-gray-bg;
+  border-radius: 3px;
   margin: 0;
   @include padding(0.2, 0.3, 0.2, 0.3);
 }
