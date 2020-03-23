@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 
 export const PureMenu = ({ data, horizontal, bold, noMargin, location }) => {
   const { menu } = data.site.siteMetadata;
-  const pathname = location ? location.pathname : null;
+  const pathname = location ? location.pathname : '';
   return (
     <nav
       className={cx({
