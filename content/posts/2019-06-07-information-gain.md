@@ -16,6 +16,7 @@ tags:
 description: What Information Gain and Information Entropy are and how they're used to train Decision Trees.
 prev: "/blog/gini-impurity/"
 next: "/blog/intro-to-random-forests/"
+popularity: 19
 ---
 
 <style>

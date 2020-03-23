@@ -14,6 +14,7 @@ description: "This is an actual bug I had once."
 prev: "/blog/properly-size-images/"
 next: "/blog/why-you-should-use-webpack/"
 discussLinkHN: https://news.ycombinator.com/item?id=19135552
+popularity: 5
 ---
 
 Here's a bit of Javascript that prints "Hello World!" on two lines:
@@ -131,4 +132,4 @@ const b = 'World' + '!'
 
 I'll leave figuring this one out as an exercise for you.
 
-Most Javascript style guides require semicolons, including [Google's](https://google.github.io/styleguide/jsguide.html#formatting-semicolons-are-required), [Airbnb's](https://github.com/airbnb/javascript#semicolons), and [jQuery's](https://contribute.jquery.org/style-guide/js/#semicolons). To summarize: **always use semicolons**. 
+Most Javascript style guides require semicolons, including [Google's](https://google.github.io/styleguide/jsguide.html#formatting-semicolons-are-required), [Airbnb's](https://github.com/airbnb/javascript#semicolons), and [jQuery's](https://contribute.jquery.org/style-guide/js/#semicolons). To summarize: **always use semicolons**.

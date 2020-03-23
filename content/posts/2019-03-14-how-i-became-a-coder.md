@@ -12,6 +12,7 @@ tags:
 description: My unlikely origin story.
 prev: "/blog/first-50-days-of-blogging/"
 next: "/blog/properly-size-images/"
+popularity: 5
 ---
 
 It all started when I was 12 years old. 👶

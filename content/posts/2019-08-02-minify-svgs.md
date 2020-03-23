@@ -15,6 +15,7 @@ description: "How I optimize SVGs for this blog and why you probably should, too
 prev: "/blog/why-you-should-use-webpack/"
 next: "/blog/properly-size-images/"
 discussLinkHN: https://news.ycombinator.com/item?id=20680559
+popularity: 19
 ---
 
 I use a lot of [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)s in my blog posts. They're great for simple diagrams or illustrations, like this one:
@@ -209,7 +210,7 @@ Here's how all 3 versions of our circle SVG look when rendered:
 
 Yup. They're all just plain black circles, but the third one takes up **20x** less space than the first one. **Minify your SVGs**!
 
-## How I Minify SVGs 
+## How I Minify SVGs
 
 Sure, I _could_ just manually run [svgo](https://github.com/svg/svgo) on any SVGs I wanted to use, but what I _really_ wanted was a way to optimize SVGs at **build time** because:
 

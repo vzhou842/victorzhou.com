@@ -13,6 +13,7 @@ tags:
 description: How I fell into the trap of premature optimization, the root of all evil.
 prev: "/blog/properly-size-images/"
 next: "/blog/minify-svgs/"
+popularity: 6
 ---
 
 [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) once famously said:

@@ -16,6 +16,7 @@ tags:
 description: What Gini Impurity is (with examples) and how it's used to train Decision Trees.
 prev: "/blog/intro-to-neural-networks/"
 next: "/blog/intro-to-random-forests/"
+popularity: 37
 ---
 
 If you look at the documentation for the [DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html) class in [scikit-learn](https://scikit-learn.org), you'll see something like this for the `criterion` parameter:
@@ -213,4 +214,3 @@ where $C$ is the number of classes and $p(i)$ is the probability of randomly pic
 When training a decision tree, the best split is chosen by **maximizing the Gini Gain**, which is calculated by subtracting the weighted impurities of the branches from the original impurity.
 
 Want to learn more? Check out my explanation of [Information Gain](/blog/information-gain/), a similar metric to Gini Gain, or my guide [Random Forests for Complete Beginners](/blog/intro-to-random-forests/).
-

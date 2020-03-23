@@ -16,6 +16,7 @@ tags:
 description: I really dislike typing out git commands, even the short ones.
 prev: "/blog/avoid-premature-optimization/"
 next: "/blog/minify-svgs/"
+popularity: 9
 ---
 
 I finally started using [Git](https://git-scm.com) more heavily a few years ago when I first began building some of my bigger [side projects](/about/). Now, it's true that typing `git status` and `git push` is pretty easy, but if you've got some Git experience you know some commands can get rather long.

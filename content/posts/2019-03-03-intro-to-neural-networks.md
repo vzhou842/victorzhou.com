@@ -20,7 +20,7 @@ next: "/blog/intro-to-rnns/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1102644406727966722
 discussLinkHN: https://news.ycombinator.com/item?id=19320217
 discussLinkReddit: https://www.reddit.com/r/Python/comments/axnvut/implementing_a_neural_network_from_scratch_in/
-popularity: 112
+popularity: 120
 ---
 
 Here's something that might surprise you: **neural networks aren't that complicated!** The term "neural network" gets used as a buzzword a lot, but in reality they're often much simpler than people imagine.

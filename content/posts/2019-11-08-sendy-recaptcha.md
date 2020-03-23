@@ -19,6 +19,7 @@ next: "/blog/minify-svgs/"
 discussLinkHN: https://news.ycombinator.com/item?id=21483597
 discussLinkReddit: https://www.reddit.com/r/programming/comments/dtiurq/sendy_is_insecure_how_not_to_implement_recaptcha/
 discussLinkTwitter: https://twitter.com/victorczhou/status/1192880134354657280
+popularity: 10
 ---
 
 > EDIT: We did it - Sendy has [released a patch](https://sendy.co/get-updated) (v4.0.3.3) for this issue! I recommend upgrading if you're affected. Thanks to Sendy for the quick response to this blog post, and thanks to every reader who helped make this happen.

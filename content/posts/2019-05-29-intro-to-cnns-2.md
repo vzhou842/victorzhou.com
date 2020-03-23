@@ -20,6 +20,7 @@ prev: "/blog/keras-cnn-tutorial/"
 next: "/blog/intro-to-random-forests/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1133752584383205377
 discussLinkHN: https://news.ycombinator.com/item?id=20064900
+popularity: 20
 ---
 
 In this post, we're going to do a deep-dive on something most introductions to Convolutional Neural Networks (CNNs) lack: **how to train a CNN**, including deriving gradients, implementing backprop _from scratch_ (using only [numpy](https://www.numpy.org/)), and ultimately building a full training pipeline!
@@ -329,10 +330,10 @@ class Softmax:
       d_t_d_w = self.last_input
       d_t_d_b = 1
       d_t_d_inputs = self.weights
- 
+
       # Gradients of loss against totals
       d_L_d_t = gradient * d_out_d_t
- 
+
       # Gradients of loss against weights/biases/input
       d_L_d_w = d_t_d_w[np.newaxis].T @ d_L_d_t[np.newaxis]
       d_L_d_b = d_L_d_t * d_t_d_b
@@ -396,7 +397,7 @@ class Softmax
       # Update weights / biases
       self.weights -= learn_rate * d_L_d_w
       self.biases -= learn_rate * d_L_d_b
- 
+
       return d_L_d_inputs.reshape(self.last_input_shape)
       # highlight-end
 ```

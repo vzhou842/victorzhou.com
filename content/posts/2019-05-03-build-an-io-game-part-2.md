@@ -17,6 +17,7 @@ description: A look into the backend server behind an .io game.
 prev: "/blog/why-you-should-use-webpack/"
 next: "/blog/how-i-became-a-programmer/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1124325065326256128
+popularity: 11
 ---
 
 This is Part 2 of my "How to Build a Multiplayer (.io) Web Game" series - **make sure you read [Part 1](/blog/build-an-io-game-part-1/) first.**

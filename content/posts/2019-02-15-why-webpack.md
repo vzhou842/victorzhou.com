@@ -13,6 +13,7 @@ tags:
 description: "I learned this the hard way, but hopefully you don't have to."
 prev: "/blog/minify-svgs/"
 next: "/blog/properly-size-images/"
+popularity: 6
 ---
 
 Back in early 2016, I began building a web game called [GeoArena](https://geoarena.online). Looking back, **my biggest regret is not using Webpack from the beginning**.

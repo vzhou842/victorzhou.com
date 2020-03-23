@@ -15,6 +15,7 @@ prev: "/blog/why-you-should-use-webpack/"
 next: "/blog/minify-svgs/"
 twitterEmbed: true
 discussLinkTwitter: https://twitter.com/css/status/1100912724295454721
+popularity: 8
 ---
 
 I usually check the weather on my phone, but last week I visited [weather.com](https://weather.com) on my laptop. Here's what I saw:
@@ -115,4 +116,3 @@ The original image is 779 kB, but the cropped one is only 173 kB. That's a savin
 The lesson: **serve images at the size they're actually rendered at**. Images that are too large look the same but slow down page loads and waste bandwidth.
 
 Want to learn more? Read [Google's recommendations](https://developers.google.com/web/tools/lighthouse/audits/oversized-images) on properly sizing images.
-
