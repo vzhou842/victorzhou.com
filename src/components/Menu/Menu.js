@@ -27,7 +27,7 @@ export const PureMenu = ({ data, horizontal, bold, noMargin, location }) => {
                 bold,
                 'menu__list-item-link--active':
                   (item.path === '/' &&
-                    (pathname.startsWith('/hot/') || pathname.startsWith('/page/'))) ||
+                    (pathname.startsWith('/top/') || pathname.startsWith('/page/'))) ||
                   (item.path === '/tags/' && pathname.startsWith('/tag/')),
               })}
               activeClassName={styles['menu__list-item-link--active']}

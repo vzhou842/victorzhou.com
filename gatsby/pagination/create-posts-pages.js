@@ -2,7 +2,7 @@
 
 const path = require('path');
 const siteConfig = require('../../config.js');
-const { postPagePath, hotPostsPagePath } = require('../../src/utils/page-paths');
+const { postPagePath, topPostsPagePath } = require('../../src/utils/page-paths');
 
 module.exports = async (graphql, actions) => {
   const { createPage } = actions;
@@ -43,17 +43,15 @@ module.exports = async (graphql, actions) => {
     return new Date(date);
   }
 
-  function byHot({ popularity, date }) {
-    const p = Number.isInteger(popularity) ? popularity : 1;
-    const daysOld = Math.max(1, Math.round((Date.now() - new Date(date)) / (1000 * 3600 * 24)));
-    return p * (1 + 500 / daysOld);
+  function byTop({ popularity }) {
+    return popularity;
   }
 
-  const postSlugs = frontmatters.sort((a, b) => byHot(b) - byHot(a)).map(f => f.slug);
+  const postSlugs = frontmatters.sort((a, b) => byTop(b) - byTop(a)).map(f => f.slug);
   const newPostSlugs = frontmatters.sort((a, b) => byNew(b) - byNew(a)).map(f => f.slug);
 
   function createPostPage(i, sortByNew) {
-    const pathFunc = sortByNew ? postPagePath : hotPostsPagePath;
+    const pathFunc = sortByNew ? postPagePath : topPostsPagePath;
     const slugs = sortByNew ? newPostSlugs : postSlugs;
     createPage({
       path: pathFunc(i + 1),

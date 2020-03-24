@@ -20,8 +20,8 @@ const SortBySelector = ({ sortByNew }: Props) => (
         </Link>
       </li>
       <li>
-        <Link className={cx({ link: true, selected: !sortByNew })} to="/hot/">
-          Hot
+        <Link className={cx({ link: true, selected: !sortByNew })} to="/top/">
+          Top
         </Link>
       </li>
     </ul>

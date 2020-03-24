@@ -11,7 +11,7 @@ import Pagination from '../components/Pagination';
 import Sidebar from '../components/Sidebar';
 import SortBySelector from '../components/SortBySelector';
 import TemplateWrapper from '../components/TemplateWrapper';
-import { hotPostsPagePath, postPagePath } from '../utils/page-paths';
+import { postPagePath, topPostsPagePath } from '../utils/page-paths';
 
 type Props = {|
   +data: Object,
@@ -29,10 +29,10 @@ const IndexTemplate = ({ data, pageContext, location }: Props) => {
 
   const pageTitle =
     currentPage > 1
-      ? `${sortByNew ? '' : 'Hot '}Posts - Page ${currentPage} - ${siteTitle}`
+      ? `${sortByNew ? '' : 'Top '}Posts - Page ${currentPage} - ${siteTitle}`
       : sortByNew
       ? siteTitle
-      : `Hot Posts - ${siteTitle}`;
+      : `Top Posts - ${siteTitle}`;
 
   return (
     <TemplateWrapper>
@@ -61,7 +61,7 @@ const IndexTemplate = ({ data, pageContext, location }: Props) => {
           <Feed edges={edges} />
           <Pagination
             currentPage={currentPage}
-            pagePath={sortByNew ? postPagePath : hotPostsPagePath}
+            pagePath={sortByNew ? postPagePath : topPostsPagePath}
             hasPrevPage={hasPrevPage}
             hasNextPage={hasNextPage}
             numPages={numPages}
