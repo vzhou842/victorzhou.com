@@ -674,6 +674,7 @@ That's it! In this post, we completed a walkthrough of Recurrent Neural Networks
 
 - Learn about [Long short-term memory](http://www.datastuff.tech/machine-learning/lstm-how-to-train-neural-networks-to-write-like-lovecraft/) networks, a more powerful and popular RNN architecture, or about [Gated Recurrent Units](https://en.wikipedia.org/wiki/Gated_recurrent_unit) (GRUs), a well-known variation of the LSTM.
 - Experiment with bigger / better RNNs using proper ML libraries like [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), or [PyTorch](https://pytorch.org/).
+- Read the rest of my [Neural Networks from Scratch](/series/neural-networks-from-scratch/) series.
 - Read about [Bidirectional RNNs](https://en.wikipedia.org/wiki/Bidirectional_recurrent_neural_networks), which process sequences both forwards and backwards so more information is available to the output layer.
 - Try out [Word Embeddings](https://en.wikipedia.org/wiki/Word_embedding) like [GloVe](https://nlp.stanford.edu/projects/glove/) or [Word2Vec](https://en.wikipedia.org/wiki/Word2vec), which can be used to turn words into more useful vector representations.
 - Check out the [Natural Language Toolkit](https://www.nltk.org/) (NLTK), a popular Python library for working with human language data.

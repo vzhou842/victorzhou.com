@@ -881,6 +881,7 @@ We achieve **97.4%** test accuracy with this simple CNN! With a better CNN archi
 
 We're done! In this 2-part series, we did a full walkthrough of Convolutional Neural Networks, including what they are, how they work, why they're useful, and how to train them. This is just the beginning, though. There's a lot more you could do:
 
+- Read the rest of my [Neural Networks from Scratch](/series/neural-networks-from-scratch/) series.
 - Experiment with bigger / better CNNs using proper ML libraries like [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), or [PyTorch](https://pytorch.org/).
 - Learn about using [Batch Normalization](https://en.wikipedia.org/wiki/Batch_normalization) with CNNs.
 - Understand how **Data Augmentation** can be used to improve image training sets.
