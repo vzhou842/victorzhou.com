@@ -12,6 +12,7 @@ import { tagPagePath } from '../utils/page-paths';
 
 type Props = {|
   +data: Object,
+  +location: Object,
   +pageContext: Object,
 |};
 
@@ -216,7 +217,7 @@ function edgeHasGuestAuthorValue(e) {
   return e.node.frontmatter.guestAuthor ? 0 : 1;
 }
 
-const TagTemplate = ({ data, pageContext }: Props) => {
+const TagTemplate = ({ data, pageContext, location }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
 
   const { tag, tagSlug, currentPage, hasPrevPage, hasNextPage, numPages } = pageContext;
@@ -233,7 +234,7 @@ const TagTemplate = ({ data, pageContext }: Props) => {
   return (
     <TemplateWrapper>
       <Layout title={pageTitle} description={metaDescriptions[tag] || siteSubtitle}>
-        <Sidebar />
+        <Sidebar location={location} />
         <Page
           title={`${tag}${currentPage > 1 ? ` - Page ${currentPage}` : ''}`}
           subtitle={<Link to="/tags/">← Back to All Tags</Link>}
