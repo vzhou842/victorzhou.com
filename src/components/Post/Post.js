@@ -28,7 +28,7 @@ type PostType = {
     +tags?: string,
     +title: string,
   },
-  +html: string,
+  +htmlAst: Object,
 };
 
 type Props = {|
@@ -56,12 +56,12 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
   } = post.frontmatter;
   const { dateFormatted, dateModifiedFormatted } = post.fields;
 
-  const { html } = post;
+  const { htmlAst } = post;
 
   return (
     <div className={styles['post']}>
       <Content
-        html={html}
+        htmlAst={htmlAst}
         title={title}
         subtitle={hideDescription ? null : description}
         dateFormatted={dateFormatted}

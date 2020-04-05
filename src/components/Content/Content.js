@@ -1,13 +1,20 @@
 // @flow
 import { graphql } from 'gatsby';
 import * as React from 'react';
+import rehypeReact from 'rehype-react';
 
 import ContentDate from '../ContentDate';
 import GuestAuthor from '../GuestAuthor';
 import styles from './Content.module.scss';
 
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: {},
+  Fragment: React.Fragment,
+}).Compiler;
+
 type Props = {|
-  +html: string,
+  +htmlAst: Object,
   +title: string,
   +subtitle: ?string,
   +dateFormatted: string,
@@ -19,7 +26,7 @@ type Props = {|
 |};
 
 const Content = ({
-  html,
+  htmlAst,
   title,
   subtitle,
   dateFormatted,
@@ -43,14 +50,14 @@ const Content = ({
       </div>
     )}
     <div className={styles['content__spacer']} />
-    <div className={styles['content__body']} dangerouslySetInnerHTML={{ __html: html }} />
+    <div className={styles['content__body']}>{renderAst(htmlAst)}</div>
     {footer}
   </article>
 );
 
 export const fragment = graphql`
   fragment ContentFragment on MarkdownRemark {
-    html
+    htmlAst
     fields {
       ...ContentDateFragment
     }

@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import Post from './Post';
 
 const post = {
-  html: '<p>test</p>',
+  htmlAst: { type: "root", children: [] },
   fields: {
     tagSlugs: ['/test_0', '/test_1'],
     dateFormatted: 'March 14, 2019',

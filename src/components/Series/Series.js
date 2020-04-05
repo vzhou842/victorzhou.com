@@ -6,7 +6,7 @@ import Post from '../Post';
 import SeriesPost from './SeriesPost';
 
 type SeriesType = {|
-  +html: string,
+  +htmlAst: Object,
   +fields: {
     +dateFormatted: string,
     +dateModifiedFormatted?: string,

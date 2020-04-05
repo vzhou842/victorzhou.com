@@ -25,11 +25,6 @@ exports[`Content renders correctly 1`] = `
   />
   <div
     className="content__body"
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "<p>test</p>",
-      }
-    }
   />
 </article>
 `;
