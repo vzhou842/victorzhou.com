@@ -15,7 +15,7 @@ describe('Series', () => {
         slug: 'test',
         title: 'test',
       },
-      htmlAst: { type: "root", children: [] },
+      htmlAst: { type: 'root', children: [] },
     },
     seriesPosts: {
       edges: [

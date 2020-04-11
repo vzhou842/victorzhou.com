@@ -7,7 +7,7 @@ describe('Content', () => {
   it('renders correctly', () => {
     const props = {
       title: 'test',
-      htmlAst: { type: "root", children: [] },
+      htmlAst: { type: 'root', children: [] },
       dateFormatted: 'February 4, 2019',
     };
 
