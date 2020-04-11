@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import React, { useEffect } from 'react';
 import Helmet from 'react-helmet';
 
@@ -26,6 +26,10 @@ const SubscriberThankYouTemplate = ({ data }) => {
           <p>You'll get new posts in your email inbox.</p>
           <h3>If you've enjoyed my blog, let your friends know!</h3>
           <Share title={title} url={url} shareText="SHARE" />
+          <h3>Hungry for some more content right now?</h3>
+          <p>
+            Check out some of my <Link to="/top/">Top Posts</Link>.
+          </p>
         </Page>
       </Layout>
     </TemplateWrapper>
