@@ -35,7 +35,13 @@ const SubscribeTemplate = ({ data, pageContext }: Object) => {
               <b>get new blog posts by email</b>.
             </p>
           )}
-          <SubscribeForm signupSource={source} large showAllOptions noDescription />
+          <SubscribeForm
+            signupSource={source}
+            large
+            showAllOptions
+            noDescription
+            ignoreUserHasSubscribed={true}
+          />
           <p>
             Don't hesitate to <Link to="/contact/">Contact Me</Link> if you have any issues!
           </p>

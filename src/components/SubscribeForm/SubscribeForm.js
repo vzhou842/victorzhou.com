@@ -22,6 +22,7 @@ type Props = {
   +noDescription?: boolean,
   +noSpacing?: boolean,
   +onKeyDown?: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
+  +ignoreUserHasSubscribed?: boolean,
 };
 
 type InnerProps = {
@@ -107,7 +108,7 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
   };
 
   render() {
-    if (userHasSubscribed()) {
+    if (!this.props.ignoreUserHasSubscribed && userHasSubscribed()) {
       return null;
     }
     const {
