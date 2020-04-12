@@ -4,12 +4,13 @@ import * as React from 'react';
 import rehypeReact from 'rehype-react';
 
 import ContentDate from '../ContentDate';
+import CSRFPostButton from '../CSRFPostButton';
 import GuestAuthor from '../GuestAuthor';
 import styles from './Content.module.scss';
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: {},
+  components: { 'csrf-post-button': CSRFPostButton },
   Fragment: React.Fragment,
 }).Compiler;
 

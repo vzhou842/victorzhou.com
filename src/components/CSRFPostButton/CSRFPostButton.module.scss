@@ -1,0 +1,12 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  border-radius: 5px;
+}
