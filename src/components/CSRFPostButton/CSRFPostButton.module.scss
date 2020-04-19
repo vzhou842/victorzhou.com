@@ -10,3 +10,11 @@
 .button {
   border-radius: 5px;
 }
+
+.button.clicked {
+  opacity: 0.75;
+}
+
+.button.clicked:hover {
+  cursor: default;
+}
