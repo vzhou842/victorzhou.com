@@ -3,6 +3,7 @@ node_js:
   - '10'
 install:
   - npm install -g codecov
+  - npm install -g prettier
 script:
   - npm install
   - npm run lint
