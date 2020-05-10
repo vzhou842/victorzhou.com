@@ -1,4 +1,5 @@
 // @flow
+import loadable from '@loadable/component';
 import { graphql } from 'gatsby';
 import * as React from 'react';
 import rehypeReact from 'rehype-react';
@@ -9,7 +10,7 @@ import styles from './Content.module.scss';
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: {},
+  components: { 'csrf-post-button': loadable(() => import('../CSRFPostButton')) },
   Fragment: React.Fragment,
 }).Compiler;
 
