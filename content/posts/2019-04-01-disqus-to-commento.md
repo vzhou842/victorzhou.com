@@ -28,8 +28,8 @@ Here's the thing: I've always known that using Disqus came at the cost of some p
 
 **I was wrong**. Last week, I finally did what I should've done at the beginning: benchmark it myself. Here are my results (benchmarked on [my Webpack post](/blog/why-you-should-use-webpack/)):
 
-<img src="/media/commento-post/requests1.png" style="width: 600px;" />
-<img src="/media/commento-post/size1.png" style="width: 600px;" />
+<img src="/media/commento-post/requests1.png" style="width: 600px;" alt="Total Network Requests" />
+<img src="/media/commento-post/size1.png" style="width: 600px;" alt="Total Payload Weight" />
 
 **Adding Disqus increased my page weight by over 10x and my request count by over 6x**. That's ridiculous! I immediately started looking to replace Disqus - [web performance is important](https://developers.google.com/web/fundamentals/performance/why-performance-matters/).
 
@@ -39,8 +39,8 @@ Here's the thing: I've always known that using Disqus came at the cost of some p
 
 A while back, I saw a [Hacker News](https://news.ycombinator.com/item?id=19210697) post about a fast, privacy-focused alternative to Disqus called [Commento](https://commento.io/). Having learned my lesson, I benchmarked Commento before committing to it:
 
-<img src="/media/commento-post/requests2.png" style="width: 600px;" />
-<img src="/media/commento-post/size2.png" style="width: 600px;" />
+<img src="/media/commento-post/requests2.png" style="width: 600px;" alt="Total Network Requests" />
+<img src="/media/commento-post/size2.png" style="width: 600px;" alt="Total Payload Weight" />
 
 What a difference. **Commento is _orders of magnitude_ lighter than Disqus**.
 

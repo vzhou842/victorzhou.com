@@ -21,7 +21,7 @@ popularity: 19
 I use a lot of [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)s in my blog posts. They're great for simple diagrams or illustrations, like this one:
 
 <figure>
-    <img src="/media/nn-series/network.svg" />
+    <img src="/media/nn-series/network.svg" alt="A neural network SVG" />
     <figcaption>From my <a href="/series/neural-networks-from-scratch/">Neural Networks From Scratch</a> Series.</figcaption>
 </figure>
 

@@ -31,7 +31,7 @@ I usually check the weather on my phone, but last week I visited [weather.com](h
 
 Why is the image in the top right so much slower to load than the others around it? I opened up Chrome Devtools to check it out:
 
-<img class="with-shadow" src="/media/image-sizing-post/map-inspected.png"></img>
+<img class="with-shadow" src="/media/image-sizing-post/map-inspected.png" alt="The image, inspected in Chrome Devtools"></img>
 
 **"intrinsic: 1280 x 720 pixels"**. That means the source image was 1280 x 720 despite the actual displayed `html›<img>` element being much smaller! The largest that `html›<img>` element grows to on weather.com is 232 x 130, but **your browser still has to download the entire 1280 x 720 image** to display it. This unnecesarily slows down the site and wastes bandwidth.
 
@@ -39,11 +39,11 @@ Here's a side-by-side comparison of the original image and a smaller version of 
 
 <div class="inline-images-container">
   <div class="inline-image-wrapper">
-    <img src="/media/image-sizing-post/map-big.jpg" width="232" height="130" />
+    <img src="/media/image-sizing-post/map-big.jpg" width="232" height="130" alt="The original image" />
     <figcaption>Original (1280 x 720)</figcaption>
   </div>
   <div class="inline-image-wrapper">
-    <img src="/media/image-sizing-post/map-small.jpg" width="232" height="130" />
+    <img src="/media/image-sizing-post/map-small.jpg" width="232" height="130" alt="A smaller version of the original image" />
     <figcaption>Resized (464 x 260)</figcaption>
   </div>
 </div>

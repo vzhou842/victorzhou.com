@@ -27,7 +27,7 @@ const SeriesPost = ({
   <div className={styles['series-post']}>
     <div className={styles['series-post-content']}>
       <Link to={slug}>
-        <img src={img} />
+        <img src={img} alt="" />
       </Link>
       <div>
         <h3>

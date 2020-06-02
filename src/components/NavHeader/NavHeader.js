@@ -32,7 +32,7 @@ function NavHeader() {
             }}
             className={cx({ header__burger: true, open: menuShown })}
           >
-            <img src="/menu.svg" width={28} height={28} />
+            <img src="/menu.svg" width={28} height={28} alt="" />
           </button>
         </DisplayIf>
       </div>
