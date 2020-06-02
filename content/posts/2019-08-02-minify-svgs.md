@@ -12,7 +12,7 @@ tags:
   - "Best Practices"
   - "Performance"
 description: "How I optimize SVGs for this blog and why you probably should, too."
-prev: "/blog/why-you-should-use-webpack/"
+prev: "/blog/csrf/"
 next: "/blog/properly-size-images/"
 discussLinkHN: https://news.ycombinator.com/item?id=20680559
 popularity: 19
