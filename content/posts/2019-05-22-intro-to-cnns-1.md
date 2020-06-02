@@ -21,7 +21,7 @@ next: "/blog/keras-cnn-tutorial/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1131212626019721217
 discussLinkHN: https://news.ycombinator.com/item?id=19981736
 discussLinkReddit: https://www.reddit.com/r/learnmachinelearning/comments/brq4dr/an_introduction_to_convolutional_neural_networks/
-popularity: 52
+popularity: 59
 ---
 
 There's been a lot of buzz about Convolution Neural Networks (CNNs) in the past few years, especially because of how they've revolutionized the field of [Computer Vision](https://en.wikipedia.org/wiki/Computer_vision). In this post, we'll build on a basic background knowledge of neural networks and **explore what CNNs are, understand how they work, and build a real one from scratch** (using only [numpy](https://www.numpy.org/)) in Python.
