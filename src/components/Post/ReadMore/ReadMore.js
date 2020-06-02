@@ -2,6 +2,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 
+import { logEvent } from '../../../utils/log';
 import styles from './ReadMore.module.scss';
 
 type PostType = {
@@ -32,7 +33,12 @@ const ReadMoreLink = ({
   },
 }: LinkProps) => (
   <div>
-    <Link to={slug}>
+    <Link
+      to={slug}
+      onClick={() => {
+        logEvent('ReadMore', 'click');
+      }}
+    >
       <b>{title}</b>
     </Link>
     <p>
