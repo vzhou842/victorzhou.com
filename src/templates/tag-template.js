@@ -187,7 +187,7 @@ const tagDescriptions = {
   'Web Development': (
     <>
       <p>
-        I love building websites.
+        I love building websites.{' '}
         <Link to="/about/">Two of my favorite (and most successful) side projects</Link> were
         websites that I built, scaled, and sold from scratch. I've done web development at several
         tech companies and am now a full stack web engineer at Facebook.
