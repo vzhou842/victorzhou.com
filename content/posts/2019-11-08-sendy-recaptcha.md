@@ -14,8 +14,8 @@ tags:
   - "Best Practices"
   - "Web Development"
 description: Sendy's reCAPTCHA implementation doesn't do anything.
-prev: "/blog/avoid-premature-optimization/"
-next: "/blog/minify-svgs/"
+prev: "/blog/csrf/"
+next: "/blog/xss/"
 discussLinkHN: https://news.ycombinator.com/item?id=21483597
 discussLinkReddit: https://www.reddit.com/r/programming/comments/dtiurq/sendy_is_insecure_how_not_to_implement_recaptcha/
 discussLinkTwitter: https://twitter.com/victorczhou/status/1192880134354657280
