@@ -9,6 +9,7 @@ import Layout from '../components/Layout';
 import NavHeader from '../components/NavHeader';
 import Post from '../components/Post';
 import Series from '../components/Series';
+import ShareIcons from '../components/ShareIcons';
 import SubscribePopup from '../components/SubscribePopup';
 import TemplateWrapper from '../components/TemplateWrapper';
 
@@ -106,6 +107,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
         )}
       </Layout>
       {!isSeries && <SubscribePopup postSlug={slug} isML={isML} isWeb={isWeb} />}
+      <ShareIcons url={slug} title={postTitle} />
       <FixedScrollContainer>
         <CarbonAd largeOnly />
       </FixedScrollContainer>

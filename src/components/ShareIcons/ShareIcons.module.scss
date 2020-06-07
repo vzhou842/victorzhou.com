@@ -1,0 +1,12 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+.share {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
