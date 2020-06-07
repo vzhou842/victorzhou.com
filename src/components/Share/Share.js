@@ -8,6 +8,7 @@ import {
   TwitterShareButton,
 } from 'react-share';
 
+import { logEvent } from '../../utils/log';
 import styles from './Share.module.scss';
 
 type Props = {
@@ -24,10 +25,16 @@ const PureShare = ({ title, url, shareText, twitter }: PureProps) => (
   <div className={styles['share']}>
     <h4 className={styles['share-title']}>{shareText || 'SHARE THIS POST'}</h4>
     <div className={styles['share-buttons']}>
-      <FacebookShareButton className={styles['facebook']} resetButtonStyle={false} url={url}>
+      <FacebookShareButton
+        beforeOnClick={() => logEvent('ShareButton', 'facebook-click')}
+        className={styles['facebook']}
+        resetButtonStyle={false}
+        url={url}
+      >
         Facebook
       </FacebookShareButton>
       <TwitterShareButton
+        beforeOnClick={() => logEvent('ShareButton', 'twitter-click')}
         className={styles['twitter']}
         resetButtonStyle={false}
         url={url}
@@ -37,6 +44,7 @@ const PureShare = ({ title, url, shareText, twitter }: PureProps) => (
         Twitter
       </TwitterShareButton>
       <LinkedinShareButton
+        beforeOnClick={() => logEvent('ShareButton', 'linkedin-click')}
         className={styles['linkedin']}
         resetButtonStyle={false}
         url={url}
@@ -45,6 +53,7 @@ const PureShare = ({ title, url, shareText, twitter }: PureProps) => (
         LinkedIn
       </LinkedinShareButton>
       <RedditShareButton
+        beforeOnClick={() => logEvent('ShareButton', 'reddit-click')}
         className={styles['reddit']}
         resetButtonStyle={false}
         url={url}
