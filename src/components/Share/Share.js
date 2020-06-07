@@ -24,26 +24,33 @@ const PureShare = ({ title, url, shareText, twitter }: PureProps) => (
   <div className={styles['share']}>
     <h4 className={styles['share-title']}>{shareText || 'SHARE THIS POST'}</h4>
     <div className={styles['share-buttons']}>
-      <FacebookShareButton url={url} className="button is-outlined is-rounded facebook">
-        <button className={styles['facebook']}>Facebook</button>
+      <FacebookShareButton className={styles['facebook']} resetButtonStyle={false} url={url}>
+        Facebook
       </FacebookShareButton>
       <TwitterShareButton
+        className={styles['twitter']}
+        resetButtonStyle={false}
         url={url}
-        className="button is-outlined is-rounded twitter"
         title={title}
         via={twitter}
       >
-        <button className={styles['twitter']}>Twitter</button>
+        Twitter
       </TwitterShareButton>
       <LinkedinShareButton
+        className={styles['linkedin']}
+        resetButtonStyle={false}
         url={url}
-        className="button is-outlined is-rounded linkedin"
         title={title}
       >
-        <button className={styles['linkedin']}>LinkedIn</button>
+        LinkedIn
       </LinkedinShareButton>
-      <RedditShareButton url={url} className="button is-outlined is-rounded reddit" title={title}>
-        <button className={styles['reddit']}>Reddit</button>
+      <RedditShareButton
+        className={styles['reddit']}
+        resetButtonStyle={false}
+        url={url}
+        title={title}
+      >
+        Reddit
       </RedditShareButton>
     </div>
   </div>
