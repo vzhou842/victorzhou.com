@@ -218,6 +218,7 @@ exports[`Post renders correctly 1`] = `
       >
         <div>
           <Link
+            onClick={[Function]}
             to="test"
           >
             <b>
@@ -235,6 +236,7 @@ exports[`Post renders correctly 1`] = `
         </div>
         <div>
           <Link
+            onClick={[Function]}
             to="test"
           >
             <b>

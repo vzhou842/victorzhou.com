@@ -37,7 +37,9 @@ exports[`Series renders correctly 1`] = `
           className="series-post-content"
         >
           <Link>
-            <img />
+            <img
+              alt=""
+            />
           </Link>
           <div>
             <h3>
