@@ -18,6 +18,7 @@ import {
 } from 'react-share';
 
 import { logEvent } from '../../utils/log';
+import PlatformContext from '../PlatformContext';
 import styles from './ShareIcons.module.scss';
 
 const cx = classnames.bind(styles);
@@ -58,47 +59,57 @@ function PureShareIcons({ title, url, twitter }: PureProps) {
   }, [visible, setVisible]);
 
   return (
-    <div className={cx({ share: true, hidden: !visible })}>
-      <EmailShareButton
-        beforeOnClick={() => logEvent('ShareIcon', 'email-click')}
-        subject={title}
-        url={url}
-      >
-        <EmailIcon size={32} />
-      </EmailShareButton>
-      <FacebookShareButton beforeOnClick={() => logEvent('ShareIcon', 'facebook-click')} url={url}>
-        <FacebookIcon size={32} />
-      </FacebookShareButton>
-      <TwitterShareButton
-        beforeOnClick={() => logEvent('ShareIcon', 'twitter-click')}
-        url={url}
-        title={title}
-        via={twitter}
-      >
-        <TwitterIcon size={32} />
-      </TwitterShareButton>
-      <LinkedinShareButton
-        beforeOnClick={() => logEvent('ShareIcon', 'linkedin-click')}
-        url={url}
-        title={title}
-      >
-        <LinkedinIcon size={32} />
-      </LinkedinShareButton>
-      <RedditShareButton
-        beforeOnClick={() => logEvent('ShareIcon', 'reddit-click')}
-        url={url}
-        title={title}
-      >
-        <RedditIcon size={32} bgStyle={{ fill: 'ff4500' }} />
-      </RedditShareButton>
-      <WhatsappShareButton
-        beforeOnClick={() => logEvent('ShareIcon', 'whatsapp-click')}
-        url={url}
-        title={title}
-      >
-        <WhatsappIcon size={32} />
-      </WhatsappShareButton>
-    </div>
+    <PlatformContext
+      threshold={1000}
+      render={isMobile =>
+        isMobile ? null : (
+          <div className={cx({ share: true, hidden: !visible })}>
+            <EmailShareButton
+              beforeOnClick={() => logEvent('ShareIcon', 'email-click')}
+              subject={title}
+              url={url}
+            >
+              <EmailIcon size={32} />
+            </EmailShareButton>
+            <FacebookShareButton
+              beforeOnClick={() => logEvent('ShareIcon', 'facebook-click')}
+              url={url}
+            >
+              <FacebookIcon size={32} />
+            </FacebookShareButton>
+            <TwitterShareButton
+              beforeOnClick={() => logEvent('ShareIcon', 'twitter-click')}
+              url={url}
+              title={title}
+              via={twitter}
+            >
+              <TwitterIcon size={32} />
+            </TwitterShareButton>
+            <LinkedinShareButton
+              beforeOnClick={() => logEvent('ShareIcon', 'linkedin-click')}
+              url={url}
+              title={title}
+            >
+              <LinkedinIcon size={32} />
+            </LinkedinShareButton>
+            <RedditShareButton
+              beforeOnClick={() => logEvent('ShareIcon', 'reddit-click')}
+              url={url}
+              title={title}
+            >
+              <RedditIcon size={32} bgStyle={{ fill: 'ff4500' }} />
+            </RedditShareButton>
+            <WhatsappShareButton
+              beforeOnClick={() => logEvent('ShareIcon', 'whatsapp-click')}
+              url={url}
+              title={title}
+            >
+              <WhatsappIcon size={32} />
+            </WhatsappShareButton>
+          </div>
+        )
+      }
+    />
   );
 }
 

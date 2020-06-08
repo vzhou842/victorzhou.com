@@ -15,6 +15,7 @@ type Props = {|
 |};
 
 const DisplayIf = ({ children, className, mobile, desktop }: Props) => (
+  // Use PlatformContext's default value for the threshold prop because it matches the CSS.
   <PlatformContext
     render={isMobile =>
       (mobile && isMobile) || (desktop && !isMobile) ? (
