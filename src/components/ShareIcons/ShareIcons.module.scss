@@ -9,6 +9,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  opacity: 1;
+  transition: opacity 250ms ease-in;
+
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
 
   button {
     height: 32px;

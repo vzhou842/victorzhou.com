@@ -32,6 +32,7 @@
         "off",
         "as-needed"
       ],
+      "consistent-return": 0,
       "indent": 0, // use format script
       "import/no-extraneous-dependencies": [
         "error",
