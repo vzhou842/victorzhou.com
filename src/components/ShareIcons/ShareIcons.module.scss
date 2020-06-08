@@ -4,13 +4,13 @@
 .share {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 3px;
   bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   opacity: 1;
-  transition: opacity 250ms ease-in;
+  @include transition(opacity);
 
   &.hidden {
     visibility: hidden;
@@ -19,6 +19,20 @@
 
   button {
     height: 32px;
-    margin: 4px 0;
+    margin: 0;
+
+    > svg > rect {
+      @include transition(opacity);
+    }
+
+    &:hover {
+      // Hack to override the inline background-color style
+      // provided by the react-share component
+      background-color: black !important;
+
+      > svg > rect {
+        opacity: 0.8;
+      }
+    }
   }
 }
