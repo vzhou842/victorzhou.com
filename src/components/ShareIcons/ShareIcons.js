@@ -2,6 +2,8 @@
 import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 import {
+  EmailIcon,
+  EmailShareButton,
   FacebookIcon,
   FacebookShareButton,
   LinkedinIcon,
@@ -10,6 +12,8 @@ import {
   RedditShareButton,
   TwitterIcon,
   TwitterShareButton,
+  WhatsappIcon,
+  WhatsappShareButton,
 } from 'react-share';
 
 import { logEvent } from '../../utils/log';
@@ -26,6 +30,9 @@ type PureProps = {
 
 const PureShareIcons = ({ title, url, twitter }: PureProps) => (
   <div className={styles['share']}>
+    <EmailShareButton beforeOnClick={() => logEvent('ShareIcon', 'email-click')} subject={title} url={url}>
+      <EmailIcon size={32} />
+    </EmailShareButton>
     <FacebookShareButton beforeOnClick={() => logEvent('ShareIcon', 'facebook-click')} url={url}>
       <FacebookIcon size={32} />
     </FacebookShareButton>
@@ -51,6 +58,13 @@ const PureShareIcons = ({ title, url, twitter }: PureProps) => (
     >
       <RedditIcon size={32} bgStyle={{ fill: 'ff4500' }} />
     </RedditShareButton>
+    <WhatsappShareButton
+      beforeOnClick={() => logEvent('ShareIcon', 'whatsapp-click')}
+      url={url}
+      title={title}
+    >
+      <WhatsappIcon size={32} />
+    </WhatsappShareButton>
   </div>
 );
 

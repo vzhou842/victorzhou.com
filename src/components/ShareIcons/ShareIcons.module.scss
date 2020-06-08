@@ -9,4 +9,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  button {
+    height: 32px;
+    margin: 4px 0;
+  }
 }
