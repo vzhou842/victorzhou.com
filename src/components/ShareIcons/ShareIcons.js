@@ -97,7 +97,7 @@ function PureShareIcons({ title, url, twitter }: PureProps) {
               url={url}
               title={title}
             >
-              <RedditIcon size={32} bgStyle={{ fill: 'ff4500' }} />
+              <RedditIcon size={32} bgStyle={{ fill: '#ff4500' }} />
             </RedditShareButton>
             <WhatsappShareButton
               beforeOnClick={() => logEvent('ShareIcon', 'whatsapp-click')}
