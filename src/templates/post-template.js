@@ -9,11 +9,11 @@ import Layout from '../components/Layout';
 import NavHeader from '../components/NavHeader';
 import Post from '../components/Post';
 import Series from '../components/Series';
-import ShareIcons from '../components/ShareIcons';
 import SubscribePopup from '../components/SubscribePopup';
 import TemplateWrapper from '../components/TemplateWrapper';
 
 const CarbonAd = loadable(() => import('../components/CarbonAd'));
+const ShareIcons = loadable(() => import('../components/ShareIcons'));
 
 type Props = {|
   +data: Object,
