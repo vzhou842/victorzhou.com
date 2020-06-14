@@ -178,6 +178,9 @@ Array [
       ✕
     </button>
   </div>,
+  <StaticQuery
+    render={[Function]}
+  />,
   <div
     className="container"
   />,
