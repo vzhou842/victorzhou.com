@@ -1,7 +1,7 @@
 // @flow
 import loadable from '@loadable/component';
 import { graphql } from 'gatsby';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Helmet from 'react-helmet';
 
 import FixedScrollContainer from '../components/FixedScrollContainer';
@@ -49,6 +49,20 @@ const PostTemplate = ({ data, pageContext }: Props) => {
   if (data.seriesEnd) {
     wordCount += data.seriesEnd.fields.readingTime.words;
   }
+
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    if (hasScrolled) {
+      return;
+    }
+
+    const listener = () => setHasScrolled(true);
+    window.addEventListener('scroll', listener);
+    return () => {
+      window.removeEventListener('scroll', listener);
+    };
+  }, [hasScrolled, setHasScrolled]);
 
   return (
     <TemplateWrapper>
@@ -107,10 +121,14 @@ const PostTemplate = ({ data, pageContext }: Props) => {
         )}
       </Layout>
       {!isSeries && <SubscribePopup postSlug={slug} isML={isML} isWeb={isWeb} />}
-      <ShareIcons url={slug} title={postTitle} />
-      <FixedScrollContainer>
-        <CarbonAd largeOnly />
-      </FixedScrollContainer>
+      {hasScrolled && (
+        <>
+          <ShareIcons url={slug} title={postTitle} />
+          <FixedScrollContainer>
+            <CarbonAd largeOnly />
+          </FixedScrollContainer>
+        </>
+      )}
     </TemplateWrapper>
   );
 };
