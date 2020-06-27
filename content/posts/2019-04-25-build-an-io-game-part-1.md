@@ -551,11 +551,11 @@ If we just render the most recent game update, our effective FPS cannot exceed 3
 
 Another problem with the naive implementation is that it's **prone to lag**. Under perfect internet conditions, the client would receive a game update exactly every 33 ms (30 per second):
 
-![](/media/io-game-post/game-updates-ideal.svg)
+![Ideal game updates](/media/io-game-post/game-updates-ideal.svg)
 
 Sadly, nothing is ever that perfect. A more realistic representation might look like this:
 
-![](/media/io-game-post/game-updates-nonideal.svg)
+![Non-ideal game updates](/media/io-game-post/game-updates-nonideal.svg)
 
 The naive implementation is pretty much the worst case scenario when it comes to lag. If a game update arrives 50 ms late, **the client freezes** for an extra 50 ms because it's still rendering the game state of the previous update. You can imagine how that'd be a bad experience for the player: the game would be jittery and feel unstable because it randomly freezes.
 
