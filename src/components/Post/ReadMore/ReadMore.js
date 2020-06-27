@@ -1,5 +1,5 @@
 // @flow
-import { Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import React from 'react';
 
 import { logEvent } from '../../../utils/log';
@@ -12,6 +12,7 @@ type PostType = {
   },
   +frontmatter: {
     +description: string,
+    +img: string,
     +slug: string,
     +title: string,
   },
@@ -29,10 +30,13 @@ type Props = {|
 const ReadMoreLink = ({
   post: {
     fields: { dateFormatted, dateModifiedFormatted },
-    frontmatter: { description, slug, title },
+    frontmatter: { description, img, slug, title },
   },
 }: LinkProps) => (
   <div>
+    <Link to={slug}>
+      <img className={styles['readmore-thumbnail']} loading="lazy" src={img} alt={title} />
+    </Link>
     <Link
       to={slug}
       onClick={() => {
@@ -57,5 +61,20 @@ const ReadMore = ({ prevPost, nextPost }: Props) => (
     </div>
   </div>
 );
+
+export const fragment = graphql`
+  fragment ReadMoreFragment on MarkdownRemark {
+    fields {
+      dateFormatted
+      dateModifiedFormatted
+    }
+    frontmatter {
+      description
+      img
+      slug
+      title
+    }
+  }
+`;
 
 export default ReadMore;
