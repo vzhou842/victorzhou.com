@@ -22,6 +22,7 @@ type PostType = {
     +guestAuthor?: ?string,
     +guestCoAuthor?: ?boolean,
     +guestAuthorLink?: ?string,
+    +img: string,
     +isML: boolean,
     +isWeb: boolean,
     +slug: string,
@@ -112,6 +113,7 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
 export const fragment = graphql`
   fragment PostFragment on MarkdownRemark {
     ...ContentFragment
+    ...ReadMoreFragment
     frontmatter {
       ...DiscussFragment
       ...SubscribeFormFragment
