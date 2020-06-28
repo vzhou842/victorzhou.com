@@ -34,7 +34,12 @@ const ReadMoreLink = ({
   },
 }: LinkProps) => (
   <div>
-    <Link to={slug}>
+    <Link
+      to={slug}
+      onClick={() => {
+        logEvent('ReadMore', 'click');
+      }}
+    >
       <img className={styles['readmore-thumbnail']} loading="lazy" src={img} alt={title} />
     </Link>
     <Link
