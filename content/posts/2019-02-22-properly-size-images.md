@@ -33,7 +33,7 @@ Why is the image in the top right so much slower to load than the others around 
 
 <img class="with-shadow" src="/media/image-sizing-post/map-inspected.png" alt="The image, inspected in Chrome Devtools"></img>
 
-**"intrinsic: 1280 x 720 pixels"**. That means the source image was 1280 x 720 despite the actual displayed `html›<img>` element being much smaller! The largest that `html›<img>` element grows to on weather.com is 232 x 130, but **your browser still has to download the entire 1280 x 720 image** to display it. This unnecesarily slows down the site and wastes bandwidth.
+**"intrinsic: 1280 x 720 pixels"**. That means the source image was 1280 x 720 despite the actual displayed `html›<img>` element being much smaller! The largest that `html›<img>` element grows to on weather.com is 232 x 130, but **your browser still has to download the entire 1280 x 720 image** to display it. This unnecessarily slows down the site and wastes bandwidth.
 
 Here's a side-by-side comparison of the original image and a smaller version of it:
 

@@ -78,7 +78,7 @@ Those two facts refute this claim:
 
 > There's no way to implement Google's reCAPTCHA in an API.
 
-Additionally, why would Ben tell me that reCAPTCHA would "_take effect for for the standard subscribe forms that Sendy provides, not the subscribe API_"?
+Additionally, why would Ben tell me that reCAPTCHA would "_take effect for the standard subscribe forms that Sendy provides, not the subscribe API_"?
 
 ```html
 <form action="https://sendy.victorzhou.com/subscribe" method="POST">

@@ -458,7 +458,7 @@ class Player extends ObjectClass {
 }
 ```
 
-Players are more complex than bullets, so this class needs to store a couple extra fields. Its `js›update()` method does a few extra things, notably returning a newly fired bullet if there is no `fireCooldown` left (remember talking about this in the previous section?). It also extends the `js›serializeForUpdate()` method, since we need to inlude extra fields for a player in a game update.
+Players are more complex than bullets, so this class needs to store a couple extra fields. Its `js›update()` method does a few extra things, notably returning a newly fired bullet if there is no `fireCooldown` left (remember talking about this in the previous section?). It also extends the `js›serializeForUpdate()` method, since we need to include extra fields for a player in a game update.
 
 **Having a base `Object` class is key for preventing code repetition**. For example, without the `Object` class, every game object would have the exact same implementation of `js›distanceTo()`, and it'd be a nightmare to keep all of those copy-pasted implementations in sync across different files. **This becomes especially important for larger projects**, as the number of classes extending `Object` grows.
 

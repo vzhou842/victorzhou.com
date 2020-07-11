@@ -142,7 +142,7 @@ This makes sense: **higher Information Gain = more Entropy removed**, which is w
 
 ## Recap
 
-**Information Entropy** can be thought of as how how unpredictable a dataset is.
+**Information Entropy** can be thought of as how unpredictable a dataset is.
 
 - A set of only one class (say, blue <span class="inline-point blue"></span><span class="inline-point blue"></span><span class="inline-point blue"></span>) is extremely predictable: anything in it is blue. This would have **low** entropy.
 - A set of many mixed classes <span class="inline-point blue"></span><span class="inline-point green"></span><span class="inline-point red"></span> is unpredictable: a given element could be any color! This would have **high** entropy.
