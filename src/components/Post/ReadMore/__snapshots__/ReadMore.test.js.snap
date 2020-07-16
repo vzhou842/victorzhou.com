@@ -16,6 +16,14 @@ exports[`ReadMore renders correctly 1`] = `
       <Link
         onClick={[Function]}
       >
+        <img
+          className="readmore-thumbnail"
+          loading="lazy"
+        />
+      </Link>
+      <Link
+        onClick={[Function]}
+      >
         <b />
       </Link>
       <p>
@@ -26,6 +34,14 @@ exports[`ReadMore renders correctly 1`] = `
       <p />
     </div>
     <div>
+      <Link
+        onClick={[Function]}
+      >
+        <img
+          className="readmore-thumbnail"
+          loading="lazy"
+        />
+      </Link>
       <Link
         onClick={[Function]}
       >

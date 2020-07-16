@@ -38,7 +38,8 @@ exports[`Series renders correctly 1`] = `
         >
           <Link>
             <img
-              alt=""
+              alt="test"
+              loading="lazy"
             />
           </Link>
           <div>

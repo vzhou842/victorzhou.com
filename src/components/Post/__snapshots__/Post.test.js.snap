@@ -221,6 +221,16 @@ exports[`Post renders correctly 1`] = `
             onClick={[Function]}
             to="test"
           >
+            <img
+              alt="test"
+              className="readmore-thumbnail"
+              loading="lazy"
+            />
+          </Link>
+          <Link
+            onClick={[Function]}
+            to="test"
+          >
             <b>
               test
             </b>
@@ -235,6 +245,16 @@ exports[`Post renders correctly 1`] = `
           </p>
         </div>
         <div>
+          <Link
+            onClick={[Function]}
+            to="test"
+          >
+            <img
+              alt="test"
+              className="readmore-thumbnail"
+              loading="lazy"
+            />
+          </Link>
           <Link
             onClick={[Function]}
             to="test"

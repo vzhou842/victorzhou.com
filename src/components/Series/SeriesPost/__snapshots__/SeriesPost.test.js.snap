@@ -11,7 +11,8 @@ exports[`SeriesPost renders correctly 1`] = `
       to="test-slug"
     >
       <img
-        alt=""
+        alt="test-title"
+        loading="lazy"
         src="test-img"
       />
     </Link>
