@@ -17,6 +17,7 @@ description: A look into the backend server behind an .io game.
 prev: "/blog/why-you-should-use-webpack/"
 next: "/blog/how-i-became-a-programmer/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1124325065326256128
+discussLinkReddit: https://www.reddit.com/r/gamedev/comments/i23pen/i_made_a_tutorial_series_on_on_building/
 popularity: 13
 ---
 
