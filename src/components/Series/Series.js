@@ -27,16 +27,16 @@ type SeriesType = {|
 
 type SeriesPostType = {
   +node: {
-    +fields: {
+    +fields: {|
       +dateFormatted: string,
       +dateModifiedFormatted?: string,
-    },
-    +frontmatter: {
+    |},
+    +frontmatter: {|
       +description: string,
       +img: string,
       +slug: string,
       +title: string,
-    },
+    |},
   },
 };
 
