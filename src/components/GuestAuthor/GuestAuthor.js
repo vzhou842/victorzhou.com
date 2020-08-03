@@ -16,7 +16,7 @@ export default function GuestAuthor({ author, coAuthor, link }: Props) {
   }
   return (
     <p className={styles['root']}>
-      {author != null
+      {author != null && coAuthor == null
         ? author.trim() !== ''
           ? 'Guest Post by '
           : 'Guest Post'
