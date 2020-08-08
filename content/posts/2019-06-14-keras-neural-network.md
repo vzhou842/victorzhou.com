@@ -1,7 +1,7 @@
 ---
 title: "Keras for Beginners: Building Your First Neural Network"
 date: "2019-06-14T12:00:00.000Z"
-dateModified: "2019-12-26T12:00:00.000Z"
+dateModified: "2020-08-08T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/keras-neural-network-tutorial/"
@@ -43,17 +43,17 @@ Each image in the MNIST dataset is 28x28 and contains a centered, grayscale digi
 I'm assuming you already have a basic Python installation ready (you probably do). Let's first install some packages we'll need:
 
 ```bash
-$ pip install keras tensorflow numpy mnist
+$ pip install tensorflow numpy mnist
 ```
 
-> Note: We need to install `tensorflow` because we're going to run Keras on a [TensorFlow](https://www.tensorflow.org/) backend (i.e. TensorFlow will power Keras).
+> Note: We don't need to install the `keras` package because it now comes bundled with [TensorFlow](https://www.tensorflow.org/) as its official high-level API! Using TensorFlow's Keras is now recommended over the standalone `keras` package.
 
 You should now be able to import these packages and poke around the MNIST dataset:
 
 ```python
 import numpy as np
 import mnist
-import keras
+from tensorflow import keras
 
 # The first time you run this might be a bit slow, since the
 # mnist package has to download and cache the data.
@@ -98,8 +98,8 @@ Every Keras model is either built using the [Sequential](https://keras.io/models
 We start by instantiating a `Sequential` model:
 
 ```python
-from keras.models import Sequential
-from keras.layers import Dense
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
 
 # WIP
 model = Sequential([
@@ -139,8 +139,8 @@ Once the input shape is specified, Keras will automatically infer the shapes of 
 ```python
 import numpy as np
 import mnist
-from keras.models import Sequential
-from keras.layers import Dense
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
 
 train_images = mnist.train_images()
 train_labels = mnist.train_labels()
@@ -211,9 +211,9 @@ We can now put everything together to train our network:
 ```python
 import numpy as np
 import mnist
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.utils import to_categorical
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.utils import to_categorical
 
 train_images = mnist.train_images()
 train_labels = mnist.train_labels()
@@ -299,8 +299,8 @@ model.save_weights('model.h5')
 We can now reload the trained model whenever we want by rebuilding it and loading in the saved weights:
 
 ```python
-from keras.models import Sequential
-from keras.layers import Dense
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
 
 # Build the model.
 model = Sequential([
@@ -335,7 +335,7 @@ What we've covered so far was but a brief introduction - there's much more we ca
 A good hyperparameter to start with is the learning rate for the [Adam](https://keras.io/optimizers/#adam) optimizer. What happens when you increase or decrease it?
 
 ```python
-from keras.optimizers import Adam # highlight-line
+from tensorflow.keras.optimizers import Adam # highlight-line
 
 model.compile(
   optimizer=Adam(lr=0.005), # highlight-line
@@ -386,7 +386,7 @@ model = Sequential([
 What if we tried adding [Dropout](https://keras.io/layers/core/#dropout) layers, which are known to prevent overfitting?
 
 ```python
-from keras.layers import Dense, Dropout # highlight-line
+from tensorflow.keras.layers import Dense, Dropout # highlight-line
 
 model = Sequential([
   Dense(64, activation='relu', input_shape=(784,)),
@@ -431,9 +431,9 @@ Thanks for reading this post! The full source code is below.
 ###############################
 import numpy as np
 import mnist
-from keras.models import Sequential
-from keras.layers import Dense
-from keras.utils import to_categorical
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.utils import to_categorical
 
 train_images = mnist.train_images()
 train_labels = mnist.train_labels()
