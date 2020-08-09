@@ -5,7 +5,7 @@ dateModified: "2020-08-08T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/keras-neural-network-tutorial/"
-img: "https://victorzhou.com/media/keras-posts/keras-logo.png"
+img: "https://victorzhou.com/media/keras-posts/keras-nn.png"
 isML: true
 category: "Python"
 tags:
