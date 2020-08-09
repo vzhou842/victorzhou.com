@@ -15,7 +15,7 @@ tags:
   - "Neural Networks"
   - "For Beginners"
 description: A beginner-friendly guide on using Keras to implement a simple Neural Network in Python.
-prev: "/blog/intro-to-cnns-part-1/"
+prev: "/blog/keras-rnn-tutorial/"
 next: "/blog/keras-cnn-tutorial/"
 popularity: 40
 ---
@@ -418,6 +418,7 @@ You've implemented your first neural network with Keras! We achieved a test accu
 If you want to learn about more advanced techniques to approach MNIST, I recommend checking out my [introduction to Convolutional Neural Networks](/blog/intro-to-cnns-part-1/) (CNNs). In it, we see how to achieve **much higher (>99%) accuracies** on MNIST using more complex networks. I also recommend my guide on [implementing a CNN with Keras](/blog/keras-cnn-tutorial/), which is similar to this post.
 
 Further reading you might be interested in include:
+- My [Keras for Beginners](/series/keras-for-beginners/) series, which has more Keras guides.
 - The official [getting started with Keras](https://keras.io/getting_started/) guide.
 - This [introduction to CNNs with Keras](http://www.datastuff.tech/machine-learning/convolutional-neural-networks-an-introduction-tensorflow-eager/).
 - A collection of [Keras examples](https://github.com/keras-team/keras/tree/master/examples).
