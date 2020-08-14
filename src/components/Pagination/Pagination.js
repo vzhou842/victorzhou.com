@@ -6,8 +6,6 @@ import styles from './Pagination.module.scss';
 
 const cx = classNames.bind(styles);
 
-const PAGINATE_RANGE = 2;
-
 const Pagination = ({ classes, currentPage, pagePath, hasNextPage, hasPrevPage, numPages }) => {
   if (!hasNextPage && !hasPrevPage) {
     return null;
@@ -23,31 +21,22 @@ const Pagination = ({ classes, currentPage, pagePath, hasNextPage, hasPrevPage, 
     'pagination__next-link--disable': !hasNextPage,
   });
 
-  const pageNumbers = [];
-  const min = currentPage - PAGINATE_RANGE;
-  const max = currentPage + PAGINATE_RANGE;
-  for (let i = min; i <= max; i++) {
-    if (i >= 1 && i <= numPages) {
+  let pageNumbers = [];
+
+  // If there are <= 7 pages, we'll never need an ellipsis.
+  if (numPages <= 7) {
+    for (let i = 1; i <= numPages; i++) {
       pageNumbers.push(i);
     }
-  }
-
-  if (min <= 1 && max < numPages) {
-    // 1 2 … n
-    if (max < numPages - 1) {
-      pageNumbers.push('…');
-    }
-    pageNumbers.push(numPages);
-  } else if (max >= numPages && min > 1) {
-    // 1 … (n-1) n
-    if (min > 2) {
-      pageNumbers.unshift('…');
-    }
-    pageNumbers.unshift(1);
-  } else if (min > 1 && max < numPages) {
-    // … (k-1) k (k+1) …
-    pageNumbers.unshift(min > 2 ? '…' : 1);
-    pageNumbers.push(max < numPages - 1 ? '…' : numPages);
+  } else if (currentPage <= 4) {
+    // 1 2 3 4 5 ... n
+    pageNumbers = [1, 2, 3, 4, 5, '…', numPages];
+  } else if (currentPage < numPages - 3) {
+    // 1 ... c-1 c c+1 ... n
+    pageNumbers = [1, '…', currentPage - 1, currentPage, currentPage + 1, '…', numPages];
+  } else {
+    // 1 ... n-4 n-3 n-2 n-1 n
+    pageNumbers = [1, '…', numPages - 4, numPages - 3, numPages - 2, numPages - 1, numPages];
   }
 
   return (

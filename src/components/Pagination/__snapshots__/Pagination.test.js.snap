@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pagination renders correctly 1`] = `
+exports[`Pagination renders correctly on page 2 / 5 1`] = `
 <div
   className="pagination "
 >
@@ -66,6 +66,89 @@ exports[`Pagination renders correctly 1`] = `
       className="pagination__next-link"
       rel="next"
       to="/test/3"
+    >
+      NEXT →
+    </Link>
+  </div>
+</div>
+`;
+
+exports[`Pagination renders correctly on page 6 / 10 1`] = `
+<div
+  className="pagination "
+>
+  <div
+    className="pagination__prev"
+  >
+    <Link
+      className="pagination__prev-link"
+      rel="prev"
+      to="/test/5"
+    >
+      ← PREV
+    </Link>
+  </div>
+  <ul
+    className="pagination__list-container"
+  >
+    <li>
+      <Link
+        className=""
+        to="/test/1"
+      >
+        1
+      </Link>
+    </li>
+    <li>
+      <p>
+        …
+      </p>
+    </li>
+    <li>
+      <Link
+        className=""
+        to="/test/5"
+      >
+        5
+      </Link>
+    </li>
+    <li>
+      <Link
+        className="selected"
+        to="/test/6"
+      >
+        6
+      </Link>
+    </li>
+    <li>
+      <Link
+        className=""
+        to="/test/7"
+      >
+        7
+      </Link>
+    </li>
+    <li>
+      <p>
+        …
+      </p>
+    </li>
+    <li>
+      <Link
+        className=""
+        to="/test/10"
+      >
+        10
+      </Link>
+    </li>
+  </ul>
+  <div
+    className="pagination__next"
+  >
+    <Link
+      className="pagination__next-link"
+      rel="next"
+      to="/test/7"
     >
       NEXT →
     </Link>
