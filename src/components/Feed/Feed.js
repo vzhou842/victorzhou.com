@@ -2,6 +2,7 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
 
+import { logEvent } from '../../utils/log';
 import GuestAuthor from '../GuestAuthor';
 import styles from './Feed.module.scss';
 
@@ -9,6 +10,10 @@ type Props = {|
   +edges: Array<Object>,
   +shortened?: boolean,
 |};
+
+function onLinkClick() {
+  logEvent(`Feed ${window.location.pathname}`, 'post-click');
+}
 
 const Feed = ({ edges, shortened }: Props) => (
   <div className={styles['feed']}>
@@ -30,7 +35,7 @@ const Feed = ({ edges, shortened }: Props) => (
       return (
         <div className={styles['feed__item']} key={slug}>
           <h2 className={styles['feed__item-title']}>
-            <Link className={styles['feed__item-title-link']} to={slug}>
+            <Link className={styles['feed__item-title-link']} to={slug} onClick={onLinkClick}>
               {title}
             </Link>
           </h2>
@@ -49,7 +54,7 @@ const Feed = ({ edges, shortened }: Props) => (
           {!shortened && (
             <>
               <p className={styles['feed__item-description']}>{description}</p>
-              <Link className={styles['feed__item-readmore']} to={slug}>
+              <Link className={styles['feed__item-readmore']} to={slug} onClick={onLinkClick}>
                 {isSeries ? 'View Series' : 'Read'}
               </Link>
             </>
