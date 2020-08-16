@@ -1,7 +1,7 @@
 ---
 title: "CNNs, Part 2: Training a Convolutional Neural Network"
 date: "2019-05-29T12:00:00.000Z"
-dateModified: "2019-08-08T12:00:00.000Z"
+dateModified: "2020-08-16T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
@@ -826,10 +826,10 @@ We only used a subset of the entire MNIST dataset for this example in the intere
 # Header: cnn_keras.py
 import numpy as np
 import mnist
-from keras.models import Sequential
-from keras.layers import Conv2D, MaxPooling2D, Dense, Flatten
-from keras.utils import to_categorical
-from keras.optimizers import SGD
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten
+from tensorflow.keras.utils import to_categorical
+from tensorflow.keras.optimizers import SGD
 
 train_images = mnist.train_images()
 train_labels = mnist.train_labels()
