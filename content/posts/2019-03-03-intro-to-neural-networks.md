@@ -206,6 +206,8 @@ print(network.feedforward(x)) # 0.7216325609518421
 
 We got $0.7216$ again! Looks like it works.
 
+> Liking this post so far? [Subscribe to my newsletter](/subscribe/?src=intro-to-nn) to get more ML content in your inbox.
+
 ## 3. Training a Neural Network, Part 1
 
 Say we have the following measurements:
