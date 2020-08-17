@@ -12,6 +12,7 @@ exports[`Feed renders correctly 1`] = `
     >
       <Link
         className="feed__item-title-link"
+        onClick={[Function]}
         to="test_0"
       >
         test_0
@@ -47,6 +48,7 @@ exports[`Feed renders correctly 1`] = `
     </p>
     <Link
       className="feed__item-readmore"
+      onClick={[Function]}
       to="test_0"
     >
       Read
@@ -60,6 +62,7 @@ exports[`Feed renders correctly 1`] = `
     >
       <Link
         className="feed__item-title-link"
+        onClick={[Function]}
         to="test_1"
       >
         test_1
@@ -95,6 +98,7 @@ exports[`Feed renders correctly 1`] = `
     </p>
     <Link
       className="feed__item-readmore"
+      onClick={[Function]}
       to="test_1"
     >
       Read
