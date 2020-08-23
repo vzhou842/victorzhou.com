@@ -39,8 +39,8 @@ Here's the thing: I've always known that using Disqus came at the cost of some p
 
 A while back, I saw a [Hacker News](https://news.ycombinator.com/item?id=19210697) post about a fast, privacy-focused alternative to Disqus called [Commento](https://commento.io/). Having learned my lesson, I benchmarked Commento before committing to it:
 
-<img src="/media/commento-post/requests2.png" style="width: 600px;" alt="Total Network Requests" />
-<img src="/media/commento-post/size2.png" style="width: 600px;" alt="Total Payload Weight" />
+<img src="/media/commento-post/requests2.png" style="width: 600px;" loading="lazy" alt="Total Network Requests" />
+<img src="/media/commento-post/size2.png" style="width: 600px;" loading="lazy" alt="Total Payload Weight" />
 
 What a difference. **Commento is _orders of magnitude_ lighter than Disqus**.
 
