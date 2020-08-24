@@ -11,7 +11,7 @@ tags:
   - "Best Practices"
   - "Performance"
 description: "Even weather.com is doing this wrong - are you?"
-prev: "/blog/why-you-should-use-webpack/"
+prev: "/blog/lazy-loading-images/"
 next: "/blog/minify-svgs/"
 twitterEmbed: true
 discussLinkTwitter: https://twitter.com/css/status/1100912724295454721
