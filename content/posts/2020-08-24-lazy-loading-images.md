@@ -48,12 +48,24 @@ It's trivial to implement, it won't break your site for anyone, and it's a win f
 
 ## Or, do it with a library
 
-...if ~~you're a tryhard~~ lazy loading is especially important for your site. You can check for browser support of this feature and only use a library when needed - [lazysizes](https://github.com/aFarkas/lazysizes) is a popular choice. I won't get into the details here, but [this](https://web.dev/native-lazy-loading/#how-do-i-handle-browsers-that-don't-yet-support-native-lazy-loading) might help you get started.
+...if ~~you're a tryhard~~ lazy loading is especially important for your site. That way, you can lazy load even in browsers that don't support it natively!
+
+If you want, you can use the library as a fallback:
+
+```js
+if ('loading' in HTMLImageElement.prototype) {
+  // browser supports native lazy loading
+} else {
+  // download and use a lazy loading library
+}
+```
+
+The [lazysizes](https://github.com/aFarkas/lazysizes) library is a popular choice. I won't get into the details here, but [this](https://web.dev/native-lazy-loading/#how-do-i-handle-browsers-that-don't-yet-support-native-lazy-loading) might help you get started.
 
 
-## I've heard that you actually shouldn't lazy load images
+## Um, I've heard you actually shouldn't lazy load images
 
-Well, ~~you heard wrong~~ that's true in some cases. There are probably scenarios out there for which you could justify eager loading. I'm not saying everyone should always be lazy loading, I'm saying that *it's pretty likely you should be* if you're not already. [Lighthouse](https://developers.google.com/web/tools/lighthouse) agrees with me - in their words, [defer offscreen images](https://web.dev/offscreen-images/).
+Well, ~~you heard wrong~~ that's probably true in some cases. There might be scenarios out there for which you could justify eager loading. I'm not saying everyone should always be lazy loading, I'm saying that *it's pretty likely you should be* if you're not already. [Lighthouse](https://developers.google.com/web/tools/lighthouse) agrees with me - in their words, [defer offscreen images](https://web.dev/offscreen-images/).
 
 > "Offscreen" is an important qualifier: above-the fold images would never get lazy loaded anyways, so it's [recommended](https://web.dev/native-lazy-loading/#is-there-a-downside-to-lazy-loading-images-that-are-within-the-device-viewport) to avoid applying `loading="lazy"` at all.
 
@@ -62,7 +74,7 @@ Well, ~~you heard wrong~~ that's true in some cases. There are probably scenario
 
 But first, I need to make this post longer to push the images down so they actually get lazy loaded.
 
-<div style="height: 1000px;"></div>
+<div style="height: 800px;"></div>
 
 There we go. Now, look - they work just like normal images, right?
 
