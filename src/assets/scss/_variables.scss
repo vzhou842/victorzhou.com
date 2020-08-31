@@ -10,6 +10,7 @@ $_color-secondary: #0F9640;
 :root {
   --color-background: #FFF;
   --color-base: #{$_color-base};
+  --color-base-no-invert: #{$_color-base};
   --color-primary: #{$_color-primary};
   --color-secondary: #{$_color-secondary};
   --color-white: #FFF;
