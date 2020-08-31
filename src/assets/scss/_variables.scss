@@ -8,6 +8,7 @@ $_color-primary: #164BC5;
 $_color-secondary: #0F9640;
 
 :root {
+  --color-background: #FFF;
   --color-base: #{$_color-base};
   --color-primary: #{$_color-primary};
   --color-secondary: #{$_color-secondary};
@@ -19,10 +20,15 @@ $_color-secondary: #0F9640;
   --color-primary-light: #{lighten($_color-primary, 50%)};
   --color-white: #FFF;
   --color-emph-special: #{darken($_color-secondary, 8%)};
+
+  background-color: var(--color-background);
 }
 
-.dark {
+:root.dark {
+  --color-background: #222;
   --color-base: #{invert($_color-base)};
+  --color-primary: #{lighten($_color-primary, 15%)};
+  --color-secondary: #{lighten($_color-secondary, 15%)};
   --color-gray: #{invert(lighten($_color-base, 35%))};
   --color-gray-shadow: #{invert(lighten($_color-base, 60%))};
   --color-gray-light-shadow: #{invert(lighten($_color-base, 70%))};

@@ -40,8 +40,8 @@
 
   input[type='email'] {
     max-width: 90%;
-    background-color: white;
-    border: 1px solid white;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-background);
     border-radius: 5px;
     padding: 8px 10px;
     /* need min 16px below to avoid page zooming in when input is focused on iOS */
@@ -60,7 +60,7 @@
     -moz-appearance: none;
     border-radius: 3px;
     background-color: $color-primary;
-    color: white;
+    color: var(--color-white);
     font-size: $typographic-base-font-size * 0.75;
     font-weight: bold;
     margin: 0 auto;
