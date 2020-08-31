@@ -12,13 +12,16 @@ $_color-secondary: #0F9640;
   --color-base: #{$_color-base};
   --color-primary: #{$_color-primary};
   --color-secondary: #{$_color-secondary};
+  --color-white: #FFF;
+  --color-black: #000;
+
   --color-gray: #{lighten($_color-base, 35%)};
   --color-gray-shadow: #{lighten($_color-base, 60%)};
   --color-gray-light-shadow: #{lighten($_color-base, 70%)};
   --color-gray-border: #{lighten($_color-base, 77%)};
   --color-gray-bg: #{lighten($_color-base, 82%)};
+
   --color-primary-light: #{lighten($_color-primary, 50%)};
-  --color-white: #FFF;
   --color-emph-special: #{darken($_color-secondary, 8%)};
 
   background-color: var(--color-background);
@@ -29,13 +32,16 @@ $_color-secondary: #0F9640;
   --color-base: #{invert($_color-base)};
   --color-primary: #{lighten($_color-primary, 15%)};
   --color-secondary: #{lighten($_color-secondary, 15%)};
+  --color-white: #000;
+  --color-black: #FFF;
+
   --color-gray: #{invert(lighten($_color-base, 35%))};
   --color-gray-shadow: #{invert(lighten($_color-base, 60%))};
   --color-gray-light-shadow: #{invert(lighten($_color-base, 70%))};
   --color-gray-border: #{invert(lighten($_color-base, 77%))};
   --color-gray-bg: #{invert(lighten($_color-base, 82%))};
+
   --color-primary-light: #{invert(darken($_color-primary, 50%))};
-  --color-white: #000;
   --color-emph-special: #{invert(lighten($_color-secondary, 8%))};
 }
 
