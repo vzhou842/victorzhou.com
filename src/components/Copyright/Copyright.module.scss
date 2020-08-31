@@ -2,7 +2,7 @@
 @import '../../assets/scss/mixins';
 
 .copyright {
-  color: lighten($color-gray, 18%);
+  color: $color-gray-shadow;
   font-size: $typographic-small-font-size;
   text-align: center;
 }

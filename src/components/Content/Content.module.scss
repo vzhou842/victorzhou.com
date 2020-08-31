@@ -181,7 +181,7 @@
     }
 
     :global(.emph-special) {
-      color: darken($color-secondary, 8%);
+      color: var(--color-emph-special);
       font-style: italic;
     }
 
