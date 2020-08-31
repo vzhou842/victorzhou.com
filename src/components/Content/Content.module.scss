@@ -148,7 +148,7 @@
 
     // From https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
     :global(.gatsby-highlight-code-line) {
-      background-color: $color-primary-light;
+      background-color: var(--color-highlight-code-line);
       display: block;
       margin-right: -1em;
       margin-left: -$layout-mobile-padding;

@@ -22,7 +22,7 @@ $_color-secondary: #0F9640;
   --color-gray-border: #{lighten($_color-base, 77%)};
   --color-gray-bg: #{lighten($_color-base, 82%)};
 
-  --color-primary-light: #{lighten($_color-primary, 50%)};
+  --color-highlight-code-line: #{lighten($_color-primary, 50%)};
   --color-emph-special: #{darken($_color-secondary, 8%)};
 
   background-color: var(--color-background);
@@ -42,7 +42,6 @@ $_color-secondary: #0F9640;
   --color-gray-border: #{invert(lighten($_color-base, 77%))};
   --color-gray-bg: #{invert(lighten($_color-base, 82%))};
 
-  --color-primary-light: #{invert(darken($_color-primary, 50%))};
   --color-emph-special: #{$_color-secondary};
 }
 
@@ -56,8 +55,6 @@ $color-gray-shadow: var(--color-gray-shadow);
 $color-gray-light-shadow: var(--color-gray-light-shadow);
 $color-gray-border: var(--color-gray-border);
 $color-gray-bg: var(--color-gray-bg);
-
-$color-primary-light: var(--color-primary-light);
 
 $color-hn: #ff6600;
 $color-facebook: #3b5998;
