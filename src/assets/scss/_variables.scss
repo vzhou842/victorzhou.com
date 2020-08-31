@@ -43,7 +43,7 @@ $_color-secondary: #0F9640;
   --color-gray-bg: #{invert(lighten($_color-base, 82%))};
 
   --color-primary-light: #{invert(darken($_color-primary, 50%))};
-  --color-emph-special: #{invert(lighten($_color-secondary, 8%))};
+  --color-emph-special: #{$_color-secondary};
 }
 
 $color-base: var(--color-base);
