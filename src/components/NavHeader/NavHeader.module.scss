@@ -87,8 +87,7 @@
 
   &.mobile {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
     margin: 0 8px 0 0;
   }
 }
