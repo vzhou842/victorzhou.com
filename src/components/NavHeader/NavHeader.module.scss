@@ -47,7 +47,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 10%;
+    padding-right: 5%;
   }
 
   &__burger {
@@ -74,4 +74,9 @@
   top: 60px;
   left: 0;
   right: 0;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  margin: 0 3%;
 }

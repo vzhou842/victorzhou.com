@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Headroom from 'react-headroom';
 
 import Author from '../Author';
+import DarkModeToggle from '../DarkModeToggle';
 import DisplayIf from '../DisplayIf';
 import Menu from '../Menu';
 import styles from './NavHeader.module.scss';
@@ -24,6 +25,9 @@ function NavHeader() {
         </div>
         <DisplayIf desktop className={styles['header__right']}>
           <Menu horizontal bold />
+          <div className={styles['dark-mode-toggle']}>
+            <DarkModeToggle />
+          </div>
         </DisplayIf>
         <DisplayIf mobile>
           <button
