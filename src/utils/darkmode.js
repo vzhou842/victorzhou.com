@@ -12,14 +12,14 @@ export function setPreferredTheme(theme: 'light' | 'dark') {
 }
 
 export function addThemeListener(listener: () => void) {
-  if (typeof window === 'undefined') {
+  if (typeof window === 'undefined' || !window.__themeListeners) {
     return;
   }
   window.__themeListeners.push(listener);
 }
 
 export function removeThemeListener(listener: () => void) {
-  if (typeof window === 'undefined') {
+  if (typeof window === 'undefined' || !window.__themeListeners) {
     return;
   }
   window.__themeListeners = window.__themeListeners.filter(l => l !== listener);
