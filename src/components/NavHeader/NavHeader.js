@@ -20,14 +20,20 @@ function NavHeader() {
       }}
     >
       <div className={cx({ header: true, 'no-shadow': menuShown })}>
-        <div className={styles['header__left']}>
+        <DisplayIf desktop className={styles['header__left']}>
           <Author />
-        </div>
+        </DisplayIf>
+        <DisplayIf mobile className={`${styles['header__left']} ${styles['mobile']}`}>
+          <Author small />
+        </DisplayIf>
         <DisplayIf desktop className={styles['header__right']}>
           <Menu horizontal bold />
           <div className={styles['dark-mode-toggle']}>
             <DarkModeToggle />
           </div>
+        </DisplayIf>
+        <DisplayIf mobile className={`${styles['dark-mode-toggle']} ${styles['mobile']}`}>
+          <DarkModeToggle />
         </DisplayIf>
         <DisplayIf mobile>
           <button

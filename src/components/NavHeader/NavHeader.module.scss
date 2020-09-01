@@ -39,6 +39,11 @@
         }
       }
     }
+
+    &.mobile {
+      // to account for the darkmode toggle: 50 width + 8 margin
+      margin-left: 58px;
+    }
   }
 
   &__right {
@@ -79,4 +84,11 @@
 .dark-mode-toggle {
   display: flex;
   margin: 0 3%;
+
+  &.mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 8px 0 0;
+  }
 }
