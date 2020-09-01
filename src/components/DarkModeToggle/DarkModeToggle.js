@@ -4,25 +4,32 @@ import './DarkModeToggle.module.scss';
 import React, { useCallback, useEffect, useState } from 'react';
 import Toggle from 'react-toggle';
 
+import {
+  addThemeListener,
+  getTheme,
+  removeThemeListener,
+  setPreferredTheme,
+} from '../../utils/darkmode';
+
 const DarkModeToggle = () => {
-  const [checked, setChecked] = useState(window.__theme === 'dark');
+  const [checked, setChecked] = useState(getTheme() === 'dark');
   const onChange = useCallback(
     (e: SyntheticInputEvent<HTMLInputElement>) => {
       const isChecked = e.target.checked;
       setChecked(isChecked);
-      window.__setPreferredTheme(isChecked ? 'dark' : 'light');
+      setPreferredTheme(isChecked ? 'dark' : 'light');
     },
     [setChecked]
   );
 
   useEffect(() => {
     const listener = () => {
-      setChecked(window.__theme === 'dark');
+      setChecked(getTheme() === 'dark');
     };
-    window.__themeListeners.push(listener);
+    addThemeListener(listener);
 
     return () => {
-      window.__themeListeners = window.__themeListeners.filter(l => l !== listener);
+      removeThemeListener(listener);
     };
   }, [setChecked]);
 
