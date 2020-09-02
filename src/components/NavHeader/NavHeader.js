@@ -2,9 +2,11 @@ import classNames from 'classnames/bind';
 import React, { useState } from 'react';
 import Headroom from 'react-headroom';
 
+import { getIcon } from '../../utils';
 import Author from '../Author';
 import DarkModeToggle from '../DarkModeToggle';
 import DisplayIf from '../DisplayIf';
+import Icon from '../Icon';
 import Menu from '../Menu';
 import styles from './NavHeader.module.scss';
 
@@ -42,7 +44,7 @@ function NavHeader() {
             }}
             className={cx({ header__burger: true, open: menuShown })}
           >
-            <img src="/menu.svg" width={28} height={28} alt="" />
+            <Icon name="menu" icon={getIcon('menu')} />
           </button>
         </DisplayIf>
       </div>

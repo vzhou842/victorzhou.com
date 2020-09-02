@@ -56,6 +56,7 @@
   }
 
   &__burger {
+    color: var(--black);
     position: absolute;
     top: 8px;
     left: 8px;
@@ -68,6 +69,11 @@
 
     &.open {
       opacity: 0.5;
+    }
+
+    svg {
+      width: 28px;
+      height: 28px;
     }
   }
 }
