@@ -19,7 +19,7 @@ $_color-secondary: #0F9640;
   --color-gray: #{lighten($_color-base, 35%)};
   --color-gray-shadow: #{lighten($_color-base, 60%)};
   --color-gray-light-shadow: #{lighten($_color-base, 70%)};
-  --color-gray-border: #{lighten($_color-base, 77%)};
+  --color-gray-border: #{lighten($_color-base, 75%)};
   --color-gray-bg: #{lighten($_color-base, 82%)};
 
   --color-highlight-code-line: #{lighten($_color-primary, 50%)};
@@ -40,7 +40,7 @@ $_color-secondary: #0F9640;
   --color-gray: #{invert(lighten($_color-base, 35%))};
   --color-gray-shadow: #{invert(lighten($_color-base, 60%))};
   --color-gray-light-shadow: #{invert(lighten($_color-base, 70%))};
-  --color-gray-border: #{invert(lighten($_color-base, 77%))};
+  --color-gray-border: #{invert(lighten($_color-base, 57%))};
   --color-gray-bg: #{invert(lighten($_color-base, 80%))};
 
   --color-highlight-code-line: #{lighten($_color-secondary, 55%)};
