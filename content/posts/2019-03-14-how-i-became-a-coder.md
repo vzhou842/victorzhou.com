@@ -17,7 +17,7 @@ popularity: 5
 
 It all started when I was 12 years old. 👶
 
-Back in those days, my friends and I all played [Runescape](https://www.runescape.com), a popular browser-based [MMORPG](https://en.wikipedia.org/wiki/Massively_multiplayer_online_role-playing_game). Those who've played Runescape will remember that it requires lots of [grinding](https://en.wikipedia.org/wiki/Grinding_(gaming)) - the "best" players were the ones who spent the most time killing monsters and leveling up. Unfortunately, my parents didn't let me play much - all of my friends had passed level 50 by the time I reached level 30. This level gap was <span class="crossed-out">all I worried about day and night because nobody wants to play with someone 20 levels below them</span> somewhat frustrating.
+Back in those days, my friends and I all played [Runescape](https://www.runescape.com), a popular browser-based [MMORPG](https://en.wikipedia.org/wiki/Massively_multiplayer_online_role-playing_game). Those who've played Runescape will remember that it requires lots of [grinding](https://en.wikipedia.org/wiki/Grinding_(gaming)) - the "best" players were the ones who spent the most time killing monsters and leveling up. Unfortunately, my parents didn't let me play much - all of my friends had passed level 50 by the time I reached level 30. This level gap was <span style="text-decoration: line-through;">all I worried about day and night because nobody wants to play with someone 20 levels below them</span> somewhat frustrating.
 
 The obvious solution was to
 
