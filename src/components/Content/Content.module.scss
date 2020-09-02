@@ -185,19 +185,6 @@
       font-style: italic;
     }
 
-    :global(.inline-images-container) {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    :global(.inline-image-wrapper) {
-      display: inline-block;
-      flex-grow: 1;
-      flex-shrink: 0;
-    }
-
     :global(.spacing) {
       @include padding(0.3, 0, 0.3, 0);
     }

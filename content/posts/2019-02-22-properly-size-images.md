@@ -18,6 +18,20 @@ discussLinkTwitter: https://twitter.com/css/status/1100912724295454721
 popularity: 8
 ---
 
+<style>
+.inline-image-wrapper {
+  display: inline-block;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+.inline-images-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+</style>
+
 I usually check the weather on my phone, but last week I visited [weather.com](https://weather.com) on my laptop. Here's what I saw:
 
 <video class="with-shadow" autoplay loop muted controls />
