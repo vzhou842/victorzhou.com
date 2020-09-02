@@ -27,7 +27,7 @@ I usually check the weather on my phone, but last week I visited [weather.com](h
   This was taken with Network throttling set to "Fast 3G" in Chrome to simulate the slow connection I had.
 </figcaption>
 
-<div class="spacing"></div>
+<br />
 
 Why is the image in the top right so much slower to load than the others around it? I opened up Chrome Devtools to check it out:
 
@@ -61,7 +61,7 @@ Here's another instance of the same issue on weather.com:
   <source src="/media/image-sizing-post/weather.com popup.mp4" type="video/mp4" />
 </video>
 
-<div class="spacing"></div>
+<br />
 
 The <a href="/media/image-sizing-post/clouds-big.jpg" target="_blank">original image</a> is 2600 x 1733, but it's used as the `css›background-image:` for a `html›<div>` that's much smaller:
 

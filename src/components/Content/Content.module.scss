@@ -198,10 +198,6 @@
       flex-shrink: 0;
     }
 
-    :global(.spacing) {
-      @include padding(0.3, 0, 0.3, 0);
-    }
-
     :global(.with-shadow) {
       box-shadow: 0 0 15px $color-gray-border;
     }
