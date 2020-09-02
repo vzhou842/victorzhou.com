@@ -176,7 +176,7 @@
     }
 
     :global(.checkmark) {
-      color: $color-secondary;
+      color: var(--color-secondary-green);
       font-weight: bold;
     }
 

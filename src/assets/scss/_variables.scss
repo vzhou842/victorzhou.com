@@ -6,6 +6,8 @@
 $_color-base: #222;
 $_color-primary: #164BC5;
 $_color-secondary: #0F9640;
+$_color-primary-light: lighten($_color-primary, 12%);
+$_color-secondary-light: lighten($_color-secondary, 12%);
 $_color-gray-shadow: lighten($_color-base, 60%);
 
 :root {
@@ -13,6 +15,7 @@ $_color-gray-shadow: lighten($_color-base, 60%);
   --color-base: #{$_color-base};
   --color-primary: #{$_color-primary};
   --color-secondary: #{$_color-secondary};
+  --color-secondary-green: #{$_color-secondary};
   --color-white: #FFF;
   --color-black: #000;
 
@@ -32,8 +35,9 @@ $_color-gray-shadow: lighten($_color-base, 60%);
 :root.dark {
   --color-background: #1E1E1E;
   --color-base: #{invert($_color-base)};
-  --color-primary: #{lighten($_color-secondary, 12%)};
-  --color-secondary: #{lighten($_color-primary, 12%)};
+  --color-primary: #{$_color-secondary-light};
+  --color-secondary: #{$_color-primary-light};
+  --color-secondary-green: #{$_color-secondary-light};
   --color-white: #000;
   --color-black: #FFF;
 
