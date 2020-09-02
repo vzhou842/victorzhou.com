@@ -114,7 +114,7 @@
 
     code[class*='language-'] {
       font-size: $typographic-base-font-size * 1;
-      color: var(--color-base-no-invert);
+      color: $_color-base; // don't invert
       font-style: normal;
       padding: 3px 4px;
     }
