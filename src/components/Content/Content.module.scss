@@ -168,7 +168,7 @@
       display: inline-block;
       background-color: rgb(245, 242, 240);
       border-top-right-radius: 5px;
-      border-bottom: 1px solid $color-gray-shadow;
+      border-bottom: 1px solid $_color-gray-shadow; // don't invert
     }
 
     :global(.token.operator) {
@@ -264,6 +264,7 @@
         font-size: $typographic-base-font-size * 1;
       }
 
+      & :global(.gatsby-code-header) + :global(.gatsby-highlight),
       & :global(.gatsby-code-header) + :global(.gatsby-highlight) pre[class*='language-'] {
         border-top-left-radius: 0;
       }
@@ -273,6 +274,7 @@
       }
 
       :global(.gatsby-code-header) h5 {
+        color: $_color-base; // don't invert
         @include padding(0.1, 1, 0.1, 1);
         border-top-left-radius: 5px;
       }

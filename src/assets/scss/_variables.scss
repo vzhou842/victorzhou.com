@@ -6,6 +6,7 @@
 $_color-base: #222;
 $_color-primary: #164BC5;
 $_color-secondary: #0F9640;
+$_color-gray-shadow: lighten($_color-base, 60%);
 
 :root {
   --color-background: #FFF;
@@ -17,7 +18,7 @@ $_color-secondary: #0F9640;
   --color-black: #000;
 
   --color-gray: #{lighten($_color-base, 35%)};
-  --color-gray-shadow: #{lighten($_color-base, 60%)};
+  --color-gray-shadow: #{$_color-gray-shadow};
   --color-gray-light-shadow: #{lighten($_color-base, 70%)};
   --color-gray-border: #{lighten($_color-base, 75%)};
   --color-gray-bg: #{lighten($_color-base, 82%)};
