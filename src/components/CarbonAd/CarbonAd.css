@@ -1,9 +1,7 @@
 #carbonads {
   --width: 180px;
   --font-size: 14px;
-}
-
-#carbonads {
+  color: #222;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: block;
   overflow: hidden;
