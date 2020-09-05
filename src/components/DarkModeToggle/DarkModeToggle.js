@@ -11,8 +11,20 @@ import {
   setPreferredTheme,
 } from '../../utils/darkmode';
 
+const ICONS = {
+  checked: <img src="/media/moon.svg" alt="dark mode" />,
+  unchecked: <img src="/media/sun.svg" alt="light mode" />,
+};
+
 const DarkModeToggle = () => {
+  if (typeof window === 'undefined') {
+    // Never server-side render this, since we can't determine
+    // the correct initial state until we get to the client.
+    return null;
+  }
+
   const [checked, setChecked] = useState(getTheme() === 'dark');
+
   const onChange = useCallback(
     (e: SyntheticInputEvent<HTMLInputElement>) => {
       const isChecked = e.target.checked;
@@ -33,16 +45,7 @@ const DarkModeToggle = () => {
     };
   }, [setChecked]);
 
-  return (
-    <Toggle
-      checked={checked}
-      icons={{
-        checked: <img src="/media/moon.svg" alt="dark mode" />,
-        unchecked: <img src="/media/sun.svg" alt="light mode" />,
-      }}
-      onChange={onChange}
-    />
-  );
+  return <Toggle checked={checked} icons={ICONS} onChange={onChange} />;
 };
 
 export default DarkModeToggle;
