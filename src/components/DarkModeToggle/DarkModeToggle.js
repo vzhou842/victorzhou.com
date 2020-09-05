@@ -26,6 +26,12 @@ const DarkModeToggle = () => {
     const listener = () => {
       setChecked(getTheme() === 'dark');
     };
+
+    // Make sure we're synced when the listener is added.
+    // The darkmode script in gatbsy-ssr may be run _after_ this component's
+    // initial render, so the original value from getTheme() may have been wrong.
+    listener();
+
     addThemeListener(listener);
 
     return () => {

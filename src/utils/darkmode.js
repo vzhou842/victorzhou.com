@@ -1,6 +1,7 @@
 // @flow
 
-export function getTheme() {
+// getTheme() can technically be run before window.__theme is set
+export function getTheme(): ?string {
   return typeof window === 'undefined' ? 'light' : window.__theme;
 }
 
