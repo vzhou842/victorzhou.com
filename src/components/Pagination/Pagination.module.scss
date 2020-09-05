@@ -22,7 +22,7 @@
 
       &--disable {
         pointer-events: none;
-        color: lighten($color-gray, 20%);
+        color: $color-gray-shadow;
       }
     }
   }
@@ -43,7 +43,7 @@
 
       &--disable {
         pointer-events: none;
-        color: lighten($color-gray, 20%);
+        color: $color-gray-shadow;
       }
     }
   }
@@ -66,7 +66,7 @@
       }
 
       a.selected {
-        color: white;
+        color: var(--color-white);
         background-color: $color-primary;
         @include padding(0.25, 0.4);
         border-radius: 3px;

@@ -1,6 +1,7 @@
 import { Link, withPrefix } from 'gatsby';
 import React from 'react';
 
+import DarkModeToggle from '../../DarkModeToggle';
 import styles from './Author.module.scss';
 
 const Author = ({ author }) => (
@@ -9,19 +10,14 @@ const Author = ({ author }) => (
       <Link to="/">
         <img src={withPrefix(author.photo)} className={styles['author__photo']} alt={author.name} />
       </Link>
-      <h2 className={styles['author__title']}>
-        <Link className={styles['author__title-link']} to="/">
-          {author.name}
-        </Link>{' '}
-        <a
-          style={{ fontWeight: 500 }}
-          href="https://twitter.com/victorczhou"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @victorczhou
-        </a>
-      </h2>
+      <div className={styles['author__title']}>
+        <h1>
+          <Link className={styles['author__title-link']} to="/">
+            {author.name}
+          </Link>
+        </h1>
+        <DarkModeToggle />
+      </div>
     </div>
     <p className={styles['author__subtitle']} dangerouslySetInnerHTML={{ __html: author.bio }} />
   </div>

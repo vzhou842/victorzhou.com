@@ -69,6 +69,7 @@
     "react-headroom": "^3.0.0",
     "react-helmet": "^5.2.1",
     "react-share": "^4.1.0",
+    "react-toggle": "^4.1.1",
     "rehype-react": "^5.0.1",
     "request-promise": "^4.2.4"
   },

@@ -132,7 +132,7 @@ button {
   border: none;
   outline: none;
   background-color: $color-primary;
-  color: white;
+  color: var(--color-white);
   font-size: $typographic-base-font-size * 0.75;
   font-weight: bold;
   padding: 10px 20px;

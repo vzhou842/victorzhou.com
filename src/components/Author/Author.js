@@ -3,8 +3,8 @@ import React from 'react';
 
 import styles from './Author.module.scss';
 
-export const PureAuthor = ({ author, showBio, showTwitter }) => {
-  const photoSize = showBio ? 60 : 48;
+export const PureAuthor = ({ author, showBio, showTwitter, small }) => {
+  const photoSize = showBio ? 60 : small ? 40 : 48;
 
   return (
     <div className={styles['author']}>

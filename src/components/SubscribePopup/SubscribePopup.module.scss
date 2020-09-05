@@ -35,7 +35,7 @@
     top: 0;
     right: 0;
     background-color: transparent;
-    color: black;
+    color: var(--color-black);
     padding: 8px;
     margin: 0;
     @include transition(text-shadow);

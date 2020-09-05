@@ -114,7 +114,7 @@
 
     code[class*='language-'] {
       font-size: $typographic-base-font-size * 1;
-      color: $typographic-base-font-color;
+      color: $_color-base; // don't invert
       font-style: normal;
       padding: 3px 4px;
     }
@@ -148,13 +148,13 @@
 
     // From https://www.gatsbyjs.org/packages/gatsby-remark-prismjs/
     :global(.gatsby-highlight-code-line) {
-      background-color: $color-primary-light;
+      background-color: var(--color-highlight-code-line);
       display: block;
       margin-right: -1em;
       margin-left: -$layout-mobile-padding;
       padding-right: 1em;
       padding-left: 0.75em;
-      border-left: 0.2em solid $color-primary;
+      border-left: 0.2em solid var(--color-highlight-code-line-border);
     }
 
     :global(.gatsby-code-header) {
@@ -168,7 +168,7 @@
       display: inline-block;
       background-color: rgb(245, 242, 240);
       border-top-right-radius: 5px;
-      border-bottom: 1px solid $color-gray-shadow;
+      border-bottom: 1px solid $_color-gray-shadow; // don't invert
     }
 
     :global(.token.operator) {
@@ -176,17 +176,13 @@
     }
 
     :global(.checkmark) {
-      color: $color-secondary;
+      color: var(--color-secondary-green);
       font-weight: bold;
     }
 
     :global(.emph-special) {
-      color: darken($color-secondary, 8%);
+      color: var(--color-emph-special);
       font-style: italic;
-    }
-
-    :global(.spacing) {
-      @include padding(0.3, 0, 0.3, 0);
     }
 
     :global(.with-shadow) {
@@ -212,6 +208,7 @@
     // stylelint-enable
 
     & img {
+      background-color: white;
       width: initial;
       max-width: 100%;
       margin-left: auto;
@@ -246,6 +243,7 @@
         font-size: $typographic-base-font-size * 1;
       }
 
+      & :global(.gatsby-code-header) + :global(.gatsby-highlight),
       & :global(.gatsby-code-header) + :global(.gatsby-highlight) pre[class*='language-'] {
         border-top-left-radius: 0;
       }
@@ -255,6 +253,7 @@
       }
 
       :global(.gatsby-code-header) h5 {
+        color: $_color-base; // don't invert
         @include padding(0.1, 1, 0.1, 1);
         border-top-left-radius: 5px;
       }

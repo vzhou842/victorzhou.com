@@ -3,18 +3,65 @@
  */
 
 // Colors
-$color-base: #222;
-$color-primary: #164BC5;
-$color-secondary: #0F9640;
+$_color-base: #222;
+$_color-primary: #164BC5;
+$_color-secondary: #0F9640;
+$_color-primary-light: lighten($_color-primary, 12%);
+$_color-secondary-light: lighten($_color-secondary, 12%);
+$_color-gray-shadow: lighten($_color-base, 60%);
 
-$color-white: #FFF;
-$color-gray: lighten($color-base, 35%);
-$color-gray-shadow: lighten($color-base, 60%);
-$color-gray-light-shadow: lighten($color-base, 70%);
-$color-gray-border: lighten($color-base, 77%);
-$color-gray-bg: lighten($color-base, 82%);
+:root {
+  --color-background: #FFF;
+  --color-base: #{$_color-base};
+  --color-primary: #{$_color-primary};
+  --color-secondary: #{$_color-secondary};
+  --color-secondary-green: #{$_color-secondary};
+  --color-white: #FFF;
+  --color-black: #000;
 
-$color-primary-light: lighten($color-primary, 50%);
+  --color-gray: #{lighten($_color-base, 35%)};
+  --color-gray-shadow: #{$_color-gray-shadow};
+  --color-gray-light-shadow: #{lighten($_color-base, 70%)};
+  --color-gray-border: #{lighten($_color-base, 75%)};
+  --color-gray-bg: #{lighten($_color-base, 82%)};
+
+  --color-highlight-code-line: #{lighten($_color-primary, 50%)};
+  --color-highlight-code-line-border: #{$_color-primary};
+  --color-emph-special: #{darken($_color-secondary, 8%)};
+
+  background-color: var(--color-background);
+}
+
+:root.dark {
+  --color-background: #1E1E1E;
+  --color-base: #{invert($_color-base)};
+  --color-primary: #{$_color-secondary-light};
+  --color-secondary: #{$_color-primary-light};
+  --color-secondary-green: #{$_color-secondary-light};
+  --color-white: #000;
+  --color-black: #FFF;
+
+  --color-gray: #{invert(lighten($_color-base, 30%))};
+  --color-gray-shadow: #{invert(lighten($_color-base, 60%))};
+  --color-gray-light-shadow: #{invert(lighten($_color-base, 70%))};
+  --color-gray-border: #{invert(lighten($_color-base, 57%))};
+  --color-gray-bg: #{invert(lighten($_color-base, 80%))};
+
+  --color-highlight-code-line: #{lighten($_color-secondary, 55%)};
+  --color-highlight-code-line-border: #{$_color-secondary};
+  --color-emph-special: #{$_color-secondary};
+}
+
+$color-base: var(--color-base);
+$color-primary: var(--color-primary);
+$color-secondary: var(--color-secondary);
+
+$color-white: var(--color-white);
+$color-gray: var(--color-gray);
+$color-gray-shadow: var(--color-gray-shadow);
+$color-gray-light-shadow: var(--color-gray-light-shadow);
+$color-gray-border: var(--color-gray-border);
+$color-gray-bg: var(--color-gray-bg);
 
 $color-hn: #ff6600;
 $color-facebook: #3b5998;

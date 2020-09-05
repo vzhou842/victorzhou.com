@@ -28,7 +28,7 @@
 
 .link {
   font-size: $typographic-base-font-size * 0.875;
-  color: black;
+  color: $color-base;
 }
 
 .link:hover {
@@ -37,7 +37,7 @@
 
 .link.selected {
   font-weight: bold;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--color-black);
 }
 
 .link.selected:hover {

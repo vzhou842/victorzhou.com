@@ -4,7 +4,7 @@
 .header {
   width: 100%;
   height: 60px;
-  background: white;
+  background: var(--color-background);
   box-shadow: 0 4px 15px $color-gray-bg;
   display: flex;
   flex-direction: row;
@@ -39,6 +39,11 @@
         }
       }
     }
+
+    &.mobile {
+      // to account for the darkmode toggle: 50 width + 8 margin
+      margin-left: 58px;
+    }
   }
 
   &__right {
@@ -47,10 +52,11 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 10%;
+    padding-right: 5%;
   }
 
   &__burger {
+    color: var(--black);
     position: absolute;
     top: 8px;
     left: 8px;
@@ -64,14 +70,30 @@
     &.open {
       opacity: 0.5;
     }
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
   }
 }
 
 .popup {
   box-shadow: 0 4px 15px $color-gray-bg;
-  background: white;
+  background: var(--color-background);
   position: fixed;
   top: 60px;
   left: 0;
   right: 0;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  margin: 0 3%;
+
+  &.mobile {
+    display: flex;
+    align-items: center;
+    margin: 0 8px 0 0;
+  }
 }
