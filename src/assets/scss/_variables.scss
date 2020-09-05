@@ -41,7 +41,7 @@ $_color-gray-shadow: lighten($_color-base, 60%);
   --color-white: #000;
   --color-black: #FFF;
 
-  --color-gray: #{invert(lighten($_color-base, 35%))};
+  --color-gray: #{invert(lighten($_color-base, 30%))};
   --color-gray-shadow: #{invert(lighten($_color-base, 60%))};
   --color-gray-light-shadow: #{invert(lighten($_color-base, 70%))};
   --color-gray-border: #{invert(lighten($_color-base, 57%))};
