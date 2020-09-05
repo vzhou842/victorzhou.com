@@ -11,7 +11,7 @@
   &__comments {
     @include margin-top(1);
     background-color: white;
-    border: 8px solid white;
+    border-top: 8px solid white;
   }
 
   &__authorContainer {
@@ -34,8 +34,7 @@
 
   .post__comments {
     @include margin-top(2);
-    border: none;
-    border-top: 8px solid white;
+    border: 8px solid white;
   }
 }
 
