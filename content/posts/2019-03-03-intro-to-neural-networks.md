@@ -288,7 +288,7 @@ y_pred = np.array([0, 0, 0, 0])
 
 print(mse_loss(y_true, y_pred)) # 0.5
 ```
-<figcaption>If you don't understand why this code works, read the NumPy <a href="https://docs.scipy.org/doc/numpy/user/quickstart.html#basic-operations" target="_blank" rel="noopener noreferrer">quickstart</a> on array operations.</figcaption>
+<figcaption>If you don't understand why this code works, read the NumPy <a href="https://numpy.org/doc/stable/user/quickstart.html#basic-operations" target="_blank" rel="noopener noreferrer">quickstart</a> on array operations.</figcaption>
 
 Nice. Onwards!
 

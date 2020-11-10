@@ -225,7 +225,7 @@ The line of code that actually performs the convolutions is highlighted above. L
 
 - We have `im_region`, a 3x3 array containing the relevant image region.
 - We have `self.filters`, a 3d array.
-- We do `python›im_region * self.filters`, which uses numpy's [broadcasting](https://docs.scipy.org/doc/numpy/user/basics.broadcasting.html) feature to element-wise multiply the two arrays. The result is a 3d array with the same dimension as `self.filters`.
+- We do `python›im_region * self.filters`, which uses numpy's [broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting.html) feature to element-wise multiply the two arrays. The result is a 3d array with the same dimension as `self.filters`.
 - We [np.sum()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.sum.html) the result of the previous step using `python›axis=(1, 2)`, which produces a 1d array of length `num_filters` where each element contains the convolution result for the corresponding filter.
 - We assign the result to `python›output[i, j]`, which contains convolution results for pixel `python›(i, j)` in the output.
 
