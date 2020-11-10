@@ -421,7 +421,6 @@ Further reading you might be interested in include:
 - My [Keras for Beginners](/series/keras-for-beginners/) series, which has more Keras guides.
 - The official [getting started with Keras](https://keras.io/getting_started/) guide.
 - This [introduction to CNNs with Keras](http://www.datastuff.tech/machine-learning/convolutional-neural-networks-an-introduction-tensorflow-eager/).
-- A collection of [Keras examples](https://github.com/keras-team/keras/tree/master/examples).
 
 Thanks for reading this post! The full source code is below.
 
