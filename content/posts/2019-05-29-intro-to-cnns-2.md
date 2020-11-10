@@ -1,7 +1,7 @@
 ---
 title: "CNNs, Part 2: Training a Convolutional Neural Network"
 date: "2019-05-29T12:00:00.000Z"
-dateModified: "2020-08-16T12:00:00.000Z"
+dateModified: "2020-11-10T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
@@ -871,7 +871,7 @@ Epoch 3
 loss: 0.0930 - acc: 0.9721 - val_loss: 0.0778 - val_acc: 0.9744
 ```
 
-We achieve **97.4%** test accuracy with this simple CNN! With a better CNN architecture, we could improve that even more - in this [official Keras MNIST CNN example](https://keras.io/examples/mnist_cnn/), they achieve **99.25%** test accuracy after 12 epochs. That's a _really_ good accuracy.
+We achieve **97.4%** test accuracy with this simple CNN! With a better CNN architecture, we could improve that even more - in this [official Keras MNIST CNN example](https://keras.io/examples/vision/mnist_convnet/), they achieve **99%** test accuracy after 15 epochs. That's a _really_ good accuracy.
 
 > Unfamiliar with Keras? Read my tutorials on [building your first Neural Network with Keras](/blog/keras-neural-network-tutorial/) or [implementing CNNs with Keras](/blog/keras-cnn-tutorial/).
 

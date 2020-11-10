@@ -1,7 +1,7 @@
 ---
 title: "CNNs, Part 1: An Introduction to Convolutional Neural Networks"
 date: "2019-05-22T12:00:00.000Z"
-dateModified: "2019-08-08T12:00:00.000Z"
+dateModified: "2019-11-10T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
@@ -488,4 +488,4 @@ That's the end of this introduction to CNNs! In this post, we
 
 There's still much more that we haven't covered yet, such as how to actually train a CNN. **[Part 2](/blog/intro-to-cnns-part-2/) of this CNN series does a deep-dive on training a CNN**, including deriving gradients and implementing backprop. Alternatively, you can also learn to [implement your own CNN with Keras](/blog/keras-cnn-tutorial/), a deep learning library for Python, or read the rest of my [Neural Networks from Scratch](/series/neural-networks-from-scratch/) series.
 
-If you're eager to see a trained CNN in action: this [example Keras CNN](https://keras.io/examples/mnist_cnn/) trained on MNIST achieves **99.25%** accuracy. CNNs are powerful!
+If you're eager to see a trained CNN in action: this [example Keras CNN](https://keras.io/examples/vision/mnist_convnet/) trained on MNIST achieves **99%** accuracy. CNNs are powerful!
