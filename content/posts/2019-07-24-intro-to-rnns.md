@@ -213,7 +213,7 @@ class RNN:
 ```
 <figcaption>Note: We're dividing by 1000 to reduce the initial variance of our weights. This is not the best way to initialize weights, but it's simple and works for this post.</figcaption>
 
-We use [np.random.randn()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html) to initialize our weights from the standard normal distribution.
+We use [np.random.randn()](https://numpy.org/doc/stable/reference/random/generated/numpy.random.randn.html) to initialize our weights from the standard normal distribution.
 
 Next, let's implement our RNN's forward pass. Remember these two equations we saw earlier?
 

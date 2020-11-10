@@ -181,7 +181,7 @@ class Conv3x3:
     self.filters = np.random.randn(num_filters, 3, 3) / 9
 ```
 
-The `Conv3x3` class takes only one argument: the number of filters. In the constructor, we store the number of filters and initialize a random filters array using NumPy's [randn()](https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.randn.html) method.
+The `Conv3x3` class takes only one argument: the number of filters. In the constructor, we store the number of filters and initialize a random filters array using NumPy's [randn()](https://numpy.org/doc/stable/reference/random/generated/numpy.random.randn.html) method.
 
 > Note: Diving by 9 during the initialization is more important than you may think. If the initial values are too large or too small, training the network will be ineffective. To learn more, read about [Xavier Initialization](https://www.quora.com/What-is-an-intuitive-explanation-of-the-Xavier-Initialization-for-Deep-Neural-Networks).
 
