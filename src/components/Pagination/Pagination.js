@@ -42,7 +42,11 @@ const Pagination = ({ classes, currentPage, pagePath, hasNextPage, hasPrevPage, 
   return (
     <div className={`${styles['pagination']} ${classes || ''}`}>
       <div className={styles['pagination__prev']}>
-        <Link rel="prev" to={pagePath(currentPage - 1)} className={prevClassName}>
+        <Link
+          rel="prev"
+          to={hasPrevPage ? pagePath(currentPage - 1) : '/#'}
+          className={prevClassName}
+        >
           ← PREV
         </Link>
       </div>
@@ -60,7 +64,11 @@ const Pagination = ({ classes, currentPage, pagePath, hasNextPage, hasPrevPage, 
         ))}
       </ul>
       <div className={styles['pagination__next']}>
-        <Link rel="next" to={pagePath(currentPage + 1)} className={nextClassName}>
+        <Link
+          rel="next"
+          to={hasNextPage ? pagePath(currentPage + 1) : '/#'}
+          className={nextClassName}
+        >
           NEXT →
         </Link>
       </div>
