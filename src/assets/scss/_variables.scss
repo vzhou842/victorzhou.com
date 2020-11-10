@@ -33,8 +33,8 @@ $_color-gray-shadow: lighten($_color-base, 60%);
 }
 
 :root.dark {
-  --color-background: #1E1E1E;
-  --color-base: #{invert($_color-base)};
+  --color-background: #222;
+  --color-base: #eee;
   --color-primary: #{$_color-secondary-light};
   --color-secondary: #{$_color-primary-light};
   --color-secondary-green: #{$_color-secondary-light};
