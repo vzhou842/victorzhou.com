@@ -12,7 +12,7 @@ tags:
   - "Node.js"
   - "Flow"
 description: Integrating the Flow static type checker with a Javascript backend.
-prev: "/blog/build-an-io-game-part-2/"
+prev: "/blog/dark-mode-gatsby/"
 next: "/blog/why-static-type-check-javascript/"
 ---
 
