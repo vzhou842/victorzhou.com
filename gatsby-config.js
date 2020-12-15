@@ -12,6 +12,7 @@ module.exports = {
     copyright: siteConfig.copyright,
     menu: siteConfig.menu,
     author: siteConfig.author,
+    previewImage: siteConfig.previewImage
   },
   plugins: [
     {

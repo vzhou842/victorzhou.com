@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import styles from './Layout.module.scss';
 
 export const PureLayout = ({ children, title, description, data }) => {
-  const { author, url: siteUrl } = data.site.siteMetadata;
+  const { url: siteUrl, previewImage } = data.site.siteMetadata;
   const twitter = `@${author.contacts.twitter}`;
 
   return (
@@ -16,7 +16,7 @@ export const PureLayout = ({ children, title, description, data }) => {
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={siteUrl + author.photoLarge} />
+        <meta property="og:image" content={siteUrl + previewImage} />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content={twitter} />
         <meta name="twitter:creator" content={twitter} />

@@ -12,9 +12,7 @@ describe('Layout', () => {
       site: {
         siteMetadata: {
           url: '',
-          author: {
-            photo: '',
-          },
+          previewImage: '',
         },
       },
     },
