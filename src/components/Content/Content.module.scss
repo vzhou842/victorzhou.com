@@ -265,6 +265,10 @@
       :global(a.anchor) {
         display: initial;
       }
+      
+      :global(a.anchor svg) {
+        fill: $color-base;
+      }
       // stylelint-enable
     }
   }
