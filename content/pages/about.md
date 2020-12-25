@@ -4,7 +4,7 @@ template: "page"
 slug: "/about/"
 ---
 
-I studied Computer Science at Princeton University (Class of 2019), and I've been a Software Engineer (SWE) at Facebook since August 2019. I've done SWE internships at Facebook (2015 and 2018), Google (2016), and Airbnb (2017). I've been [programming since I was 12](/blog/how-i-became-a-programmer/) and love to build things.
+I'm currently helping build [gather.town](https://gather.town/) (we're hiring! Reach out if interested). Previously, I was a Software Engineer (SWE) at Facebook, and I've done SWE internships at Facebook (2015 and 2018), Google (2016), and Airbnb (2017). I studied Computer Science at Princeton University (Class of 2019). I've been [programming since I was 12](/blog/how-i-became-a-programmer/) and love to build things.
 
 Some of my more well-known projects include:
 
