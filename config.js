@@ -39,4 +39,5 @@ module.exports = {
       rss: '/rss.xml',
     },
   },
+  previewImage: '/preview.png'
 };
