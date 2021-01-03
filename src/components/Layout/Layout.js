@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import styles from './Layout.module.scss';
 
 export const PureLayout = ({ children, title, description, data }) => {
-  const { url: siteUrl, previewImage } = data.site.siteMetadata;
+  const { author, url: siteUrl, previewImage } = data.site.siteMetadata;
   const twitter = `@${author.contacts.twitter}`;
 
   return (
@@ -39,6 +39,7 @@ export const Layout = props => (
                 twitter
               }
             }
+            previewImage
           }
         }
       }
