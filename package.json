@@ -38,7 +38,7 @@
     "gatsby-plugin-google-gtag": "^1.2.1",
     "gatsby-plugin-manifest": "^2.4.37",
     "gatsby-plugin-offline": "^3.2.38",
-    "gatsby-plugin-optimize-svgs": "^1.0.4",
+    "gatsby-plugin-optimize-svgs": "^1.0.5",
     "gatsby-plugin-react-helmet": "^3.3.14",
     "gatsby-plugin-sass": "^2.3.22",
     "gatsby-plugin-sharp": "^2.6.43",
