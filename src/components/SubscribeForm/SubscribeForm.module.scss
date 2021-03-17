@@ -39,6 +39,7 @@
   }
 
   input[type='email'] {
+    color: var(--color-black);
     max-width: 90%;
     background-color: var(--color-background);
     border: 1px solid var(--color-background);
