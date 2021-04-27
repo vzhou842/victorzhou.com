@@ -8,7 +8,7 @@ import {
   detectRecaptchaSetup,
   loadRecaptchaIfNeeded,
 } from '../../utils/recaptcha';
-import { userHasSubscribed } from '../../utils/subscribe-status';
+// import { userHasSubscribed } from '../../utils/subscribe-status';
 import type { RecaptchaContextType } from '../RecaptchaContext';
 import RecaptchaContext from '../RecaptchaContext';
 import styles from './SubscribeForm.module.scss';
@@ -108,9 +108,11 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
   };
 
   render() {
-    if (!this.props.ignoreUserHasSubscribed && userHasSubscribed()) {
-      return null;
-    }
+    // This causes a bug during rehydration on prod if the user has subscribed.
+    // Disabling for now until I can fix it.
+    // if (!this.props.ignoreUserHasSubscribed && userHasSubscribed()) {
+    //   return null;
+    // }
     const {
       context: { recaptchaToken },
       signupSource,
