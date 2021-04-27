@@ -5,7 +5,7 @@ module.exports = {
   title: 'victorzhou.com',
   subtitle:
     'Software Engineer. I blog about web development, machine learning, and more topics.',
-  copyright: '© Victor Zhou 2020',
+  copyright: '© Victor Zhou 2021',
   postsPerPage: 8,
   googleAnalyticsId: 'UA-58664433-1',
   menu: [
