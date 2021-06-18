@@ -1,7 +1,7 @@
 ---
 title: How to Build a Multiplayer (.io) Web Game, Part 1
 date: "2019-04-25T12:00:00.000Z"
-dateModified: "2019-06-14T12:00:00.000Z"
+dateModified: "2021-06-18T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/build-an-io-game-part-1/"
@@ -405,6 +405,8 @@ export function stopRendering() {
 <figcaption>This code was also slightly edited for clarity.</figcaption>
 
 `js›render()` is the primary function of this file. `js›startRendering()` and `js›stopRendering()` control activation of the 60 FPS render loop.
+
+> Note: my old example code here uses `js›setInterval()`, but you should actually use [`js›requestAnimationFrame()`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) instead. (edited June 2021)
 
 The specific implementations of the individual render helper functions (e.g. `js›renderBullet()`) are not as important, but here's one simple example:
 
