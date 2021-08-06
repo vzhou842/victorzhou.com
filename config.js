@@ -3,8 +3,7 @@
 module.exports = {
   url: 'https://victorzhou.com',
   title: 'victorzhou.com',
-  subtitle:
-    'Software Engineer. I blog about web development, machine learning, and more topics.',
+  subtitle: 'Software Engineer. I blog about web development, machine learning, and more topics.',
   copyright: '© Victor Zhou 2021',
   postsPerPage: 8,
   googleAnalyticsId: 'UA-58664433-1',
@@ -39,5 +38,5 @@ module.exports = {
       rss: '/rss.xml',
     },
   },
-  previewImage: '/preview.png'
+  previewImage: '/preview.png',
 };
