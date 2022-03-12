@@ -21,7 +21,7 @@ discussLinkReddit: https://www.reddit.com/r/gamedev/comments/i23pen/i_made_a_tut
 popularity: 46
 ---
 
-> **2022 Update**: thank you all for tremendous support this guide has received! I've modernized some of the code and content in this post. Happy developing 😊
+> **2022 Update**: thank you all for tremendous support this guide has received! I've modernized some of the code and content in this post. Happy developing <span style="font-style: normal">😊</span>
 
 When [Agar.io](https://agar.io) came out in 2015, it inspired a new [**.io game**](https://www.google.com/search?q=.io+game) genre that has since exploded in popularity. I experienced the rise of .io games firsthand: I've [built and sold 2 .io games](/blog/creating-and-selling-io-games/) in the past 3 years.
 
