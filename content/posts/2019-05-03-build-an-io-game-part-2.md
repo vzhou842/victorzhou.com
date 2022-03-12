@@ -1,6 +1,7 @@
 ---
 title: How to Build a Multiplayer (.io) Web Game, Part 2
 date: "2019-05-03T12:00:00.000Z"
+dateModified: "2022-03-12T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/build-an-io-game-part-2/"

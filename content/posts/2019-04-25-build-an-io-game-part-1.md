@@ -1,7 +1,7 @@
 ---
 title: How to Build a Multiplayer (.io) Web Game, Part 1
 date: "2019-04-25T12:00:00.000Z"
-dateModified: "2021-06-18T12:00:00.000Z"
+dateModified: "2022-03-12T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/build-an-io-game-part-1/"
@@ -20,6 +20,8 @@ discussLinkTwitter: https://twitter.com/victorczhou/status/1121503205425332224
 discussLinkReddit: https://www.reddit.com/r/gamedev/comments/i23pen/i_made_a_tutorial_series_on_on_building/
 popularity: 46
 ---
+
+> **2022 Update**: thank you all for tremendous support this guide has received! I've modernized some of the code and content in this post. Happy developing 😊
 
 When [Agar.io](https://agar.io) came out in 2015, it inspired a new [**.io game**](https://www.google.com/search?q=.io+game) genre that has since exploded in popularity. I experienced the rise of .io games firsthand: I've [built and sold 2 .io games](/blog/creating-and-selling-io-games/) in the past 3 years.
 
@@ -377,36 +379,39 @@ canvas.height = window.innerHeight;
 
 function render() {
   const { me, others, bullets } = getCurrentState();
-  if (!me) {
-    return;
+  if (me) {
+    // Draw background
+    renderBackground(me.x, me.y);
+
+    // Draw all bullets
+    bullets.forEach(renderBullet.bind(null, me));
+
+    // Draw all players
+    renderPlayer(me, me);
+    others.forEach(renderPlayer.bind(null, me));
   }
 
-  // Draw background
-  renderBackground(me.x, me.y);
-
-  // Draw all bullets
-  bullets.forEach(renderBullet.bind(null, me));
-
-  // Draw all players
-  renderPlayer(me, me);
-  others.forEach(renderPlayer.bind(null, me));
+  // Rerun this render function on the next frame
+  animationFrameRequestId = requestAnimationFrame(render);
 }
 
 // ... Helper functions here excluded
 
-let renderInterval = null;
+let animationFrameRequestId;
+
+// Replaces main menu rendering with game rendering.
 export function startRendering() {
-  renderInterval = setInterval(render, 1000 / 60);
+  animationFrameRequestId = requestAnimationFrame(render);
 }
+
+// Replaces game rendering with main menu rendering.
 export function stopRendering() {
-  clearInterval(renderInterval);
+  cancelAnimationFrame(animationFrameRequestId);
 }
 ```
 <figcaption>This code was also slightly edited for clarity.</figcaption>
 
-`js›render()` is the primary function of this file. `js›startRendering()` and `js›stopRendering()` control activation of the 60 FPS render loop.
-
-> Note: my old example code here uses `js›setInterval()`, but you should actually use [`js›requestAnimationFrame()`](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) instead. (edited June 2021)
+`js›render()` is the primary function of this file. `js›startRendering()` and `js›stopRendering()` control activation of the render loop, which uses [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame) to rerender when necessary.
 
 The specific implementations of the individual render helper functions (e.g. `js›renderBullet()`) are not as important, but here's one simple example:
 
