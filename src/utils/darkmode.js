@@ -2,6 +2,9 @@
 
 // getTheme() can technically be run before window.__theme is set
 export function getTheme(): ?string {
+  if (typeof window === 'undefined') {
+    return undefined;
+  }
   return window.__theme;
 }
 

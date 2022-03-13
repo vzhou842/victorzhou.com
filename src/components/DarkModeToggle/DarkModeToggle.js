@@ -1,7 +1,7 @@
 // @flow
 import './DarkModeToggle.module.scss';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react';
 import Toggle from 'react-toggle';
 
 import {
@@ -17,13 +17,15 @@ const ICONS = {
 };
 
 const DarkModeToggle = () => {
-  if (typeof window === 'undefined') {
-    // Never server-side render this, since we can't determine
-    // the correct initial state until we get to the client.
-    return null;
-  }
-
   const [checked, setChecked] = useState(getTheme() === 'dark');
+
+  // Never server-side render this, since we can't determine
+  // the correct initial state until we get to the client.
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useLayoutEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   const onChange = useCallback(
     (e: SyntheticInputEvent<HTMLInputElement>) => {
@@ -44,6 +46,10 @@ const DarkModeToggle = () => {
       removeThemeListener(listener);
     };
   }, [setChecked]);
+
+  if (!hasMounted) {
+    return <div style={{ width: 50 }} />;
+  }
 
   return <Toggle checked={checked} icons={ICONS} onChange={onChange} />;
 };
