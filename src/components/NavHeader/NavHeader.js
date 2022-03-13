@@ -25,6 +25,19 @@ function NavHeader() {
         <DisplayIf desktop className={styles['header__left']}>
           <Author />
         </DisplayIf>
+        {/**
+         * The following two lines are a hack to get around the fact that we SSR the desktop
+         * version of this component. When React tries to rehydrate the SSR HTML, it will make
+         * these two <div>s become the two <DisplayIf desktop> element trees. Without these,
+         * the remaining <DisplayIf mobile> components won't get rendered b/c they'll have
+         * CSS that hides them unless on desktop!
+         */}
+        <DisplayIf mobile>
+          <div />
+        </DisplayIf>
+        <DisplayIf mobile>
+          <div />
+        </DisplayIf>
         <DisplayIf mobile className={`${styles['header__left']} ${styles['mobile']}`}>
           <Author small />
         </DisplayIf>
