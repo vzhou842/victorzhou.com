@@ -6,7 +6,7 @@ set -e
 git fetch
 git reset --hard origin/master
 
-npm i
+npm i --production=false # install devDeps too
 npm run build
 
 ./server/scripts/deploy_nginx.sh
