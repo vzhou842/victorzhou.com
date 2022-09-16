@@ -16,7 +16,7 @@ next: "/blog/properly-size-images/"
 popularity: 6
 ---
 
-Back in early 2016, I began building a web game called [GeoArena](https://geoarena.online). Looking back, **my biggest regret is not using Webpack from the beginning**.
+Back in early 2016, I began building a web game called **GeoArena**. Looking back, **my biggest regret is not using Webpack from the beginning**.
 
 When I started GeoArena, I was _very_ new to web development. Having never heard of module bundlers before, I instead homebrewed my own approaches for serving Javascript on the web. This post explores the problems with those methods and explains **why you should be using** [**Webpack**](https://webpack.js.org/) **instead**.
 

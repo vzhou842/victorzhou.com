@@ -12,13 +12,13 @@ tags:
   - "Web Development"
   - "Javascript"
   - "Node.js"
-description: I was on an episode of The Changelog podcast! 
+description: I was on an episode of The Changelog podcast!
 prev: "/blog/build-an-io-game-part-1/"
 next: "/blog/how-i-became-a-programmer/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1132027194862182400
 ---
 
-I had the privilege of joining [Adam Stacoviak](https://twitter.com/adamstac) and [Jerod Santo](https://twitter.com/jerodsanto) on an episode of [The Changelog](https://changelog.com/) recently to discuss the explosion of the .io game genre, as well as my experiences building and selling .io games like [generals.io](http://generals.io) and [geoarena.online](https://geoarena.online/). Check it out:
+I had the privilege of joining [Adam Stacoviak](https://twitter.com/adamstac) and [Jerod Santo](https://twitter.com/jerodsanto) on an episode of [The Changelog](https://changelog.com/) recently to discuss the explosion of the .io game genre, as well as my experiences building and selling .io games like [generals.io](http://generals.io) and **geoarena.online** _(no longer online)_. Check it out:
 
 <div>
 <audio data-theme="night" data-src="https://changelog.com/podcast/347/embed" src="https://cdn.changelog.com/uploads/podcast/347/the-changelog-347.mp3" preload="none" class="changelog-episode" controls></audio>

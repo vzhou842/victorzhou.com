@@ -1,6 +1,7 @@
 ---
 title: "The Best Tools for Finding, Hiring, and Collaborating with Freelancers"
 date: "2020-01-16T12:00:00.000Z"
+dateModified: "2022-09-16T12:00:00.000Z"
 template: "post"
 guestAuthor: "Courtney Rosenfeld"
 guestAuthorLink: http://www.gigspark.biz/
@@ -28,7 +29,7 @@ Most online job boards are organized by geographical location, making them of li
 
 - **Fiverr and 99Designs:** Designed for one-off projects that prioritize fast turnaround, these on-demand marketplaces are best for very short-term arrangements.
 
-- **TopTal and Hired:** When you’re looking for the best person for the job and don’t want to sift through hundreds of applicants to find them, these [vetted freelance platforms](https://codingninjas.co/toptal-review/) are the right choice. Expect to pay a premium for high-quality applicants, however.
+- **TopTal and Hired:** When you’re looking for the best person for the job and don’t want to sift through hundreds of applicants to find them, these vetted freelance platforms are the right choice. Expect to pay a premium for high-quality applicants, however.
 
 ## Screening and Interviewing
 
