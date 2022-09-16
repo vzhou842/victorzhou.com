@@ -18,7 +18,7 @@ prev: "/blog/build-an-io-game-part-2/"
 next: "/blog/how-i-became-a-programmer/"
 discussLinkTwitter: https://twitter.com/victorczhou/status/1121503205425332224
 discussLinkReddit: https://www.reddit.com/r/gamedev/comments/i23pen/i_made_a_tutorial_series_on_on_building/
-popularity: 46
+popularity: 66
 ---
 
 > **2022 Update**: thank you all for tremendous support this guide has received! I've modernized some of the code and content in this post. Happy developing <span style="font-style: normal">😊</span>

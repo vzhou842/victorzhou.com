@@ -1,6 +1,7 @@
 ---
 title: A Simple Explanation of Information Gain and Entropy
 date: "2019-06-07T12:00:00.000Z"
+dateModified: "2022-09-16T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false
@@ -16,7 +17,7 @@ tags:
 description: What Information Gain and Information Entropy are and how they're used to train Decision Trees.
 prev: "/blog/gini-impurity/"
 next: "/blog/intro-to-random-forests/"
-popularity: 27
+popularity: 57
 ---
 
 <style>
@@ -56,6 +57,8 @@ It's clear this split isn't optimal, but how good is it? **How can we _quantify_
 That's where Information Gain comes in.
 
 > Confused? Not sure what Decision Trees are or how they're trained? Read the beginning of my [introduction to Random Forests and Decision Trees](/blog/intro-to-random-forests/).
+
+> Note: this post looks better in Light Mode. If you're in Dark Mode, scroll up and use the toggle in the top right to switch!
 
 ## Information Entropy
 
