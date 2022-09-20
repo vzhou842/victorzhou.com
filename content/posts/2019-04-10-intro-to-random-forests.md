@@ -269,7 +269,7 @@ A few things you could do from here:
 - Read about [Information Gain](/blog/information-gain/), a metric similar to Gini Impurity that can also be used to quantify how "good" a split is.
 - Experiment with scikit-learn's [DecisionTreeClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html) and [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html) classes on real datasets.
 - Try writing a simple Decision Tree or Random Forest implementation from scratch. I'm happy to give guidance or code review! Just [tweet at me](https://twitter.com/victorczhou) or [email me](mailto:vzhou842@gmail.com).
-- Read about [Gradient Boosted Decision Trees](https://en.wikipedia.org/wiki/Gradient_boosting#Gradient_tree_boosting) and play with [XGBoost](http://www.datastuff.tech/machine-learning/xgboost-predicting-life-expectancy-with-supervised-learning/), a powerful gradient boosting library.
+- Read about [Gradient Boosted Decision Trees](https://en.wikipedia.org/wiki/Gradient_boosting#Gradient_tree_boosting) and play with [XGBoost](https://xgboost.readthedocs.io/en/stable/), a powerful gradient boosting library.
 - Read about [ExtraTrees](https://en.wikipedia.org/wiki/Random_forest#ExtraTrees), an extension of Random Forests, or play with scikit-learn's [ExtraTreesClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html) class.
 
 That concludes this tutorial. I like [writing about Machine Learning](/tag/machine-learning) (but also other topics), so **[subscribe](/subscribe/?src=intro-to-random-forests) if you want to get notified about new posts.**

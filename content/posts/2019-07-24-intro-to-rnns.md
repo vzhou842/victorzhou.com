@@ -672,7 +672,7 @@ Not bad from a RNN we built ourselves. 💯
 
 That's it! In this post, we completed a walkthrough of Recurrent Neural Networks, including what they are, how they work, why they're useful, how to train them, and how to implement one. There's still much more you can do, though:
 
-- Learn about [Long short-term memory](http://www.datastuff.tech/machine-learning/lstm-how-to-train-neural-networks-to-write-like-lovecraft/) networks, a more powerful and popular RNN architecture, or about [Gated Recurrent Units](https://en.wikipedia.org/wiki/Gated_recurrent_unit) (GRUs), a well-known variation of the LSTM.
+- Learn about [Long short-term memory](https://en.wikipedia.org/wiki/Long_short-term_memory) networks, a more powerful and popular RNN architecture, or about [Gated Recurrent Units](https://en.wikipedia.org/wiki/Gated_recurrent_unit) (GRUs), a well-known variation of the LSTM.
 - Experiment with bigger / better RNNs using proper ML libraries like [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), or [PyTorch](https://pytorch.org/).
 - Read the rest of my [Neural Networks from Scratch](/series/neural-networks-from-scratch/) series.
 - Read about [Bidirectional RNNs](https://en.wikipedia.org/wiki/Bidirectional_recurrent_neural_networks), which process sequences both forwards and backwards so more information is available to the output layer.

@@ -420,7 +420,7 @@ If you want to learn about more advanced techniques to approach MNIST, I recomme
 Further reading you might be interested in include:
 - My [Keras for Beginners](/series/keras-for-beginners/) series, which has more Keras guides.
 - The official [getting started with Keras](https://keras.io/getting_started/) guide.
-- This [introduction to CNNs with Keras](http://www.datastuff.tech/machine-learning/convolutional-neural-networks-an-introduction-tensorflow-eager/).
+- My [introduction to CNNs with Keras](/blog/keras-cnn-tutorial/).
 
 Thanks for reading this post! The full source code is below.
 
