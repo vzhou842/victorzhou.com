@@ -1,6 +1,7 @@
 ---
 title: "An Introduction to Recurrent Neural Networks for Beginners"
 date: "2019-07-24T12:00:00.000Z"
+dateModified: "2022-09-20T12:00:00.000Z"
 template: "post"
 usesKatex: true
 draft: false

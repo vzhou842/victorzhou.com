@@ -1,7 +1,7 @@
 ---
 title: "Keras for Beginners: Building Your First Neural Network"
 date: "2019-06-14T12:00:00.000Z"
-dateModified: "2020-08-08T12:00:00.000Z"
+dateModified: "2022-09-20T12:00:00.000Z"
 template: "post"
 draft: false
 slug: "/blog/keras-neural-network-tutorial/"
