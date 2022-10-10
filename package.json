@@ -105,7 +105,7 @@
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0",
     "lost": "^8.3.1",
-    "postcss-pxtorem": "^4.0.1",
+    "postcss-pxtorem": "^5.0.0",
     "react-test-renderer": "^16.14.0",
     "rimraf": "^2.7.1",
     "stylelint": "^9.10.1",
