@@ -24,6 +24,10 @@
   "author": "Victor Zhou <vzhou842@gmail.com>",
   "license": "MIT",
   "keywords": [],
+  "engines": {
+    "node": "~12.19.0",
+    "npm": "~7.24.2"
+  },
   "dependencies": {
     "@loadable/component": "^5.14.1",
     "bluebird": "^3.7.2",
