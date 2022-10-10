@@ -9,7 +9,9 @@ $toc-right-margin: 20px;
   position: fixed;
   top: 60px;
   bottom: 20px;
-  left: calc(50% + #{$layout-post-width} / 2 + max(#{$toc-min-left-margin}, min(#{$toc-left-margin}, (50% - #{$layout-post-width} / 2) * 0.1)));
+  // ToC won't be shown below 1200px (see threshold in post-template), so in practice 600 - 350 the margin between ToC and
+  // page content should never fall below (600 - 350) * 0.1 = 25px, which is acceptable.
+  left: calc(50% + #{$layout-post-width} / 2 + min(#{$toc-left-margin}, (50% - #{$layout-post-width} / 2) * 0.1));
   display: flex;
   flex-direction: column;
   justify-content: center;
