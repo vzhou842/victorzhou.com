@@ -19,7 +19,7 @@ type Props = $ReadOnly<{|
 const TableOfContents = ({ headings }: Props) => {
   const textHeadings = headings.map(h => {
     try {
-      return new DOMParser().parseFromString(h.value, 'text/html').body.textContent;
+      return new DOMParser().parseFromString(h.value, 'text/html')?.body?.textContent ?? h.value;
     } catch (e) {
       if (typeof window === 'undefined' || window.location.hostname === 'localhost') {
         console.error(e);
