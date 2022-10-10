@@ -29,8 +29,7 @@ module.exports = {
     name: 'Victor Zhou',
     photo: '/photo2.png',
     photoLarge: '/photo2-large.png',
-    bio:
-      'Software Engineer. I blog about <a href="/tag/web-development/">web development</a>, <a href="/tag/machine-learning/">machine learning</a>, and <a href="/tags/">more topics</a>.',
+    bio: 'Software Engineer. I blog about <a href="/tag/web-development/">web development</a>, <a href="/tag/machine-learning/">machine learning</a>, and <a href="/tags/">more topics</a>.',
     contacts: {
       email: 'vzhou842@gmail.com',
       twitter: 'victorczhou',

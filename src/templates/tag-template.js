@@ -19,8 +19,7 @@ type Props = {|
 const metaDescriptions = {
   'Machine Learning':
     "Machine Learning is, put simply, getting computers to generalize from examples. And that's what I try to do: put things simply. My posts on Machine Learning (ML) consist primarily of beginner-focused introductions to common ML models or concepts, and I strive to make my guides as clear and beginner-friendly as possible.",
-  Flow:
-    "Flow is a static type checker for Javascript developed by Facebook. It's similar in many ways to TypeScript.",
+  Flow: "Flow is a static type checker for Javascript developed by Facebook. It's similar in many ways to TypeScript.",
   'Neural Networks':
     "Neural Networks are a class of Machine Learning models that were inspired by the human brain. They've exploded in popularity recently due to their effectiveness at attacking problems in a variety of subfields, like Computer Vision and Natural Language Processing.",
   'Computer Vision':
