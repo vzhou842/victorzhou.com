@@ -7,9 +7,11 @@ import Helmet from 'react-helmet';
 import FixedScrollContainer from '../components/FixedScrollContainer';
 import Layout from '../components/Layout';
 import NavHeader from '../components/NavHeader';
+import PlatformContext from '../components/PlatformContext';
 import Post from '../components/Post';
 import Series from '../components/Series';
 import SubscribePopup from '../components/SubscribePopup';
+import TableOfContents from '../components/TableOfContents';
 import TemplateWrapper from '../components/TemplateWrapper';
 
 const CarbonAd = loadable(() => import('../components/CarbonAd'));
@@ -129,6 +131,10 @@ const PostTemplate = ({ data, pageContext }: Props) => {
           </FixedScrollContainer>
         </>
       )}
+      <PlatformContext
+        threshold={1200}
+        render={isMobile => !isMobile && <TableOfContents headings={slugNode.headings} />}
+      />
     </TemplateWrapper>
   );
 };
@@ -150,6 +156,7 @@ export const fragment = graphql`
       edges {
         node {
           ...PostFragment
+          ...TableOfContentsFragment
           excerpt(pruneLength: 5000)
           fields {
             tagSlugs

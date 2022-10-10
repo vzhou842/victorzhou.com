@@ -58,6 +58,7 @@
     "gatsby-source-filesystem": "^2.3.37",
     "gatsby-transformer-remark": "^2.8.47",
     "gatsby-transformer-sharp": "^2.5.20",
+    "github-slugger": "^1.4.0",
     "katex": "^0.10.2",
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
