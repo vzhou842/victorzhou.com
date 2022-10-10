@@ -29,7 +29,8 @@ const TableOfContents = ({ headings }: Props) => {
   );
 
   // The parent element of all the heading elements.
-  const parent = document.getElementById(slugs[0])?.parentElement;
+  const parent =
+    typeof document !== 'undefined' ? document.getElementById(slugs[0])?.parentElement : undefined;
 
   // The height of the parent element above.
   // Note that on initial render, parent will be undefined, so this value will be 0.
