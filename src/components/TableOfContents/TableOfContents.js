@@ -17,8 +17,19 @@ type Props = $ReadOnly<{|
 |}>;
 
 const TableOfContents = ({ headings }: Props) => {
+  const textHeadings = headings.map(h => {
+    try {
+      return new DOMParser().parseFromString(h.value, 'text/html').body.textContent;
+    } catch (e) {
+      if (typeof window === 'undefined' || window.location.hostname === 'localhost') {
+        console.error(e);
+      }
+      return h.value;
+    }
+  });
+
   slugger.reset();
-  const slugs = headings.map(h => slugger.slug(h.value));
+  const slugs = textHeadings.map(h => slugger.slug(h));
 
   const href = typeof window !== 'undefined' ? window.location.href : '';
 
@@ -82,7 +93,7 @@ const TableOfContents = ({ headings }: Props) => {
   return (
     <nav className={styles['toc']}>
       <h2 className={styles['toc__title']}>Table of Contents</h2>
-      {headings.map(({ depth, value }, i) => {
+      {headings.map(({ depth }, i) => {
         const slug = slugs[i];
         return (
           <a
@@ -92,7 +103,7 @@ const TableOfContents = ({ headings }: Props) => {
             href={`#${slug}`}
             key={slug}
           >
-            {value}
+            {textHeadings[i]}
           </a>
         );
       })}
