@@ -20,6 +20,7 @@ $_color-gray-shadow: lighten($_color-base, 60%);
   --color-black: #000;
 
   --color-gray: #{lighten($_color-base, 35%)};
+  --color-gray-dark: #{lighten($_color-base, 25%)};
   --color-gray-shadow: #{$_color-gray-shadow};
   --color-gray-light-shadow: #{lighten($_color-base, 70%)};
   --color-gray-border: #{lighten($_color-base, 75%)};
@@ -42,6 +43,7 @@ $_color-gray-shadow: lighten($_color-base, 60%);
   --color-black: #FFF;
 
   --color-gray: #{invert(lighten($_color-base, 30%))};
+  --color-gray-dark: #{invert(lighten($_color-base, 20%))};
   --color-gray-shadow: #{invert(lighten($_color-base, 60%))};
   --color-gray-light-shadow: #{invert(lighten($_color-base, 70%))};
   --color-gray-border: #{invert(lighten($_color-base, 57%))};
@@ -58,6 +60,7 @@ $color-secondary: var(--color-secondary);
 
 $color-white: var(--color-white);
 $color-gray: var(--color-gray);
+$color-gray-dark: var(--color-gray-dark);
 $color-gray-shadow: var(--color-gray-shadow);
 $color-gray-light-shadow: var(--color-gray-light-shadow);
 $color-gray-border: var(--color-gray-border);

@@ -1,0 +1,72 @@
+@import '../../assets/scss/variables';
+@import '../../assets/scss/mixins';
+
+$toc-min-left-margin: 20px;
+$toc-left-margin: 60px;
+$toc-right-margin: 20px;
+
+.toc {
+  position: fixed;
+  top: 60px;
+  bottom: 20px;
+  left: calc(50% + #{$layout-post-width} / 2 + max(#{$toc-min-left-margin}, min(#{$toc-left-margin}, (50% - #{$layout-post-width} / 2) * 0.1)));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: calc(50% - #{$layout-post-width} / 2 - #{$toc-left-margin} - #{$toc-right-margin});
+
+  &__title {
+    font-size: $typographic-base-font-size * 1.25;
+    font-weight: bold;
+    @include margin-bottom(0);
+  }
+
+  a {
+    display: block;
+    border-left: 2px solid transparent;
+    color: $color-gray-dark;
+
+    &:hover {
+      color: $typographic-base-font-color;
+    }
+
+    &.toc__active {
+      border-left: 2px solid $color-primary;
+      color: $color-primary;
+    }
+  }
+
+  &-h1,
+  &-h2 {
+    font-size: $typographic-base-font-size * 1.125;
+    @include line-height(1.125);
+    @include margin-top(0.4);
+    padding-left: 8px;
+  }
+
+  &-h3 {
+    font-size: $typographic-base-font-size;
+    @include line-height(1);
+    @include margin-top(0.2);
+    padding-left: 28px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .toc {
+    &__title {
+      font-size: $typographic-base-font-size * 1.125;
+    }
+
+    &-h1,
+    &-h2 {
+      font-size: $typographic-base-font-size * 1.0125;
+      @include line-height(1.0125);
+    }
+
+    &-h3 {
+      font-size: $typographic-base-font-size * 0.9;
+      @include line-height(0.9);
+    }
+  }
+}
