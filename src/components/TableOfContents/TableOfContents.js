@@ -37,6 +37,9 @@ const TableOfContents = ({ headings }: Props) => {
   const slugs = textHeadings.map(h => slugger.slug(h));
 
   // The currently-active heading.
+  // This needs to start as -1 (instead of some value derived from the URL) to match what SSR
+  // generates. The scroll hook below will immediately update this on the client to match any
+  // hash in the URL.
   const [currentHeading, setCurrentHeading] = useState(-1);
 
   // The height of the parent element of the headings.
