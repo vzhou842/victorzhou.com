@@ -39,21 +39,16 @@ const TableOfContents = ({ headings }: Props) => {
     slugs.findIndex(h => href.includes(`#${h}`))
   );
 
-  // The parent element of all the heading elements.
-  const parent =
-    typeof document !== 'undefined' ? document.getElementById(slugs[0])?.parentElement : undefined;
-
-  // The height of the parent element above.
-  // Note that on initial render, parent will be undefined, so this value will be 0.
-  // That's okay - this state value won't necessarily be accurate (but we don't actually
-  // use its value), and we may trigger one unnecessary rerender, but that's a small
-  // price to pay for the relative simplicity of this approach.
-  const [contentHeight, setContentHeight] = useState(parent?.clientHeight ?? 0);
+  // The height of the parent element of the headings.
+  // Note that this value isn't necessarily correct. That's okay - we don't actually
+  // use its value.
+  const [contentHeight, setContentHeight] = useState(0);
 
   // Update contentHeight so we rerender and re-calculate headerOffsets when necessary.
   // We need to do this because the page's height can change after initial render from things
   // like dynamically loading embeds, for example.
   useLayoutEffect(() => {
+    const parent = document.getElementById(slugs[0])?.parentElement;
     if (!parent || typeof ResizeObserver !== 'function') {
       return;
     }
@@ -64,7 +59,7 @@ const TableOfContents = ({ headings }: Props) => {
     return () => {
       observer.disconnect();
     };
-  }, [parent]);
+  }, []);
 
   // Attach a scroll listener on mount to change headings.
   useEffect(() => {
