@@ -18,6 +18,11 @@ type Props = $ReadOnly<{|
 
 const TableOfContents = ({ headings }: Props) => {
   const textHeadings = headings.map(h => {
+    if (typeof DOMParser === 'undefined') {
+      // During SSR, DOMParser isn't available. Fallback to a hardcoded regex that addresses
+      // known edge cases.
+      return h.value.replace(/<\/?code[^>]*>/gi, '');
+    }
     try {
       return new DOMParser().parseFromString(h.value, 'text/html')?.body?.textContent ?? h.value;
     } catch (e) {
