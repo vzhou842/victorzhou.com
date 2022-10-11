@@ -2,7 +2,7 @@
 import classnames from 'classnames/bind';
 import { graphql } from 'gatsby';
 import GithubSlugger from 'github-slugger';
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 
 import styles from './TableOfContents.module.scss';
 
@@ -67,7 +67,7 @@ const TableOfContents = ({ headings }: Props) => {
   }, []);
 
   // Attach a scroll listener on mount to change headings.
-  useEffect(() => {
+  useLayoutEffect(() => {
     const headerOffsets = slugs.map(slug => document.getElementById(slug)?.offsetTop ?? 0);
 
     const onScroll = () => {
@@ -80,6 +80,7 @@ const TableOfContents = ({ headings }: Props) => {
       }
     };
 
+    onScroll();
     window.addEventListener('scroll', onScroll);
 
     return () => {
