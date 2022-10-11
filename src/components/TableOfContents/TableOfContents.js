@@ -36,13 +36,8 @@ const TableOfContents = ({ headings }: Props) => {
   slugger.reset();
   const slugs = textHeadings.map(h => slugger.slug(h));
 
-  const href = typeof window !== 'undefined' ? window.location.href : '';
-
   // The currently-active heading.
-  // Initialized based on the anchor in the URL, if any.
-  const [currentHeading, setCurrentHeading] = useState(
-    slugs.findIndex(h => href.includes(`#${h}`))
-  );
+  const [currentHeading, setCurrentHeading] = useState(-1);
 
   // The height of the parent element of the headings.
   // Note that this value isn't necessarily correct. That's okay - we don't actually
