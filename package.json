@@ -68,7 +68,7 @@
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
     "normalize-scss": "^7.0.1",
-    "prismjs": "^1.22.0",
+    "prismjs": "^1.27.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-headroom": "^3.0.0",
