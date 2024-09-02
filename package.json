@@ -25,8 +25,8 @@
   "license": "MIT",
   "keywords": [],
   "engines": {
-    "node": "~16.20.2",
-    "npm": "~8.19.4"
+    "node": "~12.22.12",
+    "npm": "~7.24.2"
   },
   "dependencies": {
     "@loadable/component": "^5.14.1",
