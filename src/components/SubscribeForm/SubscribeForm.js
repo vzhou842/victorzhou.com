@@ -70,6 +70,7 @@ class SubscribeForm extends React.PureComponent<InnerProps, State> {
   onCheckboxClick(id: 'ml' | 'web' | 'none') {
     loadRecaptchaIfNeeded();
     this.setState({
+      /* $FlowIgnore */
       checked: { ...{ none: false, ml: false, web: false }, [id]: !this.state.checked[id] },
     });
   }
