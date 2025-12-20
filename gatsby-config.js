@@ -161,21 +161,20 @@ module.exports = {
                 path: { regex: "/^(?!/404/|/404.html|/dev-404-page/|/subscriber-thank-you/|/subscription-updated/)/" }
               }
             ) {
-              edges {
-                node {
-                  path
-                }
+              nodes {
+                path
               }
             }
           }
         `,
         output: '/sitemap.xml',
-        serialize: ({ site, allSitePage }) =>
-          allSitePage.edges.map(edge => ({
-            url: site.siteMetadata.siteUrl + edge.node.path,
-            changefreq: 'daily',
-            priority: edge.node.path === '/' ? 1.0 : 0.7,
-          })),
+        resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
+        resolvePages: ({ allSitePage: { nodes } }) => nodes,
+        serialize: ({ path }) => ({
+          url: path,
+          changefreq: 'daily',
+          priority: path === '/' ? 1.0 : 0.7,
+        }),
       },
     },
     {
@@ -243,6 +242,15 @@ module.exports = {
       resolve: 'gatsby-plugin-sass',
       options: {
         postCssPlugins: [...postCssPlugins],
+        sassOptions: {
+          silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin', 'color-functions'],
+        },
+        cssLoaderOptions: {
+          esModule: false,
+          modules: {
+            namedExport: false,
+          },
+        },
       },
     },
   ],

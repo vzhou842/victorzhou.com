@@ -1,5 +1,7 @@
 'use strict';
 
+require('./src/assets/scss/init.scss');
+
 const React = require('react');
 
 exports.onRenderBody = ({ setHeadComponents }) => {
