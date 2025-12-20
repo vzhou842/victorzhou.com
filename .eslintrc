@@ -1,5 +1,11 @@
 {
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "requireConfigFile": false,
+      "babelOptions": {
+        "presets": ["@babel/preset-react"]
+      }
+    },
     "extends": "airbnb-base",
     "env": {
       "browser": true,
@@ -10,17 +16,14 @@
     "plugins": [
         "react",
         "jest",
-        "jsx-a11y",
         "import",
-        "flowtype",
         "simple-import-sort"
     ],
     "globals": {
         "graphql": true
     },
     "rules": {
-      "simple-import-sort/sort": "error",
-      "flowtype/define-flow-type": 1,
+      "simple-import-sort/imports": "error",
       "comma-dangle": 0,
       "global-require": 0,
       "class-methods-use-this": 0,
@@ -33,7 +36,7 @@
         "as-needed"
       ],
       "consistent-return": 0,
-      "indent": 0, // use format script
+      "indent": 0,
       "import/no-extraneous-dependencies": [
         "error",
         {

@@ -3,14 +3,11 @@
 const _ = require('lodash');
 const moment = require('moment');
 const { createFilePath } = require('gatsby-source-filesystem');
-const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 
 const formatDate = date => moment(date).format('MMMM D, YYYY');
 
 const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
-
-  fmImagesToRelative(node);
 
   if (node.internal.type === 'MarkdownRemark') {
     if (typeof node.frontmatter.slug !== 'undefined') {

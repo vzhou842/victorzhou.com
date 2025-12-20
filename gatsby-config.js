@@ -65,7 +65,7 @@ module.exports = {
             {
               allMarkdownRemark(
                 limit: 1000,
-                sort: { order: DESC, fields: [frontmatter___date] },
+                sort: { frontmatter: { date: DESC } },
                 filter: {
                   frontmatter: {
                     template: { eq: "post" },
@@ -93,6 +93,7 @@ module.exports = {
             }
           `,
             output: '/rss.xml',
+            title: siteConfig.title,
           },
         ],
       },
@@ -101,7 +102,6 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-remark-code-headers',
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -115,13 +115,6 @@ module.exports = {
             resolve: 'gatsby-remark-responsive-iframe',
             options: { wrapperStyle: 'margin-bottom: 1.0725rem' },
           },
-          {
-            resolve: 'gatsby-remark-external-links',
-            options: {
-              target: '_blank',
-              rel: 'noopener noreferrer',
-            },
-          },
           'gatsby-remark-autolink-headers',
           {
             // should be placed after gatsby-remark-autolink-headers
@@ -131,7 +124,6 @@ module.exports = {
             },
           },
           'gatsby-remark-katex',
-          'gatsby-remark-figure-caption',
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
           'gatsby-remark-reading-time',
@@ -251,12 +243,7 @@ module.exports = {
       resolve: 'gatsby-plugin-sass',
       options: {
         postCssPlugins: [...postCssPlugins],
-        cssLoaderOptions: {
-          camelCase: false,
-        },
       },
     },
-    'gatsby-plugin-flow',
-    'gatsby-plugin-optimize-svgs',
   ],
 };
