@@ -6,10 +6,20 @@ const { createFilePath } = require('gatsby-source-filesystem');
 
 const formatDate = date => moment(date).format('MMMM D, YYYY');
 
+const calculateReadingTime = text => {
+  const wordsPerMinute = 200;
+  const words = text ? text.trim().split(/\s+/).length : 0;
+  const minutes = Math.ceil(words / wordsPerMinute);
+  return { words, minutes, text: `${minutes} min read` };
+};
+
 const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === 'MarkdownRemark') {
+    // Calculate reading time
+    const readingTime = calculateReadingTime(node.rawMarkdownBody || '');
+    createNodeField({ node, name: 'readingTime', value: readingTime });
     if (typeof node.frontmatter.slug !== 'undefined') {
       createNodeField({
         node,

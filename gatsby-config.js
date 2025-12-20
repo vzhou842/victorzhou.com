@@ -126,7 +126,6 @@ module.exports = {
           'gatsby-remark-katex',
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
-          'gatsby-remark-reading-time',
         ],
       },
     },
