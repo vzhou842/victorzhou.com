@@ -248,6 +248,7 @@ module.exports = {
           esModule: false,
           modules: {
             namedExport: false,
+            exportLocalsConvention: 'asIs',
           },
         },
       },
