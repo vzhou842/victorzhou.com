@@ -32,9 +32,9 @@ rsync -avz \
   package.json package-lock.json \
   "$SERVER:$REMOTE_DIR/"
 
-# Install express and deploy nginx on server
+# Install express
 ssh -i "$VICTORZHOU_SSH_KEY" "$SERVER" \
-  "source ~/.nvm/nvm.sh && cd $REMOTE_DIR && npm install express && ./server/scripts/deploy_nginx.sh"
+  "source ~/.nvm/nvm.sh && cd $REMOTE_DIR && npm install express"
 
 echo ""
 echo "---"
