@@ -1,6 +1,6 @@
 #!/bin/bash
 function start() {
-	sudo NODE_ENV='production' \
+	NODE_ENV='production' \
 	PORT=$1 \
 	forever --uid "web-$1" -o $2 -e $3 --append start server/server.js
 }
