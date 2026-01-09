@@ -211,11 +211,6 @@ const tagDescriptions = {
   ),
 };
 
-// 0 if guest author, 1 otherwise
-function edgeHasGuestAuthorValue(e) {
-  return e.node.frontmatter.guestAuthor ? 0 : 1;
-}
-
 const TagTemplate = ({ data, pageContext, location }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = data.site.siteMetadata;
 
@@ -226,9 +221,6 @@ const TagTemplate = ({ data, pageContext, location }: Props) => {
     currentPage > 1
       ? `${tag} Articles - Page ${currentPage} - ${siteTitle}`
       : `${tag} Articles - ${siteTitle}`;
-
-  // Sort guest posts to back of this tag page
-  edges.sort((a, b) => edgeHasGuestAuthorValue(b) - edgeHasGuestAuthorValue(a));
 
   return (
     <TemplateWrapper>

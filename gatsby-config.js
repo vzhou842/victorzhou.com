@@ -70,7 +70,6 @@ module.exports = {
                   frontmatter: {
                     template: { eq: "post" },
                     draft: { ne: true },
-                    guestAuthor: { in: [null, ""] },
                   }
                 }
               ) {
