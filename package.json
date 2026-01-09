@@ -34,7 +34,7 @@
     "ajv": "^8.17.1",
     "bluebird": "^3.7.2",
     "classnames": "^2.5.1",
-    "express": "^4.21.0",
+    "express": "^5.1.0",
     "gatsby": "^5.13.0",
     "gatsby-link": "^5.13.0",
     "gatsby-plugin-catch-links": "^5.13.0",
