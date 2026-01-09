@@ -4,7 +4,6 @@ import { graphql } from 'gatsby';
 import React, { useEffect, useState } from 'react';
 import Helmet from 'react-helmet';
 
-import FixedScrollContainer from '../components/FixedScrollContainer';
 import Layout from '../components/Layout';
 import NavHeader from '../components/NavHeader';
 import PlatformContext from '../components/PlatformContext';
@@ -14,7 +13,6 @@ import SubscribePopup from '../components/SubscribePopup';
 import TableOfContents from '../components/TableOfContents';
 import TemplateWrapper from '../components/TemplateWrapper';
 
-const CarbonAd = loadable(() => import('../components/CarbonAd'));
 const ShareIcons = loadable(() => import('../components/ShareIcons'));
 
 type Props = {|
@@ -123,14 +121,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
         )}
       </Layout>
       {!isSeries && <SubscribePopup postSlug={slug} isML={isML} isWeb={isWeb} />}
-      {hasScrolled && (
-        <>
-          <ShareIcons url={slug} title={postTitle} />
-          <FixedScrollContainer>
-            <CarbonAd largeOnly />
-          </FixedScrollContainer>
-        </>
-      )}
+      {hasScrolled && <ShareIcons url={slug} title={postTitle} />}
       <PlatformContext
         threshold={1200}
         render={isMobile => !isMobile && <TableOfContents headings={slugNode.headings} />}
