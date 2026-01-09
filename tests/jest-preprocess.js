@@ -2,10 +2,10 @@
 
 const babelOptions = {
   presets: [
-    '@babel/react',
+    '@babel/preset-react',
+    '@babel/preset-typescript',
     [
       '@babel/preset-env',
-      // https://github.com/facebook/jest/issues/3126
       {
         targets: {
           node: 'current',
@@ -13,11 +13,6 @@ const babelOptions = {
       },
     ],
   ],
-  plugins: [
-    '@babel/plugin-proposal-optional-chaining',
-    '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-transform-flow-strip-types',
-  ],
 };
 
-module.exports = require('babel-jest').createTransformer(babelOptions);
+module.exports = require('babel-jest').default.createTransformer(babelOptions);

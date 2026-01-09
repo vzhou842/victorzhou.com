@@ -47,7 +47,7 @@ export const query = graphql`
           guestAuthor: { in: [null, ""] }
         }
       }
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         ...FeedFragment

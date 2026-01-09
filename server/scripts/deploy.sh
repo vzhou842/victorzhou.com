@@ -1,17 +1,41 @@
 #!/bin/bash
-sudo --validate
-
 set -e
 
-git fetch
-git reset --hard origin/master
+if [ -z "$VICTORZHOU_PROD_2025" ] || [ -z "$VICTORZHOU_SSH_KEY" ]; then
+  echo "Error: Required env vars not set."
+  echo "  VICTORZHOU_PROD_2025 - server address"
+  echo "  VICTORZHOU_SSH_KEY   - path to SSH key"
+  exit 1
+fi
 
-npm i --production=false # install devDeps too
+SERVER="vzhou@$VICTORZHOU_PROD_2025"
+REMOTE_DIR="/home/vzhou/victorzhou.com"
+
+# Build locally
 npm run build
 
-./server/scripts/deploy_nginx.sh
+# Sync public/ to public-live/ on server
+rsync -avz --delete \
+  -e "ssh -i $VICTORZHOU_SSH_KEY" \
+  public/ \
+  "$SERVER:$REMOTE_DIR/public-live/"
 
-sudo rm -rf public-live/
-sudo mv public/ public-live/
+# Sync server/ folder``
+rsync -avz --delete \
+  -e "ssh -i $VICTORZHOU_SSH_KEY" \
+  server/ \
+  "$SERVER:$REMOTE_DIR/server/"
 
-./server/scripts/rolling_restart.sh
+# Sync package files for server dependencies
+rsync -avz \
+  -e "ssh -i $VICTORZHOU_SSH_KEY" \
+  package.json package-lock.json \
+  "$SERVER:$REMOTE_DIR/"
+
+# Install express and deploy nginx on server
+ssh -i "$VICTORZHOU_SSH_KEY" "$SERVER" \
+  "source ~/.nvm/nvm.sh && cd $REMOTE_DIR && npm install express && ./server/scripts/deploy_nginx.sh"
+
+echo ""
+echo "---"
+echo "Deploy complete. Run server restart manually if needed."

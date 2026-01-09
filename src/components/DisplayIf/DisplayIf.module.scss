@@ -8,7 +8,7 @@
 }
 
 @include breakpoint-sm {
-  &.mobile-only {
+  .mobile-only {
     display: none !important;
   }
 }

@@ -3,7 +3,7 @@
 module.exports = {
   rootDir: '../',
   transform: {
-    '^.+\\.js?$': '<rootDir>/tests/jest-preprocess.js',
+    '^.+\\.[jt]sx?$': '<rootDir>/tests/jest-preprocess.js',
   },
   testMatch: ['**/__tests__/**/*.js', '**/?(*.)test.js'],
   moduleNameMapper: {
@@ -12,9 +12,12 @@ module.exports = {
       '<rootDir>/tests/__mocks__/fileMock.js',
   },
   testPathIgnorePatterns: ['node_modules', '.cache', 'public'],
-  transformIgnorePatterns: ['node_modules/(?!(gatsby)/)'],
+  transformIgnorePatterns: ['node_modules/(?!(gatsby|gatsby-script|gatsby-link)/)'],
   globals: {
     __PATH_PREFIX__: '',
   },
-  testURL: 'http://localhost/',
+  testEnvironment: 'jsdom',
+  testEnvironmentOptions: {
+    url: 'http://localhost/',
+  },
 };

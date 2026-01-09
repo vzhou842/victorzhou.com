@@ -68,7 +68,7 @@ export const query = graphql`
       filter: {
         frontmatter: { template: { eq: "post" }, draft: { ne: true }, guestAuthor: { ne: null } }
       }
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         ...FeedFragment

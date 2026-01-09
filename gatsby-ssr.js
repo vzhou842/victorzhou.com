@@ -1,10 +1,13 @@
 'use strict';
 
+require('./src/assets/scss/init.scss');
+
 const React = require('react');
 
 exports.onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
     <script
+      key="theme-script"
       dangerouslySetInnerHTML={{
         __html: `
   (function() {
@@ -32,7 +35,7 @@ exports.onRenderBody = ({ setHeadComponents }) => {
     window.__themeListeners = [];
 
     var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    darkQuery.addListener(function(e) {
+    darkQuery.addEventListener('change', function(e) {
       window.__setPreferredTheme(e.matches ? 'dark' : 'light');
       window.__themeListeners.forEach(function(listener) {
         listener();
