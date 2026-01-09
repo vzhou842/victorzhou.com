@@ -44,7 +44,6 @@ export const query = graphql`
         frontmatter: {
           template: { eq: "post" }
           draft: { ne: true }
-          guestAuthor: { in: [null, ""] }
         }
       }
       sort: { frontmatter: { date: DESC } }

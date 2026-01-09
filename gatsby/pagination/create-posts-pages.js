@@ -14,7 +14,6 @@ module.exports = async (graphql, actions) => {
           frontmatter: {
             template: { eq: "post" }
             draft: { ne: true }
-            guestAuthor: { in: [null, ""] }
           }
         }
       ) {
