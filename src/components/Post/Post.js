@@ -103,9 +103,11 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
         <Discuss twitter={discussLinkTwitter} hn={discussLinkHN} reddit={discussLinkReddit} />
       </div>
 
+      {/* Temporarily disabled
       <div className={styles['post__comments']}>
         <Comments />
       </div>
+*/}
     </div>
   );
 };
