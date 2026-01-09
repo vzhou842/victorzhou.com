@@ -1,0 +1,310 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post renders correctly 1`] = `
+<div
+  className="post"
+>
+  <article
+    className="content"
+  >
+    <h1
+      className="content__title "
+    >
+      test
+    </h1>
+    <h2
+      className="content__subtitle"
+    >
+      test
+    </h2>
+    <div
+      className="content__date"
+    >
+      <p
+        className="content-date"
+      >
+        <time>
+          March 14, 2019
+        </time>
+      </p>
+    </div>
+    <div
+      className="content__spacer"
+    />
+    <div
+      className="content__body"
+    />
+  </article>
+  <div
+    className="post__subscribeForm"
+  >
+    <div
+      className="container large "
+    >
+      <p
+        className="description"
+      >
+        I write about 
+        <a
+          href="/tag/machine-learning/"
+        >
+          ML
+        </a>
+        ,
+         
+        <a
+          href="/tag/web-development/"
+        >
+          Web Dev
+        </a>
+        , and
+         
+        <a
+          href="/tags/"
+        >
+          more topics
+        </a>
+        . 
+        <b>
+          Subscribe to get new posts by email!
+        </b>
+      </p>
+      <form
+        acceptCharset="utf-8"
+        action="https://sendy.victorzhou.com/subscribe"
+        method="post"
+        onFocus={[Function]}
+        onSubmit={[Function]}
+        target="_self"
+      >
+        <input
+          name="Source"
+          type="hidden"
+          value="Post:/test/"
+        />
+        <input
+          name="list"
+          type="hidden"
+          value="CWC7638hEb6mfk1RqUbJ763snA"
+        />
+        <input
+          name="subform"
+          type="hidden"
+          value="yes"
+        />
+        <input
+          autoCapitalize="off"
+          autoCorrect="off"
+          name="hp"
+          style={
+            {
+              "display": "none",
+            }
+          }
+          tabIndex={-1}
+          type="text"
+        />
+        <input
+          aria-label="Email Address"
+          autoCapitalize="off"
+          autoCorrect="off"
+          name="email"
+          placeholder="example@domain.com"
+          size={25}
+          type="email"
+        />
+        <br />
+        <label>
+          <input
+            checked={false}
+            name="Restrictions"
+            onChange={[Function]}
+            type="checkbox"
+            value=""
+          />
+          Send me 
+          <i>
+            only
+          </i>
+           Web Dev posts
+        </label>
+        <br />
+        <input
+          className=""
+          type="submit"
+          value="SUBMIT"
+        />
+      </form>
+      <div
+        className="g-recaptcha"
+        data-callback="onSubscribeFormSubmit"
+        data-sitekey="6Le4B78UAAAAAFAdZM2PCW_N0fewzkoQSkv9odSY"
+        data-size="invisible"
+      />
+      <p
+        className="recaptcha-message"
+      >
+        This site is protected by reCAPTCHA and the Google
+         
+        <a
+          href="https://policies.google.com/privacy"
+        >
+          Privacy Policy
+        </a>
+         and
+         
+        <a
+          href="https://policies.google.com/terms"
+        >
+          Terms of Service
+        </a>
+         apply.
+      </p>
+    </div>
+  </div>
+  <div
+    className="post__viewSource"
+  >
+    <p>
+      <i>
+        This blog is
+         
+        <a
+          href="https://github.com/vzhou842/victorzhou.com"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          open-source on Github
+        </a>
+        .
+      </i>
+    </p>
+  </div>
+  <div
+    className="post__footer"
+  >
+    <div
+      className="tags"
+    >
+      <ul
+        className="tags__list"
+      >
+        <li
+          className="tags__list-title"
+        >
+          <h4
+            className="tags__title"
+          >
+            Tags:
+          </h4>
+        </li>
+        <li
+          className="tags__list-item"
+        >
+          <a
+            className="tags__list-item-link"
+            href="/test_0"
+          >
+            test_0
+          </a>
+        </li>
+        <li
+          className="tags__list-item"
+        >
+          <a
+            className="tags__list-item-link"
+            href="/test_1"
+          >
+            test_1
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="readmore"
+    >
+      <h4
+        className="readmore-title"
+      >
+        YOU MIGHT ALSO LIKE
+      </h4>
+      <div
+        className="readmore-links"
+      >
+        <div>
+          <a
+            href="/test/"
+            onClick={[Function]}
+          >
+            <img
+              alt="test"
+              className="readmore-thumbnail"
+              loading="lazy"
+              src="/test.png"
+            />
+          </a>
+          <a
+            href="/test/"
+            onClick={[Function]}
+          >
+            <b>
+              test
+            </b>
+          </a>
+          <p>
+            <b>
+              March 14, 2019
+            </b>
+          </p>
+          <p>
+            test
+          </p>
+        </div>
+        <div>
+          <a
+            href="/test/"
+            onClick={[Function]}
+          >
+            <img
+              alt="test"
+              className="readmore-thumbnail"
+              loading="lazy"
+              src="/test.png"
+            />
+          </a>
+          <a
+            href="/test/"
+            onClick={[Function]}
+          >
+            <b>
+              test
+            </b>
+          </a>
+          <p>
+            <b>
+              March 14, 2019
+            </b>
+          </p>
+          <p>
+            test
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="post__authorContainer"
+    />
+  </div>
+  <div
+    className="post__comments"
+  >
+    <div
+      style={
+        {
+          "paddingBottom": "320px",
+        }
+      }
+    />
+  </div>
+</div>
+`;

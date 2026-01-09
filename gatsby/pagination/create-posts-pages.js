@@ -2,7 +2,7 @@
 
 const path = require('path');
 const siteConfig = require('../../config.js');
-const { postPagePath, topPostsPagePath } = require('../../src/utils/page-paths');
+const { postPagePath, topPostsPagePath } = require('../utils/page-paths');
 
 module.exports = async (graphql, actions) => {
   const { createPage } = actions;
@@ -54,7 +54,7 @@ module.exports = async (graphql, actions) => {
     const slugs = sortByNew ? newPostSlugs : postSlugs;
     createPage({
       path: pathFunc(i + 1),
-      component: path.resolve('./src/templates/index-template.js'),
+      component: path.resolve('./src/templates/index-template.tsx'),
       context: {
         currentPage: i + 1,
         hasPrevPage: i !== 0,

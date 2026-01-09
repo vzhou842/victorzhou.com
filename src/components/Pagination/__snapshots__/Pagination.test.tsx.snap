@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination renders correctly on page 2 / 5 1`] = `
+<div
+  className="pagination "
+>
+  <div
+    className="pagination__prev"
+  >
+    <a
+      className="pagination__prev-link"
+      href="/test/1"
+      rel="prev"
+    >
+      ← PREV
+    </a>
+  </div>
+  <ul
+    className="pagination__list-container"
+  >
+    <li>
+      <a
+        className=""
+        href="/test/1"
+      >
+        1
+      </a>
+    </li>
+    <li>
+      <a
+        className="selected"
+        href="/test/2"
+      >
+        2
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        href="/test/3"
+      >
+        3
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        href="/test/4"
+      >
+        4
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        href="/test/5"
+      >
+        5
+      </a>
+    </li>
+  </ul>
+  <div
+    className="pagination__next"
+  >
+    <a
+      className="pagination__next-link"
+      href="/test/3"
+      rel="next"
+    >
+      NEXT →
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Pagination renders correctly on page 6 / 10 1`] = `
+<div
+  className="pagination "
+>
+  <div
+    className="pagination__prev"
+  >
+    <a
+      className="pagination__prev-link"
+      href="/test/5"
+      rel="prev"
+    >
+      ← PREV
+    </a>
+  </div>
+  <ul
+    className="pagination__list-container"
+  >
+    <li>
+      <a
+        className=""
+        href="/test/1"
+      >
+        1
+      </a>
+    </li>
+    <li>
+      <p>
+        …
+      </p>
+    </li>
+    <li>
+      <a
+        className=""
+        href="/test/5"
+      >
+        5
+      </a>
+    </li>
+    <li>
+      <a
+        className="selected"
+        href="/test/6"
+      >
+        6
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+        href="/test/7"
+      >
+        7
+      </a>
+    </li>
+    <li>
+      <p>
+        …
+      </p>
+    </li>
+    <li>
+      <a
+        className=""
+        href="/test/10"
+      >
+        10
+      </a>
+    </li>
+  </ul>
+  <div
+    className="pagination__next"
+  >
+    <a
+      className="pagination__next-link"
+      href="/test/7"
+      rel="next"
+    >
+      NEXT →
+    </a>
+  </div>
+</div>
+`;
