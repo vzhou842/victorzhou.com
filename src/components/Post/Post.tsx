@@ -5,7 +5,7 @@ import Author from '../Author';
 import Content from '../Content';
 import Discuss from '../Discuss';
 import Share from '../Share';
-import SubscribeForm from '../SubscribeForm';
+// import SubscribeForm from '../SubscribeForm';
 import Comments from './Comments';
 import styles from './Post.module.scss';
 import ReadMore from './ReadMore';
@@ -76,9 +76,9 @@ const Post = ({ post, prevPost, nextPost, contentFooter, hideDescription }: Prop
         guestAuthorLink={guestAuthorLink}
       />
 
-      <div className={styles['post__subscribeForm']}>
+      {/* <div className={styles['post__subscribeForm']}>
         <SubscribeForm signupSource={`Post:${slug}`} isML={isML} isWeb={isWeb} large />
-      </div>
+      </div> */}
 
       <div className={styles['post__viewSource']}>
         <p>

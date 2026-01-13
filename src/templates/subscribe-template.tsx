@@ -4,7 +4,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import Page from '../components/Page';
 import Sidebar from '../components/Sidebar';
-import SubscribeForm from '../components/SubscribeForm';
+// import SubscribeForm from '../components/SubscribeForm';
 import TemplateWrapper from '../components/TemplateWrapper';
 
 interface Props {
@@ -16,11 +16,11 @@ const SubscribeTemplate = ({ data, pageContext }: Props) => {
   const { title: siteTitle } = data.site.siteMetadata;
   const { updateSubscription } = pageContext;
 
-  const params =
-    typeof window !== 'undefined'
-      ? new URLSearchParams(window.location.search)
-      : new URLSearchParams();
-  const source = `SubscribePage:${params.get('src') || ''}`;
+  // const params =
+  //   typeof window !== 'undefined'
+  //     ? new URLSearchParams(window.location.search)
+  //     : new URLSearchParams();
+  // const source = `SubscribePage:${params.get('src') || ''}`;
 
   const title = updateSubscription ? 'Update Your Subscription' : 'Subscribe to My Newsletter';
 
@@ -35,19 +35,12 @@ const SubscribeTemplate = ({ data, pageContext }: Props) => {
             <p>
               Hey, I'm Victor. I write about <Link to="/tag/web-development/">web development</Link>
               , <Link to="/tag/machine-learning/">machine learning</Link>, and{' '}
-              <Link to="/tags/">more</Link> on this blog. You can subscribe to my newsletter to{' '}
-              <b>get new blog posts by email</b>.
+              <Link to="/tags/">more</Link> on this blog. You used to be able to subscribe to my
+              email newsletter here, but as of 2025 I've discontinued it.
             </p>
           )}
-          <SubscribeForm
-            signupSource={source}
-            large
-            showAllOptions
-            noDescription
-            ignoreUserHasSubscribed={true}
-          />
           <p>
-            Don't hesitate to <Link to="/contact/">Contact Me</Link> if you have any issues!
+            Don't hesitate to <Link to="/contact/">Contact Me</Link> if you have any questions!
           </p>
         </Page>
       </Layout>
