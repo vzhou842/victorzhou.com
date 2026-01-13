@@ -1,23 +1,23 @@
 ---
-title: "An Introduction to Recurrent Neural Networks for Beginners"
-date: "2019-07-24T12:00:00.000Z"
-dateModified: "2022-09-20T12:00:00.000Z"
-template: "post"
+title: 'An Introduction to Recurrent Neural Networks for Beginners'
+date: '2019-07-24T12:00:00.000Z'
+dateModified: '2026-01-13T12:00:00.000Z'
+template: 'post'
 usesKatex: true
 draft: false
-slug: "/blog/intro-to-rnns/"
-img: "https://victorzhou.com/media/rnn-post/bptt.png"
+slug: '/blog/intro-to-rnns/'
+img: 'https://victorzhou.com/media/rnn-post/bptt.png'
 isML: true
-category: "Machine Learning"
+category: 'Machine Learning'
 tags:
-  - "Machine Learning"
-  - "Neural Networks"
-  - "Natural Language Processing"
-  - "Python"
-  - "For Beginners"
+  - 'Machine Learning'
+  - 'Neural Networks'
+  - 'Natural Language Processing'
+  - 'Python'
+  - 'For Beginners'
 description: A simple walkthrough of what RNNs are, how they work, and how to build one from scratch in Python.
-prev: "/blog/intro-to-cnns-part-1/"
-next: "/blog/intro-to-random-forests/"
+prev: '/blog/intro-to-cnns-part-1/'
+next: '/blog/intro-to-random-forests/'
 discussLinkTwitter: https://twitter.com/victorczhou/status/1154055678518054912?s=20
 discussLinkHN: https://news.ycombinator.com/item?id=20524543
 popularity: 30
@@ -34,9 +34,10 @@ Let's get into it!
 One issue with vanilla neural nets (and also [CNNs](/blog/intro-to-cnns-part-1/)) is that they only work with pre-determined sizes: they take **fixed-size inputs** and produce **fixed-size outputs**. RNNs are useful because they let us have **variable-length sequences** as both inputs and outputs. Here are a few examples of what RNNs can look like:
 
 ![](./media-link/rnn-post/rnns.jpeg)
+
 <figcaption>Inputs are red, the RNN itself is green, and outputs are blue. Source: <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/" target="_blank" rel="nofollow">Andrej Karpathy</a></figcaption>
 
- This ability to process sequences makes RNNs very useful. For example:
+This ability to process sequences makes RNNs very useful. For example:
 
 - **Machine Translation** (e.g. Google Translate) is done with "many to many" RNNs. The original text sequence is fed into an RNN, which then produces translated text as output.
 - **Sentiment Analysis** (e.g. _Is this a positive or negative review?_) is often done with "many to one" RNNs. The text to be analyzed is fed into an RNN, which then produces a single output classification (e.g. _This is a positive review_).
@@ -84,9 +85,11 @@ We'll represent the weights as <i>matrices</i> and the biases as <i>vectors</i>.
 $$
 h_t = \tanh (W_{xh} x_t + W_{hh} h_{t-1} + b_h)
 $$
+
 $$
 y_t = W_{hy} h_t + b_y
 $$
+
 <figcaption>Don't skim over these equations. Stop and stare at this for a minute. Also, remember that the weights are <i>matrices</i> and the other variables are <i>vectors</i>.</figcaption>
 
 All the weights are applied using matrix multiplication, and the biases are added to the resulting products. We then use [tanh](https://en.wikipedia.org/wiki/Hyperbolic_function) as an activation function for the first equation (but other activations like [sigmoid](https://en.wikipedia.org/wiki/Sigmoid_function) can also be used).
@@ -99,15 +102,15 @@ Let's get our hands dirty! We'll implement an RNN from scratch to perform a simp
 
 Here are a few samples from the small [dataset](https://github.com/vzhou842/rnn-from-scratch/blob/master/data.py) I put together for this post:
 
-| Text | Positive? |
-| --- | --- |
-| i am good | <span class="checkmark">✓</span> |
-| i am bad | ❌ |
-| this is very good | <span class="checkmark">✓</span> |
-| this is not bad | <span class="checkmark">✓</span> |
-| i am bad not good | ❌ |
-| i am not at all happy | ❌ |
-| this was good earlier | <span class="checkmark">✓</span> |
+| Text                                 | Positive?                        |
+| ------------------------------------ | -------------------------------- |
+| i am good                            | <span class="checkmark">✓</span> |
+| i am bad                             | ❌                               |
+| this is very good                    | <span class="checkmark">✓</span> |
+| this is not bad                      | <span class="checkmark">✓</span> |
+| i am bad not good                    | ❌                               |
+| i am not at all happy                | ❌                               |
+| this was good earlier                | <span class="checkmark">✓</span> |
 | i am not at all bad or sad right now | <span class="checkmark">✓</span> |
 
 ## 4. The Plan
@@ -138,6 +141,7 @@ test_data = {
   # ... more data
 }
 ```
+
 <figcaption>True = Positive, False = Negative</figcaption>
 
 We'll have to do some pre-processing to get the data into a usable format. To start, we'll construct a **vocabulary** of all words that exist in our data:
@@ -212,6 +216,7 @@ class RNN:
     self.bh = np.zeros((hidden_size, 1))
     self.by = np.zeros((output_size, 1))
 ```
+
 <figcaption>Note: We're dividing by 1000 to reduce the initial variance of our weights. This is not the best way to initialize weights, but it's simple and works for this post.</figcaption>
 
 We use [np.random.randn()](https://numpy.org/doc/stable/reference/random/generated/numpy.random.randn.html) to initialize our weights from the standard normal distribution.
@@ -221,6 +226,7 @@ Next, let's implement our RNN's forward pass. Remember these two equations we sa
 $$
 h_t = \tanh (W_{xh} x_t + W_{hh} h_{t-1} + b_h)
 $$
+
 $$
 y_t = W_{hy} h_t + b_y
 $$
@@ -270,11 +276,10 @@ out, h = rnn.forward(inputs)
 probs = softmax(out)
 print(probs) # [[0.50000095], [0.49999905]]
 ```
+
 <figcaption>If you need a refresher on Softmax, read my <a href="/blog/softmax/">quick explanation of Softmax</a>.</figcaption>
 
 Our RNN works, but it's not very useful yet. Let's change that...
-
-> Liking this introduction so far? [Subscribe to my newsletter](/subscribe/?src=intro-to-rnns) to get notified about new Machine Learning posts like this one.
 
 ## 7. The Backward Phase
 
@@ -412,6 +417,7 @@ where $h_n$ is the final hidden state. Thus,
 $$
 \frac{\partial y}{\partial W_{hy}} = h_n
 $$
+
 $$
 \frac{\partial L}{\partial W_{hy}} = \boxed{\frac{\partial L}{\partial y} h_n}
 $$
@@ -421,6 +427,7 @@ Similarly,
 $$
 \frac{\partial y}{\partial b_y} = 1
 $$
+
 $$
 \frac{\partial L}{\partial b_y} = \boxed{\frac{\partial L}{\partial y}}
 $$
@@ -679,7 +686,5 @@ That's it! In this post, we completed a walkthrough of Recurrent Neural Networks
 - Read about [Bidirectional RNNs](https://en.wikipedia.org/wiki/Bidirectional_recurrent_neural_networks), which process sequences both forwards and backwards so more information is available to the output layer.
 - Try out [Word Embeddings](https://en.wikipedia.org/wiki/Word_embedding) like [GloVe](https://nlp.stanford.edu/projects/glove/) or [Word2Vec](https://en.wikipedia.org/wiki/Word2vec), which can be used to turn words into more useful vector representations.
 - Check out the [Natural Language Toolkit](https://www.nltk.org/) (NLTK), a popular Python library for working with human language data.
-
-I write a lot about [Machine Learning](/tag/machine-learning/), so [subscribe to my newsletter](/subscribe/?src=intro-to-rnns) if you're interested in getting future ML content from me.
 
 Thanks for reading!
