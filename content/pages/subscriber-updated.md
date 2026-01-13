@@ -3,7 +3,6 @@ title: "Subscription Updated"
 template: "page"
 slug: "/subscription-updated/"
 hideSubscribe: true
-hideAd: true
 noIndex: true
 ---
 

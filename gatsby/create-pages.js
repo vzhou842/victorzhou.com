@@ -11,32 +11,32 @@ const createPages = async ({ graphql, actions }) => {
   // Subscriber Thank You
   createPage({
     path: '/subscriber-thank-you/',
-    component: path.resolve('./src/templates/subscriber-thank-you-template.js'),
+    component: path.resolve('./src/templates/subscriber-thank-you-template.tsx'),
   });
 
   // Subscribe
   createPage({
     path: '/subscribe/',
-    component: path.resolve('./src/templates/subscribe-template.js'),
+    component: path.resolve('./src/templates/subscribe-template.tsx'),
   });
 
   // Update Subscription
   createPage({
     path: '/update-subscription/',
-    component: path.resolve('./src/templates/subscribe-template.js'),
+    component: path.resolve('./src/templates/subscribe-template.tsx'),
     context: { updateSubscription: true },
   });
 
   // Tags list
   createPage({
     path: '/tags/',
-    component: path.resolve('./src/templates/tags-list-template.js'),
+    component: path.resolve('./src/templates/tags-list-template.tsx'),
   });
 
   // Archive
   createPage({
     path: '/archive/',
-    component: path.resolve('./src/templates/archive-template.js'),
+    component: path.resolve('./src/templates/archive-template.tsx'),
   });
 
   // Posts and pages from markdown
@@ -81,7 +81,7 @@ const createPages = async ({ graphql, actions }) => {
     }
     createPage({
       path: slug,
-      component: path.resolve(`./src/templates/${template}-template.js`),
+      component: path.resolve(`./src/templates/${template}-template.tsx`),
       context: { slug, prev, next, seriesSlugs },
     });
   });

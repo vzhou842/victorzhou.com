@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comments renders correctly 1`] = `
+<div
+  style={
+    {
+      "paddingBottom": "320px",
+    }
+  }
+/>
+`;

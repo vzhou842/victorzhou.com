@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReadMore renders correctly 1`] = `
+<div
+  className="readmore"
+>
+  <h4
+    className="readmore-title"
+  >
+    YOU MIGHT ALSO LIKE
+  </h4>
+  <div
+    className="readmore-links"
+  >
+    <div>
+      <a
+        href="/test-slug/"
+        onClick={[Function]}
+      >
+        <img
+          alt="Test Title"
+          className="readmore-thumbnail"
+          loading="lazy"
+          src="/test-img.png"
+        />
+      </a>
+      <a
+        href="/test-slug/"
+        onClick={[Function]}
+      >
+        <b>
+          Test Title
+        </b>
+      </a>
+      <p>
+        <b>
+          March 14, 2019
+        </b>
+      </p>
+      <p>
+        test description
+      </p>
+    </div>
+    <div>
+      <a
+        href="/test-slug/"
+        onClick={[Function]}
+      >
+        <img
+          alt="Test Title"
+          className="readmore-thumbnail"
+          loading="lazy"
+          src="/test-img.png"
+        />
+      </a>
+      <a
+        href="/test-slug/"
+        onClick={[Function]}
+      >
+        <b>
+          Test Title
+        </b>
+      </a>
+      <p>
+        <b>
+          March 14, 2019
+        </b>
+      </p>
+      <p>
+        test description
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,12 +1,17 @@
 {
-    "parser": "@babel/eslint-parser",
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
-      "requireConfigFile": false,
-      "babelOptions": {
-        "presets": ["@babel/preset-react"]
+      "project": "./tsconfig.json",
+      "ecmaVersion": 2020,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
       }
     },
-    "extends": "airbnb-base",
+    "extends": [
+      "airbnb-base",
+      "plugin:@typescript-eslint/recommended"
+    ],
     "env": {
       "browser": true,
       "node": true,
@@ -17,10 +22,16 @@
         "react",
         "jest",
         "import",
-        "simple-import-sort"
+        "simple-import-sort",
+        "@typescript-eslint"
     ],
     "globals": {
         "graphql": true
+    },
+    "settings": {
+      "import/resolver": {
+        "typescript": {}
+      }
     },
     "rules": {
       "simple-import-sort/imports": "error",
@@ -44,6 +55,16 @@
         }
       ],
       "import/prefer-default-export": 0,
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "js": "never",
+          "jsx": "never",
+          "ts": "never",
+          "tsx": "never"
+        }
+      ],
       "object-curly-newline": ["error", {
         "consistent": true
       }],
@@ -80,6 +101,9 @@
       ],
       "react/jsx-no-undef": 1,
       "react/jsx-uses-react": 1,
-      "react/jsx-uses-vars": 1
+      "react/jsx-uses-vars": 1,
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+      "no-unused-vars": "off"
     }
 }

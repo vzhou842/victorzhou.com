@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu renders correctly 1`] = `
+<nav
+  className="menu"
+>
+  <ul
+    className="menu__list"
+  >
+    <li
+      className="menu__list-item"
+    >
+      <a
+        activeClassName="menu__list-item-link--active"
+        className="menu__list-item-link"
+        href="/#0/"
+        partiallyActive={true}
+      >
+        Item 0
+      </a>
+    </li>
+    <li
+      className="menu__list-item"
+    >
+      <a
+        activeClassName="menu__list-item-link--active"
+        className="menu__list-item-link"
+        href="/#1/"
+        partiallyActive={true}
+      >
+        Item 1
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

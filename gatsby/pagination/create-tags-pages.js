@@ -3,7 +3,7 @@
 const _ = require('lodash');
 const path = require('path');
 const siteConfig = require('../../config.js');
-const { tagPagePath } = require('../../src/utils/page-paths');
+const { tagPagePath } = require('../utils/page-paths');
 
 module.exports = async (graphql, actions) => {
   const { createPage } = actions;
@@ -29,7 +29,7 @@ module.exports = async (graphql, actions) => {
     for (let i = 0; i < numPages; i += 1) {
       createPage({
         path: tagPagePath(tagSlug, i + 1),
-        component: path.resolve('./src/templates/tag-template.js'),
+        component: path.resolve('./src/templates/tag-template.tsx'),
         context: {
           tag: tag.fieldValue,
           tagSlug,
