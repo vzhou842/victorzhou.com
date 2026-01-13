@@ -1,27 +1,29 @@
 ---
-title: "Machine Learning for Beginners: An Introduction to Neural Networks"
-date: "2019-03-03T12:00:00.000Z"
-dateModified: "2022-09-16T12:00:00.000Z"
-template: "post"
+title: 'Machine Learning for Beginners: An Introduction to Neural Networks'
+date: '2019-03-03T12:00:00.000Z'
+dateModified: '2026-01-13T12:00:00.000Z'
+template: 'post'
 usesKatex: true
 draft: false
-slug: "/blog/intro-to-neural-networks/"
-img: "https://victorzhou.com/media/neural-network-post/network3.png"
+slug: '/blog/intro-to-neural-networks/'
+img: 'https://victorzhou.com/media/neural-network-post/network3.png'
 isML: true
-category: "Machine Learning"
+category: 'Machine Learning'
 tags:
-  - "Machine Learning"
-  - "Neural Networks"
-  - "Python"
-  - "For Beginners"
-description: "A simple explanation of how they work and how to implement one from scratch in Python."
-prev: "/series/neural-networks-from-scratch/"
-next: "/blog/intro-to-rnns/"
+  - 'Machine Learning'
+  - 'Neural Networks'
+  - 'Python'
+  - 'For Beginners'
+description: 'A simple explanation of how they work and how to implement one from scratch in Python.'
+prev: '/series/neural-networks-from-scratch/'
+next: '/blog/intro-to-rnns/'
 discussLinkTwitter: https://twitter.com/victorczhou/status/1102644406727966722
 discussLinkHN: https://news.ycombinator.com/item?id=19320217
 discussLinkReddit: https://www.reddit.com/r/Python/comments/axnvut/implementing_a_neural_network_from_scratch_in/
 popularity: 130
 ---
+
+> **2026 Update**: this is still one of my most popular posts after all these years, and also one of my personal favorites. Reading this will help you build foundational intuition for more complex systems like LLMs!
 
 Here's something that might surprise you: **neural networks aren't that complicated!** The term "neural network" gets used as a buzzword a lot, but in reality they're often much simpler than people imagine.
 
@@ -43,20 +45,25 @@ First, we have to talk about neurons, the basic unit of a neural network. **A ne
   display: inline-block;
 }
 </style>
+
 3 things are happening here. First, each input is multiplied by a weight: <span class="inline-square" style="background-color: rgb(200, 0, 0);"></span>
+
 $$
 x_1 \rightarrow x_1 * w_1
 $$
+
 $$
 x_2 \rightarrow x_2 * w_2
 $$
 
 Next, all the weighted inputs are added together with a bias $b$: <span class="inline-square" style="background-color: #0f9640;"></span>
+
 $$
 (x_1 * w_1) + (x_2 * w_2) + b
 $$
 
 Finally, the sum is passed through an activation function: <span class="inline-square" style="background-color: rgb(255, 150, 0);"></span>
+
 $$
 y = f(x_1 * w_1 + x_2 * w_2 + b)
 $$
@@ -68,11 +75,13 @@ The activation function is used to turn an unbounded input into an output that h
 The sigmoid function only outputs numbers in the range $(0, 1)$. You can think of it as compressing $(-\infty, +\infty)$ to $(0, 1)$ - big negative numbers become ~$0$, and big positive numbers become ~$1$.
 
 ### A Simple Example
+
 Assume we have a 2-input neuron that uses the sigmoid activation function and has the following parameters:
 
 $$
 w = [0, 1]
 $$
+
 $$
 b = 4
 $$
@@ -86,6 +95,7 @@ $$
 &= 7 \\
 \end{aligned}
 $$
+
 $$
 y = f(w \cdot x + b) = f(7) = \boxed{0.999}
 $$
@@ -147,6 +157,7 @@ h_1 = h_2 &= f(w \cdot x + b) \\
 &= 0.9526 \\
 \end{aligned}
 $$
+
 $$
 \begin{aligned}
 o_1 &= f(w \cdot [h_1, h_2] + b) \\
@@ -206,18 +217,16 @@ print(network.feedforward(x)) # 0.7216325609518421
 
 We got $0.7216$ again! Looks like it works.
 
-> Liking this post so far? [Subscribe to my newsletter](/subscribe/?src=intro-to-nn) to get more ML content in your inbox.
-
 ## 3. Training a Neural Network, Part 1
 
 Say we have the following measurements:
 
-| Name | Weight (lb) | Height (in) | Gender |
-| --- | --- | --- | --- |
-| Alice | 133 | 65 | F |
-| Bob | 160 | 72 | M |
-| Charlie | 152 | 70 | M |
-| Diana | 120 | 60 | F |
+| Name    | Weight (lb) | Height (in) | Gender |
+| ------- | ----------- | ----------- | ------ |
+| Alice   | 133         | 65          | F      |
+| Bob     | 160         | 72          | M      |
+| Charlie | 152         | 70          | M      |
+| Diana   | 120         | 60          | F      |
 
 Let's train our network to predict someone's gender given their weight and height:
 
@@ -225,12 +234,12 @@ Let's train our network to predict someone's gender given their weight and heigh
 
 We'll represent Male with a $0$ and Female with a $1$, and we'll also shift the data to make it easier to use:
 
-| Name | Weight (minus 135) | Height (minus 66) | Gender |
-| --- | --- | --- | --- |
-| Alice | -2 | -1 | 1 |
-| Bob | 25 | 6 | 0 |
-| Charlie | 17 | 4 | 0 |
-| Diana | -15 | -6 | 1 |
+| Name    | Weight (minus 135) | Height (minus 66) | Gender |
+| ------- | ------------------ | ----------------- | ------ |
+| Alice   | -2                 | -1                | 1      |
+| Bob     | 25                 | 6                 | 0      |
+| Charlie | 17                 | 4                 | 0      |
+| Diana   | -15                | -6                | 1      |
 
 > I arbitrarily chose the shift amounts ($135$ and $66$) to make the numbers look nice. Normally, you'd shift by the mean.
 
@@ -261,12 +270,12 @@ Better predictions = Lower loss.
 
 Let's say our network always outputs $0$ - in other words, it's confident all humans are Male 🤔. What would our loss be?
 
-| Name | $y_{true}$ | $y_{pred}$ | $(y_{true} - y_{pred})^2$ |
-| ---- | --------------- | --------------- | ------ |
-| Alice | 1 | 0 | 1 |
-| Bob | 0 | 0 | 0 |
-| Charlie | 0 | 0 | 0 |
-| Diana | 1 | 0 | 1 |
+| Name    | $y_{true}$ | $y_{pred}$ | $(y_{true} - y_{pred})^2$ |
+| ------- | ---------- | ---------- | ------------------------- |
+| Alice   | 1          | 0          | 1                         |
+| Bob     | 0          | 0          | 0                         |
+| Charlie | 0          | 0          | 0                         |
+| Diana   | 1          | 0          | 1                         |
 
 $$
 \text{MSE} = \frac{1}{4} (1 + 0 + 0 + 1) = \boxed{0.5}
@@ -288,6 +297,7 @@ y_pred = np.array([0, 0, 0, 0])
 
 print(mse_loss(y_true, y_pred)) # 0.5
 ```
+
 <figcaption>If you don't understand why this code works, read the NumPy <a href="https://numpy.org/doc/stable/user/quickstart.html#basic-operations" target="_blank" rel="noopener noreferrer">quickstart</a> on array operations.</figcaption>
 
 Nice. Onwards!
@@ -300,9 +310,9 @@ We now have a clear goal: **minimize the loss** of the neural network. We know w
 
 For simplicity, let's pretend we only have Alice in our dataset:
 
-| Name | Weight (minus 135) | Height (minus 66) | Gender |
-| --- | --- | --- | --- |
-| Alice | -2 | -1 | 1 |
+| Name  | Weight (minus 135) | Height (minus 66) | Gender |
+| ----- | ------------------ | ----------------- | ------ |
+| Alice | -2                 | -1                | 1      |
 
 Then the mean squared error loss is just Alice's squared error:
 
@@ -333,6 +343,7 @@ To start, let's rewrite the partial derivative in terms of $\frac{\partial y_{pr
 $$
 \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y_{pred}} * \frac{\partial y_{pred}}{\partial w_1}
 $$
+
 <figcaption>This works because of the <a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank" rel="noopener noreferrer">Chain Rule</a>.</figcaption>
 
 We can calculate $\frac{\partial L}{\partial y_{pred}}$ because we computed $L = (1 - y_{pred})^2$ above:
@@ -346,6 +357,7 @@ Now, let's figure out what to do with $\frac{\partial y_{pred}}{\partial w_1}$. 
 $$
 y_{pred} = o_1 = f(w_5h_1 + w_6h_2 + b_3)
 $$
+
 <figcaption>f is the sigmoid activation function, remember?</figcaption>
 
 Since $w_1$ only affects $h_1$ (not $h_2$), we can write
@@ -353,9 +365,11 @@ Since $w_1$ only affects $h_1$ (not $h_2$), we can write
 $$
 \frac{\partial y_{pred}}{\partial w_1} = \frac{\partial y_{pred}}{\partial h_1} * \frac{\partial h_1}{\partial w_1}
 $$
+
 $$
 \frac{\partial y_{pred}}{\partial h_1} = \boxed{w_5 * f'(w_5h_1 + w_6h_2 + b_3)}
 $$
+
 <figcaption>More Chain Rule.</figcaption>
 
 We do the same thing for $\frac{\partial h_1}{\partial w_1}$:
@@ -363,9 +377,11 @@ We do the same thing for $\frac{\partial h_1}{\partial w_1}$:
 $$
 h_1 = f(w_1x_1 + w_2x_2 + b_1)
 $$
+
 $$
 \frac{\partial h_1}{\partial w_1} = \boxed{x_1 * f'(w_1x_1 + w_2x_2 + b_1)}
 $$
+
 <figcaption>You guessed it, Chain Rule.</figcaption>
 
 $x_1$ here is weight, and $x_2$ is height. This is the second time we've seen $f'(x)$ (the derivate of the sigmoid function) now! Let's derive it:
@@ -373,6 +389,7 @@ $x_1$ here is weight, and $x_2$ is height. This is the second time we've seen $f
 $$
 f(x) = \frac{1}{1 + e^{-x}}
 $$
+
 $$
 f'(x) = \frac{e^{-x}}{(1 + e^{-x})^2} = f(x) * (1 - f(x))
 $$
@@ -393,9 +410,9 @@ Phew. That was a lot of symbols - it's alright if you're still a bit confused. L
 
 We're going to continue pretending only Alice is in our dataset:
 
-| Name | Weight (minus 135) | Height (minus 66) | Gender |
-| --- | --- | --- | --- |
-| Alice | -2 | -1 | 1 |
+| Name  | Weight (minus 135) | Height (minus 66) | Gender |
+| ----- | ------------------ | ----------------- | ------ |
+| Alice | -2                 | -1                | 1      |
 
 Let's initialize all the weights to $1$ and all the biases to $0$. If we do a feedforward pass through the network, we get:
 
@@ -406,9 +423,11 @@ h_1 &= f(w_1x_1 + w_2x_2 + b_1) \\
 &= 0.0474 \\
 \end{aligned}
 $$
+
 $$
 h_2 = f(w_3x_1 + w_4x_2 + b_2) = 0.0474
 $$
+
 $$
 \begin{aligned}
 o_1 &= f(w_5h_1 + w_6h_2 + b_3) \\
@@ -422,6 +441,7 @@ The network outputs $y_{pred} = 0.524$, which doesn't strongly favor Male ($0$) 
 $$
 \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y_{pred}} * \frac{\partial y_{pred}}{\partial h_1} * \frac{\partial h_1}{\partial w_1}
 $$
+
 $$
 \begin{aligned}
 \frac{\partial L}{\partial y_{pred}} &= -2(1 - y_{pred}) \\
@@ -429,6 +449,7 @@ $$
 &= -0.952 \\
 \end{aligned}
 $$
+
 $$
 \begin{aligned}
 \frac{\partial y_{pred}}{\partial h_1} &= w_5 * f'(w_5h_1 + w_6h_2 + b_3) \\
@@ -437,6 +458,7 @@ $$
 &= 0.249 \\
 \end{aligned}
 $$
+
 $$
 \begin{aligned}
 \frac{\partial h_1}{\partial w_1} &= x_1 * f'(w_1x_1 + w_2x_2 + b_1) \\
@@ -445,6 +467,7 @@ $$
 &= -0.0904 \\
 \end{aligned}
 $$
+
 $$
 \begin{aligned}
 \frac{\partial L}{\partial w_1} &= -0.952 * 0.249 * -0.0904 \\
@@ -484,12 +507,12 @@ Let's see it in action!
 
 It's _finally_ time to implement a complete neural network:
 
-| Name | Weight (minus 135) | Height (minus 66) | Gender |
-| --- | --- | --- | --- |
-| Alice | -2 | -1 | 1 |
-| Bob | 25 | 6 | 0 |
-| Charlie | 17 | 4 | 0 |
-| Diana | -15 | -6 | 1 |
+| Name    | Weight (minus 135) | Height (minus 66) | Gender |
+| ------- | ------------------ | ----------------- | ------ |
+| Alice   | -2                 | -1                | 1      |
+| Bob     | 25                 | 6                 | 0      |
+| Charlie | 17                 | 4                 | 0      |
+| Diana   | -15                | -6                | 1      |
 
 ![](./media-link/neural-network-post/network3.svg)
 
@@ -666,7 +689,5 @@ There's still much more to do:
 - Discover [other optimizers](https://keras.io/optimizers/) besides SGD.
 - Read my [introduction to Convolutional Neural Networks](/blog/intro-to-cnns-part-1/) (CNNs). CNNs revolutionized the field of [Computer Vision](/tag/computer-vision/) and can be extremely powerful.
 - Read my [introduction to Recurrent Neural Networks](/blog/intro-to-rnns/) (RNNs), which are often used for [Natural Language Processing](/tag/natural-language-processing/) (NLP).
-
-I may write about these topics or similar ones in the future, so [subscribe](/subscribe/?src=intro-to-nn) if you want to get notified about new posts.
 
 Thanks for reading!
