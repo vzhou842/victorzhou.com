@@ -56,7 +56,7 @@
     "gatsby-transformer-remark": "^6.13.0",
     "gatsby-transformer-sharp": "^5.13.0",
     "github-slugger": "^2.0.0",
-    "katex": "^0.13.24",
+    "katex": "^0.16.21",
     "lodash": "^4.17.21",
     "moment": "^2.30.1",
     "normalize-scss": "^8.0.0",
