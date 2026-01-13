@@ -1,23 +1,23 @@
 ---
-title: "CNNs, Part 2: Training a Convolutional Neural Network"
-date: "2019-05-29T12:00:00.000Z"
-dateModified: "2020-11-10T12:00:00.000Z"
-template: "post"
+title: 'CNNs, Part 2: Training a Convolutional Neural Network'
+date: '2019-05-29T12:00:00.000Z'
+dateModified: '2026-01-13T12:00:00.000Z'
+template: 'post'
 usesKatex: true
 draft: false
-slug: "/blog/intro-to-cnns-part-2/"
-img: "https://victorzhou.com/media/cnn-post/maxpool-backprop.png"
+slug: '/blog/intro-to-cnns-part-2/'
+img: 'https://victorzhou.com/media/cnn-post/maxpool-backprop.png'
 isML: true
-category: "Machine Learning"
+category: 'Machine Learning'
 tags:
-  - "Machine Learning"
-  - "Neural Networks"
-  - "Computer Vision"
-  - "Python"
-  - "For Beginners"
+  - 'Machine Learning'
+  - 'Neural Networks'
+  - 'Computer Vision'
+  - 'Python'
+  - 'For Beginners'
 description: A simple walkthrough of deriving backpropagation for CNNs and implementing it from scratch in Python.
-prev: "/blog/keras-cnn-tutorial/"
-next: "/blog/intro-to-random-forests/"
+prev: '/blog/keras-cnn-tutorial/'
+next: '/blog/intro-to-random-forests/'
 discussLinkTwitter: https://twitter.com/victorczhou/status/1133752584383205377
 discussLinkHN: https://news.ycombinator.com/item?id=20064900
 popularity: 22
@@ -35,7 +35,7 @@ Buckle up! Time to get into it.
 
 We'll pick back up where [Part 1](/blog/intro-to-cnns-part-1/) of this series left off. We were using a CNN to tackle the [MNIST](http://yann.lecun.com/exdb/mnist/) handwritten digit classification problem:
 
-![Sample images from the MNIST dataset](./media-link/cnn-post/mnist-examples.png "Sample images from the MNIST dataset")
+![Sample images from the MNIST dataset](./media-link/cnn-post/mnist-examples.png 'Sample images from the MNIST dataset')
 
 Our (simple) CNN consisted of a Conv layer, a Max Pooling layer, and a Softmax layer. Here's that diagram of our CNN again:
 
@@ -127,7 +127,7 @@ where $p_c$ is the predicted probability for the correct class $c$ (in other wor
 
 > Want a longer explanation? Read the [Cross-Entropy Loss](/blog/intro-to-cnns-part-1/#52-cross-entropy-loss) section of Part 1 of my CNNs series.
 
-The first thing we need to calculate is the input to the Softmax layer's backward phase, $\frac{\partial L}{\partial out_s}$, where $out_s$ is the output from the Softmax layer: a vector of 10 probabilities.  This is pretty easy, since only $p_i$ shows up in the loss equation:
+The first thing we need to calculate is the input to the Softmax layer's backward phase, $\frac{\partial L}{\partial out_s}$, where $out_s$ is the output from the Softmax layer: a vector of 10 probabilities. This is pretty easy, since only $p_i$ shows up in the loss equation:
 
 $$
 \frac{\partial L}{\partial out_s(i)} =
@@ -136,6 +136,7 @@ $$
     -\frac{1}{p_i} & \text{if $i = c$} \\
 \end{cases}
 $$
+
 <figcaption>Reminder: c is the correct class.</figcaption>
 
 That's our initial gradient you saw referenced above:
@@ -276,9 +277,11 @@ These gradients are easy!
 $$
 \frac{\partial t}{\partial w} = input
 $$
+
 $$
 \frac{\partial t}{\partial b} = 1
 $$
+
 $$
 \frac{\partial t}{\partial input} = w
 $$
@@ -886,5 +889,3 @@ We're done! In this 2-part series, we did a full walkthrough of Convolutional Ne
 - Learn about using [Batch Normalization](https://en.wikipedia.org/wiki/Batch_normalization) with CNNs.
 - Understand how **Data Augmentation** can be used to improve image training sets.
 - Read about the [ImageNet](https://en.wikipedia.org/wiki/ImageNet) project and its famous Computer Vision contest, the ImageNet Large Scale Visual Recognition Challenge ([ILSVRC](http://image-net.org/challenges/LSVRC/)).
-
-I'll be writing more about some of these topics in the future, so [subscribe to my newsletter](/subscribe/?src=intro-to-cnns-2) if you're interested in reading more about them!

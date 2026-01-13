@@ -1,18 +1,19 @@
 ---
 title: Can You Find The Bug in This Code?
-date: "2019-02-09T12:00:00.000Z"
-template: "post"
+date: '2019-02-09T12:00:00.000Z'
+dateModified: '2026-01-13T12:00:00.000Z'
+template: 'post'
 draft: false
-slug: "/blog/a-javascript-bug-i-had-once/"
-img: "https://victorzhou.com/media/laptop-code.jpg"
-category: "Javascript"
+slug: '/blog/a-javascript-bug-i-had-once/'
+img: 'https://victorzhou.com/media/laptop-code.jpg'
+category: 'Javascript'
 tags:
-  - "Javascript"
-  - "Debugging"
-  - "Programming"
-description: "This is an actual bug I had once."
-prev: "/blog/properly-size-images/"
-next: "/blog/why-you-should-use-webpack/"
+  - 'Javascript'
+  - 'Debugging'
+  - 'Programming'
+description: 'This is an actual bug I had once.'
+prev: '/blog/properly-size-images/'
+next: '/blog/why-you-should-use-webpack/'
 discussLinkHN: https://news.ycombinator.com/item?id=19135552
 popularity: 5
 ---
@@ -109,14 +110,13 @@ f1();(f2)(); // highlight-line
 
 Which runs as expected.
 
-
 ## Wait, you had this bug once?
 
 Yup.
 
 ## Why would you ever write code with so many Immediately Invoked Function Expressions ([IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE))?
 
-It's a long story, but I'll make a post soon explaining how I wrote bad enough code to have this bug. [Subscribe](/subscribe/?src=a-javascript-bug) (no spam, for real) if you want to get notified when it's published!
+It's a long story, but I'll make a post soon explaining how I wrote bad enough code to have this bug.
 
 **UPDATE:** I followed through and made [that post](/blog/why-you-should-use-webpack/).
 

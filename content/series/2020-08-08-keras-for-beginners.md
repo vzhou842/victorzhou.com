@@ -1,25 +1,26 @@
 ---
-title: "Keras for Beginners"
-date: "2020-08-08T12:00:00.000Z"
-template: "post"
+title: 'Keras for Beginners'
+date: '2020-08-08T12:00:00.000Z'
+dateModified: '2026-01-13T12:00:00.000Z'
+template: 'post'
 isSeries: true
 isML: true
-slug: "/series/keras-for-beginners/"
+slug: '/series/keras-for-beginners/'
 seriesSlugs:
-  - "/blog/keras-neural-network-tutorial/"
-  - "/blog/keras-cnn-tutorial/"
-  - "/blog/keras-rnn-tutorial/"
-category: "Series"
+  - '/blog/keras-neural-network-tutorial/'
+  - '/blog/keras-cnn-tutorial/'
+  - '/blog/keras-rnn-tutorial/'
+category: 'Series'
 tags:
-  - "Series"
-  - "Keras"
-  - "Python"
-  - "Machine Learning"
-  - "Neural Networks"
-  - "For Beginners"
-img: "https://victorzhou.com/media/keras-posts/keras-logo.png"
-description: "A beginner-friendly series on using Keras to build, train, and evaluate Neural Networks in Python."
-descriptionLong: "A beginner-friendly series on using Keras to build, train, and evaluate Neural Networks in Python. Covers classic Neural Networks, Recurrent Neural Networks (RNNs), and Convolutional Neural Networks (CNNs)."
+  - 'Series'
+  - 'Keras'
+  - 'Python'
+  - 'Machine Learning'
+  - 'Neural Networks'
+  - 'For Beginners'
+img: 'https://victorzhou.com/media/keras-posts/keras-logo.png'
+description: 'A beginner-friendly series on using Keras to build, train, and evaluate Neural Networks in Python.'
+descriptionLong: 'A beginner-friendly series on using Keras to build, train, and evaluate Neural Networks in Python. Covers classic Neural Networks, Recurrent Neural Networks (RNNs), and Convolutional Neural Networks (CNNs).'
 ---
 
 ![](./media-link/keras-posts/keras-logo.png)
