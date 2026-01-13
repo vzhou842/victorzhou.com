@@ -4,7 +4,7 @@ import React from 'react';
 import Contacts from '../Contacts';
 import Copyright from '../Copyright';
 import DisplayIf from '../DisplayIf';
-import SubscribeForm from '../SubscribeForm';
+// import SubscribeForm from '../SubscribeForm';
 
 interface Props {
   mobile?: boolean;
@@ -19,15 +19,15 @@ interface PureProps extends Props {
 export const PureMovableSidebarContent = ({
   mobile,
   desktop,
-  hideSubscribeForm,
+  hideSubscribeForm: _hideSubscribeForm,
   data,
 }: PureProps) => {
   const { author, copyright } = data.site.siteMetadata;
   return (
     <DisplayIf mobile={mobile} desktop={desktop}>
-      {!hideSubscribeForm && (
+      {/* !hideSubscribeForm && (
         <SubscribeForm signupSource={`Sidebar:${mobile ? 'mobile' : 'desktop'}`} />
-      )}
+      ) */}
       <Contacts contacts={author.contacts} />
       <Copyright copyright={copyright} />
     </DisplayIf>

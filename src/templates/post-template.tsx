@@ -8,7 +8,7 @@ import NavHeader from '../components/NavHeader';
 import PlatformContext from '../components/PlatformContext';
 import Post from '../components/Post';
 import Series from '../components/Series';
-import SubscribePopup from '../components/SubscribePopup';
+// import SubscribePopup from '../components/SubscribePopup';
 import TableOfContents from '../components/TableOfContents';
 import TemplateWrapper from '../components/TemplateWrapper';
 
@@ -119,7 +119,7 @@ const PostTemplate = ({ data, pageContext }: Props) => {
           <Post post={slugNode} prevPost={prevNode} nextPost={nextNode} />
         )}
       </Layout>
-      {!isSeries && <SubscribePopup postSlug={slug} isML={isML} isWeb={isWeb} />}
+      {/* !isSeries && <SubscribePopup postSlug={slug} isML={isML} isWeb={isWeb} /> */}
       {hasScrolled && <ShareIcons url={slug} title={postTitle} />}
       <PlatformContext
         threshold={1200}

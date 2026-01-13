@@ -1,5 +1,5 @@
 import { graphql, Link } from 'gatsby';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Helmet from 'react-helmet';
 
 import Layout from '../components/Layout';
@@ -7,7 +7,7 @@ import Page from '../components/Page';
 import Share from '../components/Share';
 import Sidebar from '../components/Sidebar';
 import TemplateWrapper from '../components/TemplateWrapper';
-import { setUserHasSubscribed } from '../utils/subscribe-status';
+// import { setUserHasSubscribed } from '../utils/subscribe-status';
 
 interface Props {
   data: any;
@@ -16,7 +16,7 @@ interface Props {
 const SubscriberThankYouTemplate = ({ data }: Props) => {
   const { title, url } = data.site.siteMetadata;
 
-  useEffect(setUserHasSubscribed, []);
+  // useEffect(setUserHasSubscribed, []);
 
   return (
     <TemplateWrapper>
