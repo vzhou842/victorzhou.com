@@ -295,16 +295,5 @@ exports[`Post renders correctly 1`] = `
       className="post__authorContainer"
     />
   </div>
-  <div
-    className="post__comments"
-  >
-    <div
-      style={
-        {
-          "paddingBottom": "320px",
-        }
-      }
-    />
-  </div>
 </div>
 `;
