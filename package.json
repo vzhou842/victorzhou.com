@@ -57,7 +57,7 @@
     "gatsby-transformer-sharp": "^5.13.0",
     "github-slugger": "^2.0.0",
     "katex": "^0.13.24",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "moment": "^2.30.1",
     "normalize-scss": "^8.0.0",
     "prismjs": "^1.29.0",
